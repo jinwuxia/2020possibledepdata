@@ -1,0 +1,288 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "KaraKara\\KaraKara-sdsm",
+  "variables" : [ "KaraKara/processmedia2/cleanup_media.py", "KaraKara/processmedia2/encode_media.py", "KaraKara/processmedia2/import_media.py", "KaraKara/processmedia2/metaviewer.py", "KaraKara/processmedia2/processmedia_libs/external_tools.py", "KaraKara/processmedia2/processmedia_libs/fileset_change_monitor.py", "KaraKara/processmedia2/processmedia_libs/meta_manager.py", "KaraKara/processmedia2/processmedia_libs/meta_overlay.py", "KaraKara/processmedia2/processmedia_libs/processed_files_manager.py", "KaraKara/processmedia2/processmedia_libs/scan.py", "KaraKara/processmedia2/processmedia_libs/source_files_manager.py", "KaraKara/processmedia2/processmedia_libs/subtitle_processor.py", "KaraKara/processmedia2/processmedia_libs/subtitle_processor_with_codecs.py", "KaraKara/processmedia2/processmedia_libs/__init__.py", "KaraKara/processmedia2/scan_media.py", "KaraKara/processmedia2/tests/conftest.py", "KaraKara/processmedia2/tests/test_cleanup.py", "KaraKara/processmedia2/tests/test_encode.py", "KaraKara/processmedia2/tests/test_external_tools.py", "KaraKara/processmedia2/tests/test_import.py", "KaraKara/processmedia2/tests/test_metaviewer.py", "KaraKara/processmedia2/tests/test_scan.py", "KaraKara/processmedia2/tests/_base.py", "KaraKara/processmedia2/tests/__init__.py", "KaraKara/processmedia2/_main.py", "KaraKara/website/karakara/auth/utils.py", "KaraKara/website/karakara/auth/__init__.py", "KaraKara/website/karakara/events/event_handlers.py", "KaraKara/website/karakara/events/__init__.py", "KaraKara/website/karakara/model/actions.py", "KaraKara/website/karakara/model/init_data.py", "KaraKara/website/karakara/model/model_comunity.py", "KaraKara/website/karakara/model/model_feedback.py", "KaraKara/website/karakara/model/model_message.py", "KaraKara/website/karakara/model/model_priority_token.py", "KaraKara/website/karakara/model/model_queue.py", "KaraKara/website/karakara/model/model_tracks.py", "KaraKara/website/karakara/model/__init__.py", "KaraKara/website/karakara/model_logic/priority_token_logic.py", "KaraKara/website/karakara/model_logic/queue_logic.py", "KaraKara/website/karakara/model_logic/__init__.py", "KaraKara/website/karakara/renderers/auto_render_factory.py", "KaraKara/website/karakara/renderers/__init__.py", "KaraKara/website/karakara/scripts/badge_name_importer.py", "KaraKara/website/karakara/scripts/badge_name_importer_html.py", "KaraKara/website/karakara/scripts/badge_name_importer_minami_api.py", "KaraKara/website/karakara/scripts/insert_band_tracks.py", "KaraKara/website/karakara/scripts/insert_random_tracks.py", "KaraKara/website/karakara/scripts/__init__.py", "KaraKara/website/karakara/templates/helpers.py", "KaraKara/website/karakara/templates/__init__.py", "KaraKara/website/karakara/tests/conftest.py", "KaraKara/website/karakara/tests/data/auth.py", "KaraKara/website/karakara/tests/data/queue.py", "KaraKara/website/karakara/tests/data/tracks.py", "KaraKara/website/karakara/tests/data/tracks_random.py", "KaraKara/website/karakara/tests/data/__init__.py", "KaraKara/website/karakara/tests/integration/test_comunity.py", "KaraKara/website/karakara/tests/integration/test_comunity_queue.py", "KaraKara/website/karakara/tests/integration/test_comunity_queue_items.py", "KaraKara/website/karakara/tests/integration/test_fave.py", "KaraKara/website/karakara/tests/integration/test_feedback.py", "KaraKara/website/karakara/tests/integration/test_home.py", "KaraKara/website/karakara/tests/integration/test_queue_admin.py", "KaraKara/website/karakara/tests/integration/test_queue_home.py", "KaraKara/website/karakara/tests/integration/test_queue_items.py", "KaraKara/website/karakara/tests/integration/test_queue_random_images.py", "KaraKara/website/karakara/tests/integration/test_queue_remote.py", "KaraKara/website/karakara/tests/integration/test_queue_search.py", "KaraKara/website/karakara/tests/integration/test_queue_search_tag_restrict.py", "KaraKara/website/karakara/tests/integration/test_queue_settings.py", "KaraKara/website/karakara/tests/integration/test_queue_track_list.py", "KaraKara/website/karakara/tests/integration/test_static.py", "KaraKara/website/karakara/tests/integration/test_tracks.py", "KaraKara/website/karakara/tests/integration/test_track_import.py", "KaraKara/website/karakara/tests/integration/__init__.py", "KaraKara/website/karakara/tests/load/test_crawl.py", "KaraKara/website/karakara/tests/load/__init__.py", "KaraKara/website/karakara/tests/unit/test_comunity_track.py", "KaraKara/website/karakara/tests/unit/__init__.py", "KaraKara/website/karakara/tests/__init__.py", "KaraKara/website/karakara/traversal.py", "KaraKara/website/karakara/views/comunity.py", "KaraKara/website/karakara/views/comunity_login.py", "KaraKara/website/karakara/views/comunity_queue.py", "KaraKara/website/karakara/views/comunity_queue_items.py", "KaraKara/website/karakara/views/comunity_settings.py", "KaraKara/website/karakara/views/comunity_users.py", "KaraKara/website/karakara/views/fave.py", "KaraKara/website/karakara/views/feedback.py", "KaraKara/website/karakara/views/home.py", "KaraKara/website/karakara/views/queue.py", "KaraKara/website/karakara/views/queue_admin.py", "KaraKara/website/karakara/views/queue_items.py", "KaraKara/website/karakara/views/queue_random_images.py", "KaraKara/website/karakara/views/queue_remote_control.py", "KaraKara/website/karakara/views/queue_search.py", "KaraKara/website/karakara/views/queue_settings.py", "KaraKara/website/karakara/views/queue_track_list.py", "KaraKara/website/karakara/views/test_injector.py", "KaraKara/website/karakara/views/track.py", "KaraKara/website/karakara/views/track_import.py", "KaraKara/website/karakara/views/__init__.py", "KaraKara/website/karakara/__init__.py", "KaraKara/website/setup.py" ],
+  "cells" : [ {
+    "src" : 81,
+    "dest" : 32,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 81,
+    "dest" : 33,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 81,
+    "dest" : 2,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 81,
+    "dest" : 34,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 81,
+    "dest" : 35,
+    "values" : {
+      "P>10" : 6.0
+    }
+  }, {
+    "src" : 81,
+    "dest" : 36,
+    "values" : {
+      "P>10" : 6.0
+    }
+  }, {
+    "src" : 81,
+    "dest" : 31,
+    "values" : {
+      "P>10" : 4.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 32,
+    "values" : {
+      "P>10" : 6.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 81,
+    "values" : {
+      "P>10" : 24.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 33,
+    "values" : {
+      "P>10" : 6.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 2,
+    "values" : {
+      "P>10" : 6.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 34,
+    "values" : {
+      "P>10" : 6.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 35,
+    "values" : {
+      "P>10" : 18.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 36,
+    "values" : {
+      "P>10" : 18.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 31,
+    "values" : {
+      "P>10" : 12.0
+    }
+  }, {
+    "src" : 84,
+    "dest" : 32,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 84,
+    "dest" : 81,
+    "values" : {
+      "P>10" : 8.0
+    }
+  }, {
+    "src" : 84,
+    "dest" : 33,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 84,
+    "dest" : 2,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 84,
+    "dest" : 34,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 84,
+    "dest" : 35,
+    "values" : {
+      "P>10" : 6.0
+    }
+  }, {
+    "src" : 84,
+    "dest" : 36,
+    "values" : {
+      "P>10" : 6.0
+    }
+  }, {
+    "src" : 84,
+    "dest" : 31,
+    "values" : {
+      "P>10" : 4.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 32,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 81,
+    "values" : {
+      "P>10" : 8.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 33,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 2,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 34,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 35,
+    "values" : {
+      "P>10" : 6.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 36,
+    "values" : {
+      "P>10" : 6.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 31,
+    "values" : {
+      "P>10" : 4.0
+    }
+  }, {
+    "src" : 29,
+    "dest" : 32,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 29,
+    "dest" : 81,
+    "values" : {
+      "P>10" : 8.0
+    }
+  }, {
+    "src" : 29,
+    "dest" : 33,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 29,
+    "dest" : 2,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 29,
+    "dest" : 34,
+    "values" : {
+      "P>10" : 2.0
+    }
+  }, {
+    "src" : 29,
+    "dest" : 35,
+    "values" : {
+      "P>10" : 6.0
+    }
+  }, {
+    "src" : 29,
+    "dest" : 36,
+    "values" : {
+      "P>10" : 6.0
+    }
+  }, {
+    "src" : 29,
+    "dest" : 31,
+    "values" : {
+      "P>10" : 4.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 32,
+    "values" : {
+      "P>10" : 4.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 81,
+    "values" : {
+      "P>10" : 16.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 33,
+    "values" : {
+      "P>10" : 4.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 2,
+    "values" : {
+      "P>10" : 4.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 34,
+    "values" : {
+      "P>10" : 4.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 35,
+    "values" : {
+      "P>10" : 12.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 36,
+    "values" : {
+      "P>10" : 12.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 31,
+    "values" : {
+      "P>10" : 8.0
+    }
+  } ]
+}

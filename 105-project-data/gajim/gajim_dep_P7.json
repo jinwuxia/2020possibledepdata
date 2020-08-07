@@ -1,0 +1,1236 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "gajim\\gajim-sdsm",
+  "variables" : [ "gajim/gajim/application.py", "gajim/gajim/app_actions.py", "gajim/gajim/chat_control.py", "gajim/gajim/chat_control_base.py", "gajim/gajim/command_system/dispatcher.py", "gajim/gajim/command_system/errors.py", "gajim/gajim/command_system/framework.py", "gajim/gajim/command_system/implementation/custom.py", "gajim/gajim/command_system/implementation/execute.py", "gajim/gajim/command_system/implementation/hosts.py", "gajim/gajim/command_system/implementation/middleware.py", "gajim/gajim/command_system/implementation/standard.py", "gajim/gajim/command_system/implementation/__init__.py", "gajim/gajim/command_system/mapping.py", "gajim/gajim/command_system/tools.py", "gajim/gajim/command_system/__init__.py", "gajim/gajim/common/account.py", "gajim/gajim/common/app.py", "gajim/gajim/common/caps_cache.py", "gajim/gajim/common/config.py", "gajim/gajim/common/configpaths.py", "gajim/gajim/common/connection.py", "gajim/gajim/common/connection_handlers.py", "gajim/gajim/common/connection_handlers_events.py", "gajim/gajim/common/const.py", "gajim/gajim/common/contacts.py", "gajim/gajim/common/dbus/location.py", "gajim/gajim/common/dbus/logind.py", "gajim/gajim/common/dbus/music_track.py", "gajim/gajim/common/dbus/screensaver.py", "gajim/gajim/common/dbus/__init__.py", "gajim/gajim/common/dh.py", "gajim/gajim/common/events.py", "gajim/gajim/common/exceptions.py", "gajim/gajim/common/file_props.py", "gajim/gajim/common/fuzzyclock.py", "gajim/gajim/common/ged.py", "gajim/gajim/common/gpg.py", "gajim/gajim/common/helpers.py", "gajim/gajim/common/i18n.py", "gajim/gajim/common/idle.py", "gajim/gajim/common/jingle.py", "gajim/gajim/common/jingle_content.py", "gajim/gajim/common/jingle_ft.py", "gajim/gajim/common/jingle_ftstates.py", "gajim/gajim/common/jingle_rtp.py", "gajim/gajim/common/jingle_session.py", "gajim/gajim/common/jingle_transport.py", "gajim/gajim/common/jingle_xtls.py", "gajim/gajim/common/logger.py", "gajim/gajim/common/logging_helpers.py", "gajim/gajim/common/modules/adhoc_commands.py", "gajim/gajim/common/modules/annotations.py", "gajim/gajim/common/modules/base.py", "gajim/gajim/common/modules/bits_of_binary.py", "gajim/gajim/common/modules/blocking.py", "gajim/gajim/common/modules/bookmarks.py", "gajim/gajim/common/modules/caps.py", "gajim/gajim/common/modules/carbons.py", "gajim/gajim/common/modules/chatstates.py", "gajim/gajim/common/modules/dataforms.py", "gajim/gajim/common/modules/delimiter.py", "gajim/gajim/common/modules/discovery.py", "gajim/gajim/common/modules/entity_time.py", "gajim/gajim/common/modules/gateway.py", "gajim/gajim/common/modules/httpupload.py", "gajim/gajim/common/modules/http_auth.py", "gajim/gajim/common/modules/iq.py", "gajim/gajim/common/modules/last_activity.py", "gajim/gajim/common/modules/mam.py", "gajim/gajim/common/modules/message.py", "gajim/gajim/common/modules/metacontacts.py", "gajim/gajim/common/modules/misc.py", "gajim/gajim/common/modules/muc.py", "gajim/gajim/common/modules/pep.py", "gajim/gajim/common/modules/ping.py", "gajim/gajim/common/modules/presence.py", "gajim/gajim/common/modules/privacylists.py", "gajim/gajim/common/modules/pubsub.py", "gajim/gajim/common/modules/receipts.py", "gajim/gajim/common/modules/register.py", "gajim/gajim/common/modules/roster.py", "gajim/gajim/common/modules/roster_item_exchange.py", "gajim/gajim/common/modules/search.py", "gajim/gajim/common/modules/security_labels.py", "gajim/gajim/common/modules/software_version.py", "gajim/gajim/common/modules/user_activity.py", "gajim/gajim/common/modules/user_avatar.py", "gajim/gajim/common/modules/user_location.py", "gajim/gajim/common/modules/user_mood.py", "gajim/gajim/common/modules/user_nickname.py", "gajim/gajim/common/modules/user_tune.py", "gajim/gajim/common/modules/util.py", "gajim/gajim/common/modules/vcard_avatars.py", "gajim/gajim/common/modules/vcard_temp.py", "gajim/gajim/common/modules/__init__.py", "gajim/gajim/common/multimedia_helpers.py", "gajim/gajim/common/nec.py", "gajim/gajim/common/optparser.py", "gajim/gajim/common/passwords.py", "gajim/gajim/common/protocol/bytestream.py", "gajim/gajim/common/protocol/__init__.py", "gajim/gajim/common/proxy65_manager.py", "gajim/gajim/common/resolver.py", "gajim/gajim/common/rst_xhtml_generator.py", "gajim/gajim/common/socks5.py", "gajim/gajim/common/types.py", "gajim/gajim/common/zeroconf/client_zeroconf.py", "gajim/gajim/common/zeroconf/connection_handlers_zeroconf.py", "gajim/gajim/common/zeroconf/connection_zeroconf.py", "gajim/gajim/common/zeroconf/roster_zeroconf.py", "gajim/gajim/common/zeroconf/zeroconf.py", "gajim/gajim/common/zeroconf/zeroconf_avahi.py", "gajim/gajim/common/zeroconf/zeroconf_avahi_const.py", "gajim/gajim/common/zeroconf/zeroconf_bonjour.py", "gajim/gajim/common/zeroconf/__init__.py", "gajim/gajim/common/__init__.py", "gajim/gajim/config.py", "gajim/gajim/conversation_textview.py", "gajim/gajim/dataforms_widget.py", "gajim/gajim/dev/ipython_view.py", "gajim/gajim/dev/__init__.py", "gajim/gajim/dialogs.py", "gajim/gajim/dialog_messages.py", "gajim/gajim/gajim.py", "gajim/gajim/gajim_remote.py", "gajim/gajim/groupchat_control.py", "gajim/gajim/gtk/about.py", "gajim/gajim/gtk/accounts.py", "gajim/gajim/gtk/account_wizard.py", "gajim/gajim/gtk/add_contact.py", "gajim/gajim/gtk/adhoc_commands.py", "gajim/gajim/gtk/advanced_config.py", "gajim/gajim/gtk/blocking.py", "gajim/gajim/gtk/bookmarks.py", "gajim/gajim/gtk/const.py", "gajim/gajim/gtk/css_config.py", "gajim/gajim/gtk/dataform.py", "gajim/gajim/gtk/dialogs.py", "gajim/gajim/gtk/discovery.py", "gajim/gajim/gtk/discovery_search.py", "gajim/gajim/gtk/emoji_chooser.py", "gajim/gajim/gtk/emoji_data.py", "gajim/gajim/gtk/exception.py", "gajim/gajim/gtk/features.py", "gajim/gajim/gtk/filechoosers.py", "gajim/gajim/gtk/filetransfer.py", "gajim/gajim/gtk/groupchat_config.py", "gajim/gajim/gtk/history.py", "gajim/gajim/gtk/history_sync.py", "gajim/gajim/gtk/htmltextview.py", "gajim/gajim/gtk/join_groupchat.py", "gajim/gajim/gtk/mam_preferences.py", "gajim/gajim/gtk/notification.py", "gajim/gajim/gtk/pep_config.py", "gajim/gajim/gtk/preferences.py", "gajim/gajim/gtk/privacy_list.py", "gajim/gajim/gtk/profile.py", "gajim/gajim/gtk/proxies.py", "gajim/gajim/gtk/server_info.py", "gajim/gajim/gtk/service_registration.py", "gajim/gajim/gtk/single_message.py", "gajim/gajim/gtk/sounds.py", "gajim/gajim/gtk/start_chat.py", "gajim/gajim/gtk/statusicon.py", "gajim/gajim/gtk/themes.py", "gajim/gajim/gtk/tooltips.py", "gajim/gajim/gtk/types.py", "gajim/gajim/gtk/util.py", "gajim/gajim/gtk/xml_console.py", "gajim/gajim/gtk/__init__.py", "gajim/gajim/gtkgui_helpers.py", "gajim/gajim/gui_interface.py", "gajim/gajim/gui_menu_builder.py", "gajim/gajim/history_manager.py", "gajim/gajim/message_control.py", "gajim/gajim/message_textview.py", "gajim/gajim/message_window.py", "gajim/gajim/options_dialog.py", "gajim/gajim/plugins/gajimplugin.py", "gajim/gajim/plugins/gui.py", "gajim/gajim/plugins/helpers.py", "gajim/gajim/plugins/pluginmanager.py", "gajim/gajim/plugins/plugins_i18n.py", "gajim/gajim/plugins/__init__.py", "gajim/gajim/privatechat_control.py", "gajim/gajim/remote_control.py", "gajim/gajim/roster_window.py", "gajim/gajim/session.py", "gajim/gajim/vcard.py", "gajim/gajim/__init__.py", "gajim/launch-history-manager.py", "gajim/launch.py", "gajim/mac/makebundle.py", "gajim/mac/makeicns.py", "gajim/plugins/events_dump/plugin.py", "gajim/plugins/events_dump/__init__.py", "gajim/plugins/new_events_example/plugin.py", "gajim/plugins/new_events_example/__init__.py", "gajim/plugins/roster_buttons/plugin.py", "gajim/plugins/roster_buttons/__init__.py", "gajim/scripts/dev/run-pylint.py", "gajim/setup.py", "gajim/test/broken/integration/test_gui_event_integration.py", "gajim/test/broken/integration/test_roster.py", "gajim/test/broken/no_gui/test_protocol_caps.py", "gajim/test/broken/test_pluginmanager.py", "gajim/test/broken/unit/test_jingle.py", "gajim/test/broken/unit/test_sessions.py", "gajim/test/broken/unit/test_socks5.py", "gajim/test/gtk/dataform.py", "gajim/test/gtk/htmltextview.py", "gajim/test/gtk/util.py", "gajim/test/integration/test_resolver.py", "gajim/test/integration/__init__.py", "gajim/test/lib/data.py", "gajim/test/lib/gajim_mocks.py", "gajim/test/lib/mock.py", "gajim/test/lib/notify.py", "gajim/test/lib/__init__.py", "gajim/test/no_gui/unit/test_account.py", "gajim/test/no_gui/unit/test_caps_cache.py", "gajim/test/no_gui/unit/test_contacts.py", "gajim/test/no_gui/unit/test_nick_completion.py", "gajim/test/no_gui/unit/__init__.py", "gajim/test/no_gui/__init__.py", "gajim/test/unit/test_gui_interface.py", "gajim/test/unit/__init__.py", "gajim/test/__init__.py", "gajim/win/misc/create-launcher.py", "gajim/win/misc/depcheck.py" ],
+  "cells" : [ {
+    "src" : 128,
+    "dest" : 178,
+    "values" : {
+      "P7" : 16.0
+    }
+  }, {
+    "src" : 65,
+    "dest" : 32,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 65,
+    "dest" : 163,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 65,
+    "dest" : 166,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 65,
+    "dest" : 189,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 65,
+    "dest" : 175,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 137,
+    "dest" : 128,
+    "values" : {
+      "P7" : 6.0
+    }
+  }, {
+    "src" : 137,
+    "dest" : 210,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 137,
+    "dest" : 178,
+    "values" : {
+      "P7" : 8.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 32,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 65,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 163,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 166,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 189,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 175,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 76,
+    "dest" : 32,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 76,
+    "dest" : 65,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 76,
+    "dest" : 163,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 76,
+    "dest" : 166,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 76,
+    "dest" : 189,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 76,
+    "dest" : 175,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 209,
+    "dest" : 102,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 209,
+    "dest" : 105,
+    "values" : {
+      "P7" : 18.0
+    }
+  }, {
+    "src" : 209,
+    "dest" : 107,
+    "values" : {
+      "P7" : 14.0
+    }
+  }, {
+    "src" : 209,
+    "dest" : 43,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 209,
+    "dest" : 46,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 84,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 55,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 74,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 58,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 77,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 94,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 95,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 150,
+    "dest" : 160,
+    "values" : {
+      "P7" : 12.0
+    }
+  }, {
+    "src" : 150,
+    "dest" : 119,
+    "values" : {
+      "P7" : 3.0
+    }
+  }, {
+    "src" : 150,
+    "dest" : 137,
+    "values" : {
+      "P7" : 3.0
+    }
+  }, {
+    "src" : 150,
+    "dest" : 60,
+    "values" : {
+      "P7" : 3.0
+    }
+  }, {
+    "src" : 23,
+    "dest" : 32,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 23,
+    "dest" : 161,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 23,
+    "dest" : 2,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 23,
+    "dest" : 216,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 23,
+    "dest" : 42,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 23,
+    "dest" : 43,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 23,
+    "dest" : 175,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 217,
+    "dest" : 130,
+    "values" : {
+      "P7" : 5.0
+    }
+  }, {
+    "src" : 217,
+    "dest" : 119,
+    "values" : {
+      "P7" : 5.0
+    }
+  }, {
+    "src" : 217,
+    "dest" : 122,
+    "values" : {
+      "P7" : 10.0
+    }
+  }, {
+    "src" : 217,
+    "dest" : 139,
+    "values" : {
+      "P7" : 5.0
+    }
+  }, {
+    "src" : 217,
+    "dest" : 156,
+    "values" : {
+      "P7" : 10.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 51,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 21,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 216,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 46,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 47,
+    "values" : {
+      "P7" : 3.0
+    }
+  }, {
+    "src" : 222,
+    "dest" : 32,
+    "values" : {
+      "P7" : 5.0
+    }
+  }, {
+    "src" : 222,
+    "dest" : 65,
+    "values" : {
+      "P7" : 5.0
+    }
+  }, {
+    "src" : 222,
+    "dest" : 163,
+    "values" : {
+      "P7" : 5.0
+    }
+  }, {
+    "src" : 222,
+    "dest" : 166,
+    "values" : {
+      "P7" : 5.0
+    }
+  }, {
+    "src" : 222,
+    "dest" : 189,
+    "values" : {
+      "P7" : 10.0
+    }
+  }, {
+    "src" : 222,
+    "dest" : 175,
+    "values" : {
+      "P7" : 5.0
+    }
+  }, {
+    "src" : 159,
+    "dest" : 84,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 159,
+    "dest" : 55,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 159,
+    "dest" : 74,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 159,
+    "dest" : 58,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 159,
+    "dest" : 77,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 159,
+    "dest" : 94,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 159,
+    "dest" : 95,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 163,
+    "dest" : 128,
+    "values" : {
+      "P7" : 9.0
+    }
+  }, {
+    "src" : 163,
+    "dest" : 178,
+    "values" : {
+      "P7" : 12.0
+    }
+  }, {
+    "src" : 163,
+    "dest" : 102,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 163,
+    "dest" : 105,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 163,
+    "dest" : 43,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 163,
+    "dest" : 107,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 163,
+    "dest" : 46,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 51,
+    "values" : {
+      "P7" : 8.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 21,
+    "values" : {
+      "P7" : 8.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 216,
+    "values" : {
+      "P7" : 8.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 46,
+    "values" : {
+      "P7" : 8.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 47,
+    "values" : {
+      "P7" : 24.0
+    }
+  }, {
+    "src" : 105,
+    "dest" : 34,
+    "values" : {
+      "P7" : 6.0
+    }
+  }, {
+    "src" : 105,
+    "dest" : 102,
+    "values" : {
+      "P7" : 6.0
+    }
+  }, {
+    "src" : 105,
+    "dest" : 107,
+    "values" : {
+      "P7" : 28.0
+    }
+  }, {
+    "src" : 105,
+    "dest" : 43,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 105,
+    "dest" : 46,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 107,
+    "dest" : 112,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 107,
+    "dest" : 114,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 107,
+    "dest" : 102,
+    "values" : {
+      "P7" : 3.0
+    }
+  }, {
+    "src" : 107,
+    "dest" : 105,
+    "values" : {
+      "P7" : 6.0
+    }
+  }, {
+    "src" : 107,
+    "dest" : 43,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 107,
+    "dest" : 46,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 160,
+    "values" : {
+      "P7" : 8.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 32,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 65,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 163,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 166,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 137,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 74,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 77,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 175,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 84,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 119,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 55,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 58,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 60,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 189,
+    "values" : {
+      "P7" : 8.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 94,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 172,
+    "dest" : 95,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 112,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 32,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 65,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 114,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 163,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 102,
+    "values" : {
+      "P7" : 6.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 166,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 105,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 107,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 189,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 175,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 173,
+    "dest" : 84,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 173,
+    "dest" : 55,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 173,
+    "dest" : 74,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 173,
+    "dest" : 58,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 173,
+    "dest" : 77,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 173,
+    "dest" : 94,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 173,
+    "dest" : 95,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 46,
+    "dest" : 102,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 46,
+    "dest" : 105,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 46,
+    "dest" : 43,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 46,
+    "dest" : 107,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 47,
+    "dest" : 112,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 47,
+    "dest" : 114,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 47,
+    "dest" : 102,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 47,
+    "dest" : 105,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 47,
+    "dest" : 107,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 177,
+    "dest" : 32,
+    "values" : {
+      "P7" : 9.0
+    }
+  }, {
+    "src" : 177,
+    "dest" : 65,
+    "values" : {
+      "P7" : 9.0
+    }
+  }, {
+    "src" : 177,
+    "dest" : 163,
+    "values" : {
+      "P7" : 9.0
+    }
+  }, {
+    "src" : 177,
+    "dest" : 166,
+    "values" : {
+      "P7" : 9.0
+    }
+  }, {
+    "src" : 177,
+    "dest" : 102,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 177,
+    "dest" : 105,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 177,
+    "dest" : 43,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 177,
+    "dest" : 107,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 177,
+    "dest" : 189,
+    "values" : {
+      "P7" : 18.0
+    }
+  }, {
+    "src" : 177,
+    "dest" : 46,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 177,
+    "dest" : 175,
+    "values" : {
+      "P7" : 9.0
+    }
+  }, {
+    "src" : 178,
+    "dest" : 128,
+    "values" : {
+      "P7" : 24.0
+    }
+  }, {
+    "src" : 182,
+    "dest" : 177,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 182,
+    "dest" : 36,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 182,
+    "dest" : 53,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 182,
+    "dest" : 118,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 182,
+    "dest" : 103,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 182,
+    "dest" : 172,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 182,
+    "dest" : 175,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 119,
+    "dest" : 160,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 119,
+    "dest" : 137,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 119,
+    "dest" : 60,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 56,
+    "dest" : 84,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 56,
+    "dest" : 55,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 56,
+    "dest" : 74,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 56,
+    "dest" : 58,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 56,
+    "dest" : 77,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 56,
+    "dest" : 94,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 56,
+    "dest" : 95,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 185,
+    "dest" : 32,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 185,
+    "dest" : 65,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 185,
+    "dest" : 163,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 185,
+    "dest" : 166,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 185,
+    "dest" : 189,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 185,
+    "dest" : 175,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 123,
+    "dest" : 160,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 123,
+    "dest" : 119,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 123,
+    "dest" : 137,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 123,
+    "dest" : 60,
+    "values" : {
+      "P7" : 1.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 32,
+    "values" : {
+      "P7" : 10.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 65,
+    "values" : {
+      "P7" : 10.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 163,
+    "values" : {
+      "P7" : 10.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 166,
+    "values" : {
+      "P7" : 10.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 74,
+    "values" : {
+      "P7" : 8.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 77,
+    "values" : {
+      "P7" : 8.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 175,
+    "values" : {
+      "P7" : 10.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 84,
+    "values" : {
+      "P7" : 8.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 55,
+    "values" : {
+      "P7" : 8.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 58,
+    "values" : {
+      "P7" : 8.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 189,
+    "values" : {
+      "P7" : 20.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 94,
+    "values" : {
+      "P7" : 8.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 95,
+    "values" : {
+      "P7" : 8.0
+    }
+  }, {
+    "src" : 188,
+    "dest" : 32,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 188,
+    "dest" : 65,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 188,
+    "dest" : 163,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 188,
+    "dest" : 166,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 188,
+    "dest" : 189,
+    "values" : {
+      "P7" : 4.0
+    }
+  }, {
+    "src" : 188,
+    "dest" : 175,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 126,
+    "dest" : 32,
+    "values" : {
+      "P7" : 5.0
+    }
+  }, {
+    "src" : 126,
+    "dest" : 65,
+    "values" : {
+      "P7" : 5.0
+    }
+  }, {
+    "src" : 126,
+    "dest" : 163,
+    "values" : {
+      "P7" : 5.0
+    }
+  }, {
+    "src" : 126,
+    "dest" : 166,
+    "values" : {
+      "P7" : 5.0
+    }
+  }, {
+    "src" : 126,
+    "dest" : 74,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 126,
+    "dest" : 77,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 126,
+    "dest" : 175,
+    "values" : {
+      "P7" : 5.0
+    }
+  }, {
+    "src" : 126,
+    "dest" : 84,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 126,
+    "dest" : 55,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 126,
+    "dest" : 58,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 126,
+    "dest" : 189,
+    "values" : {
+      "P7" : 10.0
+    }
+  }, {
+    "src" : 126,
+    "dest" : 94,
+    "values" : {
+      "P7" : 2.0
+    }
+  }, {
+    "src" : 126,
+    "dest" : 95,
+    "values" : {
+      "P7" : 2.0
+    }
+  } ]
+}

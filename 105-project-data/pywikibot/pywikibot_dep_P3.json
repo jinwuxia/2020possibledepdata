@@ -1,0 +1,1698 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "pywikibot\\pywikibot-sdsm",
+  "variables" : [ "pywikibot/docs/conf.py", "pywikibot/ez_setup.py", "pywikibot/generate_family_file.py", "pywikibot/generate_user_files.py", "pywikibot/pwb.py", "pywikibot/pywikibot/backports.py", "pywikibot/pywikibot/bot.py", "pywikibot/pywikibot/botirc.py", "pywikibot/pywikibot/bot_choice.py", "pywikibot/pywikibot/comms/eventstreams.py", "pywikibot/pywikibot/comms/http.py", "pywikibot/pywikibot/comms/threadedhttp.py", "pywikibot/pywikibot/comms/__init__.py", "pywikibot/pywikibot/compat/catlib.py", "pywikibot/pywikibot/compat/query.py", "pywikibot/pywikibot/compat/userlib.py", "pywikibot/pywikibot/compat/__init__.py", "pywikibot/pywikibot/config2.py", "pywikibot/pywikibot/cosmetic_changes.py", "pywikibot/pywikibot/daemonize.py", "pywikibot/pywikibot/data/api.py", "pywikibot/pywikibot/data/mysql.py", "pywikibot/pywikibot/data/sparql.py", "pywikibot/pywikibot/data/wikistats.py", "pywikibot/pywikibot/data/__init__.py", "pywikibot/pywikibot/date.py", "pywikibot/pywikibot/diff.py", "pywikibot/pywikibot/echo.py", "pywikibot/pywikibot/editor.py", "pywikibot/pywikibot/exceptions.py", "pywikibot/pywikibot/families/commons_family.py", "pywikibot/pywikibot/families/i18n_family.py", "pywikibot/pywikibot/families/incubator_family.py", "pywikibot/pywikibot/families/lyricwiki_family.py", "pywikibot/pywikibot/families/mediawiki_family.py", "pywikibot/pywikibot/families/meta_family.py", "pywikibot/pywikibot/families/omegawiki_family.py", "pywikibot/pywikibot/families/osm_family.py", "pywikibot/pywikibot/families/outreach_family.py", "pywikibot/pywikibot/families/species_family.py", "pywikibot/pywikibot/families/strategy_family.py", "pywikibot/pywikibot/families/test_family.py", "pywikibot/pywikibot/families/vikidia_family.py", "pywikibot/pywikibot/families/wikia_family.py", "pywikibot/pywikibot/families/wikibooks_family.py", "pywikibot/pywikibot/families/wikidata_family.py", "pywikibot/pywikibot/families/wikimania_family.py", "pywikibot/pywikibot/families/wikimediachapter_family.py", "pywikibot/pywikibot/families/wikinews_family.py", "pywikibot/pywikibot/families/wikipedia_family.py", "pywikibot/pywikibot/families/wikiquote_family.py", "pywikibot/pywikibot/families/wikisource_family.py", "pywikibot/pywikibot/families/wikitech_family.py", "pywikibot/pywikibot/families/wikiversity_family.py", "pywikibot/pywikibot/families/wikivoyage_family.py", "pywikibot/pywikibot/families/wiktionary_family.py", "pywikibot/pywikibot/families/wowwiki_family.py", "pywikibot/pywikibot/families/__init__.py", "pywikibot/pywikibot/family.py", "pywikibot/pywikibot/fixes.py", "pywikibot/pywikibot/flow.py", "pywikibot/pywikibot/i18n.py", "pywikibot/pywikibot/interwiki_graph.py", "pywikibot/pywikibot/logentries.py", "pywikibot/pywikibot/logging.py", "pywikibot/pywikibot/login.py", "pywikibot/pywikibot/page.py", "pywikibot/pywikibot/pagegenerators.py", "pywikibot/pywikibot/plural.py", "pywikibot/pywikibot/proofreadpage.py", "pywikibot/pywikibot/site.py", "pywikibot/pywikibot/site_detect.py", "pywikibot/pywikibot/specialbots.py", "pywikibot/pywikibot/textlib.py", "pywikibot/pywikibot/throttle.py", "pywikibot/pywikibot/titletranslate.py", "pywikibot/pywikibot/tools/chars.py", "pywikibot/pywikibot/tools/djvu.py", "pywikibot/pywikibot/tools/formatter.py", "pywikibot/pywikibot/tools/ip.py", "pywikibot/pywikibot/tools/_logging.py", "pywikibot/pywikibot/tools/__init__.py", "pywikibot/pywikibot/userinterfaces/cgi_interface.py", "pywikibot/pywikibot/userinterfaces/gui.py", "pywikibot/pywikibot/userinterfaces/terminal_interface.py", "pywikibot/pywikibot/userinterfaces/terminal_interface_base.py", "pywikibot/pywikibot/userinterfaces/terminal_interface_unix.py", "pywikibot/pywikibot/userinterfaces/terminal_interface_win32.py", "pywikibot/pywikibot/userinterfaces/transliteration.py", "pywikibot/pywikibot/userinterfaces/win32_unicode.py", "pywikibot/pywikibot/userinterfaces/__init__.py", "pywikibot/pywikibot/version.py", "pywikibot/pywikibot/weblib.py", "pywikibot/pywikibot/xmlreader.py", "pywikibot/pywikibot/_wbtypes.py", "pywikibot/pywikibot/__init__.py", "pywikibot/scripts/add_text.py", "pywikibot/scripts/archive/featured.py", "pywikibot/scripts/archive/__init__.py", "pywikibot/scripts/archivebot.py", "pywikibot/scripts/basic.py", "pywikibot/scripts/blockpageschecker.py", "pywikibot/scripts/capitalize_redirects.py", "pywikibot/scripts/casechecker.py", "pywikibot/scripts/catall.py", "pywikibot/scripts/category.py", "pywikibot/scripts/category_redirect.py", "pywikibot/scripts/cfd.py", "pywikibot/scripts/checkimages.py", "pywikibot/scripts/claimit.py", "pywikibot/scripts/clean_sandbox.py", "pywikibot/scripts/commonscat.py", "pywikibot/scripts/commons_link.py", "pywikibot/scripts/coordinate_import.py", "pywikibot/scripts/cosmetic_changes.py", "pywikibot/scripts/create_categories.py", "pywikibot/scripts/data_ingestion.py", "pywikibot/scripts/delete.py", "pywikibot/scripts/disambredir.py", "pywikibot/scripts/djvutext.py", "pywikibot/scripts/editarticle.py", "pywikibot/scripts/fixing_redirects.py", "pywikibot/scripts/flickrripper.py", "pywikibot/scripts/followlive.py", "pywikibot/scripts/freebasemappingupload.py", "pywikibot/scripts/harvest_template.py", "pywikibot/scripts/illustrate_wikidata.py", "pywikibot/scripts/image.py", "pywikibot/scripts/imagecopy.py", "pywikibot/scripts/imagecopy_self.py", "pywikibot/scripts/imageharvest.py", "pywikibot/scripts/imagerecat.py", "pywikibot/scripts/imagetransfer.py", "pywikibot/scripts/imageuncat.py", "pywikibot/scripts/interwiki.py", "pywikibot/scripts/interwikidata.py", "pywikibot/scripts/isbn.py", "pywikibot/scripts/listpages.py", "pywikibot/scripts/login.py", "pywikibot/scripts/lonelypages.py", "pywikibot/scripts/maintenance/cache.py", "pywikibot/scripts/maintenance/colors.py", "pywikibot/scripts/maintenance/compat2core.py", "pywikibot/scripts/maintenance/diff_checker.py", "pywikibot/scripts/maintenance/download_dump.py", "pywikibot/scripts/maintenance/make_i18n_dict.py", "pywikibot/scripts/maintenance/wikimedia_sites.py", "pywikibot/scripts/maintenance/__init__.py", "pywikibot/scripts/makecat.py", "pywikibot/scripts/match_images.py", "pywikibot/scripts/misspelling.py", "pywikibot/scripts/movepages.py", "pywikibot/scripts/ndashredir.py", "pywikibot/scripts/newitem.py", "pywikibot/scripts/noreferences.py", "pywikibot/scripts/nowcommons.py", "pywikibot/scripts/pagefromfile.py", "pywikibot/scripts/patrol.py", "pywikibot/scripts/piper.py", "pywikibot/scripts/protect.py", "pywikibot/scripts/redirect.py", "pywikibot/scripts/reflinks.py", "pywikibot/scripts/replace.py", "pywikibot/scripts/replicate_wiki.py", "pywikibot/scripts/revertbot.py", "pywikibot/scripts/script_wui.py", "pywikibot/scripts/selflink.py", "pywikibot/scripts/shell.py", "pywikibot/scripts/solve_disambiguation.py", "pywikibot/scripts/spamremove.py", "pywikibot/scripts/standardize_interwiki.py", "pywikibot/scripts/states_redirect.py", "pywikibot/scripts/surnames_redirects.py", "pywikibot/scripts/table2wiki.py", "pywikibot/scripts/template.py", "pywikibot/scripts/templatecount.py", "pywikibot/scripts/touch.py", "pywikibot/scripts/transferbot.py", "pywikibot/scripts/unlink.py", "pywikibot/scripts/unusedfiles.py", "pywikibot/scripts/upload.py", "pywikibot/scripts/userscripts/__init__.py", "pywikibot/scripts/version.py", "pywikibot/scripts/watchlist.py", "pywikibot/scripts/weblinkchecker.py", "pywikibot/scripts/welcome.py", "pywikibot/scripts/wikisourcetext.py", "pywikibot/scripts/__init__.py", "pywikibot/setup.py", "pywikibot/tests/add_text_tests.py", "pywikibot/tests/api_tests.py", "pywikibot/tests/archivebot_tests.py", "pywikibot/tests/aspects.py", "pywikibot/tests/basepage_tests.py", "pywikibot/tests/bot_tests.py", "pywikibot/tests/cache_tests.py", "pywikibot/tests/category_bot_tests.py", "pywikibot/tests/category_tests.py", "pywikibot/tests/checkimages_tests.py", "pywikibot/tests/compat2core_tests.py", "pywikibot/tests/conftest.py", "pywikibot/tests/cosmetic_changes_tests.py", "pywikibot/tests/data/fixes.py", "pywikibot/tests/data/set-fixes.py", "pywikibot/tests/data_ingestion_tests.py", "pywikibot/tests/date_tests.py", "pywikibot/tests/deletionbot_tests.py", "pywikibot/tests/deprecation_tests.py", "pywikibot/tests/diff_tests.py", "pywikibot/tests/disambredir_tests.py", "pywikibot/tests/djvu_tests.py", "pywikibot/tests/dry_api_tests.py", "pywikibot/tests/dry_site_tests.py", "pywikibot/tests/echo_tests.py", "pywikibot/tests/edit_failure_tests.py", "pywikibot/tests/edit_tests.py", "pywikibot/tests/eventstreams_tests.py", "pywikibot/tests/exceptions_tests.py", "pywikibot/tests/family_tests.py", "pywikibot/tests/file_tests.py", "pywikibot/tests/fixes_tests.py", "pywikibot/tests/fixing_redirects_tests.py", "pywikibot/tests/flow_edit_tests.py", "pywikibot/tests/flow_tests.py", "pywikibot/tests/flow_thanks_tests.py", "pywikibot/tests/generate_family_files_tests.py", "pywikibot/tests/generate_user_files_tests.py", "pywikibot/tests/http_tests.py", "pywikibot/tests/i18n/pywikibot.py", "pywikibot/tests/i18n/__init__.py", "pywikibot/tests/i18n_tests.py", "pywikibot/tests/imagecopy_tests.py", "pywikibot/tests/interwikidata_tests.py", "pywikibot/tests/interwiki_graph_tests.py", "pywikibot/tests/interwiki_link_tests.py", "pywikibot/tests/isbn_tests.py", "pywikibot/tests/l10n_tests.py", "pywikibot/tests/link_tests.py", "pywikibot/tests/logentry_tests.py", "pywikibot/tests/login_tests.py", "pywikibot/tests/mediawikiversion_tests.py", "pywikibot/tests/namespace_tests.py", "pywikibot/tests/noreferences_tests.py", "pywikibot/tests/oauth_tests.py", "pywikibot/tests/pagegenerators_tests.py", "pywikibot/tests/page_tests.py", "pywikibot/tests/paraminfo_tests.py", "pywikibot/tests/patrolbot_tests.py", "pywikibot/tests/plural_tests.py", "pywikibot/tests/proofreadpage_tests.py", "pywikibot/tests/protectbot_tests.py", "pywikibot/tests/pwb/print_env.py", "pywikibot/tests/pwb/print_locals.py", "pywikibot/tests/pwb/print_unicode.py", "pywikibot/tests/pwb/__init__.py", "pywikibot/tests/pwb_tests.py", "pywikibot/tests/python_tests.py", "pywikibot/tests/redirect_bot_tests.py", "pywikibot/tests/reflinks_tests.py", "pywikibot/tests/replacebot_tests.py", "pywikibot/tests/script_tests.py", "pywikibot/tests/site_detect_tests.py", "pywikibot/tests/site_tests.py", "pywikibot/tests/sparql_tests.py", "pywikibot/tests/template_bot_tests.py", "pywikibot/tests/tests_tests.py", "pywikibot/tests/textlib_tests.py", "pywikibot/tests/thanks_tests.py", "pywikibot/tests/thread_tests.py", "pywikibot/tests/timestamp_tests.py", "pywikibot/tests/timestripper_tests.py", "pywikibot/tests/tk_tests.py", "pywikibot/tests/tools_chars_tests.py", "pywikibot/tests/tools_formatter_tests.py", "pywikibot/tests/tools_ip_tests.py", "pywikibot/tests/tools_tests.py", "pywikibot/tests/ui_options_tests.py", "pywikibot/tests/ui_tests.py", "pywikibot/tests/uploadbot_tests.py", "pywikibot/tests/uploadscript_tests.py", "pywikibot/tests/upload_tests.py", "pywikibot/tests/user_tests.py", "pywikibot/tests/utils.py", "pywikibot/tests/weblib_tests.py", "pywikibot/tests/weblinkchecker_tests.py", "pywikibot/tests/wikibase_edit_tests.py", "pywikibot/tests/wikibase_tests.py", "pywikibot/tests/wikistats_tests.py", "pywikibot/tests/xmlreader_tests.py", "pywikibot/tests/__init__.py" ],
+  "cells" : [ {
+    "src" : 129,
+    "dest" : 66,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 129,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 3,
+    "dest" : 10,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 3,
+    "dest" : 58,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 3,
+    "dest" : 108,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 132,
+    "dest" : 66,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 132,
+    "dest" : 58,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 132,
+    "dest" : 11,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 133,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 133,
+    "dest" : 212,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 133,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 66,
+    "values" : {
+      "P3" : 26.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 22,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 70,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 134,
+    "dest" : 129,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 134,
+    "dest" : 66,
+    "values" : {
+      "P3" : 40.0
+    }
+  }, {
+    "src" : 134,
+    "dest" : 70,
+    "values" : {
+      "P3" : 20.0
+    }
+  }, {
+    "src" : 134,
+    "dest" : 103,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 262,
+    "dest" : 49,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 262,
+    "dest" : 66,
+    "values" : {
+      "P3" : 22.0
+    }
+  }, {
+    "src" : 262,
+    "dest" : 36,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 262,
+    "dest" : 20,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 262,
+    "dest" : 69,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 262,
+    "dest" : 70,
+    "values" : {
+      "P3" : 19.0
+    }
+  }, {
+    "src" : 262,
+    "dest" : 103,
+    "values" : {
+      "P3" : 21.0
+    }
+  }, {
+    "src" : 262,
+    "dest" : 58,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 262,
+    "dest" : 11,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 262,
+    "dest" : 63,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 135,
+    "dest" : 66,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 135,
+    "dest" : 70,
+    "values" : {
+      "P3" : 7.0
+    }
+  }, {
+    "src" : 135,
+    "dest" : 40,
+    "values" : {
+      "P3" : 5.0
+    }
+  }, {
+    "src" : 135,
+    "dest" : 58,
+    "values" : {
+      "P3" : 5.0
+    }
+  }, {
+    "src" : 136,
+    "dest" : 66,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 136,
+    "dest" : 22,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 9,
+    "dest" : 129,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 9,
+    "dest" : 61,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 9,
+    "dest" : 142,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 99,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 20,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 278,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 23,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 58,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 11,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 108,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 138,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 138,
+    "dest" : 212,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 138,
+    "dest" : 69,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 138,
+    "dest" : 70,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 138,
+    "dest" : 63,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 267,
+    "dest" : 65,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 267,
+    "dest" : 93,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 267,
+    "dest" : 270,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 140,
+    "dest" : 66,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 140,
+    "dest" : 20,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 140,
+    "dest" : 23,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 140,
+    "dest" : 58,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 140,
+    "dest" : 11,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 270,
+    "dest" : 99,
+    "values" : {
+      "P3" : 15.0
+    }
+  }, {
+    "src" : 144,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 144,
+    "dest" : 40,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 144,
+    "dest" : 58,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 18,
+    "dest" : 66,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 18,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 66,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 212,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 69,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 70,
+    "values" : {
+      "P3" : 5.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 58,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 11,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 63,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 148,
+    "dest" : 66,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 148,
+    "dest" : 58,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 148,
+    "dest" : 11,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 277,
+    "dest" : 85,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 277,
+    "dest" : 89,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 151,
+    "dest" : 66,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 151,
+    "dest" : 70,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 153,
+    "dest" : 65,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 153,
+    "dest" : 93,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 153,
+    "dest" : 270,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 281,
+    "dest" : 65,
+    "values" : {
+      "P3" : 5.0
+    }
+  }, {
+    "src" : 281,
+    "dest" : 69,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 281,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 281,
+    "dest" : 93,
+    "values" : {
+      "P3" : 5.0
+    }
+  }, {
+    "src" : 281,
+    "dest" : 270,
+    "values" : {
+      "P3" : 5.0
+    }
+  }, {
+    "src" : 281,
+    "dest" : 63,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 157,
+    "dest" : 66,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 157,
+    "dest" : 70,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 285,
+    "dest" : 66,
+    "values" : {
+      "P3" : 12.0
+    }
+  }, {
+    "src" : 285,
+    "dest" : 70,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 285,
+    "dest" : 22,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 285,
+    "dest" : 40,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 285,
+    "dest" : 58,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 286,
+    "dest" : 66,
+    "values" : {
+      "P3" : 27.0
+    }
+  }, {
+    "src" : 286,
+    "dest" : 67,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 286,
+    "dest" : 20,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 286,
+    "dest" : 22,
+    "values" : {
+      "P3" : 10.0
+    }
+  }, {
+    "src" : 286,
+    "dest" : 70,
+    "values" : {
+      "P3" : 7.0
+    }
+  }, {
+    "src" : 160,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 160,
+    "dest" : 66,
+    "values" : {
+      "P3" : 16.0
+    }
+  }, {
+    "src" : 160,
+    "dest" : 20,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 160,
+    "dest" : 212,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 160,
+    "dest" : 70,
+    "values" : {
+      "P3" : 10.0
+    }
+  }, {
+    "src" : 160,
+    "dest" : 9,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 161,
+    "dest" : 66,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 161,
+    "dest" : 58,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 161,
+    "dest" : 11,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 162,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 162,
+    "dest" : 212,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 162,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 163,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 163,
+    "dest" : 212,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 163,
+    "dest" : 69,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 163,
+    "dest" : 70,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 163,
+    "dest" : 63,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 165,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 165,
+    "dest" : 66,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 165,
+    "dest" : 212,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 165,
+    "dest" : 69,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 165,
+    "dest" : 70,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 165,
+    "dest" : 58,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 165,
+    "dest" : 11,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 165,
+    "dest" : 63,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 168,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 168,
+    "dest" : 212,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 168,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 176,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 176,
+    "dest" : 212,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 176,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 177,
+    "dest" : 66,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 177,
+    "dest" : 70,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 185,
+    "dest" : 66,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 185,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 45,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 30,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 60,
+    "dest" : 20,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 60,
+    "dest" : 23,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 60,
+    "dest" : 11,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 129,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 142,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 62,
+    "dest" : 66,
+    "values" : {
+      "P3" : 16.0
+    }
+  }, {
+    "src" : 62,
+    "dest" : 70,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 190,
+    "dest" : 81,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 190,
+    "dest" : 20,
+    "values" : {
+      "P3" : 31.0
+    }
+  }, {
+    "src" : 190,
+    "dest" : 69,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 190,
+    "dest" : 70,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 190,
+    "dest" : 168,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 190,
+    "dest" : 8,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 190,
+    "dest" : 9,
+    "values" : {
+      "P3" : 14.0
+    }
+  }, {
+    "src" : 190,
+    "dest" : 63,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 191,
+    "dest" : 99,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 192,
+    "dest" : 65,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 192,
+    "dest" : 66,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 192,
+    "dest" : 212,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 192,
+    "dest" : 69,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 192,
+    "dest" : 70,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 192,
+    "dest" : 63,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 66,
+    "dest" : 69,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 66,
+    "dest" : 70,
+    "values" : {
+      "P3" : 29.0
+    }
+  }, {
+    "src" : 66,
+    "dest" : 22,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 66,
+    "dest" : 40,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 66,
+    "dest" : 58,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 66,
+    "dest" : 11,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 66,
+    "dest" : 63,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 194,
+    "dest" : 160,
+    "values" : {
+      "P3" : 9.0
+    }
+  }, {
+    "src" : 67,
+    "dest" : 65,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 67,
+    "dest" : 66,
+    "values" : {
+      "P3" : 24.0
+    }
+  }, {
+    "src" : 67,
+    "dest" : 20,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 67,
+    "dest" : 70,
+    "values" : {
+      "P3" : 13.0
+    }
+  }, {
+    "src" : 67,
+    "dest" : 40,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 67,
+    "dest" : 58,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 67,
+    "dest" : 11,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 67,
+    "dest" : 93,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 67,
+    "dest" : 270,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 195,
+    "dest" : 20,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 70,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 63,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 197,
+    "dest" : 66,
+    "values" : {
+      "P3" : 24.0
+    }
+  }, {
+    "src" : 197,
+    "dest" : 70,
+    "values" : {
+      "P3" : 12.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 66,
+    "values" : {
+      "P3" : 62.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 67,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 69,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 40,
+    "values" : {
+      "P3" : 7.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 9,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 11,
+    "values" : {
+      "P3" : 17.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 270,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 20,
+    "values" : {
+      "P3" : 56.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 22,
+    "values" : {
+      "P3" : 17.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 58,
+    "values" : {
+      "P3" : 25.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 93,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 63,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 212,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 69,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 70,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 63,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 73,
+    "dest" : 66,
+    "values" : {
+      "P3" : 17.0
+    }
+  }, {
+    "src" : 73,
+    "dest" : 67,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 73,
+    "dest" : 70,
+    "values" : {
+      "P3" : 7.0
+    }
+  }, {
+    "src" : 73,
+    "dest" : 8,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 73,
+    "dest" : 171,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 201,
+    "dest" : 67,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 201,
+    "dest" : 20,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 201,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 75,
+    "dest" : 66,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 75,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 81,
+    "dest" : 67,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 211,
+    "dest" : 67,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 211,
+    "dest" : 20,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 211,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 215,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 215,
+    "dest" : 212,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 215,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 128,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 129,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 83,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 95,
+    "dest" : 184,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 66,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 224,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 224,
+    "dest" : 69,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 224,
+    "dest" : 70,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 224,
+    "dest" : 93,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 224,
+    "dest" : 270,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 224,
+    "dest" : 63,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 97,
+    "dest" : 66,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 97,
+    "dest" : 70,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 66,
+    "values" : {
+      "P3" : 10.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 70,
+    "values" : {
+      "P3" : 5.0
+    }
+  }, {
+    "src" : 227,
+    "dest" : 20,
+    "values" : {
+      "P3" : 18.0
+    }
+  }, {
+    "src" : 227,
+    "dest" : 85,
+    "values" : {
+      "P3" : 26.0
+    }
+  }, {
+    "src" : 227,
+    "dest" : 23,
+    "values" : {
+      "P3" : 18.0
+    }
+  }, {
+    "src" : 227,
+    "dest" : 184,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 227,
+    "dest" : 105,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 227,
+    "dest" : 89,
+    "values" : {
+      "P3" : 52.0
+    }
+  }, {
+    "src" : 227,
+    "dest" : 11,
+    "values" : {
+      "P3" : 18.0
+    }
+  }, {
+    "src" : 103,
+    "dest" : 66,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 103,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 105,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 105,
+    "dest" : 66,
+    "values" : {
+      "P3" : 12.0
+    }
+  }, {
+    "src" : 105,
+    "dest" : 212,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 105,
+    "dest" : 70,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 66,
+    "values" : {
+      "P3" : 10.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 69,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 70,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 40,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 58,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 63,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 110,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 110,
+    "dest" : 212,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 110,
+    "dest" : 69,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 110,
+    "dest" : 70,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 110,
+    "dest" : 63,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 238,
+    "dest" : 66,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 238,
+    "dest" : 69,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 238,
+    "dest" : 70,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 238,
+    "dest" : 63,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 114,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 114,
+    "dest" : 212,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 114,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 243,
+    "dest" : 65,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 243,
+    "dest" : 212,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 243,
+    "dest" : 70,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 245,
+    "dest" : 66,
+    "values" : {
+      "P3" : 14.0
+    }
+  }, {
+    "src" : 245,
+    "dest" : 69,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 245,
+    "dest" : 70,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 245,
+    "dest" : 63,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 120,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 120,
+    "dest" : 212,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 120,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 121,
+    "dest" : 66,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 121,
+    "dest" : 70,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 249,
+    "dest" : 20,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 249,
+    "dest" : 9,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 123,
+    "dest" : 129,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 123,
+    "dest" : 270,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 124,
+    "dest" : 66,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 124,
+    "dest" : 22,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 125,
+    "dest" : 66,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 125,
+    "dest" : 22,
+    "values" : {
+      "P3" : 2.0
+    }
+  } ]
+}

@@ -1,0 +1,1776 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "weblate\\weblate-sdsm",
+  "variables" : [ "weblate/docs/conf.py", "weblate/docs/_ext/djangodocs.py", "weblate/examples/beat-settings.py", "weblate/examples/check_czech.py", "weblate/examples/check_foo.py", "weblate/examples/fix_foo.py", "weblate/examples/mt_service.py", "weblate/manage.py", "weblate/openshift/manage.py", "weblate/openshift/wsgi.py", "weblate/openshift/wsgi_install.py", "weblate/openshift/__init__.py", "weblate/runtests.py", "weblate/setup.py", "weblate/weblate/accounts/admin.py", "weblate/weblate/accounts/apps.py", "weblate/weblate/accounts/auth.py", "weblate/weblate/accounts/avatar.py", "weblate/weblate/accounts/captcha.py", "weblate/weblate/accounts/checks.py", "weblate/weblate/accounts/forms.py", "weblate/weblate/accounts/management/commands/changesite.py", "weblate/weblate/accounts/management/commands/cleanup_avatar_cache.py", "weblate/weblate/accounts/management/commands/dumpuserdata.py", "weblate/weblate/accounts/management/commands/importuserdata.py", "weblate/weblate/accounts/management/commands/__init__.py", "weblate/weblate/accounts/management/__init__.py", "weblate/weblate/accounts/middleware.py", "weblate/weblate/accounts/migrations/0001_squashed_0037_auto_20180416_1406.py", "weblate/weblate/accounts/migrations/0002_profile_uploaded.py", "weblate/weblate/accounts/migrations/0003_profile_translate_mode.py", "weblate/weblate/accounts/migrations/0004_create_profile.py", "weblate/weblate/accounts/migrations/__init__.py", "weblate/weblate/accounts/models.py", "weblate/weblate/accounts/notifications.py", "weblate/weblate/accounts/password_validation.py", "weblate/weblate/accounts/pipeline.py", "weblate/weblate/accounts/strategy.py", "weblate/weblate/accounts/tasks.py", "weblate/weblate/accounts/templatetags/authnames.py", "weblate/weblate/accounts/templatetags/__init__.py", "weblate/weblate/accounts/tests/test_avatars.py", "weblate/weblate/accounts/tests/test_captcha.py", "weblate/weblate/accounts/tests/test_commands.py", "weblate/weblate/accounts/tests/test_middleware.py", "weblate/weblate/accounts/tests/test_notifications.py", "weblate/weblate/accounts/tests/test_password_validation.py", "weblate/weblate/accounts/tests/test_registration.py", "weblate/weblate/accounts/tests/test_remove.py", "weblate/weblate/accounts/tests/test_utils.py", "weblate/weblate/accounts/tests/test_views.py", "weblate/weblate/accounts/tests/__init__.py", "weblate/weblate/accounts/urls.py", "weblate/weblate/accounts/utils.py", "weblate/weblate/accounts/views.py", "weblate/weblate/accounts/__init__.py", "weblate/weblate/addons/apps.py", "weblate/weblate/addons/base.py", "weblate/weblate/addons/cleanup.py", "weblate/weblate/addons/consistency.py", "weblate/weblate/addons/discovery.py", "weblate/weblate/addons/events.py", "weblate/weblate/addons/example.py", "weblate/weblate/addons/example_pre.py", "weblate/weblate/addons/flags.py", "weblate/weblate/addons/forms.py", "weblate/weblate/addons/generate.py", "weblate/weblate/addons/gettext.py", "weblate/weblate/addons/git.py", "weblate/weblate/addons/json.py", "weblate/weblate/addons/management/commands/install_addon.py", "weblate/weblate/addons/management/commands/list_addons.py", "weblate/weblate/addons/management/commands/__init__.py", "weblate/weblate/addons/management/__init__.py", "weblate/weblate/addons/migrations/0001_squashed_0006_addon_project_scope.py", "weblate/weblate/addons/migrations/0007_auto_20180629_1736.py", "weblate/weblate/addons/migrations/0008_auto_20180727_1454.py", "weblate/weblate/addons/migrations/0009_auto_20181207_1322.py", "weblate/weblate/addons/migrations/0010_auto_20181214_1232.py", "weblate/weblate/addons/migrations/0011_squash_addon.py", "weblate/weblate/addons/migrations/0012_addon_repo_scope.py", "weblate/weblate/addons/migrations/__init__.py", "weblate/weblate/addons/models.py", "weblate/weblate/addons/properties.py", "weblate/weblate/addons/scripts.py", "weblate/weblate/addons/tests.py", "weblate/weblate/addons/views.py", "weblate/weblate/addons/__init__.py", "weblate/weblate/api/admin.py", "weblate/weblate/api/apps.py", "weblate/weblate/api/authentication.py", "weblate/weblate/api/migrations/__init__.py", "weblate/weblate/api/models.py", "weblate/weblate/api/routers.py", "weblate/weblate/api/serializers.py", "weblate/weblate/api/tests.py", "weblate/weblate/api/urls.py", "weblate/weblate/api/views.py", "weblate/weblate/api/__init__.py", "weblate/weblate/auth/admin.py", "weblate/weblate/auth/apps.py", "weblate/weblate/auth/data.py", "weblate/weblate/auth/decorators.py", "weblate/weblate/auth/management/commands/createadmin.py", "weblate/weblate/auth/management/commands/importusers.py", "weblate/weblate/auth/management/commands/setupgroups.py", "weblate/weblate/auth/management/commands/__init__.py", "weblate/weblate/auth/management/__init__.py", "weblate/weblate/auth/migrations/0001_initial.py", "weblate/weblate/auth/migrations/0002_auto_20180507_1540_squashed_0011_auto_20180509_0739.py", "weblate/weblate/auth/migrations/0003_auto_20180724_1120.py", "weblate/weblate/auth/migrations/0004_auto_20180827_1406.py", "weblate/weblate/auth/migrations/__init__.py", "weblate/weblate/auth/models.py", "weblate/weblate/auth/permissions.py", "weblate/weblate/auth/templatetags/permissions.py", "weblate/weblate/auth/templatetags/__init__.py", "weblate/weblate/auth/tests/test_autogroup.py", "weblate/weblate/auth/tests/test_commands.py", "weblate/weblate/auth/tests/test_models.py", "weblate/weblate/auth/tests/test_permissions.py", "weblate/weblate/auth/tests/__init__.py", "weblate/weblate/auth/utils.py", "weblate/weblate/auth/views.py", "weblate/weblate/auth/__init__.py", "weblate/weblate/billing/admin.py", "weblate/weblate/billing/management/commands/billing_check.py", "weblate/weblate/billing/management/commands/__init__.py", "weblate/weblate/billing/management/__init__.py", "weblate/weblate/billing/migrations/0001_squashed_0016_remove_billing_user.py", "weblate/weblate/billing/migrations/0002_auto_20180905_1400.py", "weblate/weblate/billing/migrations/0003_billing_owners.py", "weblate/weblate/billing/migrations/0004_auto_20181021_1249.py", "weblate/weblate/billing/migrations/0005_auto_20181021_1254.py", "weblate/weblate/billing/migrations/0006_auto_20181021_1256.py", "weblate/weblate/billing/migrations/0007_plan_public.py", "weblate/weblate/billing/migrations/0008_auto_20181024_1151.py", "weblate/weblate/billing/migrations/0009_auto_20181101_0900.py", "weblate/weblate/billing/migrations/0010_invoice_amount.py", "weblate/weblate/billing/migrations/0011_billing_grace_period.py", "weblate/weblate/billing/migrations/0012_auto_20181207_0843.py", "weblate/weblate/billing/migrations/0013_auto_20190208_1452.py", "weblate/weblate/billing/migrations/0014_billing_removal.py", "weblate/weblate/billing/migrations/__init__.py", "weblate/weblate/billing/models.py", "weblate/weblate/billing/tasks.py", "weblate/weblate/billing/tests.py", "weblate/weblate/billing/views.py", "weblate/weblate/billing/__init__.py", "weblate/weblate/celery.py", "weblate/weblate/checks/admin.py", "weblate/weblate/checks/angularjs.py", "weblate/weblate/checks/apps.py", "weblate/weblate/checks/base.py", "weblate/weblate/checks/chars.py", "weblate/weblate/checks/consistency.py", "weblate/weblate/checks/data.py", "weblate/weblate/checks/format.py", "weblate/weblate/checks/languages.py", "weblate/weblate/checks/management/commands/list_ignored_checks.py", "weblate/weblate/checks/management/commands/list_same_checks.py", "weblate/weblate/checks/management/commands/updatechecks.py", "weblate/weblate/checks/management/commands/__init__.py", "weblate/weblate/checks/management/__init__.py", "weblate/weblate/checks/markup.py", "weblate/weblate/checks/migrations/0001_squashed_0002_auto_20180416_1509.py", "weblate/weblate/checks/migrations/__init__.py", "weblate/weblate/checks/models.py", "weblate/weblate/checks/same.py", "weblate/weblate/checks/source.py", "weblate/weblate/checks/tests/test_angularjs_checks.py", "weblate/weblate/checks/tests/test_chars_checks.py", "weblate/weblate/checks/tests/test_checks.py", "weblate/weblate/checks/tests/test_commands.py", "weblate/weblate/checks/tests/test_consistency_checks.py", "weblate/weblate/checks/tests/test_format_checks.py", "weblate/weblate/checks/tests/test_markup_checks.py", "weblate/weblate/checks/tests/test_same_checks.py", "weblate/weblate/checks/tests/test_source_checks.py", "weblate/weblate/checks/tests/test_views.py", "weblate/weblate/checks/tests/__init__.py", "weblate/weblate/checks/views.py", "weblate/weblate/checks/__init__.py", "weblate/weblate/formats/apps.py", "weblate/weblate/formats/auto.py", "weblate/weblate/formats/base.py", "weblate/weblate/formats/exporters.py", "weblate/weblate/formats/external.py", "weblate/weblate/formats/helpers.py", "weblate/weblate/formats/models.py", "weblate/weblate/formats/tests/test_exporters.py", "weblate/weblate/formats/tests/test_external.py", "weblate/weblate/formats/tests/test_formats.py", "weblate/weblate/formats/tests/test_txt.py", "weblate/weblate/formats/tests/__init__.py", "weblate/weblate/formats/ttkit.py", "weblate/weblate/formats/txt.py", "weblate/weblate/formats/__init__.py", "weblate/weblate/gitexport/apps.py", "weblate/weblate/gitexport/migrations/0001_squashed_0002_fill_in_url.py", "weblate/weblate/gitexport/migrations/__init__.py", "weblate/weblate/gitexport/models.py", "weblate/weblate/gitexport/tests.py", "weblate/weblate/gitexport/utils.py", "weblate/weblate/gitexport/views.py", "weblate/weblate/gitexport/__init__.py", "weblate/weblate/lang/admin.py", "weblate/weblate/lang/apps.py", "weblate/weblate/lang/data.py", "weblate/weblate/lang/management/commands/list_languages.py", "weblate/weblate/lang/management/commands/move_language.py", "weblate/weblate/lang/management/commands/setuplang.py", "weblate/weblate/lang/management/commands/__init__.py", "weblate/weblate/lang/management/__init__.py", "weblate/weblate/lang/migrations/0001_squashed_0011_auto_20180215_1158.py", "weblate/weblate/lang/migrations/__init__.py", "weblate/weblate/lang/models.py", "weblate/weblate/lang/tests.py", "weblate/weblate/lang/views.py", "weblate/weblate/lang/__init__.py", "weblate/weblate/langdata/admin.py", "weblate/weblate/langdata/apps.py", "weblate/weblate/langdata/languages.py", "weblate/weblate/langdata/migrations/__init__.py", "weblate/weblate/langdata/models.py", "weblate/weblate/langdata/tests.py", "weblate/weblate/langdata/views.py", "weblate/weblate/langdata/__init__.py", "weblate/weblate/legal/admin.py", "weblate/weblate/legal/apps.py", "weblate/weblate/legal/forms.py", "weblate/weblate/legal/middleware.py", "weblate/weblate/legal/migrations/0001_squashed_0004_copy_auditlog.py", "weblate/weblate/legal/migrations/__init__.py", "weblate/weblate/legal/models.py", "weblate/weblate/legal/pipeline.py", "weblate/weblate/legal/tests.py", "weblate/weblate/legal/urls.py", "weblate/weblate/legal/views.py", "weblate/weblate/legal/__init__.py", "weblate/weblate/logger.py", "weblate/weblate/machinery/apertium.py", "weblate/weblate/machinery/aws.py", "weblate/weblate/machinery/baidu.py", "weblate/weblate/machinery/base.py", "weblate/weblate/machinery/deepl.py", "weblate/weblate/machinery/dummy.py", "weblate/weblate/machinery/glosbe.py", "weblate/weblate/machinery/google.py", "weblate/weblate/machinery/microsoft.py", "weblate/weblate/machinery/microsoftterminology.py", "weblate/weblate/machinery/models.py", "weblate/weblate/machinery/mymemory.py", "weblate/weblate/machinery/netease.py", "weblate/weblate/machinery/saptranslationhub.py", "weblate/weblate/machinery/tests.py", "weblate/weblate/machinery/tmserver.py", "weblate/weblate/machinery/weblatetm.py", "weblate/weblate/machinery/yandex.py", "weblate/weblate/machinery/youdao.py", "weblate/weblate/machinery/__init__.py", "weblate/weblate/memory/admin.py", "weblate/weblate/memory/apps.py", "weblate/weblate/memory/forms.py", "weblate/weblate/memory/machine.py", "weblate/weblate/memory/management/commands/delete_memory.py", "weblate/weblate/memory/management/commands/dump_memory.py", "weblate/weblate/memory/management/commands/import_memory.py", "weblate/weblate/memory/management/commands/list_memory.py", "weblate/weblate/memory/management/commands/optimize_memory.py", "weblate/weblate/memory/management/commands/__init__.py", "weblate/weblate/memory/management/__init__.py", "weblate/weblate/memory/migrations/0001_squashed_0003_auto_20180321_1554.py", "weblate/weblate/memory/migrations/__init__.py", "weblate/weblate/memory/models.py", "weblate/weblate/memory/storage.py", "weblate/weblate/memory/tasks.py", "weblate/weblate/memory/tests.py", "weblate/weblate/memory/views.py", "weblate/weblate/memory/__init__.py", "weblate/weblate/middleware.py", "weblate/weblate/models.py", "weblate/weblate/openshiftlib.py", "weblate/weblate/runner.py", "weblate/weblate/screenshots/admin.py", "weblate/weblate/screenshots/apps.py", "weblate/weblate/screenshots/fields.py", "weblate/weblate/screenshots/forms.py", "weblate/weblate/screenshots/migrations/0001_squashed_0003_auto_20170215_1633.py", "weblate/weblate/screenshots/migrations/0002_auto_20180826_0839.py", "weblate/weblate/screenshots/migrations/__init__.py", "weblate/weblate/screenshots/models.py", "weblate/weblate/screenshots/tasks.py", "weblate/weblate/screenshots/tests.py", "weblate/weblate/screenshots/views.py", "weblate/weblate/screenshots/__init__.py", "weblate/weblate/settings_dev.py", "weblate/weblate/settings_example.py", "weblate/weblate/settings_openshift.py", "weblate/weblate/settings_test_nose.py", "weblate/weblate/sitemaps.py", "weblate/weblate/test_openshift.py", "weblate/weblate/trans/admin.py", "weblate/weblate/trans/apps.py", "weblate/weblate/trans/autofixes/base.py", "weblate/weblate/trans/autofixes/chars.py", "weblate/weblate/trans/autofixes/custom.py", "weblate/weblate/trans/autofixes/whitespace.py", "weblate/weblate/trans/autofixes/__init__.py", "weblate/weblate/trans/autotranslate.py", "weblate/weblate/trans/checklists.py", "weblate/weblate/trans/context_processors.py", "weblate/weblate/trans/debug.py", "weblate/weblate/trans/discovery.py", "weblate/weblate/trans/exceptions.py", "weblate/weblate/trans/feeds.py", "weblate/weblate/trans/fields.py", "weblate/weblate/trans/filter.py", "weblate/weblate/trans/forms.py", "weblate/weblate/trans/management/commands/add_suggestions.py", "weblate/weblate/trans/management/commands/auto_translate.py", "weblate/weblate/trans/management/commands/benchmark.py", "weblate/weblate/trans/management/commands/checkgit.py", "weblate/weblate/trans/management/commands/cleanuptrans.py", "weblate/weblate/trans/management/commands/commitgit.py", "weblate/weblate/trans/management/commands/commit_pending.py", "weblate/weblate/trans/management/commands/compilemessages.py", "weblate/weblate/trans/management/commands/fixup_flags.py", "weblate/weblate/trans/management/commands/import_json.py", "weblate/weblate/trans/management/commands/import_project.py", "weblate/weblate/trans/management/commands/list_translators.py", "weblate/weblate/trans/management/commands/list_versions.py", "weblate/weblate/trans/management/commands/loadpo.py", "weblate/weblate/trans/management/commands/lock_translation.py", "weblate/weblate/trans/management/commands/pushgit.py", "weblate/weblate/trans/management/commands/rebuild_index.py", "weblate/weblate/trans/management/commands/unlock_translation.py", "weblate/weblate/trans/management/commands/updategit.py", "weblate/weblate/trans/management/commands/__init__.py", "weblate/weblate/trans/management/__init__.py", "weblate/weblate/trans/migrations/0001_squashed_0143_auto_20180609_1655.py", "weblate/weblate/trans/migrations/0002_delete_indexupdate.py", "weblate/weblate/trans/migrations/0003_remove_translation_commit_message.py", "weblate/weblate/trans/migrations/0004_project_use_shared_tm.py", "weblate/weblate/trans/migrations/0005_auto_20180914_1135.py", "weblate/weblate/trans/migrations/0006_suggestion_userdetails.py", "weblate/weblate/trans/migrations/0007_auto_20181011_1634.py", "weblate/weblate/trans/migrations/0008_auto_20181015_2104.py", "weblate/weblate/trans/migrations/0009_auto_20181113_1219.py", "weblate/weblate/trans/migrations/0010_auto_20181205_1505.py", "weblate/weblate/trans/migrations/0011_component_merge_message.py", "weblate/weblate/trans/migrations/0012_auto_20190129_1325.py", "weblate/weblate/trans/migrations/0013_component_addon_message.py", "weblate/weblate/trans/migrations/0014_auto_20190203_1923.py", "weblate/weblate/trans/migrations/0015_linked_component_branch.py", "weblate/weblate/trans/migrations/0016_fix_alert_occurrence.py", "weblate/weblate/trans/migrations/__init__.py", "weblate/weblate/trans/mixins.py", "weblate/weblate/trans/models/agreement.py", "weblate/weblate/trans/models/alert.py", "weblate/weblate/trans/models/change.py", "weblate/weblate/trans/models/comment.py", "weblate/weblate/trans/models/component.py", "weblate/weblate/trans/models/componentlist.py", "weblate/weblate/trans/models/conf.py", "weblate/weblate/trans/models/dictionary.py", "weblate/weblate/trans/models/project.py", "weblate/weblate/trans/models/source.py", "weblate/weblate/trans/models/suggestion.py", "weblate/weblate/trans/models/translation.py", "weblate/weblate/trans/models/unit.py", "weblate/weblate/trans/models/whiteboard.py", "weblate/weblate/trans/models/__init__.py", "weblate/weblate/trans/search.py", "weblate/weblate/trans/signals.py", "weblate/weblate/trans/simplediff.py", "weblate/weblate/trans/specialchars.py", "weblate/weblate/trans/stats.py", "weblate/weblate/trans/tasks.py", "weblate/weblate/trans/templatetags/advertisement.py", "weblate/weblate/trans/templatetags/translations.py", "weblate/weblate/trans/templatetags/__init__.py", "weblate/weblate/trans/tests/test_acl.py", "weblate/weblate/trans/tests/test_advertisement.py", "weblate/weblate/trans/tests/test_agreement.py", "weblate/weblate/trans/tests/test_alert.py", "weblate/weblate/trans/tests/test_autofix.py", "weblate/weblate/trans/tests/test_autotranslate.py", "weblate/weblate/trans/tests/test_basic_views.py", "weblate/weblate/trans/tests/test_changes.py", "weblate/weblate/trans/tests/test_charts.py", "weblate/weblate/trans/tests/test_commands.py", "weblate/weblate/trans/tests/test_comment.py", "weblate/weblate/trans/tests/test_component.py", "weblate/weblate/trans/tests/test_create.py", "weblate/weblate/trans/tests/test_debug.py", "weblate/weblate/trans/tests/test_dictionary.py", "weblate/weblate/trans/tests/test_diff.py", "weblate/weblate/trans/tests/test_discovery.py", "weblate/weblate/trans/tests/test_edit.py", "weblate/weblate/trans/tests/test_exports.py", "weblate/weblate/trans/tests/test_files.py", "weblate/weblate/trans/tests/test_git_views.py", "weblate/weblate/trans/tests/test_hooks.py", "weblate/weblate/trans/tests/test_js_views.py", "weblate/weblate/trans/tests/test_lock.py", "weblate/weblate/trans/tests/test_manage.py", "weblate/weblate/trans/tests/test_models.py", "weblate/weblate/trans/tests/test_remote.py", "weblate/weblate/trans/tests/test_reports.py", "weblate/weblate/trans/tests/test_review.py", "weblate/weblate/trans/tests/test_search.py", "weblate/weblate/trans/tests/test_selenium.py", "weblate/weblate/trans/tests/test_settings.py", "weblate/weblate/trans/tests/test_sitemaps.py", "weblate/weblate/trans/tests/test_sort.py", "weblate/weblate/trans/tests/test_specialchars.py", "weblate/weblate/trans/tests/test_suggestions.py", "weblate/weblate/trans/tests/test_templatetags.py", "weblate/weblate/trans/tests/test_unitdata.py", "weblate/weblate/trans/tests/test_util.py", "weblate/weblate/trans/tests/test_views.py", "weblate/weblate/trans/tests/test_widgets.py", "weblate/weblate/trans/tests/test_xliff_placeholders.py", "weblate/weblate/trans/tests/utils.py", "weblate/weblate/trans/tests/__init__.py", "weblate/weblate/trans/util.py", "weblate/weblate/trans/validators.py", "weblate/weblate/trans/views/about.py", "weblate/weblate/trans/views/acl.py", "weblate/weblate/trans/views/agreement.py", "weblate/weblate/trans/views/api.py", "weblate/weblate/trans/views/basic.py", "weblate/weblate/trans/views/changes.py", "weblate/weblate/trans/views/charts.py", "weblate/weblate/trans/views/create.py", "weblate/weblate/trans/views/dashboard.py", "weblate/weblate/trans/views/dictionary.py", "weblate/weblate/trans/views/edit.py", "weblate/weblate/trans/views/files.py", "weblate/weblate/trans/views/git.py", "weblate/weblate/trans/views/hooks.py", "weblate/weblate/trans/views/js.py", "weblate/weblate/trans/views/lock.py", "weblate/weblate/trans/views/manage.py", "weblate/weblate/trans/views/reports.py", "weblate/weblate/trans/views/search.py", "weblate/weblate/trans/views/settings.py", "weblate/weblate/trans/views/source.py", "weblate/weblate/trans/views/widgets.py", "weblate/weblate/trans/views/__init__.py", "weblate/weblate/trans/widgets.py", "weblate/weblate/trans/__init__.py", "weblate/weblate/urls.py", "weblate/weblate/utils/admin.py", "weblate/weblate/utils/antispam.py", "weblate/weblate/utils/apps.py", "weblate/weblate/utils/celery.py", "weblate/weblate/utils/checks.py", "weblate/weblate/utils/classloader.py", "weblate/weblate/utils/data.py", "weblate/weblate/utils/db.py", "weblate/weblate/utils/decorators.py", "weblate/weblate/utils/docs.py", "weblate/weblate/utils/environment.py", "weblate/weblate/utils/errors.py", "weblate/weblate/utils/fields.py", "weblate/weblate/utils/files.py", "weblate/weblate/utils/fonts.py", "weblate/weblate/utils/hash.py", "weblate/weblate/utils/index.py", "weblate/weblate/utils/licenses.py", "weblate/weblate/utils/locale.py", "weblate/weblate/utils/management/commands/cleanup_celery.py", "weblate/weblate/utils/management/commands/__init__.py", "weblate/weblate/utils/management/__init__.py", "weblate/weblate/utils/messages.py", "weblate/weblate/utils/migrations/__init__.py", "weblate/weblate/utils/models.py", "weblate/weblate/utils/query.py", "weblate/weblate/utils/ratelimit.py", "weblate/weblate/utils/render.py", "weblate/weblate/utils/request.py", "weblate/weblate/utils/requirements.py", "weblate/weblate/utils/search.py", "weblate/weblate/utils/site.py", "weblate/weblate/utils/state.py", "weblate/weblate/utils/stats.py", "weblate/weblate/utils/tasks.py", "weblate/weblate/utils/template_hacks.py", "weblate/weblate/utils/template_tags.py", "weblate/weblate/utils/tests/test_antispam.py", "weblate/weblate/utils/tests/test_classloader.py", "weblate/weblate/utils/tests/test_commands.py", "weblate/weblate/utils/tests/test_db.py", "weblate/weblate/utils/tests/test_environment.py", "weblate/weblate/utils/tests/test_fonts.py", "weblate/weblate/utils/tests/test_hash.py", "weblate/weblate/utils/tests/test_licenses.py", "weblate/weblate/utils/tests/test_middleware.py", "weblate/weblate/utils/tests/test_ratelimit.py", "weblate/weblate/utils/tests/test_render.py", "weblate/weblate/utils/tests/test_request.py", "weblate/weblate/utils/tests/test_requirements.py", "weblate/weblate/utils/tests/test_search.py", "weblate/weblate/utils/tests/test_validators.py", "weblate/weblate/utils/tests/test_views.py", "weblate/weblate/utils/tests/__init__.py", "weblate/weblate/utils/translation.py", "weblate/weblate/utils/unitdata.py", "weblate/weblate/utils/unittest.py", "weblate/weblate/utils/validators.py", "weblate/weblate/utils/views.py", "weblate/weblate/utils/__init__.py", "weblate/weblate/vcs/apps.py", "weblate/weblate/vcs/base.py", "weblate/weblate/vcs/git.py", "weblate/weblate/vcs/gpg.py", "weblate/weblate/vcs/mercurial.py", "weblate/weblate/vcs/models.py", "weblate/weblate/vcs/ssh.py", "weblate/weblate/vcs/tests/test_gpg.py", "weblate/weblate/vcs/tests/test_ssh.py", "weblate/weblate/vcs/tests/test_vcs.py", "weblate/weblate/vcs/tests/__init__.py", "weblate/weblate/vcs/__init__.py", "weblate/weblate/wladmin/apps.py", "weblate/weblate/wladmin/migrations/0001_squashed_0003_auto_20180215_1127.py", "weblate/weblate/wladmin/migrations/0002_auto_20181127_2116.py", "weblate/weblate/wladmin/migrations/__init__.py", "weblate/weblate/wladmin/models.py", "weblate/weblate/wladmin/sites.py", "weblate/weblate/wladmin/tasks.py", "weblate/weblate/wladmin/templatetags/check_links.py", "weblate/weblate/wladmin/templatetags/__init__.py", "weblate/weblate/wladmin/tests.py", "weblate/weblate/wladmin/views.py", "weblate/weblate/wladmin/__init__.py", "weblate/weblate/wsgi.py", "weblate/weblate/__init__.py" ],
+  "cells" : [ {
+    "src" : 512,
+    "dest" : 369,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 512,
+    "dest" : 216,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 512,
+    "dest" : 362,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 512,
+    "dest" : 363,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 512,
+    "dest" : 366,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 387,
+    "dest" : 435,
+    "values" : {
+      "P5" : 8.0
+    }
+  }, {
+    "src" : 387,
+    "dest" : 86,
+    "values" : {
+      "P5" : 16.0
+    }
+  }, {
+    "src" : 387,
+    "dest" : 294,
+    "values" : {
+      "P5" : 16.0
+    }
+  }, {
+    "src" : 391,
+    "dest" : 369,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 391,
+    "dest" : 216,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 391,
+    "dest" : 362,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 391,
+    "dest" : 363,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 391,
+    "dest" : 366,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 392,
+    "dest" : 369,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 392,
+    "dest" : 435,
+    "values" : {
+      "P5" : 10.0
+    }
+  }, {
+    "src" : 392,
+    "dest" : 86,
+    "values" : {
+      "P5" : 20.0
+    }
+  }, {
+    "src" : 392,
+    "dest" : 294,
+    "values" : {
+      "P5" : 20.0
+    }
+  }, {
+    "src" : 392,
+    "dest" : 216,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 392,
+    "dest" : 362,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 392,
+    "dest" : 363,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 392,
+    "dest" : 366,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 393,
+    "dest" : 369,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 393,
+    "dest" : 65,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 393,
+    "dest" : 196,
+    "values" : {
+      "P5" : 9.0
+    }
+  }, {
+    "src" : 393,
+    "dest" : 172,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 393,
+    "dest" : 94,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 393,
+    "dest" : 318,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 394,
+    "dest" : 435,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 394,
+    "dest" : 86,
+    "values" : {
+      "P5" : 12.0
+    }
+  }, {
+    "src" : 394,
+    "dest" : 294,
+    "values" : {
+      "P5" : 12.0
+    }
+  }, {
+    "src" : 396,
+    "dest" : 435,
+    "values" : {
+      "P5" : 12.0
+    }
+  }, {
+    "src" : 396,
+    "dest" : 86,
+    "values" : {
+      "P5" : 24.0
+    }
+  }, {
+    "src" : 396,
+    "dest" : 294,
+    "values" : {
+      "P5" : 24.0
+    }
+  }, {
+    "src" : 399,
+    "dest" : 435,
+    "values" : {
+      "P5" : 9.0
+    }
+  }, {
+    "src" : 399,
+    "dest" : 86,
+    "values" : {
+      "P5" : 18.0
+    }
+  }, {
+    "src" : 399,
+    "dest" : 294,
+    "values" : {
+      "P5" : 18.0
+    }
+  }, {
+    "src" : 401,
+    "dest" : 369,
+    "values" : {
+      "P5" : 32.0
+    }
+  }, {
+    "src" : 401,
+    "dest" : 435,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 401,
+    "dest" : 86,
+    "values" : {
+      "P5" : 12.0
+    }
+  }, {
+    "src" : 401,
+    "dest" : 294,
+    "values" : {
+      "P5" : 12.0
+    }
+  }, {
+    "src" : 401,
+    "dest" : 216,
+    "values" : {
+      "P5" : 32.0
+    }
+  }, {
+    "src" : 401,
+    "dest" : 362,
+    "values" : {
+      "P5" : 32.0
+    }
+  }, {
+    "src" : 401,
+    "dest" : 363,
+    "values" : {
+      "P5" : 32.0
+    }
+  }, {
+    "src" : 401,
+    "dest" : 172,
+    "values" : {
+      "P5" : 10.0
+    }
+  }, {
+    "src" : 401,
+    "dest" : 366,
+    "values" : {
+      "P5" : 32.0
+    }
+  }, {
+    "src" : 401,
+    "dest" : 94,
+    "values" : {
+      "P5" : 20.0
+    }
+  }, {
+    "src" : 401,
+    "dest" : 318,
+    "values" : {
+      "P5" : 20.0
+    }
+  }, {
+    "src" : 402,
+    "dest" : 435,
+    "values" : {
+      "P5" : 10.0
+    }
+  }, {
+    "src" : 402,
+    "dest" : 86,
+    "values" : {
+      "P5" : 20.0
+    }
+  }, {
+    "src" : 402,
+    "dest" : 294,
+    "values" : {
+      "P5" : 20.0
+    }
+  }, {
+    "src" : 147,
+    "dest" : 369,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 147,
+    "dest" : 65,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 147,
+    "dest" : 196,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 275,
+    "dest" : 196,
+    "values" : {
+      "P5" : 12.0
+    }
+  }, {
+    "src" : 275,
+    "dest" : 94,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 275,
+    "dest" : 318,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 403,
+    "dest" : 435,
+    "values" : {
+      "P5" : 46.0
+    }
+  }, {
+    "src" : 403,
+    "dest" : 86,
+    "values" : {
+      "P5" : 92.0
+    }
+  }, {
+    "src" : 403,
+    "dest" : 294,
+    "values" : {
+      "P5" : 92.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 113,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 216,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 185,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 362,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 366,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 277,
+    "dest" : 435,
+    "values" : {
+      "P5" : 10.0
+    }
+  }, {
+    "src" : 277,
+    "dest" : 86,
+    "values" : {
+      "P5" : 20.0
+    }
+  }, {
+    "src" : 277,
+    "dest" : 294,
+    "values" : {
+      "P5" : 20.0
+    }
+  }, {
+    "src" : 405,
+    "dest" : 435,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 405,
+    "dest" : 86,
+    "values" : {
+      "P5" : 10.0
+    }
+  }, {
+    "src" : 405,
+    "dest" : 294,
+    "values" : {
+      "P5" : 10.0
+    }
+  }, {
+    "src" : 406,
+    "dest" : 435,
+    "values" : {
+      "P5" : 29.0
+    }
+  }, {
+    "src" : 406,
+    "dest" : 86,
+    "values" : {
+      "P5" : 58.0
+    }
+  }, {
+    "src" : 406,
+    "dest" : 294,
+    "values" : {
+      "P5" : 58.0
+    }
+  }, {
+    "src" : 407,
+    "dest" : 369,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 407,
+    "dest" : 216,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 407,
+    "dest" : 362,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 407,
+    "dest" : 363,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 407,
+    "dest" : 172,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 407,
+    "dest" : 366,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 407,
+    "dest" : 94,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 407,
+    "dest" : 318,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 535,
+    "dest" : 435,
+    "values" : {
+      "P5" : 9.0
+    }
+  }, {
+    "src" : 535,
+    "dest" : 86,
+    "values" : {
+      "P5" : 18.0
+    }
+  }, {
+    "src" : 535,
+    "dest" : 294,
+    "values" : {
+      "P5" : 18.0
+    }
+  }, {
+    "src" : 408,
+    "dest" : 369,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 408,
+    "dest" : 216,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 408,
+    "dest" : 362,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 408,
+    "dest" : 363,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 408,
+    "dest" : 366,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 409,
+    "dest" : 435,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 409,
+    "dest" : 86,
+    "values" : {
+      "P5" : 8.0
+    }
+  }, {
+    "src" : 409,
+    "dest" : 294,
+    "values" : {
+      "P5" : 8.0
+    }
+  }, {
+    "src" : 411,
+    "dest" : 435,
+    "values" : {
+      "P5" : 10.0
+    }
+  }, {
+    "src" : 411,
+    "dest" : 86,
+    "values" : {
+      "P5" : 20.0
+    }
+  }, {
+    "src" : 411,
+    "dest" : 294,
+    "values" : {
+      "P5" : 20.0
+    }
+  }, {
+    "src" : 413,
+    "dest" : 435,
+    "values" : {
+      "P5" : 12.0
+    }
+  }, {
+    "src" : 413,
+    "dest" : 86,
+    "values" : {
+      "P5" : 24.0
+    }
+  }, {
+    "src" : 413,
+    "dest" : 294,
+    "values" : {
+      "P5" : 24.0
+    }
+  }, {
+    "src" : 417,
+    "dest" : 369,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 417,
+    "dest" : 216,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 417,
+    "dest" : 362,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 417,
+    "dest" : 363,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 417,
+    "dest" : 172,
+    "values" : {
+      "P5" : 8.0
+    }
+  }, {
+    "src" : 417,
+    "dest" : 366,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 417,
+    "dest" : 94,
+    "values" : {
+      "P5" : 16.0
+    }
+  }, {
+    "src" : 417,
+    "dest" : 318,
+    "values" : {
+      "P5" : 16.0
+    }
+  }, {
+    "src" : 34,
+    "dest" : 369,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 34,
+    "dest" : 433,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 34,
+    "dest" : 371,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 34,
+    "dest" : 172,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 34,
+    "dest" : 94,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 293,
+    "dest" : 435,
+    "values" : {
+      "P5" : 13.0
+    }
+  }, {
+    "src" : 293,
+    "dest" : 86,
+    "values" : {
+      "P5" : 26.0
+    }
+  }, {
+    "src" : 293,
+    "dest" : 294,
+    "values" : {
+      "P5" : 26.0
+    }
+  }, {
+    "src" : 421,
+    "dest" : 369,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 421,
+    "dest" : 435,
+    "values" : {
+      "P5" : 25.0
+    }
+  }, {
+    "src" : 421,
+    "dest" : 86,
+    "values" : {
+      "P5" : 50.0
+    }
+  }, {
+    "src" : 421,
+    "dest" : 294,
+    "values" : {
+      "P5" : 50.0
+    }
+  }, {
+    "src" : 421,
+    "dest" : 216,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 421,
+    "dest" : 362,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 421,
+    "dest" : 363,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 421,
+    "dest" : 366,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 426,
+    "dest" : 369,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 426,
+    "dest" : 216,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 426,
+    "dest" : 362,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 426,
+    "dest" : 363,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 426,
+    "dest" : 366,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 300,
+    "dest" : 369,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 300,
+    "dest" : 216,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 300,
+    "dest" : 362,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 300,
+    "dest" : 363,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 300,
+    "dest" : 366,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 302,
+    "dest" : 369,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 302,
+    "dest" : 216,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 302,
+    "dest" : 362,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 302,
+    "dest" : 363,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 302,
+    "dest" : 366,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 47,
+    "dest" : 435,
+    "values" : {
+      "P5" : 66.0
+    }
+  }, {
+    "src" : 47,
+    "dest" : 86,
+    "values" : {
+      "P5" : 132.0
+    }
+  }, {
+    "src" : 47,
+    "dest" : 294,
+    "values" : {
+      "P5" : 132.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 435,
+    "values" : {
+      "P5" : 10.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 86,
+    "values" : {
+      "P5" : 20.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 294,
+    "values" : {
+      "P5" : 20.0
+    }
+  }, {
+    "src" : 432,
+    "dest" : 369,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 432,
+    "dest" : 216,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 432,
+    "dest" : 362,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 432,
+    "dest" : 363,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 432,
+    "dest" : 366,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 433,
+    "dest" : 369,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 433,
+    "dest" : 371,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 433,
+    "dest" : 172,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 433,
+    "dest" : 94,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 435,
+    "values" : {
+      "P5" : 41.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 86,
+    "values" : {
+      "P5" : 82.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 294,
+    "values" : {
+      "P5" : 82.0
+    }
+  }, {
+    "src" : 309,
+    "dest" : 369,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 309,
+    "dest" : 433,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 309,
+    "dest" : 371,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 309,
+    "dest" : 172,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 309,
+    "dest" : 94,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 438,
+    "dest" : 369,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 438,
+    "dest" : 433,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 438,
+    "dest" : 371,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 438,
+    "dest" : 172,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 438,
+    "dest" : 94,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 185,
+    "dest" : 196,
+    "values" : {
+      "P5" : 12.0
+    }
+  }, {
+    "src" : 185,
+    "dest" : 94,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 185,
+    "dest" : 318,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 196,
+    "values" : {
+      "P5" : 36.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 94,
+    "values" : {
+      "P5" : 12.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 318,
+    "values" : {
+      "P5" : 12.0
+    }
+  }, {
+    "src" : 186,
+    "dest" : 172,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 186,
+    "dest" : 94,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 186,
+    "dest" : 318,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 369,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 433,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 371,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 172,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 94,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 196,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 94,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 187,
+    "dest" : 318,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 444,
+    "dest" : 369,
+    "values" : {
+      "P5" : 8.0
+    }
+  }, {
+    "src" : 444,
+    "dest" : 433,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 444,
+    "dest" : 371,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 444,
+    "dest" : 216,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 444,
+    "dest" : 362,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 444,
+    "dest" : 363,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 444,
+    "dest" : 172,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 444,
+    "dest" : 366,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 444,
+    "dest" : 94,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 318,
+    "dest" : 369,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 318,
+    "dest" : 433,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 318,
+    "dest" : 371,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 318,
+    "dest" : 172,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 318,
+    "dest" : 94,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 448,
+    "dest" : 369,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 448,
+    "dest" : 433,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 448,
+    "dest" : 371,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 448,
+    "dest" : 216,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 448,
+    "dest" : 362,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 448,
+    "dest" : 363,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 448,
+    "dest" : 172,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 448,
+    "dest" : 94,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 448,
+    "dest" : 366,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 195,
+    "dest" : 369,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 195,
+    "dest" : 65,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 195,
+    "dest" : 196,
+    "values" : {
+      "P5" : 33.0
+    }
+  }, {
+    "src" : 195,
+    "dest" : 94,
+    "values" : {
+      "P5" : 10.0
+    }
+  }, {
+    "src" : 195,
+    "dest" : 318,
+    "values" : {
+      "P5" : 10.0
+    }
+  }, {
+    "src" : 451,
+    "dest" : 369,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 451,
+    "dest" : 216,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 451,
+    "dest" : 362,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 451,
+    "dest" : 363,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 451,
+    "dest" : 366,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 196,
+    "dest" : 94,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 196,
+    "dest" : 318,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 435,
+    "values" : {
+      "P5" : 13.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 86,
+    "values" : {
+      "P5" : 26.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 294,
+    "values" : {
+      "P5" : 26.0
+    }
+  }, {
+    "src" : 216,
+    "dest" : 113,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 216,
+    "dest" : 185,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 216,
+    "dest" : 362,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 216,
+    "dest" : 366,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 95,
+    "dest" : 435,
+    "values" : {
+      "P5" : 10.0
+    }
+  }, {
+    "src" : 95,
+    "dest" : 86,
+    "values" : {
+      "P5" : 20.0
+    }
+  }, {
+    "src" : 95,
+    "dest" : 294,
+    "values" : {
+      "P5" : 20.0
+    }
+  }, {
+    "src" : 481,
+    "dest" : 369,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 481,
+    "dest" : 216,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 481,
+    "dest" : 362,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 481,
+    "dest" : 363,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 481,
+    "dest" : 366,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 487,
+    "dest" : 369,
+    "values" : {
+      "P5" : 12.0
+    }
+  }, {
+    "src" : 487,
+    "dest" : 433,
+    "values" : {
+      "P5" : 8.0
+    }
+  }, {
+    "src" : 487,
+    "dest" : 371,
+    "values" : {
+      "P5" : 8.0
+    }
+  }, {
+    "src" : 487,
+    "dest" : 216,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 487,
+    "dest" : 362,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 487,
+    "dest" : 363,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 487,
+    "dest" : 172,
+    "values" : {
+      "P5" : 8.0
+    }
+  }, {
+    "src" : 487,
+    "dest" : 366,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 487,
+    "dest" : 94,
+    "values" : {
+      "P5" : 8.0
+    }
+  }, {
+    "src" : 360,
+    "dest" : 433,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 360,
+    "dest" : 371,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 360,
+    "dest" : 186,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 360,
+    "dest" : 365,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 360,
+    "dest" : 509,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 362,
+    "dest" : 369,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 362,
+    "dest" : 65,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 362,
+    "dest" : 196,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 236,
+    "dest" : 435,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 236,
+    "dest" : 86,
+    "values" : {
+      "P5" : 14.0
+    }
+  }, {
+    "src" : 236,
+    "dest" : 294,
+    "values" : {
+      "P5" : 14.0
+    }
+  }, {
+    "src" : 369,
+    "dest" : 65,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 369,
+    "dest" : 196,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 369,
+    "dest" : 172,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 369,
+    "dest" : 94,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 369,
+    "dest" : 318,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 370,
+    "dest" : 369,
+    "values" : {
+      "P5" : 25.0
+    }
+  }, {
+    "src" : 370,
+    "dest" : 433,
+    "values" : {
+      "P5" : 25.0
+    }
+  }, {
+    "src" : 370,
+    "dest" : 371,
+    "values" : {
+      "P5" : 25.0
+    }
+  }, {
+    "src" : 370,
+    "dest" : 172,
+    "values" : {
+      "P5" : 25.0
+    }
+  }, {
+    "src" : 370,
+    "dest" : 94,
+    "values" : {
+      "P5" : 25.0
+    }
+  }, {
+    "src" : 372,
+    "dest" : 369,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 372,
+    "dest" : 196,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 372,
+    "dest" : 216,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 372,
+    "dest" : 362,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 372,
+    "dest" : 363,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 372,
+    "dest" : 94,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 372,
+    "dest" : 318,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 372,
+    "dest" : 366,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 500,
+    "dest" : 256,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 500,
+    "dest" : 241,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 500,
+    "dest" : 20,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 500,
+    "dest" : 186,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 377,
+    "dest" : 369,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 377,
+    "dest" : 216,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 377,
+    "dest" : 362,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 377,
+    "dest" : 363,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 377,
+    "dest" : 366,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 122,
+    "dest" : 113,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 122,
+    "dest" : 216,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 122,
+    "dest" : 185,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 122,
+    "dest" : 362,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 122,
+    "dest" : 366,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 380,
+    "dest" : 369,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 380,
+    "dest" : 216,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 380,
+    "dest" : 362,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 380,
+    "dest" : 363,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 380,
+    "dest" : 172,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 380,
+    "dest" : 366,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 380,
+    "dest" : 94,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 380,
+    "dest" : 318,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 382,
+    "dest" : 435,
+    "values" : {
+      "P5" : 18.0
+    }
+  }, {
+    "src" : 382,
+    "dest" : 86,
+    "values" : {
+      "P5" : 36.0
+    }
+  }, {
+    "src" : 382,
+    "dest" : 294,
+    "values" : {
+      "P5" : 36.0
+    }
+  } ]
+}

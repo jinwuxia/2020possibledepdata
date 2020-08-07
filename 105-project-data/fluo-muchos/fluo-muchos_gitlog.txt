@@ -1,0 +1,3183 @@
+commit 035a656e5919ad19dff659f797ec8448e4e04b17
+Author: Mike Walch <mwalch@apache.org>
+Date:   2019-02-04 14:25:15 -0500
+
+    More updates (#252)
+    
+    * Add cluster_group to muchos.props
+    * Separated ec2 & existing commands
+    * Installation dir is configurable
+    * Installing Hub is configurable
+
+4	1	ansible/common.yml
+9	12	ansible/roles/common/tasks/{drives.yml => ec2.yml}
+20	0	ansible/roles/common/tasks/existing.yml
+12	12	ansible/roles/common/tasks/main.yml
+1	1	ansible/roles/common/tasks/os.yml
+3	3	ansible/roles/common/tasks/ssh.yml
+1	1	ansible/roles/fluo/tasks/main.yml
+1	1	ansible/roles/fluo_yarn/tasks/main.yml
+1	1	ansible/roles/hadoop/tasks/main.yml
+1	1	ansible/roles/spark/tasks/main.yml
+8	3	conf/muchos.props.example
+8	3	lib/muchos/config.py
+5	8	lib/muchos/existing.py
+2	1	lib/tests/test_config.py
+
+commit 656a785e37eba2653cea96d8a6fd1158dd9c1b7d
+Author: Mike Walch <mwalch@apache.org>
+Date:   2019-01-31 13:51:58 -0500
+
+    Improve config to handle different cluster types (#249)
+    
+    * Configuration object now returns correct config
+      based on cluster type
+
+6	4	conf/muchos.props.example
+52	15	lib/muchos/config.py
+8	21	lib/muchos/existing.py
+32	4	lib/tests/test_config.py
+
+commit 020b2f2f57a8ecffee94ccdf00c0d69ee63edb77
+Author: Mike Walch <mwalch@apache.org>
+Date:   2019-01-31 12:52:08 -0500
+
+    Users can configure Muchos to not download software (#250)
+    
+    * Option configured using 'download_software = False'
+    * Also use HADOOP_HOME in accumulo-env.sh for 2.0
+
+1	0	ansible/accumulo.yml
+3	0	ansible/common.yml
+1	0	ansible/fluo.yml
+1	1	ansible/roles/accumulo/templates/accumulo-env.sh
+34	0	ansible/roles/proxy/tasks/download.yml
+0	17	ansible/roles/proxy/tasks/main.yml
+1	0	ansible/spark.yml
+2	0	conf/muchos.props.example
+1	0	lib/muchos/config.py
+5	9	lib/muchos/existing.py
+
+commit 8d13020287357239deb85e6165beaf090a3a078b
+Author: Mike Walch <mwalch@apache.org>
+Date:   2019-01-29 15:21:00 -0500
+
+    Simplify support for multiple cluster types (#248)
+    
+    * Renamed cloud_provider config to cluster_type
+    * cluster_type supports ec2 & existing clusters
+    * Ec2Cluster & ExistingCluster are now in seperates classes
+    * Ec2Cluster extends ExistingCluster and depends on boto
+    * ExistingCluster has now boto dependency
+
+4	4	ansible/roles/common/tasks/drives.yml
+3	3	conf/muchos.props.example
+17	440	lib/main.py
+1	1	lib/muchos/config.py
+229	0	lib/muchos/ec2.py
+270	0	lib/muchos/existing.py
+
+commit d3d6eb56806e93d2be77d69b5e252370fc7fcc59
+Author: Mike Walch <mwalch@apache.org>
+Date:   2019-01-02 16:15:26 -0500
+
+    Updated copyright date (#247)
+
+1	1	NOTICE
+
+commit 6a4bb86bfc82f0c59473f1d38e05d4d6ca0c4f74
+Author: Christopher McTague <cjmctague@apache.org>
+Date:   2018-12-13 13:54:38 -0500
+
+    Fix #244 - Add Apache License Header to files (#246)
+
+1	0	.gitignore
+17	0	ansible/accumulo.yml
+17	0	ansible/cancel_shutdown.yml
+17	0	ansible/common.yml
+15	0	ansible/conf/ansible.cfg
+17	0	ansible/docker.yml
+17	0	ansible/fluo.yml
+17	0	ansible/fluo_yarn.yml
+17	0	ansible/hadoop.yml
+17	0	ansible/kill.yml
+17	0	ansible/mesos.yml
+17	0	ansible/metrics.yml
+17	0	ansible/roles/accumulo/defaults/main.yml
+17	0	ansible/roles/accumulo/handlers/init-accumulo.yml
+17	0	ansible/roles/accumulo/tasks/download.yml
+17	0	ansible/roles/accumulo/tasks/init-accumulo.yml
+17	0	ansible/roles/accumulo/tasks/main.yml
+3	1	ansible/roles/accumulo/templates/accumulo-client.properties
+3	2	ansible/roles/accumulo/templates/accumulo-env.sh
+18	0	ansible/roles/accumulo/templates/accumulo-site.xml
+3	1	ansible/roles/accumulo/templates/accumulo.properties
+3	1	ansible/roles/accumulo/templates/hadoop-metrics2-accumulo.properties
+17	0	ansible/roles/common/files/kill.sh
+17	0	ansible/roles/common/handlers/main.yml
+17	0	ansible/roles/common/tasks/drives.yml
+17	0	ansible/roles/common/tasks/hosts.yml
+17	0	ansible/roles/common/tasks/main.yml
+17	0	ansible/roles/common/tasks/os.yml
+17	0	ansible/roles/common/tasks/ssh.yml
+16	0	ansible/roles/common/templates/root_bashrc
+17	0	ansible/roles/docker/defaults/main.yml
+17	0	ansible/roles/docker/tasks/main.yml
+17	0	ansible/roles/fluo/tasks/download.yml
+17	0	ansible/roles/fluo/tasks/main.yml
+13	9	ansible/roles/fluo/templates/fluo-app.properties
+13	9	ansible/roles/fluo/templates/fluo-conn.properties
+13	9	ansible/roles/fluo/templates/fluo.properties
+17	0	ansible/roles/fluo_yarn/tasks/download.yml
+17	0	ansible/roles/fluo_yarn/tasks/main.yml
+13	9	ansible/roles/fluo_yarn/templates/fluo-yarn.properties
+17	0	ansible/roles/grafana/defaults/main.yml
+17	0	ansible/roles/grafana/handlers/main.yml
+17	0	ansible/roles/grafana/tasks/main.yml
+17	0	ansible/roles/hadoop/tasks/main.yml
+17	0	ansible/roles/hadoop/tasks/start-hdfs.yml
+17	0	ansible/roles/hadoop/tasks/start-yarn.yml
+14	9	ansible/roles/hadoop/templates/core-site.xml
+18	0	ansible/roles/hadoop/templates/hdfs-site.xml
+14	9	ansible/roles/hadoop/templates/mapred-site.xml
+18	0	ansible/roles/hadoop/templates/yarn-site.xml
+17	0	ansible/roles/influxdb/defaults/main.yml
+17	0	ansible/roles/influxdb/handlers/main.yml
+17	0	ansible/roles/influxdb/tasks/main.yml
+17	0	ansible/roles/mesos/defaults/main.yml
+17	0	ansible/roles/mesos/tasks/main.yml
+15	0	ansible/roles/mesos/templates/mesos-slave
+17	0	ansible/roles/proxy/tasks/main.yml
+17	0	ansible/roles/spark/tasks/download.yml
+17	0	ansible/roles/spark/tasks/main.yml
+17	0	ansible/roles/spark/tasks/start-spark-history.yml
+15	0	ansible/roles/spark/templates/spark-defaults.conf
+17	0	ansible/roles/spark/templates/spark-env.sh
+17	0	ansible/roles/zookeeper/tasks/main.yml
+17	0	ansible/roles/zookeeper/tasks/start-zookeeper.yml
+17	0	ansible/roles/zookeeper/templates/zookeeper-env.sh
+17	0	ansible/scripts/install_ansible.sh
+17	0	ansible/spark.yml
+17	0	ansible/wipe.yml
+17	0	ansible/zookeeper.yml
+15	0	conf/hosts/example/example_cluster
+16	0	contrib/add-license-headers.md
+14	0	contrib/license-header.txt
+3	2	lib/main.py
+17	0	lib/muchos/__init__.py
+3	1	lib/muchos/config.py
+3	1	lib/muchos/util.py
+17	0	lib/tests/__init__.py
+3	1	lib/tests/test_config.py
+3	1	lib/tests/test_util.py
+
+commit 44eefe3a268fcb41075e09b3883c6226a94378b2
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-12-07 16:55:32 -0500
+
+    Fixes #240 - Upgrade to Python 3
+    
+    * Mostly automated changes using python 2to3 script
+
+1	2	.travis.yml
+2	2	README.md
+1	1	bin/muchos
+72	72	lib/{muchos => }/main.py
+13	13	lib/muchos/config.py
+10	10	lib/muchos/util.py
+
+commit badef47749dd95d4d210f1d8e877016d3eb8ee46
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-12-07 12:04:38 -0500
+
+    Fixes #241 - Updated license file headers for ASF (#243)
+
+7	6	.travis.yml
+0	5	AUTHORS
+4	4	LICENSE
+5	0	NOTICE
+7	6	bin/muchos
+7	6	conf/muchos.props.example
+7	6	contrib/muchos-logo-dark.svg
+7	7	contrib/muchos-logo.svg
+7	6	lib/muchos/config.py
+7	6	lib/muchos/main.py
+7	6	lib/muchos/util.py
+7	6	lib/tests/test_config.py
+7	6	lib/tests/test_util.py
+
+commit eb1346f3a022c630aee49ca9241ba7072285ce87
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-12-05 14:53:23 -0500
+
+    Fixes #239 - Several updates (#242)
+    
+    * boto3 should be installed by users using pip and
+      not installed by muchos script
+    * updated header to main.py for python2
+    * improved requirements documentation
+    * added quickstart
+
+53	25	README.md
+1	38	bin/muchos
+1	1	lib/muchos/main.py
+
+commit f9ef5ce8b43c466fe64f31cfbf618ea73b9b83bb
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-11-21 16:41:00 -0500
+
+    Fixes #236 - Map reduce not running with hadoop 3 (#238)
+    
+    Update configuration template to set additional variables when Hadoop 3 is detected.
+
+14	0	ansible/roles/hadoop/templates/mapred-site.xml
+
+commit 3f825878450d481b519bfabdd626341fde8781e1
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-11-21 16:40:12 -0500
+
+    Muchos can optionally set up Docker & Swarm (#237)
+    
+    * Set up occurs if user specifies 'swarmmanager' in configuration
+
+7	0	README.md
+35	0	ansible/docker.yml
+5	0	ansible/kill.yml
+1	0	ansible/roles/docker/defaults/main.yml
+37	0	ansible/roles/docker/tasks/main.yml
+2	2	conf/muchos.props.example
+4	2	lib/muchos/config.py
+4	0	lib/muchos/main.py
+2	2	lib/tests/test_config.py
+
+commit 6e786a0f43e4be01ce15fe1bf9fc7aeafd46739f
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-10-25 11:10:40 -0400
+
+    More updates (#235)
+    
+    * Fixed unit tests
+    * Updates to start-yarn.sh for Hadoop 3
+
+8	1	ansible/roles/hadoop/tasks/start-yarn.yml
+3	3	lib/tests/test_config.py
+
+commit 0896554d40a2641afb326a8efc114cdeb9af6c3f
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-10-22 14:02:38 -0400
+
+    Several update to Muchos (#233)
+    
+    * Using workers file with Hadoop 3
+    * Updated deprecated Ansible code
+    * Upgraded software versions
+    * Removed network settings for Spark
+
+0	3	ansible/common.yml
+1	1	ansible/roles/accumulo/templates/accumulo.properties
+0	3	ansible/roles/common/files/ifup-local
+11	10	ansible/roles/common/tasks/main.yml
+0	3	ansible/roles/common/tasks/os.yml
+1	1	ansible/roles/grafana/tasks/main.yml
+9	0	ansible/roles/hadoop/tasks/main.yml
+3	0	ansible/roles/hadoop/templates/workers
+2	0	conf/checksums
+4	6	conf/muchos.props.example
+0	1	lib/muchos/config.py
+1	1	lib/muchos/main.py
+
+commit 25dea4eebefaf08a6ef3dad37e2cd92911fc95c1
+Merge: 962cdd1 f91fdef
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-09-12 17:19:20 -0400
+
+    Merge pull request #231 from mikewalch/checksums
+    
+    Created checksums file and updated for Accumulo 2.x & Hadoop 3.x
+
+commit f91fdef374d41b2101a054f9ff7e41e2d5105cce
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-09-12 17:16:27 -0400
+
+    Removed commented out properties
+
+0	91	ansible/roles/accumulo/templates/accumulo-client.properties
+
+commit 6ca057c8966519bf32c7eb7daedcce20b46a0d6e
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-09-12 16:27:14 -0400
+
+    Updates to support Accumulo 2.x & Hadoop 3.x
+
+1	1	ansible/roles/accumulo/tasks/init-accumulo.yml
+13	1	ansible/roles/accumulo/tasks/main.yml
+124	0	ansible/roles/accumulo/templates/accumulo-client.properties
+8	12	ansible/roles/accumulo/templates/accumulo-env.sh
+0	3	ansible/roles/accumulo/templates/accumulo-site.xml
+42	0	ansible/roles/accumulo/templates/accumulo.properties
+2	2	ansible/roles/common/templates/bash_profile
+9	3	ansible/roles/common/templates/bashrc
+10	4	ansible/roles/common/templates/root_bashrc
+4	4	ansible/roles/hadoop/tasks/main.yml
+2	2	ansible/roles/hadoop/tasks/start-hdfs.yml
+1	1	ansible/roles/hadoop/tasks/start-yarn.yml
+1	1	ansible/roles/mesos/templates/mesos-slave
+1	1	ansible/roles/spark/tasks/start-spark-history.yml
+2	2	ansible/roles/spark/templates/spark-env.sh
+2	2	ansible/wipe.yml
+2	1	lib/muchos/config.py
+
+commit 055ccbee6dd606ec2b1a9eb66d032fa23dd93190
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-09-12 14:23:18 -0400
+
+    Muchos now reads checksums from file
+
+20	0	conf/checksums
+1	8	conf/muchos.props.example
+31	5	lib/muchos/config.py
+11	1	lib/muchos/main.py
+4	2	lib/tests/test_config.py
+
+commit 962cdd11fe07723576be8141fa12a2b312979b3f
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-08-01 12:08:59 -0400
+
+    Fixes #229 - Create 'client' service (#230)
+
+3	0	README.md
+1	1	conf/muchos.props.example
+2	2	lib/muchos/config.py
+
+commit 5782fede7580fc0b2f31588da12b212035f2a4c3
+Merge: d374d3e b5d99dc
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-07-25 14:40:42 -0400
+
+    Merge pull request #228 from mikewalch/spark-opt
+
+commit b5d99dc928a5b17491b6c8ddf1c2a0aef8654f42
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-07-25 13:55:26 -0400
+
+    Make Spark optional
+
+1	1	lib/muchos/config.py
+
+commit d374d3eb71843e069587b4e410e2acabdb66809a
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-07-20 15:05:30 -0400
+
+    Upgrade Accumulo to 1.9.2 (#227)
+
+2	2	conf/muchos.props.example
+
+commit 7f9ca27901686118be760764b438170aecf3ec28
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-07-20 14:49:59 -0400
+
+    Upgrade Accumulo to 1.9.2
+
+2	2	conf/muchos.props.example
+
+commit 9a232dd7fabfd23c30a312ecb684a827b325f579
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-07-17 10:52:07 -0400
+
+    Spark installation is now optional (#226)
+    
+    * Users now need to specify Spark on a node to install
+    * Default version of Spark is 2.2.2
+
+4	1	README.md
+0	15	ansible/common.yml
+9	0	ansible/hadoop.yml
+2	1	ansible/roles/hadoop/tasks/main.yml
+7	4	ansible/roles/hadoop/templates/yarn-site.xml
+0	1	ansible/roles/proxy/tasks/main.yml
+18	0	ansible/roles/spark/tasks/download.yml
+1	1	ansible/roles/spark/tasks/main.yml
+9	0	ansible/spark.yml
+6	0	ansible/zookeeper.yml
+4	4	conf/hosts/example/example_cluster
+7	8	conf/muchos.props.example
+1	1	lib/muchos/config.py
+6	1	lib/muchos/main.py
+12	15	lib/tests/test_config.py
+
+commit 045fadbceb59697a965b6283ae14a0e0ae477a65
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-07-13 16:37:54 -0400
+
+    Updated README to reflect move to Apache (#225)
+
+10	10	README.md
+
+commit 17797dea8ddf0c91046b8bffedf731b2b151f159
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-07-13 16:19:08 -0400
+
+    Updated the README with AMI changes (#224)
+
+18	20	README.md
+
+commit b69220d35e3d11b204124511c025a5fc6a8ddfec
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-07-13 12:21:27 -0400
+
+    Several updates to Muchos (#223)
+    
+    * AMI is only specified in muchos.props
+    * Added support for m5d instance types
+    * Made m5d.large the the default type
+
+6	4	conf/muchos.props.example
+5	6	lib/muchos/config.py
+6	9	lib/muchos/main.py
+14	30	lib/muchos/util.py
+5	5	lib/tests/test_config.py
+1	3	lib/tests/test_util.py
+
+commit 74ae5f8d47174af95a71eb4ab562192789030521
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-06-29 11:27:21 -0400
+
+    Stopped dep of Fluo for setting up InfluxDB (#222)
+
+1	1	ansible/roles/influxdb/handlers/main.yml
+2	0	ansible/roles/influxdb/tasks/main.yml
+
+commit 65075c05e7384451d0a27e0e0c51340bfa64cb53
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-06-28 12:00:30 -0400
+
+    Remove dependency on Fluo for Grafana (#220)
+
+0	2	ansible/roles/grafana/meta/main.yml
+2	2	ansible/roles/grafana/tasks/main.yml
+
+commit d57c8039ad46ceaff4857da556dc9752b844c49b
+Author: Keith Turner <keith@deenlo.com>
+Date:   2018-05-17 19:30:43 -0400
+
+    Update Hadoop and Accumulo versions (#219)
+
+4	4	conf/muchos.props.example
+
+commit b34ae81a5bef961ee0d1d7f23e9c3f464e916160
+Author: Keith Turner <keith@deenlo.com>
+Date:   2018-05-03 19:28:42 -0400
+
+    Log to ephemeral drive (#217)
+
+2	0	ansible/roles/accumulo/tasks/main.yml
+1	1	ansible/roles/accumulo/templates/accumulo-env.sh
+8	0	ansible/roles/hadoop/tasks/main.yml
+2	0	ansible/roles/zookeeper/tasks/main.yml
+1	1	ansible/roles/zookeeper/templates/zookeeper-env.sh
+6	6	conf/muchos.props.example
+
+commit 65be99caa4968fec1219f36b599533b40f4755e5
+Merge: fc61d62 adb3cf9
+Author: Christopher Tubbs <ctubbsii@apache.org>
+Date:   2018-04-16 16:35:47 -0400
+
+    Merge pull request #216 from mikewalch/accumulo-metrics
+    
+    Accumulo now sends metrics to InfluxDB/Grafana
+
+commit adb3cf97da875538807a0f6b51e1da14d54db279
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-04-16 16:12:20 -0400
+
+    Accumulo now sends metrics to InfluxDB/Grafana
+    
+    * Sending is only done if metrics server is configured
+
+5	0	ansible/roles/accumulo/tasks/main.yml
+20	0	ansible/roles/accumulo/templates/hadoop-metrics2-accumulo.properties
+1	0	ansible/roles/grafana/handlers/main.yml
+2	0	ansible/roles/grafana/tasks/main.yml
+0	1	ansible/roles/grafana/templates/grafana-cluster-datasource.json
+0	1	ansible/roles/grafana/templates/grafana-fluo-datasource.json
+16	0	ansible/roles/influxdb/templates/influxdb-9.4.2.conf
+2	2	conf/muchos.props.example
+2	2	lib/muchos/main.py
+
+commit fc61d62c0551993045587ff0d20bf588b5584dd2
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-03-08 10:18:36 -0500
+
+    Set Fluo YARN version and sha (#215)
+
+2	2	conf/muchos.props.example
+1	0	lib/muchos/config.py
+
+commit e277d119d79dccce16467be2aab3f83c25526ceb
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-03-01 09:44:41 -0500
+
+    Updated Centos AMIs and Fluo to 1.2.0 (#213)
+
+1	1	ansible/roles/fluo/tasks/download.yml
+2	2	conf/muchos.props.example
+1	1	lib/muchos/config.py
+18	23	lib/muchos/util.py
+1	1	lib/tests/test_config.py
+1	2	lib/tests/test_util.py
+
+commit 1a6f0b406952953ea373e6f4b862923bb902a8d7
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-02-28 16:38:00 -0500
+
+    Fixes #210 Broken link in README (#212)
+
+1	1	README.md
+
+commit c3335adf548f540d8f7c806614e242925cf0003d
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-01-10 11:58:39 -0500
+
+    Updated README.md with instructions for canceling shutdown
+
+2	0	README.md
+
+commit 911b4cf62654edba2bb7237fc5555fdbb773d310
+Author: Mike Walch <mwalch@apache.org>
+Date:   2018-01-09 18:16:09 -0500
+
+    Fixes #205 - Allow Muchos to automatically terminate clusters
+
+11	0	README.md
+5	0	ansible/cancel_shutdown.yml
+3	0	ansible/roles/common/tasks/main.yml
+4	0	conf/muchos.props.example
+1	0	lib/muchos/config.py
+5	1	lib/muchos/main.py
+10	9	lib/muchos/util.py
+
+commit c5061cdb45ea8416fc434cb06a16289b4d69fd79
+Author: Keith Turner <kturner@apache.org>
+Date:   2018-01-08 15:41:52 -0500
+
+    fixes #204 switched to YARN FairScheduler
+
+0	138	ansible/roles/hadoop/files/capacity-scheduler.xml
+0	2	ansible/roles/hadoop/tasks/main.yml
+1	1	ansible/roles/hadoop/templates/yarn-site.xml
+
+commit b2346e6f13aa46e6ac9bac83125a7575f7a08e2e
+Author: Keith Turner <kturner@apache.org>
+Date:   2018-01-03 18:29:06 -0500
+
+    Support i3 EC2 instance type
+
+10	22	lib/muchos/config.py
+2	10	lib/muchos/main.py
+30	5	lib/muchos/util.py
+0	3	lib/tests/test_config.py
+7	1	lib/tests/test_util.py
+
+commit b8a6bb68fa990bb50360e9c8c8eb6c785fd173ea
+Author: Christopher Tubbs <ctubbsii@apache.org>
+Date:   2017-12-18 18:48:00 -0500
+
+    Fix tests for fluo_yarn support
+
+2	2	lib/tests/test_config.py
+
+commit d541b25b2e1011bd6ce30e85ab98ab0fde03a395
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-12-14 17:32:13 -0500
+
+    Muchos can now setup Fluo YARN launcher
+    
+    * Specified using 'fluo_yarn'
+    * Fixed Ansible bug that was causing failures when downloading
+      tarballs to proxy
+    * Moved download tasks for Accumulo, Fluo & Fluo-yarn into their
+      own files. Now download will only occur if service is specified.
+    * Moved away from deprecated 'include' command to use 'import'
+
+5	2	ansible/accumulo.yml
+8	8	ansible/common.yml
+3	0	ansible/fluo.yml
+6	0	ansible/fluo_yarn.yml
+18	0	ansible/roles/accumulo/tasks/download.yml
+1	0	ansible/roles/common/templates/bash_profile
+1	0	ansible/roles/common/templates/bashrc
+18	0	ansible/roles/fluo/tasks/download.yml
+18	0	ansible/roles/fluo_yarn/tasks/download.yml
+8	0	ansible/roles/fluo_yarn/tasks/main.yml
+59	0	ansible/roles/fluo_yarn/templates/fluo-yarn.properties
+1	3	ansible/roles/proxy/tasks/main.yml
+1	0	conf/.gitignore
+4	2	conf/muchos.props.example
+5	2	lib/muchos/config.py
+17	7	lib/muchos/main.py
+
+commit 72ab0cc082c725307540db1383e8faf681a7a71d
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-11-17 17:05:39 -0500
+
+    Several fixes to Muchos (#201)
+    
+    * Muchos can now be configured to launch nodes with user data
+    * Nodes can be configured to not have public IPs
+    * Upgraded Zookeeper to 3.4.11
+    * Changed how security group id is managed
+
+6	2	conf/muchos.props.example
+0	2	lib/muchos/config.py
+31	11	lib/muchos/main.py
+
+commit 1dead49d3a4d3cd40287353e9ea794c64eed7fd4
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-11-10 22:49:37 -0500
+
+    Fixes #197 Fail and warn if ebs-only instance type is chosen by user (#200)
+
+14	8	lib/muchos/util.py
+
+commit 0493b6ecd1e71b2dd300518c08cf09c5d353bdc0
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-09-19 14:47:34 -0400
+
+    Fixes #191 Major refactor and upgrade to boto3 (#196)
+    
+    * Upgraded boto to boto3
+    * Created MuchosCluster in in main.py to replace random functions
+    * Moved python files to lib/ directory
+    * The 'Muchos' tag is now used to identify nodes in cluster
+    * Security group is created for cluster and deleted on termination
+
+1	1	.travis.yml
+9	15	README.md
+0	1	bin/impl/.gitignore
+0	462	bin/impl/muchos/main.py
+42	11	bin/muchos
+1	1	conf/.gitignore
+6	9	conf/muchos.props.example
+1	0	lib/.gitignore
+0	0	{bin/impl => lib}/muchos/__init__.py
+24	13	{bin/impl => lib}/muchos/config.py
+453	0	lib/muchos/main.py
+78	84	{bin/impl => lib}/muchos/util.py
+0	0	{bin/impl => lib}/tests/__init__.py
+5	8	{bin/impl => lib}/tests/test_config.py
+2	2	{bin/impl => lib}/tests/test_util.py
+
+commit 5267705ad073055e6eb954fe3108f61fc074c756
+Merge: c9fa4d5 b9de3c8
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-09-11 09:52:35 -0400
+
+    Merge pull request #195 from mikewalch/pep-fixes
+    
+    Pep fixes
+
+commit b9de3c8ff803b09cdf7aedc2cde49a59780f77de
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-09-08 14:18:34 -0400
+
+    Fixed other PEP warnings
+
+8	4	bin/impl/muchos/config.py
+45	26	bin/impl/muchos/main.py
+35	30	bin/impl/muchos/util.py
+18	10	bin/impl/tests/test_config.py
+8	7	bin/impl/tests/test_util.py
+
+commit 540a3138af4fa3ce5e96a429d24428eb0f019ec5
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-09-08 12:52:19 -0400
+
+    4 spaces are now used for tabs
+
+292	292	bin/impl/muchos/config.py
+368	368	bin/impl/muchos/main.py
+78	78	bin/impl/muchos/util.py
+51	51	bin/impl/tests/test_config.py
+12	12	bin/impl/tests/test_util.py
+
+commit c9fa4d5217a58a54416a59e50542b8c49d106e5d
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-09-08 11:44:02 -0400
+
+    Fixes #193 - Remove YARN container executor (#194)
+
+0	17	ansible/roles/hadoop/tasks/main.yml
+0	3	ansible/roles/hadoop/templates/container-executor.cfg
+0	20	ansible/roles/hadoop/templates/yarn-site.xml
+
+commit b53ee12fe3e145f929fb00bf21b37698424a1aeb
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-09-08 11:40:53 -0400
+
+    Updates to Muchos for Fluo 1.2.0 (#192)
+    
+    * Muchos supports new Fluo configuration files
+    * Mesos/Marathon can now run docker containers
+
+10	2	ansible/roles/fluo/tasks/main.yml
+117	0	ansible/roles/fluo/templates/fluo-app.properties
+36	0	ansible/roles/fluo/templates/fluo-conn.properties
+9	1	ansible/roles/mesos/tasks/main.yml
+1	0	ansible/roles/mesos/templates/containerizers
+1	0	ansible/roles/mesos/templates/executor_registration_timeout
+
+commit 4d957d5aa67901d5da6314c1919a7790f0e2a329
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-07-10 12:34:11 -0400
+
+    Fixes #188 - Instance tags parameter does not work
+    
+    * Fixed incorrect 'instance_tags' references in code which were using
+      period rather than underscore in key
+
+3	3	bin/impl/muchos/config.py
+
+commit 2165ea1f3380bd41faf4de897659a86f37232293
+Author: Dylan Hutchison <dhutchis@cs.washington.edu>
+Date:   2017-07-03 15:23:23 -0700
+
+    Update Spark to 1.6.3
+    
+    Some of the mirrors stopped hosting Spark 1.6.2.
+
+2	2	conf/muchos.props.example
+
+commit bfe7b2654760cc14eb92027b2a9c6425a13bcfcc
+Merge: bac590a 8f256b0
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-05-19 10:48:37 -0400
+
+    Merge pull request #186 from keith-turner/accumulo_audit
+    
+    Disable Accumulo Audit Logging
+
+commit 8f256b0a5983e80dc1b27ca4ad9aa4e5dd64e1a1
+Author: Keith Turner <kturner@apache.org>
+Date:   2017-05-10 17:01:37 -0400
+
+    Disable Accumulo Audit Logging
+
+1	0	ansible/roles/accumulo/tasks/main.yml
+
+commit bac590a7d57624c2fb26b89e863cbeb2084d47cb
+Merge: 7e829dc 833d426
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-05-05 13:49:40 -0400
+
+    Merge pull request #185 from keith-turner/accumulo181
+    
+    Accumulo 1.8.0 is no longer on mirrors
+
+commit 833d426d2634d02b324199d9c54fc7a1dc60d4e8
+Author: Keith Turner <kturner@apache.org>
+Date:   2017-05-05 13:40:11 -0400
+
+    Accumulo 1.8.0 is no longer on mirrors
+
+2	2	conf/muchos.props.example
+
+commit 7e829dcfaf90995effd2d7a21bd399c1847e2cdb
+Merge: 54e1b46 7da22cb
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-03-30 16:49:54 -0400
+
+    Merge pull request #184 from mikewalch/accumulo-config
+    
+    Updates to accumulo config due to changes in 2.0
+
+commit 7da22cb8d55f121f19508b2204b4a4ee1b8e43eb
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-03-24 14:32:29 -0400
+
+    Updates to accumulo config due to changes in 2.0
+
+41	17	ansible/roles/accumulo/templates/accumulo-env.sh
+19	51	ansible/roles/accumulo/templates/accumulo-site.xml
+1	1	bin/impl/muchos/config.py
+5	3	conf/muchos.props.example
+
+commit 54e1b46c229c53232cf9c29b0477ca81d2afd7b0
+Merge: f038356 223654d
+Author: Keith Turner <keith@deenlo.com>
+Date:   2017-03-03 10:25:59 -0500
+
+    Merge pull request #183 from mikewalch/accumulo-4588
+    
+    Updates for ACCUMULO-4588
+
+commit 223654d732009fd3e15e37d7ff2b64c490b9e460
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-03-02 15:49:24 -0500
+
+    Updates for ACCUMULO-4588
+
+1	1	ansible/roles/accumulo/tasks/main.yml
+19	6	ansible/roles/accumulo/templates/accumulo-env.sh
+0	83	ansible/roles/accumulo/templates/generic_logger.xml
+
+commit f0383563b9d6c386ae5b481f7141e77dae00657b
+Merge: b9fc269 fb29ce0
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-02-17 16:19:04 -0500
+
+    Merge pull request #182 from mikewalch/accumulo-4528
+    
+    Updates for ACCUMULO-4528
+
+commit fb29ce0e766ce84d3911d3d93ae1a189717d38f7
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-02-16 16:59:38 -0500
+
+    Updates for ACCUMULO-4528
+
+1	1	ansible/roles/accumulo/defaults/main.yml
+21	9	ansible/roles/accumulo/templates/accumulo-env.sh
+3	3	ansible/roles/accumulo/templates/generic_logger.xml
+
+commit b9fc269545e2250104489b00aba9c663bafac76c
+Merge: 4cfc07d 4d9d8fe
+Author: Keith Turner <keith@deenlo.com>
+Date:   2017-01-30 12:02:47 -0500
+
+    Merge pull request #179 from mikewalch/version-upgrade
+    
+    Upgraded software versions
+
+commit 4d9d8fe585e1f1d548683caf031462a9a4f84e87
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-01-30 11:37:53 -0500
+
+    Upgraded software versions
+    
+    * Accumulo from 1.7.2 to 1.8.0
+    * Zookeeper from 3.4.8 to 3.4.9
+    * Hadoop from 2.7.2 to 2.7.3
+
+6	6	conf/muchos.props.example
+
+commit 4cfc07d2f1e3595cc8a00ea3b1dc8d7bf535d1da
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-01-30 10:21:36 -0500
+
+    Code review updates for README.md changes
+
+2	2	README.md
+
+commit 85588e555f75ece53c26aae651e86beca7075094
+Author: Mike Walch <mwalch@apache.org>
+Date:   2017-01-26 17:22:52 -0500
+
+    Updated README.md
+
+8	7	README.md
+
+commit 20bf5c90b4862675339979f7d9784c66ced66cc5
+Author: Mike Walch <mwalch@apache.org>
+Date:   2016-11-15 16:53:53 -0500
+
+    Muchos now supports Accumulo 2.0.0 (#177)
+    
+    * Muchos now supports Accumulo 1.* and 2.* versions
+    * Updates due to ACCUMULO-4490
+    * Removed generic_logger.properties as only generic_logger.xml is needed
+    * Renamed slaves file to tservers
+
+24	1	ansible/accumulo.yml
+2	0	ansible/roles/accumulo/defaults/main.yml
+0	58	ansible/roles/accumulo/files/generic_logger.properties
+7	12	ansible/roles/accumulo/tasks/main.yml
+0	4	ansible/roles/accumulo/tasks/start-accumulo.yml
+11	11	ansible/roles/accumulo/templates/accumulo-env.sh
+2	2	ansible/roles/accumulo/{files => templates}/generic_logger.xml
+0	0	ansible/roles/accumulo/templates/{slaves => tservers}
+1	0	bin/impl/muchos/config.py
+0	1	conf/muchos.props.example
+
+commit b4f463cc17cd127525801bc43fcd678f0357923d
+Merge: d4d8c0d 748dffc
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-10-27 16:26:20 -0400
+
+    Merge pull request #176 from mikewalch/muchos-175
+    
+    Fixed #175 - Updates for Fluo 1.0.0-incubating release
+
+commit 748dffc2cba1e0e8479d9e1a14016425de5f3d7c
+Author: Mike Walch <mwalch@apache.org>
+Date:   2016-10-26 12:42:10 -0400
+
+    Fixed #175 - Updates for Fluo 1.0.0-incubating release
+
+1	2	ansible/roles/proxy/tasks/main.yml
+1	1	conf/muchos.props.example
+
+commit d4d8c0de7cac0d509dd8a0278d79216e441f8eb7
+Merge: 651991f 82f0464
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-09-23 10:15:55 -0400
+
+    Merge pull request #174 from mikewalch/muchos-173
+    
+    Fixes #173 - Update InfluxDB config with new app metrics settings
+
+commit 82f0464222b6dc648441841c2f2ccacd0062664c
+Author: Mike Walch <mwalch@apache.org>
+Date:   2016-09-22 15:42:50 -0400
+
+    Fixes #173 - Update InfluxDB config with new app metrics settings
+
+6	3	ansible/roles/influxdb/templates/influxdb-9.4.2.conf
+
+commit 651991f120fe67728c40160f0493c14f89ee8581
+Merge: d485c72 b7047a5
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-09-02 12:46:01 -0400
+
+    Merge pull request #170 from mikewalch/muchos-169
+    
+    Fixes #169 - Ansible warning due to missing file
+
+commit d485c725b0a5b7ac2e9a3ce8bfbb0fe3036c1d5e
+Merge: b549d7b 3c48b8a
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-09-02 12:23:55 -0400
+
+    Merge pull request #171 from mikewalch/muchos-168
+    
+    Fixes #168 - Several updates to README.md
+
+commit 3c48b8a24d359e9496bc226d5d1fef13539138f4
+Author: Mike Walch <mwalch@apache.org>
+Date:   2016-08-31 10:54:53 -0400
+
+    Fixes #168 - Several updates to README.md
+    
+    * Added to docs that users need to set checksum
+      in muchos.props
+    * Fixed line length to 100 chars
+    * Made several minor improvements to improve readability
+    * Fixed spelling errors
+
+101	111	README.md
+
+commit b7047a5b5b778f455667f4ceb17bfba5943665b6
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-08-30 17:08:17 -0400
+
+    Fixes #169 - Ansible warning due to missing file
+    
+    * Moved handler from main.yml to init-accumulo.yml
+    * Removed handler code from accumulo.yml file
+    * Changes accumulo instance name from 'instance17'
+      to 'muchos' to avoid version in name.
+
+0	2	ansible/accumulo.yml
+0	0	ansible/roles/accumulo/handlers/{main.yml => init-accumulo.yml}
+1	1	conf/muchos.props.example
+
+commit b549d7b1d4eb86799510cc623a3a33e176b25ffa
+Merge: 1becb11 f2775f7
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-08-15 18:05:44 -0400
+
+    Merge pull request #165 from mikewalch/dep-upgrade
+    
+    Several minor updates to Muchos
+
+commit f2775f7f34cc8898abd0caff12e868b8d34b8ad6
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-08-11 15:00:26 -0400
+
+    Several minor updates to Muchos
+    
+    * Upgrade Hadoop and Spark versions
+    * Starting using Spark dist without Hadoop binaries
+    * Cleaned up accumulo configuration
+
+18	32	ansible/roles/accumulo/templates/accumulo-site.xml
+2	1	ansible/roles/spark/templates/spark-env.sh
+2	3	bin/impl/muchos/config.py
+4	5	conf/muchos.props.example
+
+commit 1becb112906eab1114c37eceaee2ff2fe345fba8
+Merge: 90f6e7c a309edd
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-08-10 09:05:32 -0400
+
+    Merge pull request #164 from mikewalch/apache-rename
+    
+    Several updates due to Fluo moving to Apache
+
+commit a309eddf7b1215d301874d5853f534065a5ab1ac
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-08-09 11:18:31 -0400
+
+    Several updates due to Fluo moving to Apache
+    
+    * Muchos now downloads Fluo from Apache mirror
+    * Updated copyright headers
+    * Updated fluo.properties to match serveral new changes in Fluo
+    * Cleaned up muchos.props by removing maven config
+    * Updated metrics settings in InfluxDB config
+    * Remove fluo-env.sh file as muchos should no longer set this
+    * Added fetch.sh command to get Fluo dependencies
+
+1	0	.gitignore
+2	2	.travis.yml
+1	1	README.md
+3	1	ansible/roles/fluo/tasks/main.yml
+0	15	ansible/roles/fluo/templates/fluo-env.sh
+86	50	ansible/roles/fluo/templates/fluo.properties
+3	3	ansible/roles/influxdb/templates/influxdb-9.4.2.conf
+0	24	ansible/roles/proxy/files/download-fluo.sh
+2	5	ansible/roles/proxy/tasks/main.yml
+8	7	bin/impl/muchos/config.py
+15	15	bin/impl/muchos/main.py
+4	4	bin/impl/muchos/util.py
+1	1	bin/impl/tests/test_config.py
+2	2	bin/impl/tests/test_util.py
+1	1	bin/muchos
+28	29	conf/muchos.props.example
+
+commit 90f6e7cb54121762091c53f8ed61718105e01251
+Merge: 80b7ad8 eb7e734
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-08-08 12:01:56 -0400
+
+    Merge pull request #163 from keith-turner/dep-intro
+    
+    Better explain what Muchos provides in into
+
+commit eb7e73485ea09b508f50ba65e7849a976d101e8f
+Author: Keith Turner <kturner@apache.org>
+Date:   2016-08-08 11:48:41 -0400
+
+    Better explain what Muchos provides in into
+
+24	1	README.md
+
+commit 80b7ad84b77a907d92de5df99e5c7ca465da7dde
+Merge: 5957d20 33c7f84
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-08-04 14:34:02 -0400
+
+    Merge pull request #162 from mikewalch/muchos-rename
+    
+    Project name change from Zetten to Muchos
+
+commit 33c7f846d4f94ce2fda23dcf4fcd5befc3bc9519
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-08-04 10:34:49 -0400
+
+    Project name change from Zetten to Muchos
+
+49	49	README.md
+1	1	ansible/kill.yml
+1	1	ansible/roles/mesos/templates/mesos-master
+0	0	bin/impl/{zetten => muchos}/__init__.py
+3	3	bin/impl/{zetten => muchos}/config.py
+18	18	bin/impl/{zetten => muchos}/main.py
+2	2	bin/impl/{zetten => muchos}/util.py
+3	3	bin/impl/tests/test_config.py
+1	1	bin/impl/tests/test_util.py
+8	8	bin/{zetten => muchos}
+1	1	conf/.gitignore
+4	4	conf/{zetten.props.example => muchos.props.example}
+12	12	contrib/{zetten-logo-dark.svg => muchos-logo-dark.svg}
+-	-	contrib/muchos-logo.png
+15	13	contrib/{zetten-logo.svg => muchos-logo.svg}
+-	-	contrib/zetten-logo.png
+
+commit 5957d20b4836692bff331ca8e695196af37686c3
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-07-21 14:56:25 -0400
+
+    #160 - Fixed unit tests which only verify major version now
+
+4	4	bin/impl/tests/test_config.py
+
+commit 7feeb019a3c5741ef24073de276faca5060e01a6
+Author: Drew Farris <drew.farris@gmail.com>
+Date:   2016-07-19 20:11:09 -0400
+
+    Update to Accumulo 1.7.2 - closes #160
+
+2	2	conf/zetten.props.example
+
+commit 497995cdcd687f8db2291200a695cd1417432250
+Merge: f163829 4eeb7ad
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-07-14 09:04:43 -0400
+
+    Merge pull request #159 from keith-turner/misc
+    
+    Fix for Accumulo 1.8 and add instance type
+
+commit 4eeb7ad791a2ac8d3f1ed7542e19472a95abbf37
+Author: Keith Turner <kturner@apache.org>
+Date:   2016-07-13 18:02:54 -0400
+
+    Fix for Accumulo 1.8 and add instance type
+
+3	0	ansible/roles/accumulo/templates/accumulo-env.sh
+1	0	bin/impl/zetten/util.py
+
+commit f163829972137da2f90df1ce7afa9d0a81f1651e
+Merge: c169636 2b4a75d
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-06-27 09:36:01 -0400
+
+    Merge pull request #157 from mikewalch/zetten-156
+    
+    Closes #156 - Fixed disk usage graph rendering in Grafana
+
+commit c16963691813ce1b94873ecaa6acb25fe8eac123
+Merge: 3f5e208 d4817ce
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-06-27 09:34:41 -0400
+
+    Merge pull request #153 from mikewalch/grafana-retries
+    
+    Added retries to REST calls to add Grafana datasources
+
+commit 2b4a75d716194ae91b9f1a1aa68087830a944990
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-06-23 16:31:18 -0400
+
+    Closes #156 - Fixed disk usage graph rendering in Grafana
+
+1	1	bin/impl/zetten/config.py
+2	2	bin/impl/zetten/main.py
+
+commit d4817ce8a674dd6c25b8d2b76d944276240ade08
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-06-07 11:26:58 -0400
+
+    Added retries to REST calls to add Grafana datasources
+
+3	0	ansible/roles/grafana/handlers/main.yml
+
+commit 3f5e20817edcd06a9977a45ada51dc9352967e2e
+Merge: e048106 b46db89
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-06-06 14:00:07 -0400
+
+    Merge pull request #152 from mikewalch/customize
+    
+    Closes #151 - Allow users to create external Ansible script that use …
+
+commit b46db89ad89f00dac159a88f64695a1d2f14a490
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-06-02 10:45:39 -0400
+
+    Closes #151 - Allow users to create external Ansible script that use Zetten variables
+    
+    * Split variables between hosts file (which can be used by other
+      playbooks) and playbook (which can only be used by Zetten).
+    * Documented how users can customize cluster in README.md
+
+11	0	README.md
+1	0	ansible/group_vars/.gitignore
+0	24	ansible/group_vars/all
+1	1	ansible/roles/zookeeper/templates/zoo.cfg
+3	3	bin/impl/tests/test_config.py
+64	3	bin/impl/zetten/config.py
+31	19	bin/impl/zetten/main.py
+
+commit e04810683038787a317a04371febf4bc54372e6b
+Merge: 06f5841 fa44047
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-05-27 18:24:13 -0400
+
+    Merge pull request #150 from mikewalch/spark161
+    
+    Upgrade spark to 1.6.1
+
+commit fa44047499a02dc5f753277fc54cb42b7bb12595
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-05-26 14:12:32 -0400
+
+    Upgrade spark to 1.6.1
+
+3	3	conf/zetten.props.example
+
+commit 06f584174ac439da53f430c7d551a96e8172249f
+Merge: 1966e7f 1597a6a
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-05-24 10:52:48 -0400
+
+    Merge pull request #146 from mikewalch/marathon
+    
+    Marathon is now set up if mesosmaster is specified
+
+commit 1966e7f73ec5a52911207be9bd199cfda5346807
+Merge: 84d58ee e4f224c
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-05-23 12:47:33 -0400
+
+    Merge pull request #148 from mikewalch/zetten-147
+    
+    Closes #147 - Zetten should retry if software download fails
+
+commit 84d58ee8c2d4956620f08a636c9dca6aeaf1dc5d
+Merge: caab08f be372e1
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-05-23 11:24:15 -0400
+
+    Merge pull request #149 from mikewalch/vimrc
+    
+    Zetten now configures a simple vimrc on cluster
+
+commit be372e1e2533096af7ded8ad9ace3f4cf422b353
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-05-18 16:15:10 -0400
+
+    Zetten now configures a simple vimrc on cluster
+
+1	0	ansible/roles/common/tasks/os.yml
+4	0	ansible/roles/common/templates/vimrc
+
+commit e4f224c2762f5837c95632c30e0c90c086985a1b
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-05-18 13:39:39 -0400
+
+    Closes #147 - Zetten should retry if software download fails
+
+3	0	ansible/roles/proxy/tasks/main.yml
+
+commit 1597a6a6a2c5abcfd625e9a895c53b44f679831a
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-05-12 17:55:57 -0400
+
+    Marathon is now set up if mesosmaster is specified
+
+3	1	README.md
+5	2	ansible/kill.yml
+5	0	ansible/mesos.yml
+1	0	ansible/roles/mesos/defaults/main.yml
+2	1	ansible/roles/mesos/tasks/main.yml
+
+commit caab08fc23b0bc865e89851a772c6b860242b9ac
+Merge: 9b629de 47b6335
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-05-12 17:18:32 -0400
+
+    Merge pull request #145 from mikewalch/mesos-docs2
+    
+    Added mesos documentation
+
+commit 9b629de4c516eeca1e68077f880c162c6aa8dee2
+Merge: bff201c 9ae9b39
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-05-12 16:43:35 -0400
+
+    Merge pull request #144 from mikewalch/zetten-143
+    
+    Closed #143 - Made 'add datasources' command use uri module rather th…
+
+commit 47b6335794e18ea9f2d2273cfca0fa1a59d4d635
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-05-12 16:38:18 -0400
+
+    Added mesos documentation
+
+4	0	README.md
+
+commit 9ae9b399e6a16c4eaebc7f73f62cf5f5a78f5003
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-05-12 15:07:07 -0400
+
+    Closed #143 - Made 'add datasources' command use uri module rather than curl to work with Ansible 2.0
+
+6	5	ansible/roles/grafana/handlers/main.yml
+
+commit bff201ca3835dbf439e751077970a4ceb386fde3
+Merge: 277bcb9 3e4f43f
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-05-12 14:07:40 -0400
+
+    Merge pull request #141 from mikewalch/mesos
+    
+    Closes #138 #140 - Several updates to Zetten
+
+commit 3e4f43ff3d8e894acf10948cc8213df48dfede3a
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-04-27 10:23:26 -0400
+
+    Closes #138 #140 - Several updates to Zetten
+     * Zetten can now optionally setup Apache Mesos.
+     * Users can also override Ansible variables using zetten.props.
+     * The ansible site.yml is built to only include task files of
+       services that should be started to reduce skip messages in
+       Ansible logs
+
+1	0	ansible/.gitignore
+13	0	ansible/accumulo.yml
+1	19	ansible/{site.yml => common.yml}
+3	0	ansible/fluo.yml
+1	0	ansible/group_vars/all
+12	0	ansible/kill.yml
+14	0	ansible/mesos.yml
+5	0	ansible/metrics.yml
+3	1	ansible/roles/common/tasks/os.yml
+1	0	ansible/roles/common/templates/bashrc
+31	0	ansible/roles/common/templates/root_bashrc
+6	0	ansible/roles/mesos/defaults/main.yml
+16	0	ansible/roles/mesos/tasks/main.yml
+3	0	ansible/roles/mesos/templates/mesos-master
+3	0	ansible/roles/mesos/templates/mesos-slave
+1	0	ansible/roles/mesos/templates/quorum
+1	0	ansible/roles/mesos/templates/zk
+2	2	bin/impl/zetten/config.py
+13	1	bin/impl/zetten/main.py
+7	2	conf/zetten.props.example
+
+commit 277bcb92e195e1b702f0baeaa64837bd3555ed94
+Merge: 43e9cde 4946d01
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-05-11 14:59:58 -0400
+
+    Merge pull request #142 from mikewalch/ansible20
+    
+    Several minor updates to ansible scripts so that zetten works with an…
+
+commit 4946d0135027fb8d62c398eb560ef28bbf49f772
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-05-11 11:55:35 -0400
+
+    Several minor updates to ansible scripts so that zetten works with ansible 2.0
+
+1	1	ansible/kill.yml
+0	0	ansible/roles/accumulo/handlers/{init-accumulo.yml => main.yml}
+0	2	ansible/roles/common/handlers/os.yml
+1	1	ansible/roles/common/tasks/hosts.yml
+3	3	ansible/roles/common/tasks/os.yml
+1	1	ansible/roles/common/tasks/ssh.yml
+2	0	ansible/roles/proxy/tasks/main.yml
+1	1	ansible/roles/zookeeper/tasks/start-zookeeper.yml
+1	1	ansible/scripts/install_ansible.sh
+11	9	ansible/site.yml
+1	1	ansible/wipe.yml
+
+commit 43e9cdea8d3c37d532796a994011e579f7495767
+Merge: 1fa4142 49ca8ee
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-05-05 11:55:40 -0400
+
+    Merge pull request #139 from keith-turner/twill-reserved-mem
+    
+    Added setting to adjust twill reserve memory
+
+commit 49ca8ee668192ba4a23b89ff58a63383b35890a4
+Author: Keith Turner <kturner@apache.org>
+Date:   2016-05-02 17:46:11 -0400
+
+    Added setting to adjust twill reserve memory
+
+4	0	ansible/roles/hadoop/templates/yarn-site.xml
+8	0	conf/zetten.props.example
+
+commit 1fa4142224ab406ef186fd5225c6d70b7d611304
+Merge: 3ee9ef1 4703b40
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-04-21 10:40:18 -0400
+
+    Merge pull request #136 from keith-turner/ansible19
+    
+    specify ansible 19
+
+commit 4703b40944b01d06800cac125a14672a7bb389a5
+Author: Keith Turner <kturner@apache.org>
+Date:   2016-04-20 19:11:37 -0400
+
+    specify ansible 19
+
+1	1	ansible/scripts/install_ansible.sh
+
+commit 3ee9ef1684fb5c47f2cca1b8f3a41392198e0b11
+Merge: 6e2ca50 7ea0e90
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-04-08 12:39:34 -0400
+
+    Merge pull request #134 from keith-turner/zetten-132
+    
+    fixes #132 configure short circuit reads in hdfs
+
+commit 6e2ca508000d0ca9d95774f59c8dc7e5ddda9c71
+Merge: 0141437 0c86ea2
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-04-08 12:23:32 -0400
+
+    Merge pull request #135 from mikewalch/zt-133
+    
+    Closes #133 - Automatically use best Apache mirror
+
+commit 0c86ea26689830827359229576408d51e3a33fa2
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-04-08 11:46:37 -0400
+
+    Closes #133 - Automatically use best Apache mirror
+
+10	5	ansible/roles/proxy/tasks/main.yml
+0	1	bin/impl/tests/test_config.py
+0	2	conf/zetten.props.example
+
+commit 7ea0e905792f6a09f255ed282b2baf2b714c4db8
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-04-07 18:49:48 -0400
+
+    fixes #132 configure short circuit reads in hdfs
+
+3	0	ansible/roles/hadoop/tasks/main.yml
+8	0	ansible/roles/hadoop/templates/core-site.xml
+8	0	ansible/roles/hadoop/templates/hdfs-site.xml
+
+commit 01414371e715d65100e1092ed5c42453c90d9798
+Merge: e30a21e de58343
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-04-06 16:43:57 -0400
+
+    Merge pull request #131 from mikewalch/remove-run
+    
+    Several updates to Zetten
+
+commit de583431b3e8f7740e8fd8d58e011cfbbb2d6c1a
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-04-06 12:50:57 -0400
+
+    Several updates to Zetten
+    * Removed 'run' command as example applications are now easy to run
+      with shell configured with common environment variables.
+    * InfluxDB setup command retries until success
+    * Made Fluo version default to 1.0.0-beta-3-SNAPSHOT
+
+23	14	README.md
+4	0	ansible/roles/influxdb/handlers/main.yml
+0	4	ansible/roles/proxy/tasks/main.yml
+0	29	ansible/roles/proxy/templates/run.sh
+1	1	bin/impl/tests/test_config.py
+0	12	bin/impl/zetten/main.py
+1	8	bin/impl/zetten/util.py
+1	39	conf/zetten.props.example
+
+commit e30a21ef215b195d74388c8807beb7319dbcf232
+Merge: fb024ea 1714405
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-04-06 13:03:19 -0400
+
+    Merge pull request #130 from mikewalch/metrics-update
+    
+    Made several improvements to Zetten:
+
+commit 17144059f3bac78f8e49da63a0faa56b9ca48cc8
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-04-04 17:52:13 -0400
+
+    Made several improvements to Zetten:
+    * Updated how metrics service is configured
+    * Set common environment variables in bashrc
+    * Moved PATH configuration to bash_profile
+    * Wipe command now removes software installation
+    * Upload of Fluo/Accumulo tarballs will occur if different
+
+5	2	ansible/roles/common/tasks/os.yml
+21	0	ansible/roles/common/templates/bash_profile
+7	12	ansible/roles/common/templates/bashrc
+1	1	ansible/roles/fluo/templates/fluo.properties
+5	8	ansible/roles/grafana/tasks/main.yml
+2	2	ansible/roles/influxdb/handlers/main.yml
+2	2	ansible/roles/influxdb/tasks/main.yml
+10	0	ansible/wipe.yml
+1	1	bin/impl/zetten/main.py
+
+commit fb024ea69c0a940228ff3541c2bead75e7952def
+Merge: 7081a9b cc733e8
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-04-05 11:19:37 -0400
+
+    Merge pull request #129 from mikewalch/java-hub
+    
+    Switched Java install from Oracle JDK to OpenJDK. GitHub's 'hub'
+
+commit cc733e8e625c6ab376cf3cd38a9951bcd117455a
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-04-05 10:00:16 -0400
+
+    Switched Java install from Oracle JDK to OpenJDK. GitHub's 'hub'
+    command is now installed by setup.
+
+5	3	ansible/group_vars/all
+5	4	ansible/roles/common/tasks/main.yml
+1	0	ansible/roles/common/templates/bashrc
+0	13	ansible/roles/proxy/files/download-java.sh
+1	2	ansible/roles/proxy/tasks/main.yml
+
+commit 7081a9bf4c867238a49ddfbdfe930a21c6500532
+Merge: fdac920 3a4d2dc
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-03-22 09:50:46 -0400
+
+    Merge pull request #127 from mikewalch/kill-command
+    
+    Adding kill command
+
+commit 3a4d2dcb4f77c8b4a0e5afb948be7ddfbcbca0bc
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-03-21 17:05:45 -0400
+
+    Adding kill command
+
+5	0	ansible/kill.yml
+1	5	ansible/wipe.yml
+6	3	bin/impl/zetten/main.py
+1	0	bin/impl/zetten/util.py
+
+commit fdac920bbb1bfeaa1ea3e954e7d6dadc9d259baf
+Merge: fab7576 542a847
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-03-17 13:21:54 -0400
+
+    Merge pull request #126 from mikewalch/license-fix
+    
+    Fixed license reference in README
+
+commit 542a8477f9621a90c49b0eb566889c9c41b679e7
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-03-17 10:59:20 -0400
+
+    Fixed license reference in README
+
+1	1	README.md
+
+commit fab7576293fac59dfa9d152e268cd6fb96868990
+Merge: d98cb07 7691c5e
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-03-09 14:31:41 -0500
+
+    Merge pull request #125 from mikewalch/zetten-123
+    
+    Closes #123 - Properties in config file are no longer converted to lo…
+
+commit 7691c5e8930a9672fc5e8f0ffe1ab6ca208e1d0a
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-03-09 12:54:18 -0500
+
+    Closes #123 - Properties in config file are no longer converted to lowercase.  This allows case-sensitive host names in 'nodes' section
+
+8	0	bin/impl/tests/test_config.py
+1	0	bin/impl/zetten/config.py
+
+commit d98cb07e425661e5a8f086cd63d2c14a49696b92
+Merge: f02ebc5 a4ed4c3
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-03-09 12:04:05 -0500
+
+    Merge pull request #124 from mikewalch/zetten-logo
+    
+    Adding Zetten logo
+
+commit a4ed4c393e39039cd6e58f3fed73a19259c46f83
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-03-09 11:33:10 -0500
+
+    Adding Zetten logo
+
+8	4	README.md
+108	0	contrib/zetten-logo-dark.svg
+-	-	contrib/zetten-logo.png
+143	0	contrib/zetten-logo.svg
+
+commit f02ebc55976445126ce393a21a6cdbca700362c8
+Merge: b49ee9c 58e8162
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-03-04 10:40:08 -0500
+
+    Merge pull request #122 from mikewalch/zetten-121
+    
+    Closes #121 - Add documentation on using SOCKS proxy to view status p…
+
+commit 58e816200db38b197b2b6bb0789ab66071791ef9
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-03-03 11:52:20 -0500
+
+    Closes #121 - Add documentation on using SOCKS proxy to view status pages
+
+23	14	README.md
+
+commit b49ee9cedd0b24009b6c91d0d0423a5d98ad8ce3
+Merge: 285d86e 9472d2d
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-03-02 18:23:42 -0500
+
+    Merge pull request #120 from mikewalch/zetten-119
+    
+    Closes #119 - Mention ansible and boto in README
+
+commit 9472d2d9980216a24ef483ae0c5927ceb6f48a00
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-03-02 17:37:52 -0500
+
+    Closes #119 - Mention ansible and boto in README
+
+11	0	README.md
+
+commit 285d86efe6cd521dc2b7c0f6a5cd53531c295ce4
+Merge: 9ea63c3 d96444e
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-03-02 15:11:03 -0500
+
+    Merge pull request #118 from mikewalch/ami-docs
+    
+    Updated CentOS 7 AMIs, improved documentation, allowed custom AMIs to…
+
+commit d96444e1d09a7273aa4e27e6eb1c43e4ab2de552
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-03-02 10:51:58 -0500
+
+    Updated CentOS 7 AMIs, improved documentation, allowed custom AMIs to be set in config, and added better error messages
+
+45	17	README.md
+1	1	bin/impl/tests/test_config.py
+1	1	bin/impl/tests/test_util.py
+40	13	bin/impl/zetten/main.py
+10	9	bin/impl/zetten/util.py
+4	2	conf/zetten.props.example
+
+commit 9ea63c3db521349bf4a513cdd170a15f78818ba4
+Merge: cf9e596 3a051d8
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-03-01 14:25:31 -0500
+
+    Merge pull request #117 from keith-turner/readme-updates
+    
+    point commands to build snapshot are optional
+
+commit 3a051d8ea40b7e83d5ea7d77e19e1d347a9b286f
+Author: Keith Turner <kturner@apache.org>
+Date:   2016-03-01 14:12:32 -0500
+
+    point commands to build snapshot are optional
+
+9	8	README.md
+
+commit cf9e5967d228d4790f3aa8ce7c483b9228a92ac8
+Merge: d49cef1 9f74130
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-03-01 12:47:25 -0500
+
+    Merge pull request #116 from mikewalch/zetten-rename
+    
+    Zetten rename
+
+commit 9f741303018f4124e855360b3fa841cedd8fd6fb
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-03-01 11:15:17 -0500
+
+    Fixed #114 - Update comment for EC2 keypair in zetten.props
+
+1	0	conf/zetten.props.example
+
+commit a13d75a09412c8c0c84ab1996fdf2f7d2e307f97
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-03-01 10:58:13 -0500
+
+    Limited Accumulo logging to 500MB per service
+
+58	0	ansible/roles/accumulo/files/generic_logger.properties
+83	0	ansible/roles/accumulo/files/generic_logger.xml
+6	3	ansible/roles/accumulo/tasks/main.yml
+1	1	conf/zetten.props.example
+
+commit e79ce443f052f0f14c807f87ee87b4d0d2e55f1b
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-02-29 15:42:18 -0500
+
+    Upgraded accumulo to 1.7.1 and zookeeper to 3.4.8.  Removed accumulo
+    start-server.sh.patch as it no longer needed after upgrade.
+
+1	1	README.md
+0	4	ansible/roles/accumulo/files/start-server.sh.patch
+0	3	ansible/roles/accumulo/tasks/main.yml
+2	2	bin/impl/tests/test_config.py
+5	5	conf/zetten.props.example
+
+commit 2243cbeaa24ce00afe031d124c16f261558aab0e
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-02-29 14:52:08 -0500
+
+    Closes #115 - Rename project from fluo-deploy to zetten
+
+26	26	README.md
+2	2	bin/impl/tests/test_config.py
+1	1	bin/impl/tests/test_util.py
+0	0	bin/impl/{fluo_deploy => zetten}/__init__.py
+3	3	bin/impl/{fluo_deploy => zetten}/config.py
+13	13	bin/impl/{fluo_deploy => zetten}/main.py
+3	3	bin/impl/{fluo_deploy => zetten}/util.py
+8	8	bin/{fluo-deploy => zetten}
+1	1	conf/.gitignore
+6	6	conf/{fluo-deploy.props.example => zetten.props.example}
+
+commit d49cef1fab9d3a9a54c655e32924a45e56d93bb2
+Merge: 66e7983 ba44e2f
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-02-16 13:42:45 -0500
+
+    Merge pull request #112 from keith-turner/fd-111
+    
+    fixes #111 added ability to format EC2 ephemeral drives
+
+commit ba44e2f88102f211a65c0d82b8906342bf8d954d
+Author: Keith Turner <kturner@apache.org>
+Date:   2016-02-10 14:59:19 -0500
+
+    fixes #111 added ability to format EC2 ephemeral drives
+
+10	0	ansible/roles/common/tasks/drives.yml
+12	0	bin/impl/fluo_deploy/config.py
+2	0	bin/impl/fluo_deploy/main.py
+5	0	conf/fluo-deploy.props.example
+
+commit 66e7983859207b9f5ec346d770edf119dedcea8a
+Merge: 5ce721c caf2a72
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-02-10 12:53:02 -0500
+
+    Merge pull request #110 from keith-turner/d2xl
+    
+    added d2.xlarge EC2 isntance type
+
+commit caf2a72646843cc9c754653553214b719d10be1b
+Author: Keith Turner <kturner@apache.org>
+Date:   2016-02-10 10:47:14 -0500
+
+    added d2.xlarge EC2 isntance type
+
+1	0	bin/impl/fluo_deploy/util.py
+
+commit 5ce721c042e69529d6070044c6708aa44d75c6c4
+Merge: f7cab6b 4dab264
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-02-01 13:34:49 -0500
+
+    Merge pull request #109 from ericnewton/master
+    
+    #107 add files to the conf directory
+
+commit 4dab264b170b0bae7606144135c5dcb4a776aa2c
+Merge: b9ff3f2 ccf9955
+Author: ericnewton <eric.newton@gmail.com>
+Date:   2016-02-01 13:31:21 -0500
+
+    Merge pull request #1 from mikewalch/accumulo-conf
+    
+    Made client.conf a template.  Uncommented network_inteface property i…
+
+commit ccf9955f2cbef9d152a02e46e1390da8f76a3356
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-01-28 15:59:10 -0500
+
+    Made client.conf a template.  Uncommented network_inteface property in fluo-deploy.props
+
+1	1	ansible/roles/accumulo/tasks/main.yml
+17	0	ansible/roles/accumulo/templates/client.conf
+1	1	conf/fluo-deploy.props.example
+
+commit b9ff3f288eb3c0fc3bd60c143146234f33d92f52
+Author: Eric C. Newton <eric.newton@gmail.com>
+Date:   2016-01-27 10:47:37 -0500
+
+    #107 add files to the conf directory
+
+2	0	ansible/roles/accumulo/tasks/main.yml
+
+commit f7cab6bcf697d1d2f2b4dc5af3d4c08df4c3b3d0
+Merge: 387f7cd ff240ba
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-01-26 12:05:36 -0500
+
+    Merge pull request #105 from mikewalch/sw-version
+    
+    Update zookeeper and fluo versions
+
+commit 387f7cd6640564fa2bc83648af2ea83972919424
+Merge: c732c16 17ae655
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-01-22 10:55:12 -0500
+
+    Merge pull request #106 from ericnewton/master
+    
+    #103 (baremetal support): updated based on comments from the last pull request
+
+commit 17ae6557b9945bb8357bde37bd203da54a5ce539
+Author: Eric C. Newton <eric.newton@gmail.com>
+Date:   2016-01-22 10:30:01 -0500
+
+    #103 make the example config consistent
+
+1	1	conf/fluo-deploy.props.example
+
+commit ff240ba19da7a44c3712264eaf9100ac37ede378
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-01-21 15:35:06 -0500
+
+    Update zookeeper and fluo versions
+
+2	2	bin/impl/tests/test_config.py
+3	3	conf/fluo-deploy.props.example
+
+commit 012159e90f7b3f45d8f6463c9cbc7da148dfdc1c
+Author: Eric Newton <eric.newton@gmail.com>
+Date:   2016-01-21 15:24:01 -0500
+
+    #103 updates from comments on pull request
+
+2	2	ansible/roles/common/tasks/drives.yml
+5	5	bin/impl/fluo_deploy/main.py
+6	4	conf/fluo-deploy.props.example
+
+commit 4fee5535a72b72314e8bf72953011d2e47511875
+Author: Eric C. Newton <eric.newton@gmail.com>
+Date:   2016-01-13 17:18:15 -0500
+
+    #103 a few config entries to support bare metal systems
+
+0	4	ansible/roles/common/files/ifup-local
+1	1	ansible/roles/common/handlers/os.yml
+15	4	bin/impl/fluo_deploy/main.py
+8	0	conf/fluo-deploy.props.example
+
+commit c732c160bf7451e46c57301eab5490a2845feb25
+Merge: b8dbfef 072d355
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-01-11 15:32:34 -0500
+
+    Merge pull request #101 from mikewalch/improve-ansible
+    
+    Made several improvements to Ansible scripts
+
+commit 072d35558486510a2a6eda0262323ba58506fa6b
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-01-06 15:35:54 -0500
+
+    Made several improvements to Ansible scripts
+    * Reduced the number of inventory variables
+    * Modifed hadoop version to 2.6.3 to match default version in Fluo
+    * Switched from IP addresses to hostnames for referencing namenodes and resourcemanager
+    * Improved how data directories are specifed and used in templates
+    * Generated zookeeper connection string from zookeeper group in inventory
+    * Made mounting of drives configurable
+
+4	0	ansible/group_vars/all
+2	0	ansible/roles/accumulo/handlers/init-accumulo.yml
+6	0	ansible/roles/accumulo/tasks/init-accumulo.yml
+3	8	ansible/roles/accumulo/tasks/start-accumulo.yml
+1	1	ansible/roles/accumulo/templates/accumulo-site.xml
+2	0	ansible/roles/common/handlers/os.yml
+10	10	ansible/roles/common/tasks/drives.yml
+1	2	ansible/roles/common/tasks/os.yml
+1	1	ansible/roles/common/templates/collectd.conf
+2	2	ansible/roles/fluo/templates/fluo.properties
+9	2	ansible/roles/grafana/handlers/main.yml
+3	16	ansible/roles/grafana/tasks/main.yml
+7	8	ansible/roles/grafana/{files => templates}/cluster-dashboard.json
+3	1	ansible/roles/hadoop/tasks/start-hdfs.yml
+2	0	ansible/roles/hadoop/tasks/start-yarn.yml
+1	1	ansible/roles/hadoop/templates/core-site.xml
+7	4	ansible/roles/hadoop/templates/hdfs-site.xml
+8	2	ansible/roles/hadoop/templates/mapred-site.xml
+6	3	ansible/roles/hadoop/templates/yarn-site.xml
+2	0	ansible/roles/influxdb/handlers/main.yml
+4	3	ansible/roles/influxdb/tasks/main.yml
+4	4	ansible/roles/influxdb/templates/influxdb-9.4.2.conf
+5	2	ansible/roles/spark/tasks/start-spark-history.yml
+3	3	ansible/roles/spark/templates/spark-defaults.conf
+4	2	ansible/roles/zookeeper/tasks/start-zookeeper.yml
+1	1	ansible/roles/zookeeper/templates/zoo.cfg
+7	10	ansible/site.yml
+25	16	ansible/wipe.yml
+34	14	bin/impl/fluo_deploy/config.py
+9	14	bin/impl/fluo_deploy/main.py
+7	2	bin/impl/tests/test_config.py
+2	2	conf/fluo-deploy.props.example
+
+commit b8dbfefb3680b9186bdc6f1ce4cfc2ba5da6378b
+Merge: 4b0a9af 92ed9de
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-01-08 12:02:07 -0500
+
+    Merge pull request #100 from keith-turner/cluster-dash
+    
+    Fix issues in Grafana cluster dashboard
+
+commit 92ed9dee140127f7c34cc06677942b90c9cadf09
+Author: Keith Turner <kturner@apache.org>
+Date:   2016-01-08 11:41:10 -0500
+
+    Fix issues in Grafana cluster dashboard
+    
+    Fixed free disk space query and the stopped filling because filling
+    with lots of lines does not look good.
+
+6	6	ansible/roles/grafana/files/cluster-dashboard.json
+
+commit 4b0a9affd62cc1aa22a42db636600881ab095af9
+Merge: 43bf08f 42ae18e
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-01-07 14:56:42 -0500
+
+    Merge pull request #99 from mikewalch/upload-dir
+    
+    Use directory conf/upload/ rather than tarballs/ for uploading Fluo o…
+
+commit 42ae18e8ce1d08b470625778377c60749fe62c42
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-01-05 13:39:00 -0500
+
+    Use directory conf/upload/ rather than tarballs/ for uploading Fluo or Accumulo distributions to cluster
+
+3	3	README.md
+3	3	bin/impl/fluo_deploy/main.py
+0	0	{tarballs => conf/upload}/.gitignore
+
+commit 43bf08fa1f12b93b81965b9f1d6669728015a85a
+Merge: 496a853 58caf12
+Author: Keith Turner <keith@deenlo.com>
+Date:   2016-01-04 15:46:48 -0500
+
+    Merge pull request #98 from mikewalch/delete-vols
+    
+    Closes #97 - Root volume of EC2 instance is now deleted on terminatio…
+
+commit 58caf123df632396bc72da16a012abc4d561d03e
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-01-04 15:27:07 -0500
+
+    Closes #97 - Root volume of EC2 instance is now deleted on termination of instance.  Also, removed ebs_root_size config option as its not used.
+
+0	6	bin/impl/fluo_deploy/config.py
+1	5	bin/impl/fluo_deploy/main.py
+0	4	conf/fluo-deploy.props.example
+
+commit 496a853747f4f8f2cd13e3151c807397948c866e
+Merge: 8bbea18 a427197
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2016-01-04 15:21:08 -0500
+
+    Merge pull request #96 from mikewalch/ansible
+    
+    Closes #95 - Use Ansible for cluster management
+
+commit a427197ae13999af4c7ca7e976887852f7bc85e4
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-12-31 12:32:55 -0500
+
+    Closes #95 - Use Ansible for cluster management
+
+18	14	README.md
+2	0	ansible/conf/.gitignore
+4	0	ansible/conf/ansible.cfg
+17	0	ansible/group_vars/all
+4	0	ansible/roles/accumulo/files/start-server.sh.patch
+28	0	ansible/roles/accumulo/tasks/main.yml
+9	0	ansible/roles/accumulo/tasks/start-accumulo.yml
+9	8	{cluster/templates/fluo-cluster/conf => ansible/roles/accumulo/templates}/accumulo-env.sh
+20	20	{cluster/templates/fluo-cluster/conf => ansible/roles/accumulo/templates}/accumulo-site.xml
+1	0	ansible/roles/accumulo/templates/gc
+1	0	ansible/roles/accumulo/templates/masters
+1	0	ansible/roles/accumulo/templates/monitor
+3	0	ansible/roles/accumulo/templates/slaves
+1	0	ansible/roles/accumulo/templates/tracers
+0	0	{cluster/install/fluo-cluster/conf => ansible/roles/common/files}/ifup-local
+12	0	ansible/roles/common/files/kill.sh
+0	0	{cluster/install/fluo-cluster/conf => ansible/roles/common/files}/limits.conf
+0	0	{cluster/install/fluo-cluster/conf => ansible/roles/common/files}/ssh_config
+2	0	ansible/roles/common/handlers/main.yml
+13	0	ansible/roles/common/tasks/drives.yml
+4	0	ansible/roles/common/tasks/hosts.yml
+32	0	ansible/roles/common/tasks/main.yml
+12	0	ansible/roles/common/tasks/os.yml
+12	0	ansible/roles/common/tasks/ssh.yml
+25	0	ansible/roles/common/templates/bashrc
+1	1	{cluster/templates/fluo-cluster/conf => ansible/roles/common/templates}/collectd.conf
+6	0	ansible/roles/common/templates/etc_hosts
+14	0	ansible/roles/fluo/tasks/main.yml
+1	1	{cluster/templates/fluo-cluster/conf => ansible/roles/fluo/templates}/fluo-env.sh
+14	13	{cluster/templates/fluo-cluster/conf => ansible/roles/fluo/templates}/fluo.properties
+2	0	ansible/roles/grafana/defaults/main.yml
+2	2	{cluster/install/fluo-cluster/conf/grafana => ansible/roles/grafana/files}/cluster-dashboard.json
+2	0	ansible/roles/grafana/handlers/main.yml
+2	0	ansible/roles/grafana/meta/main.yml
+42	0	ansible/roles/grafana/tasks/main.yml
+1	0	ansible/roles/grafana/templates/grafana-cluster-datasource.json
+1	0	ansible/roles/grafana/templates/grafana-fluo-datasource.json
+1	1	{cluster/templates/fluo-cluster/conf => ansible/roles/grafana/templates}/grafana.ini
+0	0	{cluster/install/fluo-cluster/conf/hadoop => ansible/roles/hadoop/files}/capacity-scheduler.xml
+31	0	ansible/roles/hadoop/tasks/main.yml
+6	0	ansible/roles/hadoop/tasks/start-hdfs.yml
+2	0	ansible/roles/hadoop/tasks/start-yarn.yml
+3	0	ansible/roles/hadoop/templates/container-executor.cfg
+1	1	{cluster/templates/fluo-cluster/conf => ansible/roles/hadoop/templates}/core-site.xml
+4	4	{cluster/templates/fluo-cluster/conf => ansible/roles/hadoop/templates}/hdfs-site.xml
+2	2	{cluster/templates/fluo-cluster/conf => ansible/roles/hadoop/templates}/mapred-site.xml
+3	0	ansible/roles/hadoop/templates/slaves
+6	6	{cluster/templates/fluo-cluster/conf => ansible/roles/hadoop/templates}/yarn-site.xml
+2	0	ansible/roles/influxdb/defaults/main.yml
+265	0	ansible/roles/influxdb/files/influxdb-9.4.2-defaults.conf
+2	0	ansible/roles/influxdb/handlers/main.yml
+19	0	ansible/roles/influxdb/tasks/main.yml
+271	0	ansible/roles/influxdb/templates/influxdb-9.4.2.conf
+24	0	ansible/roles/proxy/files/download-fluo.sh
+13	0	ansible/roles/proxy/files/download-java.sh
+24	0	ansible/roles/proxy/tasks/main.yml
+29	0	ansible/roles/proxy/templates/run.sh
+7	0	ansible/roles/spark/tasks/main.yml
+6	0	ansible/roles/spark/tasks/start-spark-history.yml
+6	0	ansible/roles/spark/templates/spark-defaults.conf
+3	0	ansible/roles/spark/templates/spark-env.sh
+7	0	ansible/roles/zookeeper/tasks/main.yml
+6	0	ansible/roles/zookeeper/tasks/start-zookeeper.yml
+5	0	ansible/roles/zookeeper/templates/myid
+4	2	{cluster/templates/fluo-cluster/conf => ansible/roles/zookeeper/templates}/zoo.cfg
+1	0	ansible/roles/zookeeper/templates/zookeeper-env.sh
+26	0	ansible/scripts/install_ansible.sh
+52	0	ansible/site.yml
+25	0	ansible/wipe.yml
+15	119	bin/impl/fluo_deploy/config.py
+116	176	bin/impl/fluo_deploy/main.py
+3	2	bin/impl/fluo_deploy/util.py
+15	23	bin/impl/tests/test_config.py
+0	59	cluster/install/fluo-cluster/bin/fluo-cluster
+0	63	cluster/install/fluo-cluster/bin/impl/configure-drives.sh
+0	55	cluster/install/fluo-cluster/bin/impl/configure-system.sh
+0	213	cluster/install/fluo-cluster/bin/impl/install.sh
+0	24	cluster/install/fluo-cluster/bin/impl/kill-local.sh
+0	17	cluster/install/fluo-cluster/bin/impl/kill.sh
+0	27	cluster/install/fluo-cluster/bin/impl/ready.sh
+0	39	cluster/install/fluo-cluster/bin/impl/run.sh
+0	160	cluster/install/fluo-cluster/bin/impl/setup.sh
+0	73	cluster/install/fluo-cluster/bin/impl/start.sh
+0	21	cluster/install/fluo-cluster/conf/.gitignore
+0	10	cluster/install/fluo-cluster/conf/hosts/.gitignore
+0	20	cluster/templates/fluo-cluster/conf/bashrc
+0	3	cluster/templates/fluo-cluster/conf/container-executor.cfg
+0	62	cluster/templates/fluo-cluster/conf/env.sh
+0	1	cluster/templates/fluo-cluster/conf/grafana-cluster-datasource.json
+0	1	cluster/templates/fluo-cluster/conf/grafana-fluo-datasource.json
+0	40	cluster/templates/fluo-cluster/conf/influxdb.conf
+0	6	cluster/templates/fluo-cluster/conf/spark-defaults.conf
+0	3	cluster/templates/fluo-cluster/conf/spark-env.sh
+70	77	conf/fluo-deploy.props.example
+1	0	{cluster/tarballs => tarballs}/.gitignore
+
+commit 8bbea189cd19afdf1a467c0fdbdb5eca42d1780b
+Merge: 1421576 768f00f
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-12-21 11:43:38 -0500
+
+    Merge pull request #94 from mikewalch/setup-refactor
+    
+    Simplified setup command and removed reboot
+
+commit 768f00fb1ef1e0713b3266ef05b7d79d5cbb3c2f
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-12-18 14:07:36 -0500
+
+    Simplified setup command and removed reboot
+
+1	5	bin/impl/fluo_deploy/main.py
+4	17	cluster/install/fluo-cluster/bin/fluo-cluster
+63	0	cluster/install/fluo-cluster/bin/impl/configure-drives.sh
+55	0	cluster/install/fluo-cluster/bin/impl/configure-system.sh
+0	89	cluster/install/fluo-cluster/bin/impl/configure.sh
+8	11	cluster/install/fluo-cluster/bin/impl/install.sh
+0	55	cluster/install/fluo-cluster/bin/impl/setup-os.sh
+44	5	cluster/install/fluo-cluster/bin/impl/{setup-sw.sh => setup.sh}
+
+commit 14215762f05cfe3c38f2082d2c189b82935a917e
+Merge: 9ca0231 3db32c0
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-12-17 12:36:54 -0500
+
+    Merge pull request #93 from mikewalch/fd-90
+    
+    Closes #90 #92 - Add system monitoring to Grafana/InfluxDB
+
+commit 3db32c02e3fe9d4b649c11fd1df2fd44322e3ae8
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-12-15 09:44:45 -0500
+
+    Closes #90 #92 - Add system monitoring to Grafana/InfluxDB
+    Switch from Amazon Linux to CentOS AMI.  Removed AWS cloudwatch
+    detailed monitoring.
+
+7	19	bin/impl/fluo_deploy/config.py
+6	4	bin/impl/fluo_deploy/main.py
+25	0	bin/impl/fluo_deploy/util.py
+5	7	bin/impl/tests/test_config.py
+4	1	bin/impl/tests/test_util.py
+6	6	cluster/install/fluo-cluster/bin/fluo-cluster
+19	19	cluster/install/fluo-cluster/bin/impl/configure.sh
+0	61	cluster/install/fluo-cluster/bin/impl/init.sh
+27	3	cluster/install/fluo-cluster/bin/impl/install.sh
+55	0	cluster/install/fluo-cluster/bin/impl/setup-os.sh
+34	29	cluster/install/fluo-cluster/bin/impl/{setup.sh => setup-sw.sh}
+11	1	cluster/install/fluo-cluster/bin/impl/start.sh
+4	2	cluster/install/fluo-cluster/conf/.gitignore
+459	0	cluster/install/fluo-cluster/conf/grafana/cluster-dashboard.json
+0	3	cluster/install/fluo-cluster/conf/hadoop/container-executor.cfg
+0	2	cluster/templates/fluo-cluster/conf/awscreds.conf
+34	0	cluster/templates/fluo-cluster/conf/collectd.conf
+3	0	cluster/templates/fluo-cluster/conf/container-executor.cfg
+0	1	cluster/templates/fluo-cluster/conf/env.sh
+1	0	cluster/templates/fluo-cluster/conf/grafana-cluster-datasource.json
+0	1	cluster/templates/fluo-cluster/conf/grafana-datasource.json
+1	0	cluster/templates/fluo-cluster/conf/grafana-fluo-datasource.json
+9	0	cluster/templates/fluo-cluster/conf/influxdb.conf
+2	2	cluster/templates/fluo-cluster/conf/yarn-site.xml
+2	13	conf/fluo-deploy.props.example
+
+commit 9ca0231dfe559cec15bb1db68f830c84866c1156
+Merge: 46b0f4d 9b62cd5
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-12-15 16:46:34 -0500
+
+    Merge pull request #91 from keith-turner/performance_profile
+    
+    Added performance profiles
+
+commit 9b62cd540c9fde4e71345bb6f279395cf15071ac
+Author: Keith Turner <kturner@apache.org>
+Date:   2015-12-11 19:11:42 -0500
+
+    Added performance profiles
+
+4	0	bin/impl/fluo_deploy/config.py
+9	1	bin/impl/fluo_deploy/main.py
+1	1	cluster/templates/fluo-cluster/conf/accumulo-env.sh
+13	3	cluster/templates/fluo-cluster/conf/accumulo-site.xml
+2	2	cluster/templates/fluo-cluster/conf/fluo.properties
+1	1	cluster/templates/fluo-cluster/conf/yarn-site.xml
+47	0	conf/fluo-deploy.props.example
+
+commit 46b0f4d7b0fe0d2baa712468a9cb60c5cfc3c7cf
+Merge: cf6a054 4a908d2
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-12-09 18:27:31 -0500
+
+    Merge pull request #89 from mikewalch/refactor-run
+    
+    Refactor run
+
+commit 4a908d269e2d188dc3cb871a88110dd7c062be19
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-12-09 12:43:28 -0500
+
+    Enabled InfluxDB admin
+
+3	0	cluster/templates/fluo-cluster/conf/influxdb.conf
+
+commit 7ec09a92496028b438f52dec4c3b95b493c0b0b3
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-12-08 16:49:21 -0500
+
+    Refactored the run command to execute a single application command.
+    The run command can also now start a webindex application.
+
+1	1	bin/impl/fluo_deploy/main.py
+2	1	bin/impl/fluo_deploy/util.py
+4	19	cluster/install/fluo-cluster/bin/impl/run.sh
+3	0	cluster/templates/fluo-cluster/conf/env.sh
+11	5	conf/fluo-deploy.props.example
+
+commit cf6a054099bf9d412a8feaa9725679eab3f862bc
+Merge: 17d58d0 ca2221d
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-12-08 15:56:58 -0500
+
+    Merge pull request #88 from keith-turner/fluo-574
+    
+    updated to work w/ changes made in fluo-io/fluo#574
+
+commit ca2221d0928b0e9907fec141bfb53afb3bde0399
+Author: Keith Turner <kturner@apache.org>
+Date:   2015-12-07 14:35:25 -0500
+
+    updated to work changes made in fluo-io/fluo#574
+
+0	2	bin/impl/fluo_deploy/main.py
+0	1	cluster/install/fluo-cluster/bin/impl/install.sh
+0	1	cluster/install/fluo-cluster/conf/.gitignore
+5	1	cluster/templates/fluo-cluster/conf/fluo.properties
+0	5	cluster/templates/fluo-cluster/conf/metrics.yaml
+
+commit 17d58d05b2638d0868513045e9ec9a2238cd2376
+Merge: 289b208 98910a0
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-12-08 09:22:06 -0500
+
+    Merge pull request #87 from keith-turner/fix-readme
+    
+    update info about access key in readme
+
+commit 289b208b34dc5cefe8a3eed56a49ea9eb61c8a44
+Merge: a20873b 3b90f94
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-12-08 09:19:48 -0500
+
+    Merge pull request #86 from keith-turner/zk-update
+    
+    update to latest version of Zookeeper
+
+commit 3b90f9488167fba3adf8f10fbe8309377336f8cd
+Author: Keith Turner <kturner@apache.org>
+Date:   2015-12-07 18:23:17 -0500
+
+    update to latest version of Zookeeper
+
+1	1	bin/impl/tests/test_config.py
+2	2	conf/fluo-deploy.props.example
+
+commit 98910a03a834ab80fccbc9949fa0dfd3bdb20ae3
+Author: Keith Turner <kturner@apache.org>
+Date:   2015-12-07 18:30:19 -0500
+
+    update info about access key in readme
+
+9	14	README.md
+
+commit a20873b79dfe585ecf94b4606ab304bd6fb61474
+Merge: 323bb5f 84f73c1
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-11-30 12:16:34 -0500
+
+    Merge pull request #85 from mikewalch/add-metrics
+    
+    Changed metrics server from Graphite to InfluxDB+Grafana.
+
+commit 84f73c1ea959b4259f24f7aecdd2a45bedf95423
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-11-25 13:42:55 -0500
+
+    Changed metrics server from Graphite to InfluxDB+Grafana.
+    Also simplified config.py.
+
+14	35	bin/impl/fluo_deploy/config.py
+7	5	bin/impl/fluo_deploy/main.py
+5	5	bin/impl/tests/test_config.py
+6	1	cluster/install/fluo-cluster/bin/impl/init.sh
+18	39	cluster/install/fluo-cluster/bin/impl/install.sh
+2	3	cluster/install/fluo-cluster/bin/impl/kill-local.sh
+8	0	cluster/install/fluo-cluster/bin/impl/setup.sh
+17	0	cluster/install/fluo-cluster/bin/impl/start.sh
+3	0	cluster/install/fluo-cluster/conf/.gitignore
+0	1	cluster/install/fluo-cluster/conf/graphite-dash.json
+10	0	cluster/templates/fluo-cluster/conf/env.sh
+1	0	cluster/templates/fluo-cluster/conf/grafana-datasource.json
+12	0	cluster/templates/fluo-cluster/conf/grafana.ini
+28	0	cluster/templates/fluo-cluster/conf/influxdb.conf
+1	1	cluster/templates/fluo-cluster/conf/metrics.yaml
+7	3	conf/fluo-deploy.props.example
+
+commit 323bb5fc9b6f5bb3d9a91695eb26a8b917974e3b
+Merge: 5cb6fa1 59733ad
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-10-27 11:08:56 -0400
+
+    Merge pull request #84 from mikewalch/network-errors
+    
+    Closes #83 - Network errors are occuring while running Spark on AWS
+
+commit 59733ad7020ad07e31de39ef0d9a9a0d8c449bf9
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-10-22 17:35:59 -0400
+
+    Closes #83 - Network errors are occuring while running Spark on AWS
+
+3	0	cluster/install/fluo-cluster/bin/impl/configure.sh
+7	0	cluster/install/fluo-cluster/conf/ifup-local
+
+commit 5cb6fa152f0f91e90a2bae72d5cb37f5a5ac0ef3
+Merge: 1a8613f 6a4821a
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-10-22 10:43:05 -0400
+
+    Merge pull request #82 from mikewalch/spark-history
+    
+    Spark history server is now automatically set up.  Namenode and resource
+
+commit 6a4821a98059d9ef0b41bfa6a695b90b2b8d5295
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-10-21 10:32:00 -0400
+
+    Spark history server is now automatically set up.  Namenode and resource
+    manager now configured using both hostname and private ip. Changed
+    fluo snaphot download to pull down most recent tarball (which is last
+    one listed on page).  Configured HADOOP_CONF_DIR for spark-submit.
+
+4	2	bin/impl/fluo_deploy/main.py
+4	0	cluster/install/fluo-cluster/bin/impl/init.sh
+2	0	cluster/install/fluo-cluster/bin/impl/install.sh
+1	0	cluster/install/fluo-cluster/bin/impl/kill-local.sh
+2	2	cluster/install/fluo-cluster/bin/impl/setup.sh
+4	0	cluster/install/fluo-cluster/bin/impl/start.sh
+2	0	cluster/install/fluo-cluster/conf/.gitignore
+1	1	cluster/templates/fluo-cluster/conf/accumulo-site.xml
+1	1	cluster/templates/fluo-cluster/conf/core-site.xml
+1	1	cluster/templates/fluo-cluster/conf/fluo.properties
+2	2	cluster/templates/fluo-cluster/conf/hdfs-site.xml
+6	0	cluster/templates/fluo-cluster/conf/spark-defaults.conf
+3	0	cluster/templates/fluo-cluster/conf/spark-env.sh
+1	1	cluster/templates/fluo-cluster/conf/yarn-site.xml
+
+commit 1a8613f6429978eb7599c69be3bfc2770412310d
+Merge: 95c23c5 44753a4
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-10-15 12:34:15 -0400
+
+    Merge pull request #81 from mikewalch/detail-monitoring
+    
+    Enabled detailed monitoring to be configured in AWS
+
+commit 44753a47cc37c2582d3d4778b9f7f4f91ce5acc1
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-10-15 11:15:19 -0400
+
+    Enabled detailed monitoring to be configured in AWS
+
+5	0	bin/impl/fluo_deploy/config.py
+2	1	bin/impl/fluo_deploy/main.py
+1	0	bin/impl/tests/test_config.py
+6	2	cluster/install/fluo-cluster/bin/impl/configure.sh
+1	0	cluster/templates/fluo-cluster/conf/env.sh
+3	1	conf/fluo-deploy.props.example
+
+commit 95c23c55be85b255bca030a30ea9c53d461f69ee
+Merge: 140dd86 cf747fc
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-10-13 15:17:33 -0400
+
+    Merge pull request #80 from mikewalch/monitoring
+    
+    Configured cloudwatch memory and disk monitoring.  Improved how confi…
+
+commit cf747fc48b90b2b2419f0d20e268df5e041840eb
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-10-13 12:36:41 -0400
+
+    Configured cloudwatch memory and disk monitoring.  Improved how configuration properties are set in templates.
+    Changed how PATH is configured in bashrc.
+
+6	0	bin/impl/fluo_deploy/config.py
+15	18	bin/impl/fluo_deploy/main.py
+2	1	bin/impl/tests/test_config.py
+10	2	cluster/install/fluo-cluster/bin/impl/configure.sh
+1	1	cluster/install/fluo-cluster/bin/impl/install.sh
+1	0	cluster/install/fluo-cluster/conf/.gitignore
+2	0	cluster/templates/fluo-cluster/conf/awscreds.conf
+12	12	cluster/templates/fluo-cluster/conf/bashrc
+18	17	cluster/templates/fluo-cluster/conf/env.sh
+1	1	cluster/templates/fluo-cluster/conf/fluo.properties
+3	0	conf/fluo-deploy.props.example
+
+commit 140dd8616506cf9fb050da78abd1c0f88b1a83ad
+Merge: 9e630b3 e5d3991
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-10-09 12:29:48 -0400
+
+    Merge pull request #79 from ericnewton/master
+    
+    Fixes #77 and #78
+
+commit e5d3991edd601b8c287926f9221ee483d4f398cb
+Author: Eric C. Newton <eric.newton@gmail.com>
+Date:   2015-10-09 11:27:31 -0400
+
+    #77 set instance.volumes
+
+5	0	cluster/templates/fluo-cluster/conf/accumulo-site.xml
+
+commit 6459e37d9927c1e4b1cca98dbfa155ede899d27f
+Author: Eric C. Newton <eric.newton@gmail.com>
+Date:   2015-10-09 11:27:14 -0400
+
+    #78 break the PATH construction up, add missing dirs
+
+11	1	cluster/templates/fluo-cluster/conf/bashrc
+
+commit 9e630b3575d01f5319d7050eaed57abc90c4482c
+Merge: 5854c51 87f343d
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-10-09 11:19:27 -0400
+
+    Merge pull request #76 from mikewalch/deploy-75
+    
+    Closes #75 #74 #48 - Allow AMI images to be set in configuration to s…
+
+commit 87f343d0a7e065a3743c623e078a5d1281b1a231
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-10-07 10:18:22 -0400
+
+    Closes #75 #74 #48 - Allow AMI images to be set in configuration to support different regions.
+    Avoid uploading Fluo distribution to EC2 cluster.  Upgraded Linux AMI. Refactored configure command.
+    Upgraded Accumulo and Spark. Added timeout install pssh command. Refactored configure to use pssh
+    and limited install to only 10 nodes at a time.
+
+23	1	bin/impl/fluo_deploy/config.py
+18	15	bin/impl/fluo_deploy/main.py
+0	9	bin/impl/fluo_deploy/util.py
+7	4	bin/impl/tests/test_config.py
+1	4	bin/impl/tests/test_util.py
+7	6	cluster/install/fluo-cluster/bin/fluo-cluster
+0	59	cluster/install/fluo-cluster/bin/impl/configure-local.sh
+55	13	cluster/install/fluo-cluster/bin/impl/configure.sh
+15	5	cluster/install/fluo-cluster/bin/impl/init.sh
+17	15	cluster/install/fluo-cluster/bin/impl/install.sh
+57	14	cluster/install/fluo-cluster/bin/impl/setup.sh
+1	1	cluster/install/fluo-cluster/conf/hosts/.gitignore
+2	0	cluster/templates/fluo-cluster/conf/env.sh
+13	4	conf/fluo-deploy.props.example
+
+commit 5854c51849de3247e6e05245e947dd4f6cf26e9d
+Merge: 3bdf3b4 9211d93
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-10-02 15:47:32 -0400
+
+    Merge pull request #73 from mikewalch/fd-70
+    
+    Closes #70 #71 #72 - Upgraded to JDK8.  Setup spark on cluster.  Used…
+
+commit 9211d9378f6d45b8dee6a4ad9a31ed27fd86f824
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-09-30 17:31:22 -0400
+
+    Closes #70 #71 #72 - Upgraded to JDK8.  Setup spark on cluster.  Used pssh to install software on cluster nodes
+
+6	0	bin/impl/fluo_deploy/config.py
+2	0	bin/impl/fluo_deploy/main.py
+4	4	bin/impl/tests/test_config.py
+2	10	cluster/install/fluo-cluster/bin/impl/init.sh
+23	1	cluster/install/fluo-cluster/bin/impl/install.sh
+1	1	cluster/install/fluo-cluster/bin/impl/kill-local.sh
+2	6	cluster/install/fluo-cluster/bin/impl/kill.sh
+9	4	cluster/install/fluo-cluster/bin/impl/setup.sh
+2	2	cluster/templates/fluo-cluster/conf/bashrc
+7	2	cluster/templates/fluo-cluster/conf/env.sh
+8	0	cluster/templates/fluo-cluster/conf/yarn-site.xml
+4	2	conf/fluo-deploy.props.example
+
+commit 3bdf3b4a28790d642fc5e43d09b236c6a27a71b2
+Merge: f569db1 d06a13e
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-08-26 13:54:49 -0400
+
+    Merge pull request #68 from ericnewton/master
+    
+    #67 parallelize setup
+
+commit d06a13e5c991554b8372fd993fd45b719fe6b207
+Author: Eric C. Newton <eric.newton@gmail.com>
+Date:   2015-07-15 15:43:45 -0400
+
+    #67 parallelize setup
+
+1	1	bin/impl/fluo_deploy/main.py
+2	1	cluster/install/fluo-cluster/bin/impl/configure.sh
+17	15	cluster/install/fluo-cluster/bin/impl/setup.sh
+
+commit f569db1192c577eca0a0df3328c18111799953f9
+Merge: f9a9d05 aee1543
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-06-23 17:30:34 -0400
+
+    Merge pull request #66 from keith-turner/remove_min_rep
+    
+    removed problematic min replication setting from hdfs config
+
+commit f9a9d05963c520638aac40d21db88321e4c87d7b
+Merge: 4062356 0656fdb
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-06-23 17:30:07 -0400
+
+    Merge pull request #65 from keith-turner/compress_ssh
+    
+    Added compression flag for interactive ssh
+
+commit aee1543cae5a320a4fae6b2b81ac475fc41821ca
+Author: Keith Turner <kturner@apache.org>
+Date:   2015-06-23 13:11:38 -0400
+
+    removed problematic min replication setting from hdfs config
+
+0	4	cluster/templates/fluo-cluster/conf/hdfs-site.xml
+
+commit 0656fdb315e487f17967ef0e763cae2938efddec
+Author: Keith Turner <kturner@apache.org>
+Date:   2015-06-23 12:22:21 -0400
+
+    Added compression flag for interactive ssh
+
+1	1	bin/impl/fluo_deploy/main.py
+
+commit 40623564b9b0f822e1758b6d3fcae0b64ca81761
+Merge: d2b783f cefa11e
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-06-19 11:46:06 -0400
+
+    Merge pull request #63 from mikewalch/fd-62
+    
+    Closes #62 - Rename 'test' command to 'run'.  Allow arguments to be p…
+
+commit cefa11e83f47411cca66455de6e947401ab9b0a2
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-06-17 16:11:46 -0400
+
+    Closes #62 - Rename 'test' command to 'run'.  Allow arguments to be passed to app commands.  Support phrasecount
+
+25	28	README.md
+11	11	bin/impl/fluo_deploy/main.py
+13	15	bin/impl/fluo_deploy/util.py
+1	1	bin/impl/tests/test_config.py
+12	12	cluster/install/fluo-cluster/bin/fluo-cluster
+11	11	cluster/install/fluo-cluster/bin/impl/{test.sh => run.sh}
+1	1	cluster/install/fluo-cluster/conf/.gitignore
+1	3	cluster/templates/fluo-cluster/conf/fluo.properties
+22	8	conf/fluo-deploy.props.example
+
+commit d2b783f77ba22b14ff3d505edaaf110d4ab2cc9e
+Merge: 294f406 2774ca6
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-05-27 15:16:21 -0400
+
+    Merge pull request #61 from mikewalch/readme-fix
+    
+    Updated README and fixed link to production install instructions
+
+commit 2774ca69962f39d9c8f013e556d370b90c83c9e7
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-05-27 14:24:31 -0400
+
+    Updated README and fixed link to production install instructions
+
+4	4	README.md
+
+commit 294f406a862619def1773f57b11c689c80810469
+Merge: 9620e4e 6b995df
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-05-21 15:39:10 -0400
+
+    Merge pull request #58 from keith-turner/accumulo_testing
+    
+    Accumulo testing
+
+commit 6b995df9d43cd54d0f2a1de1f36e7a5595f3fde4
+Author: Keith Turner <kturner@apache.org>
+Date:   2015-05-13 16:10:59 -0400
+
+    fixes #57 improvements for testing accumulo
+    
+     * use any local accumulo file if it exists
+     * made size of root EBS device configurable
+     * set EBS to delete on termination
+     * set general.rpc.timeout to avoid ACCUMUO-2388
+     * generated local ssh keys so agitation can run after disconnecting
+
+6	0	bin/impl/fluo_deploy/config.py
+8	5	bin/impl/fluo_deploy/main.py
+2	0	cluster/install/fluo-cluster/bin/impl/configure-local.sh
+3	0	cluster/install/fluo-cluster/bin/impl/configure.sh
+6	1	cluster/templates/fluo-cluster/conf/accumulo-site.xml
+4	0	conf/fluo-deploy.props.example
+
+commit 9620e4e9b53b7af3832c4f988e5b1dee0547e291
+Merge: ed970ef e7b0164
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-05-04 14:30:13 -0400
+
+    Merge pull request #56 from mikewalch/fd-55
+    
+    Closes #55 - Configure YARN CPU scheduling and cgroups
+
+commit e7b0164b2b1a464534352b8b8f8711a15057a7ae
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-05-04 11:33:14 -0400
+
+    Closes #55 - Configure YARN CPU scheduling and cgroups
+
+2	2	bin/impl/tests/test_config.py
+11	0	cluster/install/fluo-cluster/bin/impl/install.sh
+138	0	cluster/install/fluo-cluster/conf/hadoop/capacity-scheduler.xml
+3	0	cluster/install/fluo-cluster/conf/hadoop/container-executor.cfg
+24	0	cluster/templates/fluo-cluster/conf/yarn-site.xml
+2	2	conf/fluo-deploy.props.example
+
+commit ed970efc92730c63986d919ee556b26bbfa18921
+Merge: 9adf31b 5d48125
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-04-27 13:43:11 -0400
+
+    Merge pull request #52 from keith-turner/new
+    
+    fixes #51 run fluo new for test
+
+commit 5d48125ee011710d676432184544db769d7ad42b
+Author: Keith Turner <kturner@apache.org>
+Date:   2015-04-20 18:17:46 -0400
+
+    fixes #51 run fluo new for test
+
+9	2	cluster/install/fluo-cluster/bin/impl/test.sh
+
+commit 9adf31bc1deb486d34bd9b5db1d42c96a8c6ecd8
+Merge: abaa3f2 69e279e
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-04-20 13:01:41 -0400
+
+    Merge pull request #49 from mikewalch/fd-47
+    
+    Closes #47 - Enable multiple test applications to be configured and run
+
+commit 69e279ea5e4e4ec36cd411140ca1b15422e4fe8b
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-04-14 16:05:57 -0400
+
+    Closes #47 - Enable multiple test applications to be configured and run
+
+14	3	README.md
+13	5	bin/impl/fluo_deploy/main.py
+5	0	bin/impl/fluo_deploy/util.py
+24	9	cluster/install/fluo-cluster/bin/impl/test.sh
+1	0	cluster/install/fluo-cluster/conf/.gitignore
+0	4	cluster/templates/fluo-cluster/conf/env.sh
+7	3	cluster/templates/fluo-cluster/conf/fluo.properties
+19	10	conf/fluo-deploy.props.example
+
+commit abaa3f2eed8e311f4a5d9cb011d65ecab6bb8e0a
+Merge: e138ca1 8e54d0f
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-03-18 07:54:55 -0400
+
+    Merge pull request #45 from keith-turner/test
+    
+    closes #44 adde command to run test on cluster
+
+commit 8e54d0f820e8208756a6ad9fe46090db32b5a74b
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-03-13 15:20:53 -0400
+
+    closes #44 adde command to run test on cluster
+
+7	0	bin/impl/fluo_deploy/main.py
+4	0	cluster/install/fluo-cluster/bin/fluo-cluster
+32	0	cluster/install/fluo-cluster/bin/impl/test.sh
+4	0	cluster/templates/fluo-cluster/conf/env.sh
+12	0	conf/fluo-deploy.props.example
+
+commit e138ca1893bb4468f130a9431ccfc827e298301b
+Merge: b0d75b4 302dab1
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-03-11 14:36:01 -0400
+
+    Merge pull request #42 from keith-turner/fd-41
+    
+    closes #41 added support for installing mvn and git
+
+commit 302dab1421d4c21a2244def10e2ecab0ec65afae
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-03-11 10:12:11 -0400
+
+    #41 - Fixed unit tests
+
+2	2	bin/impl/tests/test_config.py
+
+commit fb62b59f7a8dad8b32bb0e33778451443062d132
+Author: Keith Turner <kturner@apache.org>
+Date:   2015-03-10 21:10:59 -0400
+
+    closes #41 added support for installing mvn and git
+
+2	2	bin/impl/fluo_deploy/config.py
+21	1	cluster/install/fluo-cluster/bin/impl/install.sh
+3	1	cluster/install/fluo-cluster/bin/impl/setup.sh
+1	1	cluster/templates/fluo-cluster/conf/bashrc
+4	0	cluster/templates/fluo-cluster/conf/env.sh
+3	3	conf/fluo-deploy.props.example
+
+commit b0d75b45e8671a856cf466e92098df8622cafffe
+Merge: 9987809 7966d53
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-03-11 10:30:41 -0400
+
+    Merge pull request #43 from mikewalch/fd-39
+    
+    Closes #39 - The 'fluo-deploy setup' command should only install service...
+
+commit 7966d53ff2017d6377b7ec129ec33a85191157a5
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-03-11 09:49:13 -0400
+
+    Closes #39 - The 'fluo-deploy setup' command should only install services specified in fluo-deploy.props
+
+12	0	bin/impl/fluo_deploy/config.py
+11	5	bin/impl/fluo_deploy/main.py
+1	0	bin/impl/tests/test_config.py
+1	1	cluster/install/fluo-cluster/bin/impl/configure-local.sh
+1	0	conf/fluo-deploy.props.example
+
+commit 9987809386cb1f5e1335642d8a7ae9caecb3cb1a
+Merge: b29875b eeb6026
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-03-10 17:35:21 -0400
+
+    Merge pull request #40 from mikewalch/fd-30
+    
+    Closes #30 - Refer to leader as proxy node
+
+commit eeb6026cd4d1464383de7978349cc4a0146d8a9b
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-03-09 11:04:14 -0400
+
+    Closes #30 - Refer to leader as proxy node
+
+22	22	bin/impl/fluo_deploy/config.py
+32	32	bin/impl/fluo_deploy/main.py
+1	1	bin/impl/fluo_deploy/util.py
+4	4	bin/impl/tests/test_config.py
+5	5	cluster/install/fluo-cluster/bin/impl/install.sh
+1	1	cluster/install/fluo-cluster/bin/impl/ready.sh
+1	1	cluster/install/fluo-cluster/bin/impl/setup.sh
+1	1	cluster/install/fluo-cluster/conf/hosts/.gitignore
+1	1	cluster/templates/fluo-cluster/conf/env.sh
+6	6	conf/fluo-deploy.props.example
+
+commit b29875b46190d93ec5ed7c6173252e76f8fbda2a
+Merge: df2346e 4aa9408
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-03-09 10:42:47 -0400
+
+    Merge pull request #37 from keith-turner/fd-35
+    
+    closes #35 added support for Accumulo snapshot versions
+
+commit 4aa9408132a08156a4f3fa279936230100c95632
+Author: Keith Turner <kturner@apache.org>
+Date:   2015-03-04 15:20:53 -0500
+
+    closes #35 added support for Accumulo snapshot versions
+
+9	0	bin/impl/fluo_deploy/main.py
+5	2	cluster/install/fluo-cluster/bin/impl/setup.sh
+2	0	conf/fluo-deploy.props.example
+
+commit df2346e109f7851f2814635c90428e186199d2be
+Merge: 3bef8fc cad866b
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-03-09 10:27:11 -0400
+
+    Merge pull request #38 from keith-turner/fd-36
+    
+    closes #36 build accumulo native lib
+
+commit cad866b2d904cf175851e2e1f8ee99789d11c55c
+Author: Keith Turner <kturner@apache.org>
+Date:   2015-03-06 21:25:32 -0500
+
+    closes #36 build accumulo native lib
+
+3	0	cluster/install/fluo-cluster/bin/impl/configure-local.sh
+1	0	cluster/install/fluo-cluster/bin/impl/install.sh
+1	1	cluster/templates/fluo-cluster/conf/accumulo-env.sh
+3	13	cluster/templates/fluo-cluster/conf/accumulo-site.xml
+
+commit 3bef8fc4b860ba507ab6a9773c64a53ff9522868
+Merge: b57d9d8 81eddbe
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-03-04 07:47:31 -0500
+
+    Merge pull request #34 from mikewalch/fd-27
+    
+    Closes #27 - Yarn application logs not in usual place
+
+commit 81eddbe0aeb5d8f0bdd838ed96960b906b8ab964
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-03-04 07:17:39 -0500
+
+    Closes #27 - Yarn application logs not in usual place
+
+1	0	bin/impl/fluo_deploy/main.py
+2	6	cluster/templates/fluo-cluster/conf/yarn-site.xml
+
+commit b57d9d8bc9053529a4a58831558ca5de4b56e640
+Merge: d2d71d9 8c5a413
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-03-03 15:38:30 -0500
+
+    Merge pull request #33 from mikewalch/fd-32
+    
+    Closes #32 - MapReduce should be configured to use YARN rather than loca...
+
+commit 8c5a41376160424fe1a0d49ce40c130a521397a5
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-03-03 14:53:51 -0500
+
+    Closes #32 - MapReduce should be configured to use YARN rather than local mode
+
+2	2	bin/impl/fluo_deploy/config.py
+3	1	bin/impl/fluo_deploy/main.py
+1	0	cluster/install/fluo-cluster/bin/impl/install.sh
+1	0	cluster/install/fluo-cluster/conf/.gitignore
+32	0	cluster/templates/fluo-cluster/conf/mapred-site.xml
+
+commit d2d71d9ffffb9bc01a33cbd7c1593c21cc6651d4
+Merge: a689bfe a3c98c9
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-03-03 14:26:38 -0500
+
+    Merge pull request #31 from mikewalch/fd-17
+    
+    Closes #17 - Support two EC2 instance types
+
+commit a3c98c9f7e07d88f8290b8c913ebf4a1127a4001
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-03-03 10:51:21 -0500
+
+    Closes #17 - Support two EC2 instance types
+
+22	13	bin/impl/fluo_deploy/config.py
+12	8	bin/impl/fluo_deploy/main.py
+7	4	bin/impl/tests/test_config.py
+6	3	cluster/install/fluo-cluster/bin/impl/configure-local.sh
+3	2	cluster/install/fluo-cluster/bin/impl/configure.sh
+1	1	cluster/install/fluo-cluster/conf/hosts/.gitignore
+0	1	cluster/templates/fluo-cluster/conf/env.sh
+12	10	conf/fluo-deploy.props.example
+
+commit a689bfeeff059ee6c2c9da2ca737a397bc37950b
+Merge: 2c5c652 c5eb56b
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-02-27 16:03:49 -0500
+
+    Merge pull request #29 from keith-turner/fd-20
+    
+    closes #20 setup ephemeral drives w/ noatime
+
+commit 2c5c652afeea045e16c1e07738c319204d5ee46c
+Merge: 3ad9db6 6beb9da
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-02-27 15:31:13 -0500
+
+    Merge pull request #28 from keith-turner/fd-2
+    
+    closes #2 added support for running graphite
+
+commit 6beb9da14b814932e3bcdcbabfff514fa2b51a71
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-02-26 16:38:12 -0500
+
+    #2 - updates from review
+
+8	3	bin/impl/fluo_deploy/config.py
+1	23	bin/impl/fluo_deploy/main.py
+2	2	bin/impl/tests/test_config.py
+3	1	cluster/install/fluo-cluster/bin/impl/configure-local.sh
+
+commit c5eb56bb5694763141e7636d1f293f0538804ff6
+Author: Keith Turner <kturner@apache.org>
+Date:   2015-02-25 18:04:45 -0500
+
+    closes #20 setup ephemeral drives w/ noatime
+
+2	1	cluster/install/fluo-cluster/bin/impl/configure-local.sh
+
+commit 5f23d148c5f84cee98f94c14ba1b0c18828fdc8b
+Author: Keith Turner <kturner@apache.org>
+Date:   2015-02-25 17:30:42 -0500
+
+    closes #2 added support for running graphite
+
+1	1	bin/impl/fluo_deploy/config.py
+1	0	bin/impl/fluo_deploy/main.py
+2	2	cluster/install/fluo-cluster/bin/impl/init.sh
+45	0	cluster/install/fluo-cluster/bin/impl/install.sh
+3	0	cluster/install/fluo-cluster/bin/impl/kill-local.sh
+1	1	cluster/install/fluo-cluster/bin/impl/kill.sh
+1	0	cluster/install/fluo-cluster/conf/.gitignore
+1	0	cluster/install/fluo-cluster/conf/graphite-dash.json
+5	0	cluster/templates/fluo-cluster/conf/metrics.yaml
+2	1	conf/fluo-deploy.props.example
+
+commit 3ad9db6d944c3c3c9cdab08b20ec922c66900927
+Merge: e843136 b62aada
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-02-25 15:42:41 -0500
+
+    Merge pull request #26 from mikewalch/fd-24
+    
+    Closes #24 - Append user supplied keys file to authorized_keys on all ho...
+
+commit b62aadabcf8765e3bf33adabaa57b5df2e07875c
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-02-25 13:24:35 -0500
+
+    Closes #24 - Append user supplied keys file to authorized_keys on all hosts
+
+9	5	README.md
+7	0	bin/impl/fluo_deploy/main.py
+1	0	cluster/install/fluo-cluster/bin/impl/configure-local.sh
+1	0	cluster/install/fluo-cluster/conf/.gitignore
+1	0	conf/.gitignore
+
+commit e8431361043c2b73f49194673078380c1f8a7c59
+Merge: 89355d8 c566225
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-02-24 15:13:35 -0500
+
+    Merge pull request #23 from mikewalch/fd-22
+    
+    Closes #22 - Have TravisCI automatically run the unit tests
+
+commit c5662253c64ac63d089c90a5cc129b9a19eb47bf
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-02-24 14:33:52 -0500
+
+    Closes #22 - Have TravisCI automatically run the unit tests
+
+18	0	.travis.yml
+2	3	README.md
+
+commit 89355d8ae172aaa16f83842b4709f26d671ac8db
+Merge: aec14fa 1b000c6
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-02-24 13:50:07 -0500
+
+    Merge pull request #21 from mikewalch/fd-16
+    
+    Closes #16 - Add accumulo to path and create 'fluo-cluster ashell' comma...
+
+commit 1b000c61921fb36f878da10fa8d9b6d4a8bfd70f
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-02-24 11:43:06 -0500
+
+    Closes #16 - Add accumulo to path and create 'fluo-cluster ashell' command
+
+4	0	cluster/install/fluo-cluster/bin/fluo-cluster
+3	2	cluster/templates/fluo-cluster/conf/bashrc
+
+commit aec14fa16afd01636387f80bdd1a7fcd7cbea7f8
+Merge: 573007f 904df05
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-02-24 12:08:43 -0500
+
+    Merge pull request #19 from mikewalch/fd-9
+    
+    Closes #9 - Create 'config' command to retrieve cluster configuration
+
+commit 904df05cc2b33d2315f7828aff9ba6fe4a23fcf1
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-02-24 10:14:17 -0500
+
+    Closes #9 - Create 'config' command to retrieve cluster configuration
+
+19	7	README.md
+20	0	bin/impl/fluo_deploy/config.py
+17	6	bin/impl/fluo_deploy/main.py
+40	13	bin/impl/fluo_deploy/util.py
+6	7	bin/impl/tests/test_config.py
+11	4	bin/impl/tests/test_util.py
+0	0	conf/hosts/{ => example}/example_cluster
+
+commit 573007fadfd624a9a2589ba3aae2d44479748052
+Merge: 1fd6682 03afaa3
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-02-24 08:52:24 -0500
+
+    Merge pull request #13 from keith-turner/fd-10
+    
+    closes #10 added ephemeral drive support
+
+commit 03afaa3087943be932f8bb666a03a7e2c2ac59c0
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-02-23 12:46:11 -0500
+
+    #10 - Fixed bug where zookeeper myid was being created in wrong location
+
+1	1	cluster/install/fluo-cluster/bin/impl/init.sh
+1	0	cluster/templates/fluo-cluster/conf/env.sh
+
+commit 46d6cff6080caf4f21da8aaa4e272fb0c5701432
+Author: Keith Turner <kturner@apache.org>
+Date:   2015-02-20 20:30:56 -0500
+
+    closes #10 added ephemeral drive support
+
+18	2	bin/impl/fluo_deploy/config.py
+10	1	bin/impl/fluo_deploy/main.py
+43	40	bin/impl/fluo_deploy/util.py
+17	0	cluster/install/fluo-cluster/bin/impl/configure-local.sh
+1	1	cluster/install/fluo-cluster/bin/impl/init.sh
+1	0	cluster/templates/fluo-cluster/conf/env.sh
+1	1	cluster/templates/fluo-cluster/conf/hdfs-site.xml
+
+commit 1fd6682eeed1844bd14742e6ff916112bd869fa4
+Merge: 9f8b96a 3b98abf
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-02-23 17:33:07 -0500
+
+    Merge pull request #15 from mikewalch/fd-4
+    
+    Closes #4 - Automate verification of MD5 checksums of downloaded softwar...
+
+commit 3b98abf771fe11eb5f30650d5ff24c1285cdf768
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-02-23 16:32:00 -0500
+
+    Closes #4 - Automate verification of MD5 checksums of downloaded software.  Also, upgrade to Accumulo 1.6.2
+
+9	0	bin/impl/fluo_deploy/config.py
+3	0	bin/impl/fluo_deploy/main.py
+20	1	cluster/install/fluo-cluster/bin/impl/setup.sh
+3	0	cluster/templates/fluo-cluster/conf/env.sh
+5	1	conf/fluo-deploy.props.example
+
+commit 9f8b96a253427a977c7eb6d7fd596f83e8c106b1
+Merge: 3ebe665 5f57f85
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-02-23 17:16:27 -0500
+
+    Merge pull request #14 from mikewalch/fd-8
+    
+    Closes #8 - Put fluo-cluster stuff in a single dir on cluster
+
+commit 5f57f85575d9ee07dff76a76cd8ce1a4225194be
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-02-23 14:12:36 -0500
+
+    Closes #8 - Put fluo-cluster stuff in a single dir on cluster
+
+8	8	bin/impl/fluo_deploy/main.py
+0	0	cluster/install/{ => fluo-cluster}/bin/fluo-cluster
+0	0	cluster/install/{ => fluo-cluster}/bin/impl/configure-local.sh
+0	0	cluster/install/{ => fluo-cluster}/bin/impl/configure.sh
+1	1	cluster/install/{ => fluo-cluster}/bin/impl/init.sh
+0	0	cluster/install/{ => fluo-cluster}/bin/impl/install.sh
+0	0	cluster/install/{ => fluo-cluster}/bin/impl/kill-local.sh
+0	0	cluster/install/{ => fluo-cluster}/bin/impl/kill.sh
+0	0	cluster/install/{ => fluo-cluster}/bin/impl/ready.sh
+0	0	cluster/install/{ => fluo-cluster}/bin/impl/setup.sh
+0	0	cluster/install/{ => fluo-cluster}/bin/impl/start.sh
+0	0	cluster/install/{ => fluo-cluster}/conf/.gitignore
+0	0	cluster/install/{ => fluo-cluster}/conf/hosts/.gitignore
+0	0	cluster/install/{ => fluo-cluster}/conf/limits.conf
+0	0	cluster/install/{ => fluo-cluster}/conf/ssh_config
+0	0	cluster/templates/{ => fluo-cluster}/conf/accumulo-env.sh
+0	0	cluster/templates/{ => fluo-cluster}/conf/accumulo-site.xml
+1	1	cluster/templates/{ => fluo-cluster}/conf/bashrc
+0	0	cluster/templates/{ => fluo-cluster}/conf/core-site.xml
+2	2	cluster/templates/{ => fluo-cluster}/conf/env.sh
+0	0	cluster/templates/{ => fluo-cluster}/conf/fluo-env.sh
+0	0	cluster/templates/{ => fluo-cluster}/conf/fluo.properties
+0	0	cluster/templates/{ => fluo-cluster}/conf/hdfs-site.xml
+0	0	cluster/templates/{ => fluo-cluster}/conf/yarn-site.xml
+0	0	cluster/templates/{ => fluo-cluster}/conf/zoo.cfg
+
+commit 3ebe66506a39cdbe8d52bba24d5733d4f5541bfc
+Merge: 278ac0a c9cfc6c
+Author: Keith Turner <keith@deenlo.com>
+Date:   2015-02-20 17:33:48 -0500
+
+    Merge pull request #12 from mikewalch/fluo-deploy-7
+    
+    Closes #7 - Support multiple zookeeper servers
+
+commit c9cfc6ce7032c8575ef3c6cdb17a048c2a101c2c
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-02-20 17:09:28 -0500
+
+    Closes #7 - Support multiple zookeeper servers
+
+16	3	bin/impl/fluo_deploy/config.py
+22	16	bin/impl/fluo_deploy/main.py
+15	12	bin/impl/tests/test_config.py
+2	2	cluster/install/bin/impl/configure-local.sh
+15	8	cluster/install/bin/impl/init.sh
+15	1	cluster/install/bin/impl/install.sh
+1	1	cluster/install/bin/impl/kill.sh
+2	1	cluster/install/bin/impl/setup.sh
+5	6	cluster/install/bin/impl/start.sh
+4	4	cluster/install/conf/hosts/.gitignore
+4	1	cluster/templates/conf/bashrc
+5	0	cluster/templates/conf/env.sh
+1	0	cluster/templates/conf/zoo.cfg
+4	2	conf/fluo-deploy.props.example
+6	4	conf/hosts/example_cluster
+
+commit 278ac0a08536d238dba864398d3f8810565de48e
+Merge: b4fccad d5568c7
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-02-20 10:19:17 -0500
+
+    Merge pull request #3 from mikewalch/fluo-deploy-1
+    
+    Closes #1 - Set up project and created basic script to launch an EC2
+
+commit d5568c76de44b89bad297c22ed4a5283357f3980
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-01-23 16:36:31 -0500
+
+    Closes #1 #5 - Set up project and created basic script to launch an EC2
+    cluster and deploy Fluo to an existing cluster (EC2 or otherwise)
+
+1	0	.gitignore
+5	0	AUTHORS
+111	1	README.md
+32	0	bin/fluo-deploy
+1	0	bin/impl/.gitignore
+0	0	bin/impl/fluo_deploy/__init__.py
+238	0	bin/impl/fluo_deploy/config.py
+391	0	bin/impl/fluo_deploy/main.py
+131	0	bin/impl/fluo_deploy/util.py
+0	0	bin/impl/tests/__init__.py
+57	0	bin/impl/tests/test_config.py
+25	0	bin/impl/tests/test_util.py
+63	0	cluster/install/bin/fluo-cluster
+30	0	cluster/install/bin/impl/configure-local.sh
+27	0	cluster/install/bin/impl/configure.sh
+43	0	cluster/install/bin/impl/init.sh
+96	0	cluster/install/bin/impl/install.sh
+21	0	cluster/install/bin/impl/kill-local.sh
+21	0	cluster/install/bin/impl/kill.sh
+27	0	cluster/install/bin/impl/ready.sh
+33	0	cluster/install/bin/impl/setup.sh
+43	0	cluster/install/bin/impl/start.sh
+10	0	cluster/install/conf/.gitignore
+10	0	cluster/install/conf/hosts/.gitignore
+4	0	cluster/install/conf/limits.conf
+2	0	cluster/install/conf/ssh_config
+1	0	cluster/tarballs/.gitignore
+33	0	cluster/templates/conf/accumulo-env.sh
+121	0	cluster/templates/conf/accumulo-site.xml
+6	0	cluster/templates/conf/bashrc
+24	0	cluster/templates/conf/core-site.xml
+28	0	cluster/templates/conf/env.sh
+15	0	cluster/templates/conf/fluo-env.sh
+118	0	cluster/templates/conf/fluo.properties
+44	0	cluster/templates/conf/hdfs-site.xml
+60	0	cluster/templates/conf/yarn-site.xml
+17	0	cluster/templates/conf/zoo.cfg
+2	0	conf/.gitignore
+68	0	conf/fluo-deploy.props.example
+8	0	conf/hosts/example_cluster
+
+commit b4fccad66e67cd111a19939630516ec6ab79b0ad
+Author: Mike Walch <mwalch@gmail.com>
+Date:   2015-01-21 08:23:09 -0500
+
+    Initial commit
+
+202	0	LICENSE
+2	0	README.md

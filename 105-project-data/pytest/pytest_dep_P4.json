@@ -1,0 +1,708 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "pytest\\pytest-sdsm",
+  "variables" : [ "pytest/bench/bench.py", "pytest/bench/bench_argcomplete.py", "pytest/bench/empty.py", "pytest/bench/manyparam.py", "pytest/bench/skip.py", "pytest/doc/en/conf.py", "pytest/doc/en/conftest.py", "pytest/doc/en/example/assertion/failure_demo.py", "pytest/doc/en/example/assertion/global_testmodule_config/conftest.py", "pytest/doc/en/example/assertion/global_testmodule_config/test_hello_world.py", "pytest/doc/en/example/assertion/test_failures.py", "pytest/doc/en/example/assertion/test_setup_flow_example.py", "pytest/doc/en/example/conftest.py", "pytest/doc/en/example/costlysetup/conftest.py", "pytest/doc/en/example/costlysetup/sub_a/test_quick.py", "pytest/doc/en/example/costlysetup/sub_a/__init__.py", "pytest/doc/en/example/costlysetup/sub_b/test_two.py", "pytest/doc/en/example/costlysetup/sub_b/__init__.py", "pytest/doc/en/example/multipython.py", "pytest/doc/en/example/nonpython/conftest.py", "pytest/doc/en/example/nonpython/__init__.py", "pytest/doc/en/example/py2py3/conftest.py", "pytest/doc/en/example/py2py3/test_py2.py", "pytest/doc/en/example/py2py3/test_py3.py", "pytest/doc/en/example/pythoncollection.py", "pytest/doc/en/example/xfail_demo.py", "pytest/doc/en/_themes/flask_theme_support.py", "pytest/extra/get_issues.py", "pytest/extra/setup-py.test/setup.py", "pytest/scripts/release.py", "pytest/setup.py", "pytest/src/pytest.py", "pytest/src/_pytest/assertion/rewrite.py", "pytest/src/_pytest/assertion/truncate.py", "pytest/src/_pytest/assertion/util.py", "pytest/src/_pytest/assertion/__init__.py", "pytest/src/_pytest/cacheprovider.py", "pytest/src/_pytest/capture.py", "pytest/src/_pytest/compat.py", "pytest/src/_pytest/config/argparsing.py", "pytest/src/_pytest/config/exceptions.py", "pytest/src/_pytest/config/findpaths.py", "pytest/src/_pytest/config/__init__.py", "pytest/src/_pytest/debugging.py", "pytest/src/_pytest/deprecated.py", "pytest/src/_pytest/doctest.py", "pytest/src/_pytest/fixtures.py", "pytest/src/_pytest/freeze_support.py", "pytest/src/_pytest/helpconfig.py", "pytest/src/_pytest/hookspec.py", "pytest/src/_pytest/junitxml.py", "pytest/src/_pytest/logging.py", "pytest/src/_pytest/main.py", "pytest/src/_pytest/mark/evaluate.py", "pytest/src/_pytest/mark/legacy.py", "pytest/src/_pytest/mark/structures.py", "pytest/src/_pytest/mark/__init__.py", "pytest/src/_pytest/monkeypatch.py", "pytest/src/_pytest/nodes.py", "pytest/src/_pytest/nose.py", "pytest/src/_pytest/outcomes.py", "pytest/src/_pytest/pastebin.py", "pytest/src/_pytest/paths.py", "pytest/src/_pytest/pytester.py", "pytest/src/_pytest/python.py", "pytest/src/_pytest/python_api.py", "pytest/src/_pytest/recwarn.py", "pytest/src/_pytest/reports.py", "pytest/src/_pytest/resultlog.py", "pytest/src/_pytest/runner.py", "pytest/src/_pytest/setuponly.py", "pytest/src/_pytest/setupplan.py", "pytest/src/_pytest/skipping.py", "pytest/src/_pytest/terminal.py", "pytest/src/_pytest/tmpdir.py", "pytest/src/_pytest/unittest.py", "pytest/src/_pytest/warnings.py", "pytest/src/_pytest/warning_types.py", "pytest/src/_pytest/_argcomplete.py", "pytest/src/_pytest/_code/code.py", "pytest/src/_pytest/_code/source.py", "pytest/src/_pytest/_code/_py2traceback.py", "pytest/src/_pytest/_code/__init__.py", "pytest/src/_pytest/__init__.py", "pytest/testing/code/test_code.py", "pytest/testing/code/test_excinfo.py", "pytest/testing/code/test_source.py", "pytest/testing/examples/test_issue519.py", "pytest/testing/example_scripts/acceptance/fixture_mock_integration.py", "pytest/testing/example_scripts/collect/collect_init_tests/tests/test_foo.py", "pytest/testing/example_scripts/collect/collect_init_tests/tests/__init__.py", "pytest/testing/example_scripts/collect/package_infinite_recursion/conftest.py", "pytest/testing/example_scripts/collect/package_infinite_recursion/tests/test_basic.py", "pytest/testing/example_scripts/collect/package_infinite_recursion/tests/__init__.py", "pytest/testing/example_scripts/config/collect_pytest_prefix/conftest.py", "pytest/testing/example_scripts/config/collect_pytest_prefix/test_foo.py", "pytest/testing/example_scripts/conftest_usageerror/conftest.py", "pytest/testing/example_scripts/fixtures/custom_item/conftest.py", "pytest/testing/example_scripts/fixtures/custom_item/foo/test_foo.py", "pytest/testing/example_scripts/fixtures/custom_item/foo/__init__.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_conftest_funcargs_only_available_in_subdir/sub1/conftest.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_conftest_funcargs_only_available_in_subdir/sub1/test_in_sub1.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_conftest_funcargs_only_available_in_subdir/sub1/__init__.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_conftest_funcargs_only_available_in_subdir/sub2/conftest.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_conftest_funcargs_only_available_in_subdir/sub2/test_in_sub2.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_conftest_funcargs_only_available_in_subdir/sub2/__init__.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_extend_fixture_conftest_conftest/conftest.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_extend_fixture_conftest_conftest/pkg/conftest.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_extend_fixture_conftest_conftest/pkg/test_spam.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_extend_fixture_conftest_conftest/pkg/__init__.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_extend_fixture_conftest_module/conftest.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_extend_fixture_conftest_module/test_extend_fixture_conftest_module.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_extend_fixture_module_class.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_funcarg_basic.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_funcarg_lookupfails.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_funcarg_lookup_classlevel.py", "pytest/testing/example_scripts/fixtures/fill_fixtures/test_funcarg_lookup_modulelevel.py", "pytest/testing/example_scripts/issue88_initial_file_multinodes/conftest.py", "pytest/testing/example_scripts/issue88_initial_file_multinodes/test_hello.py", "pytest/testing/example_scripts/issue_519.py", "pytest/testing/example_scripts/tmpdir/tmpdir_fixture.py", "pytest/testing/freeze/create_executable.py", "pytest/testing/freeze/runtests_script.py", "pytest/testing/freeze/tests/test_trivial.py", "pytest/testing/freeze/tox_run.py", "pytest/testing/logging/test_fixture.py", "pytest/testing/logging/test_formatter.py", "pytest/testing/logging/test_reporting.py", "pytest/testing/python/approx.py", "pytest/testing/python/collect.py", "pytest/testing/python/fixture.py", "pytest/testing/python/integration.py", "pytest/testing/python/metafunc.py", "pytest/testing/python/raises.py", "pytest/testing/python/setup_only.py", "pytest/testing/python/setup_plan.py", "pytest/testing/test_argcomplete.py", "pytest/testing/test_assertion.py", "pytest/testing/test_assertrewrite.py", "pytest/testing/test_cacheprovider.py", "pytest/testing/test_capture.py", "pytest/testing/test_collection.py", "pytest/testing/test_compat.py", "pytest/testing/test_config.py", "pytest/testing/test_conftest.py", "pytest/testing/test_doctest.py", "pytest/testing/test_entry_points.py", "pytest/testing/test_helpconfig.py", "pytest/testing/test_junitxml.py", "pytest/testing/test_mark.py", "pytest/testing/test_modimport.py", "pytest/testing/test_monkeypatch.py", "pytest/testing/test_nodes.py", "pytest/testing/test_nose.py", "pytest/testing/test_parseopt.py", "pytest/testing/test_pastebin.py", "pytest/testing/test_pdb.py", "pytest/testing/test_pluginmanager.py", "pytest/testing/test_pytester.py", "pytest/testing/test_recwarn.py", "pytest/testing/test_resultlog.py", "pytest/testing/test_runner.py", "pytest/testing/test_runner_xunit.py", "pytest/testing/test_session.py", "pytest/testing/test_skipping.py", "pytest/testing/test_terminal.py", "pytest/testing/test_tmpdir.py", "pytest/testing/test_unittest.py", "pytest/testing/test_warnings.py" ],
+  "cells" : [ {
+    "src" : 64,
+    "dest" : 55,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 64,
+    "dest" : 79,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 129,
+    "dest" : 64,
+    "values" : {
+      "P4" : 16.0
+    }
+  }, {
+    "src" : 129,
+    "dest" : 19,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 129,
+    "dest" : 52,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 129,
+    "dest" : 58,
+    "values" : {
+      "P4" : 22.0
+    }
+  }, {
+    "src" : 129,
+    "dest" : 45,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 130,
+    "dest" : 64,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 130,
+    "dest" : 52,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 130,
+    "dest" : 58,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 67,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 131,
+    "dest" : 46,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 68,
+    "dest" : 64,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 68,
+    "dest" : 67,
+    "values" : {
+      "P4" : 16.0
+    }
+  }, {
+    "src" : 68,
+    "dest" : 52,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 68,
+    "dest" : 58,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 64,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 97,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 19,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 58,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 45,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 67,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 39,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 60,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 46,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 73,
+    "dest" : 67,
+    "values" : {
+      "P4" : 18.0
+    }
+  }, {
+    "src" : 73,
+    "dest" : 79,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 138,
+    "dest" : 39,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 138,
+    "dest" : 60,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 138,
+    "dest" : 46,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 75,
+    "dest" : 79,
+    "values" : {
+      "P4" : 9.0
+    }
+  }, {
+    "src" : 76,
+    "dest" : 55,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 76,
+    "dest" : 79,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 141,
+    "dest" : 64,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 141,
+    "dest" : 52,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 141,
+    "dest" : 58,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 143,
+    "dest" : 55,
+    "values" : {
+      "P4" : 18.0
+    }
+  }, {
+    "src" : 143,
+    "dest" : 79,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 81,
+    "dest" : 55,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 81,
+    "dest" : 79,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 19,
+    "dest" : 64,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 19,
+    "dest" : 52,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 19,
+    "dest" : 58,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 148,
+    "dest" : 67,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 55,
+    "values" : {
+      "P4" : 30.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 79,
+    "values" : {
+      "P4" : 18.0
+    }
+  }, {
+    "src" : 149,
+    "dest" : 55,
+    "values" : {
+      "P4" : 9.0
+    }
+  }, {
+    "src" : 149,
+    "dest" : 79,
+    "values" : {
+      "P4" : 3.0
+    }
+  }, {
+    "src" : 158,
+    "dest" : 50,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 158,
+    "dest" : 36,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 158,
+    "dest" : 68,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 158,
+    "dest" : 73,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 39,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 55,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 60,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 46,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 79,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 161,
+    "dest" : 64,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 161,
+    "dest" : 67,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 161,
+    "dest" : 52,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 161,
+    "dest" : 39,
+    "values" : {
+      "P4" : 3.0
+    }
+  }, {
+    "src" : 161,
+    "dest" : 58,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 161,
+    "dest" : 60,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 161,
+    "dest" : 46,
+    "values" : {
+      "P4" : 3.0
+    }
+  }, {
+    "src" : 164,
+    "dest" : 67,
+    "values" : {
+      "P4" : 20.0
+    }
+  }, {
+    "src" : 164,
+    "dest" : 39,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 164,
+    "dest" : 60,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 164,
+    "dest" : 46,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 67,
+    "values" : {
+      "P4" : 3.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 165,
+    "dest" : 64,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 165,
+    "dest" : 19,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 165,
+    "dest" : 52,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 165,
+    "dest" : 55,
+    "values" : {
+      "P4" : 24.0
+    }
+  }, {
+    "src" : 165,
+    "dest" : 58,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 165,
+    "dest" : 45,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 165,
+    "dest" : 79,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 167,
+    "dest" : 67,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 67,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 79,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 42,
+    "dest" : 55,
+    "values" : {
+      "P4" : 3.0
+    }
+  }, {
+    "src" : 42,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 45,
+    "dest" : 64,
+    "values" : {
+      "P4" : 3.0
+    }
+  }, {
+    "src" : 45,
+    "dest" : 52,
+    "values" : {
+      "P4" : 3.0
+    }
+  }, {
+    "src" : 45,
+    "dest" : 58,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 46,
+    "dest" : 64,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 46,
+    "dest" : 52,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 46,
+    "dest" : 69,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 46,
+    "dest" : 58,
+    "values" : {
+      "P4" : 30.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 67,
+    "values" : {
+      "P4" : 48.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 13,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 63,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 50,
+    "values" : {
+      "P4" : 5.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 36,
+    "values" : {
+      "P4" : 5.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 68,
+    "values" : {
+      "P4" : 5.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 39,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 55,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 73,
+    "values" : {
+      "P4" : 5.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 60,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 46,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 79,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 64,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 52,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 69,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 46,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 69,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 58,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 46,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 125,
+    "dest" : 39,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 125,
+    "dest" : 60,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 125,
+    "dest" : 46,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 69,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 58,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 46,
+    "values" : {
+      "P4" : 20.0
+    }
+  }, {
+    "src" : 127,
+    "dest" : 69,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 127,
+    "dest" : 58,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 127,
+    "dest" : 46,
+    "values" : {
+      "P4" : 4.0
+    }
+  } ]
+}

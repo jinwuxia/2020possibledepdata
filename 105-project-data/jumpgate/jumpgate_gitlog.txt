@@ -1,0 +1,4319 @@
+commit 4d5d116e80efb419c8c03eb7c0a799855fe799d8
+Merge: 4d097a3 cece501
+Author: Brian Cline <brian.cline@gmail.com>
+Date:   2014-11-22 21:05:38 -0600
+
+    Merge pull request #161 from LiuZhiyan/correct-internal-url-key-endpoints
+    
+    Correct name of internal URL in endpoints and template
+
+commit 4d097a365789907e29bc34bad81041e215a48882
+Merge: 9e959d5 2a19c94
+Author: Brian Cline <brian.cline@gmail.com>
+Date:   2014-11-22 20:50:00 -0600
+
+    Merge pull request #159 from LiuZhiyan/correct-image-built-in-properties
+    
+    Correct name of image built-in properties
+
+commit cece5016053c3d869330da231747e390ce3d58dd
+Author: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+Date:   2014-11-18 00:27:07 +0800
+
+    Correct name of internal URL in endpoints and template
+    
+    Base on the identity api speces [0][1], internal URL of a service
+    should be provided by 'internalURL' key instead of 'privateURL'.
+    
+    [0] http://developer.openstack.org/api-ref-identity-v2.html
+    [1] http://developer.openstack.org/api-ref-identity-v3.html
+    
+    Signed-off-by: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+
+6	6	etc/identity.templates
+6	6	etc/identity_v3.templates
+1	1	jumpgate/identity/drivers/sl/auth_tokens_v3.py
+1	1	jumpgate/identity/drivers/sl/services_v3.py
+2	2	jumpgate/identity/drivers/sl/tokens.py
+6	6	tests/jumpgate-tests/identity.templates
+6	6	tests/jumpgate-tests/identity_v3.templates
+
+commit 2a19c948fb54077c975c68d78a504c12bd27ed58
+Author: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+Date:   2014-11-17 17:44:03 +0800
+
+    Correct name of image built-in properties
+    
+    According to glance image v1 and v2 speces [0][1], two image property
+    names should be corrected:
+    
+    * "minDisk" => "min_disk"
+    * "minRam" => "min_ram"
+    
+    [0] http://developer.openstack.org/api-ref-image-v1.html
+    [1] http://developer.openstack.org/api-ref-image-v2.html
+    
+    Signed-off-by: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+
+4	4	jumpgate/image/drivers/sl/images.py
+4	4	tests/jumpgate-tests/image/test_images.py
+
+commit 9e959d504664d6e88b3d525ba425a4ec6d9e29e2
+Merge: 7ce1c83 7df8258
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-10-24 07:53:16 -0500
+
+    Merge pull request #157 from LiuZhiyan/correct-v2-service-catalog-region-name
+    
+    Correct region name of service catalog for identity V2 API
+
+commit 7df82583af28c2a56fbf851cf5c7b996a31a9077
+Author: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+Date:   2014-10-24 13:03:09 +0800
+
+    Correct region name of service catalog for identity V2 API
+    
+    Currently the code of service catalog construction has a defect which
+    caused operator configured region name could not be able to apply into
+    the response of service catalog in such identity V2 APIs, and
+    "RegionOne" were used in any case [0] instead.
+    
+    [0]
+    https://github.com/softlayer/jumpgate/blob/master/jumpgate/identity/drivers/sl/tokens.py#L210
+    
+    Signed-off-by: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+
+1	0	jumpgate/identity/drivers/sl/tokens.py
+
+commit 7ce1c839b686d525858bfc174bfdfa89d1900bea
+Merge: a53115f 25e8981
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-09-12 09:50:11 -0400
+
+    Merge pull request #155 from LiuZhiyan/adding-v3-token-valication
+    
+    Adding token validation api for v3 identity api
+
+commit a53115f3d362ae4791adf85f39355803dc50703f
+Merge: cea44bc bad34ce
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-09-12 09:43:44 -0400
+
+    Merge pull request #154 from LiuZhiyan/adding-pre-log-on-request
+    
+    Adding pre-stage log on api request
+
+commit cea44bc429e569aa84adbdafb54a7b59780783b3
+Merge: 601caac 5d41b53
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-09-12 09:38:30 -0400
+
+    Merge pull request #152 from LiuZhiyan/correct-v3-auth-token-gen-api
+    
+    Correct authentication and token generation v3 api
+
+commit 25e8981a7b7f3fbf1ac0e2ed2cd3d2eef1839234
+Author: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+Date:   2014-09-03 22:00:52 +0800
+
+    Adding token validation api for v3 identity api
+    
+    This change impleneted token valication api which is a major function as
+    a part of v3 identity api, some upper layer components used this
+    interface to validate v3 token.
+    
+    An action handling function has been added which is used to handle the
+    http request received on /v3/auth/tokens endpoint with GET method.
+    
+    Signed-off-by: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+
+51	7	jumpgate/identity/drivers/sl/auth_tokens_v3.py
+
+commit bad34cee7e9e4c5d4c2c3b99725dd6b4dbb6d4da
+Author: Zhi Yan Liu <lzy.dev@gmail.com>
+Date:   2014-08-21 14:34:42 +0800
+
+    Adding pre-stage log on api request
+    
+    Currently jumpgate only logs api response with a post-stage logging
+    handler, it's a limitation for real-time debugging if the handling of
+    api request was blocked or needs a while to process, operator or
+    developer needs to know what api is hanlding there now and which api
+    request the log belongs to that the main handling logic logged, so this
+    change added a pre-stage logging for api request.
+
+1	1	etc/jumpgate.conf
+12	2	jumpgate/common/hooks/log.py
+20	2	tests/jumpgate-tests/common/hooks/test_hooks.py
+
+commit 5d41b53f18ced9cc7f5a0ad585815edf909b1b9f
+Author: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+Date:   2014-08-14 23:51:31 +0800
+
+    Correct authentication and token generation v3 api
+    
+    1. Remove a wrong route mapper for '/v3/tokens' path.
+    2. Correct NOAUTH list to include path of authentication and token
+    generation v3 api.
+    3. Correct authentication implementation of the api.
+
+1	1	jumpgate/common/hooks/auth_token.py
+7	3	jumpgate/common/sl/auth.py
+1	2	jumpgate/identity/__init__.py
+3	2	tests/jumpgate-tests/common/hooks/test_hooks.py
+
+commit 601caacfbd8d6011f5f5b5cb7c30b20ef7c27992
+Merge: fa76111 bd588a6
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-08-14 01:29:51 -0400
+
+    Merge pull request #151 from LiuZhiyan/enable-name-filter-image-metadata-api
+    
+    Enabling name filter on image metadata api
+
+commit fa761112a49557b65a8043614a1f30806f675794
+Merge: 3028c74 7819535
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-08-14 01:22:17 -0400
+
+    Merge pull request #150 from LiuZhiyan/correct-content-type-image-metadata-api
+    
+    Correct content type of response for image metadata getting api (HEAD)
+
+commit 3028c74ab24618c6266a258236a4269ea53c627e
+Merge: 13d1e62 56bb72a
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-08-14 01:08:04 -0400
+
+    Merge pull request #149 from LiuZhiyan/return-service-catalog-token-validation-api
+    
+    Making token validation api returns service catalog
+
+commit bd588a6d7e6fcf40e89ac9841ae7e92bcd6a7f01
+Author: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+Date:   2014-08-14 00:28:48 +0800
+
+    Enabling name filter on image metadata api
+    
+    To enable filter function for image v1 and v2 metadata api, which fixed
+    issue "Multiple image matches found for '<IMAGE_NAME>', use an ID to be
+    more specific." caused by that jumpgate returns all images without name
+    based filter when glanceclient request a image metadata query [0].
+    
+    [0]
+    https://github.com/openstack/python-glanceclient/blob/master/glanceclient/common/utils.py#L159
+    
+    Signed-off-by: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+
+10	4	jumpgate/image/drivers/sl/images.py
+37	0	tests/jumpgate-tests/image/test_images.py
+
+commit 78195350c3069ad266b476d9a280e3d249a02558
+Author: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+Date:   2014-08-13 21:38:36 +0800
+
+    Correct content type of response for image metadata getting api
+    
+    The recent change [0] makes glanceclient use requests to communicate
+    with glance server, new http handling logic of which is sensitive on the
+    content type of response [1].
+    
+    But current jumpgate logic for the api doesn't return any content by
+    http body [2] but with 'application/json' content type [3]. Then it
+    broken that new glanceclient logic and trigger error: "Multiple image
+    matches found for '<IMAGE_ID>', use an ID to be more specific.".
+    
+    [0]
+    https://github.com/openstack/python-glanceclient/commit/dbb242b776908ca50ed8557ebfe7cfcd879366c8
+    [1]
+    https://github.com/openstack/python-glanceclient/blob/master/glanceclient/common/http.py#L218
+    [2]
+    https://github.com/softlayer/jumpgate/blob/master/jumpgate/image/drivers/sl/images.py#L223
+    [3] https://github.com/racker/falcon/blob/master/falcon/__init__.py#L27
+    
+    Signed-off-by: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+
+1	0	jumpgate/image/drivers/sl/images.py
+
+commit 56bb72a12350f073bf0579e68584a329812a3136
+Author: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+Date:   2014-08-13 14:44:45 +0800
+
+    Making token validation api returns service catalog
+    
+    Currently access info token validation api returned doesn't include
+    service catalog dict, it causes some projects couldn't work well as it
+    designed: upperlayer project uses those endpoints to call other servies
+    for the necessary handling of function, e.g. Heat, as an example the
+    follow execution stack could be triggered by a standard stack creation
+    usecase. And, as code logic shown, keystoneclient has such related
+    parsing and construction logic as well.
+    
+    https://github.com/openstack/heat/blob/master/heat/engine/properties.py#L296
+      https://github.com/openstack/heat/blob/master/heat/engine/constraints.py#L576
+        https://github.com/openstack/heat/blob/master/heat/engine/clients/os/glance.py#L35
+          https://github.com/openstack/heat/blob/master/heat/engine/clients/client_plugin.py#L50
+            https://github.com/openstack/heat/blob/master/heat/common/heat_keystoneclient.py#L196
+              https://github.com/openstack/python-keystoneclient/blob/master/keystoneclient/httpclient.py#L174
+                https://github.com/openstack/python-keystoneclient/blob/master/keystoneclient/access.py#L532
+                  https://github.com/openstack/python-keystoneclient/blob/master/keystoneclient/service_catalog.py#L271
+    
+    Signed-off-by: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+
+7	7	jumpgate/identity/drivers/sl/__init__.py
+23	14	jumpgate/identity/drivers/sl/tokens.py
+
+commit 13d1e62aa322a3d555e2d989a771fb18077da632
+Merge: 0c12f4b 1b7d01b
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-08-08 13:52:05 -0400
+
+    Merge pull request #147 from LiuZhiyan/correct-identify-versions-api-returncode
+    
+    Correct http return code of identify versions api
+
+commit 1b7d01b61377ed41057a5de8ce7d5cc3622c7020
+Author: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+Date:   2014-08-09 01:28:36 +0800
+
+    Correct http return code of identify versions api
+    
+    Keystone returns 300 http code (Multiple Choices) instead of 200 (OK)
+    [0] when client GETs the api version info that current identify service
+    supported.
+    
+    This wrong return code causes keystonemiddleware failed at api version
+    query [1] with error "Unable to get version info from keystone: 200",
+    which middleware as a client of keystone lives in a upperlayer service.
+    
+    [0]
+    https://github.com/openstack/keystone/blob/master/keystone/controllers.py#L132
+    [1]
+    https://github.com/openstack/keystonemiddleware/blob/master/keystonemiddleware/auth_token.py#L1245
+    
+    For the details of curl test, see
+    http://paste.openstack.org/show/92177/ .
+    
+    Signed-off-by: Zhi Yan Liu <zhiyanl@cn.ibm.com>
+
+2	0	jumpgate/identity/drivers/sl/versions.py
+
+commit 0c12f4b1347358d1c96d0007515a39996fb4ca28
+Merge: c3cfc93 aaf07cc
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-08-07 15:53:38 -0400
+
+    Merge pull request #146 from sudorandom/image-list
+    
+    Re-implements image listing to sort/filter on jumpgate itself
+
+commit aaf07cc67a827bc8781fc2d15f8967930906345e
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-08-05 18:45:49 -0500
+
+    Re-implements image listing to sort/filter on jumpgate itself
+
+1	0	jumpgate/identity/drivers/sl/user.py
+60	370	jumpgate/image/drivers/sl/images.py
+246	0	jumpgate/image/drivers/sl/schema.py
+1	0	tests/jumpgate-tests/compute/test_volumes.py
+142	127	tests/jumpgate-tests/image/test_images.py
+
+commit c3cfc93b91822fdbcfbc09085fd30bebc502bf82
+Merge: 31e795a ec2ad36
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-07-31 16:02:02 -0400
+
+    Merge pull request #144 from schivuk/resizePersist
+    
+    Added support to persist flavor through resize
+
+commit 31e795a5036cf3f700d0adce3fa2fd33ba8b9684
+Merge: 07f01f2 eaf5b49
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-07-31 15:55:01 -0400
+
+    Merge pull request #143 from schivuk/setupFixEtc
+    
+    Add flavors and volume types json files to setup
+
+commit ec2ad3664c2659b3d748fb7761bb5a477822967a
+Author: Harsha <schivuk@us.ibm.com>
+Date:   2014-07-24 09:40:47 -0500
+
+    Added support to persist flavor through resize
+
+2	0	jumpgate/compute/drivers/sl/servers.py
+
+commit eaf5b496d3655dfb0519a33dd4de2975a1adcbe9
+Author: Harsha <schivuk@us.ibm.com>
+Date:   2014-07-23 13:01:18 -0500
+
+    Add flavors and volume types json files to setup
+
+3	1	setup.py
+
+commit 07f01f23fa19e009aada374b183fe0ef6a94e867
+Merge: 0150455 517df71
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-07-21 11:19:05 -0500
+
+    Merge pull request #139 from jimlindeman/master
+    
+    Add special-case authentication/token-id drivers
+
+commit 01504553d7b4557b682d70967eae1fe813a8d14a
+Merge: 2457058 3a4ad51
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-07-21 10:06:25 -0400
+
+    Merge pull request #141 from imkarrer/fix-tempest-errors
+    
+    Fix tempest errors
+
+commit 3a4ad51a1f46283e66f8167b4d81e1858adb3ab5
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-18 09:55:23 -0500
+
+    Include documentation on Tempest configuration
+
+81	0	tempest.md
+
+commit a234cd07dde8342e43048fcbcd45ef05b891ce06
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-17 22:26:25 -0500
+
+    Use TODO properly, remove Tempest output
+
+1	0	jumpgate/compute/drivers/sl/extensions.py
+3	4	jumpgate/compute/drivers/sl/servers.py
+1	1	jumpgate/identity/drivers/sl/auth_tokens_v3.py
+1	1	jumpgate/identity/drivers/sl/tokens.py
+1	1	jumpgate/image/drivers/sl/images.py
+0	303	tempest_output.txt
+
+commit 2457058588c53716d6a04a05428e9023a3d52862
+Merge: d465298 e20414f
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-07-17 19:16:16 -0400
+
+    Merge pull request #142 from schivuk/bugFixBoot
+    
+    Bug fix - Nova boot (flavor id) + unit tests
+
+commit e20414f803957bd1793fdd690ace69cdc61ec701
+Author: Harsha <schivuk@us.ibm.com>
+Date:   2014-07-17 16:20:10 -0500
+
+    Bug fix - Nova boot (flavor id) + unit tests
+
+7	11	jumpgate/compute/drivers/sl/flavors.py
+29	0	tests/jumpgate-tests/compute/test_flavors.py
+
+commit d80e51acafc1ecd848e29fd32713cac5c2f64562
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-17 10:14:25 -0500
+
+    fix unit tests and pep8 errors
+
+1	1	jumpgate/compute/drivers/sl/limits.py
+10	10	jumpgate/compute/drivers/sl/servers.py
+1	1	jumpgate/identity/drivers/sl/auth_tokens_v3.py
+1	1	jumpgate/identity/drivers/sl/tokens.py
+7	6	tests/jumpgate-tests/compute/test_servers.py
+
+commit 9c795631e5c9153475376cd0e91b47597707ea31
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-17 09:40:33 -0500
+
+    add jumpgate cancel script
+
+3	0	cancel_jumpgate_instances.sh
+
+commit 517df7117cecdeec2666e2133ff946d4a4e48900
+Author: James A. Lindeman <lindj@us.ibm.com>
+Date:   2014-07-15 16:22:56 -0700
+
+    Satisfy import separation rules
+
+1	0	jumpgate/common/sl/auth.py
+1	0	jumpgate/identity/drivers/sl/tokens.py
+
+commit 7acbb9f6ffc317f62e6d80e2bf55a084bc7bc2b3
+Author: James A. Lindeman <lindj@us.ibm.com>
+Date:   2014-07-15 16:05:31 -0700
+
+    Fix flake8 concerns
+
+3	6	jumpgate/common/sl/auth.py
+10	9	jumpgate/identity/drivers/sl/tokens.py
+
+commit a38b40e03a8d7d4cfed99c70ffd51dfa3c02a396
+Author: James A. Lindeman <lindj@us.ibm.com>
+Date:   2014-07-15 15:33:44 -0700
+
+    Fix SoftLayer pre-req in requirements.txt
+
+1	1	tools/requirements.txt
+0	1	tools/test-requirements.txt
+
+commit 4f89cba5c4b3e49391b4ee7bd53686cb1182708a
+Author: James A. Lindeman <lindj@us.ibm.com>
+Date:   2014-07-15 15:08:10 -0700
+
+    Fix pep8 spacing issue
+
+1	0	jumpgate/common/sl/auth.py
+
+commit 2ed7a0d360c4463c9a0a60b3c23cd0ca41c29ae7
+Author: James A. Lindeman <lindj@us.ibm.com>
+Date:   2014-07-15 15:05:52 -0700
+
+    Fix pep8 issues
+
+16	13	jumpgate/identity/drivers/sl/tokens.py
+4	5	tests/jumpgate-tests/identity/test_identity.py
+
+commit 68d078915d92745ef2e7934a441bad3b1a46ae03
+Author: James A. Lindeman <lindj@us.ibm.com>
+Date:   2014-07-15 14:49:03 -0700
+
+    Add unit-tests for NoAuthDriver and FakeTokenIdDriver
+
+5	11	jumpgate/identity/drivers/sl/tokens.py
+0	0	tests/jumpgate-tests/identity/__init__.py
+45	0	tests/jumpgate-tests/identity/test_identity.py
+1	0	tools/test-requirements.txt
+
+commit c6fd13f11127368b201af27cc46b167e68d0023e
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-15 14:10:33 -0500
+
+    give tempest output a better name
+
+0	0	out5.txt => tempest_output.txt
+
+commit 6c59a63aa773e0483309fdb61716684dce1d598e
+Merge: 6966597 d465298
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-15 14:06:16 -0500
+
+    Merge branch 'master' into fix-tempest-errors
+
+commit 69665977b7c64d3f594e17de77b37da27599b46c
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-15 14:04:46 -0500
+
+    add last tempest output
+
+303	0	out5.txt
+
+commit cad4831719f6aa9e0652970b8f94b26ba30f3a83
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-15 14:04:10 -0500
+
+    mark tempest tests modifications in jumpgate
+
+1	0	jumpgate/compute/drivers/sl/limits.py
+2	0	jumpgate/compute/drivers/sl/servers.py
+1	0	jumpgate/identity/drivers/sl/auth_tokens_v3.py
+1	0	jumpgate/identity/drivers/sl/tokens.py
+1	0	jumpgate/image/drivers/sl/images.py
+
+commit c4a82bf07e31b4df34593772d6a5cb9663256e25
+Merge: 888d2c8 d465298
+Author: James A. Lindeman <lindj@us.ibm.com>
+Date:   2014-07-15 11:22:08 -0700
+
+    merge latest master
+
+commit d465298469e7cbed85d1b25446fb2200ea20494a
+Merge: 70205b2 1f6e749
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-07-15 12:03:48 -0400
+
+    Merge pull request #131 from schivuk/totalW
+    
+    Added show extra_specs for flavors, code for default flavor to load from...
+
+commit 6ba5defb687f5eb00dc6acb21a28f9e9b67ef71a
+Merge: 012fa7c fdfc666
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-15 11:03:46 -0500
+
+    Merge branch 'volume-type-list' into fix-tempest-errors
+    
+    Conflicts:
+            etc/jumpgate.conf
+
+commit 1f6e749b49338e36bab0492199af40665619204a
+Merge: b2a04fe 70205b2
+Author: Harsha <schivuk@us.ibm.com>
+Date:   2014-07-15 09:28:00 -0500
+
+    Merge branch 'master' into totalW
+    
+    Conflicts:
+            tests/jumpgate-tests/common/test_dispatchers.py
+            tests/jumpgate-tests/test.jumpgate.conf
+
+commit b2a04fee3928599947c29a1d7e69ca3773077761
+Author: Harsha <schivuk@us.ibm.com>
+Date:   2014-07-15 09:17:33 -0500
+
+    Resolved the MagicMock issue
+
+3	2	jumpgate/compute/drivers/sl/__init__.py
+6	9	jumpgate/compute/drivers/sl/extra_specs.py
+7	2	tests/jumpgate-tests/compute/test_extra_specs.py
+
+commit 70205b2dfd3d29bebbe9df0c132324810a32d0e3
+Merge: 1c7123b fdfc666
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-07-15 09:40:33 -0400
+
+    Merge pull request #130 from imkarrer/volume-type-list
+    
+    Add support for <cinder type-list> and <cinder create --volume-type>
+
+commit 829c5182fe05a6e0f11a3c792bfccd940a2b9c6d
+Merge: c7a31aa 1c7123b
+Author: Harsha <schivuk@us.ibm.com>
+Date:   2014-07-14 17:38:23 -0500
+
+    Merge branch 'master' into totalW
+    
+    Conflicts:
+            jumpgate/compute/drivers/sl/servers.py
+
+commit fdfc6666a4e56af9cca719fa05b466299e62b75c
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-14 17:27:43 -0500
+
+    remove two incorrect lines for json reading
+
+0	3	jumpgate/volume/drivers/sl/__init__.py
+3	8	jumpgate/volume/drivers/volume_types_loader.py
+
+commit c7a31aa59aff9a0912a6bdea82d207229f14512e
+Merge: eb853f6 fc30d0e
+Author: Harsha <schivuk@us.ibm.com>
+Date:   2014-07-14 12:46:45 -0500
+
+    Merge branch 'master' into totalW
+    
+    Conflicts:
+            jumpgate/compute/drivers/sl/servers.py
+            tests/jumpgate-tests/compute/test_servers.py
+
+commit 552a2c734c7098e01e18b4de5448163bea1f7480
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-14 16:27:17 -0500
+
+    remove class level stuff
+
+8	8	jumpgate/volume/drivers/volume_types_loader.py
+
+commit d1a44b495f8e8a48c720c4bdfced71cbcb05af39
+Merge: 23b3be4 1c7123b
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-14 16:24:50 -0500
+
+    Merge branch 'master' into volume-type-list
+
+commit 012fa7c862d615fbe7bbcc5edfdd663952d29daa
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-14 16:20:55 -0500
+
+    make modifications so that tempest passes
+
+2	1	etc/jumpgate.conf
+2	1	jumpgate/compute/drivers/sl/extensions.py
+2	1	jumpgate/compute/drivers/sl/keypairs.py
+2	1	jumpgate/compute/drivers/sl/limits.py
+23	11	jumpgate/compute/drivers/sl/servers.py
+1	1	jumpgate/identity/drivers/sl/auth_tokens_v3.py
+1	1	jumpgate/identity/drivers/sl/tokens.py
+1	1	jumpgate/image/drivers/sl/images.py
+33	29	whitelists/softlayer.txt
+
+commit 1c7123be9d15d3b305e863ba58c24602e4604c5c
+Merge: fc30d0e 0446578
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-07-14 17:07:14 -0400
+
+    Merge pull request #138 from AndrewFly/server_hard_coded_flavors
+    
+    Work around for hard coded flavor.
+
+commit 0446578acb5f948434d0b81a42730ffca879a101
+Author: Andrew <afly@us.ibm.com>
+Date:   2014-07-14 10:48:31 -0500
+
+    Work around for hard coded flavor
+
+46	9	jumpgate/compute/drivers/sl/servers.py
+
+commit eb853f667c60eeb91699528d227987dae7896884
+Author: Harsha <schivuk@us.ibm.com>
+Date:   2014-07-09 14:42:14 -0500
+
+    Added load flavors from config file + extra specs
+    
+    Change-Id: I951c6be5ed8604a958b4f4413ceac6415f1520fd
+
+47	0	etc/flavor_list.json
+3	0	etc/jumpgate.conf
+12	0	jumpgate/common/config.py
+12	6	jumpgate/compute/drivers/sl/__init__.py
+47	1	jumpgate/compute/drivers/sl/extra_specs.py
+99	0	jumpgate/compute/drivers/sl/flavor_list_loader.py
+26	98	jumpgate/compute/drivers/sl/flavors.py
+27	14	jumpgate/compute/drivers/sl/servers.py
+2	0	tests/jumpgate-tests/common/test_dispatchers.py
+88	0	tests/jumpgate-tests/compute/test_extra_specs.py
+193	67	tests/jumpgate-tests/compute/test_flavors.py
+442	92	tests/jumpgate-tests/compute/test_servers.py
+47	0	tests/jumpgate-tests/flavor_list.json
+3	0	tests/jumpgate-tests/test.jumpgate.conf
+
+commit fc30d0e212ced425d41db29b51dac8267ebf0cf9
+Merge: 9f98aae 6480296
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-07-14 11:52:24 -0400
+
+    Merge pull request #136 from schivuk/testVolumes
+    
+    Unit tests for Volume attach & detach + bug fixes
+
+commit 23b3be462133ab924c2f02132d122ac56ad91567
+Merge: 6acd174 9f98aae
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-14 09:57:29 -0500
+
+    Merge branch 'master' into volume-type-list
+
+commit 9f98aae4708b263be4651ef42dfcdb0a7e0509a7
+Merge: bb80c1b f626eff
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-07-14 10:48:53 -0400
+
+    Merge pull request #132 from AndrewFly/nova_boot_nic
+    
+    Added network argument to nova boot + fix id
+
+commit 6acd1747ff6d3a065c9d62afeeb8df910739d53b
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-13 04:05:20 -0500
+
+    resolve Travis pypy build issue
+
+1	1	etc/volume_types.json
+11	15	jumpgate/volume/drivers/volume_types_loader.py
+2	17	tests/jumpgate-tests/volume/test_volumes.py
+1	1	tests/jumpgate-tests/volume_types.json
+
+commit 50cf3c7ef2bd473bacfa32abe18f4a1e59103bf3
+Merge: bb80c1b 723a070
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-13 03:39:50 -0500
+
+    Merge remote-tracking branch 'origin/volume-type-list' into explore-conflict
+    
+    Conflicts:
+            tests/jumpgate-tests/volume/test_volumes.py
+
+commit 723a0705ae5cbc5f5af31ba4288c343efff023e7
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-07-09 11:59:01 -0500
+
+    Add support for <cinder type-list> and <cinder create --volume-type>
+
+3	1	etc/jumpgate.conf
+14	0	etc/volume_types.json
+1	0	jumpgate/common/config.py
+23	2	jumpgate/volume/drivers/sl/__init__.py
+104	34	jumpgate/volume/drivers/sl/volumes.py
+113	0	jumpgate/volume/drivers/volume_types_loader.py
+2	0	tests/jumpgate-tests/common/test_dispatchers.py
+44	8	tests/jumpgate-tests/test.jumpgate.conf
+293	110	tests/jumpgate-tests/volume/test_volumes.py
+14	0	tests/jumpgate-tests/volume_types.json
+
+commit 64802966d8ffbe96f4e572eed4520554ef548f00
+Author: Harsha <schivuk@us.ibm.com>
+Date:   2014-07-11 14:59:39 -0500
+
+    Unit tests for Volume attach & detach + bug fixes
+
+13	12	jumpgate/compute/drivers/sl/volumes.py
+388	0	tests/jumpgate-tests/compute/test_volumes.py
+
+commit f626eff5ff003f76a7e6fd0418f68d65abe14b7a
+Author: Andrew <afly@us.ibm.com>
+Date:   2014-07-10 02:18:52 -0500
+
+    Added network argument to nova boot + fix string
+
+108	48	jumpgate/compute/drivers/sl/servers.py
+1	1	jumpgate/network/drivers/sl/networks.py
+1	1	jumpgate/network/drivers/sl/subnets.py
+361	3	tests/jumpgate-tests/compute/test_servers.py
+3	3	tests/jumpgate-tests/network/test_network.py
+2	2	tests/jumpgate-tests/network/test_subnet.py
+
+commit 888d2c8d47b91d71a99348173729997bcf260ca6
+Merge: c3ed7cf 6158795
+Author: James A. Lindeman <lindj@us.ibm.com>
+Date:   2014-07-11 13:33:03 -0700
+
+    Merge branch 'AndrewFly-nova_boot_nic'
+
+commit 6158795c4719afd83fe8a9fda3b5e8f6e9ca85ab
+Merge: c3ed7cf dd77f23
+Author: James A. Lindeman <lindj@us.ibm.com>
+Date:   2014-07-11 13:32:42 -0700
+
+    Merge branch 'nova_boot_nic' of https://github.com/AndrewFly/jumpgate into AndrewFly-nova_boot_nic
+
+commit bb80c1bf4f9c9c71ce66d0c8199c663e3837b4c3
+Merge: 1052955 f4f365e
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-07-11 13:32:48 -0500
+
+    Merge pull request #133 from bhaktadn/ajiang38740-add_servers_unittest
+    
+    Ajiang38740 add servers unittest
+
+commit f4f365e1f85e3aa427e6c8053620766228ee3c37
+Merge: 8a50974 64f0966
+Author: Dharmesh Bhakta <bhakta@us.ibm.com>
+Date:   2014-07-11 10:25:52 -0500
+
+    Merge branch 'add_servers_unittest' of https://github.com/ajiang38740/jumpgate into ajiang38740-add_servers_unittest
+
+commit 105295511ad4a847d035af935424ff4ac31f4c09
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-07-10 11:31:15 -0500
+
+    Update cla-corporate.md
+
+1	1	docs/cla-corporate.md
+
+commit b8fc99d84920ed088f19f5ffab4bc68537d5684c
+Merge: 8a50974 187517e
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-07-10 12:19:01 -0400
+
+    Merge pull request #127 from underscorephil/cla
+    
+    Added CLA information
+
+commit dd77f23a4a6868f56fdfa78738a0f343c6cf61a4
+Author: Andrew <afly@us.ibm.com>
+Date:   2014-07-10 02:18:52 -0500
+
+    Added network argument to nova boot + fix string
+
+108	48	jumpgate/compute/drivers/sl/servers.py
+1	1	jumpgate/network/drivers/sl/networks.py
+1	1	jumpgate/network/drivers/sl/subnets.py
+357	1	tests/jumpgate-tests/compute/test_servers.py
+3	3	tests/jumpgate-tests/network/test_network.py
+2	2	tests/jumpgate-tests/network/test_subnet.py
+
+commit c3ed7cf333416c8c55df4aac7a3e6db4b510c361
+Author: James A. Lindeman <lindj@us.ibm.com>
+Date:   2014-07-09 15:41:23 -0700
+
+    Add NoAuth authentication driver and FakeTokenIdDriver, cleanup common/sl/auth.py
+
+2	0	jumpgate/common/config.py
+2	47	jumpgate/common/sl/auth.py
+68	1	jumpgate/identity/drivers/sl/tokens.py
+
+commit 15a18bdf90b4bf6238bf5e3ce78327548be0aac5
+Merge: 7f4b03e 8a50974
+Author: James A. Lindeman <lindj@us.ibm.com>
+Date:   2014-07-09 15:25:04 -0700
+
+    merge tokens.py change
+
+commit 187517e26f06297c20d42b5c9108bc4515b0ca5c
+Author: underscorephil <underscorephil@gmail.com>
+Date:   2014-07-08 13:03:44 -0500
+
+    Added CLA information
+
+5	0	CONTRIBUTING.rst
+154	0	docs/cla-corporate.md
+134	0	docs/cla-individual.md
+
+commit 8a50974815e3043a98f04c9434f6bdcbc1c18117
+Merge: fa0fe43 dd230f6
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-07-08 14:39:07 -0400
+
+    Merge pull request #126 from AndrewFly/master
+    
+    Fixed unbounded local error issue
+
+commit dd230f6dc8c8c83e52420278fc3de12a62279e4b
+Author: Andrew <afly@us.ibm.com>
+Date:   2014-07-07 15:13:53 -0500
+
+    Fixed unbounded local error
+
+3	3	jumpgate/identity/drivers/sl/tokens.py
+
+commit 64f096652f79114dbeb939bd533628143b646813
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-06-17 14:21:38 -0500
+
+    images unit tests
+    
+    Change-Id: I65740ff3afaffd02f7f532f67bd25237aa9d45ae
+
+19	18	jumpgate/image/drivers/sl/images.py
+1	1	tests/jumpgate-tests/compute/test_servers.py
+0	0	tests/jumpgate-tests/image/__init__.py
+163	0	tests/jumpgate-tests/image/test_images.py
+5	12	tests/jumpgate-tests/volume/test_volumes.py
+
+commit 13d7a5986d559ed2c44499aa9a3aa1440f632312
+Author: Harsha <schivuk@us.ibm.com>
+Date:   2014-06-17 13:32:37 -0500
+
+    Update (Removed dependency): Unit tests for details of a particular managed server
+    
+    Change-Id: I548d4cbcfbd04caaf38430ca8e3eb71ffb972cb0
+
+174	1	tests/jumpgate-tests/compute/test_servers.py
+
+commit fa0fe43188ef1cb80a81181c3c6406935c9aaead
+Merge: c59352e e95d3b9
+Author: ajiang38740 <ajiang38740@gmail.com>
+Date:   2014-06-30 21:39:58 -0500
+
+    Merge pull request #119 from sudorandom/pep8
+    
+    Adds openstack's hacking library to tests
+
+commit c59352e51e5efbb2c01d5604fa00b8702aa4010e
+Merge: e2b01cd 240094e
+Author: ajiang38740 <ajiang38740@gmail.com>
+Date:   2014-06-27 22:50:41 -0500
+
+    Merge pull request #122 from sudorandom/mamulsow-master
+    
+    Enables etc/* files to be packaged
+
+commit e95d3b9a9075481f22938dd0c577606947900568
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-27 17:57:42 -0500
+
+    Adjust AES import a bit
+
+2	3	jumpgate/common/aes.py
+
+commit d2130f38bad396467ef30a3a00ddea19e1ba9d30
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-27 15:34:12 -0500
+
+    Trivial separation of different kinds of imports
+
+1	0	jumpgate/network/drivers/sl/subnets.py
+
+commit 1374a4d077516ea9c1ff4ce0df3c1f29b5a31efb
+Merge: 6e2a9cb 95d2178
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-27 15:27:42 -0500
+
+    Merge branch 'network-refinement' of github.com:sudorandom/jumpgate into pep8
+    
+    Conflicts:
+            tox.ini
+
+commit 240094eb3e7b3dfed5f2e709f05b41edb42cffc9
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-27 15:10:59 -0500
+
+    Adds MANIFEST.in file with the contets of the etc/ directory
+
+1	0	MANIFEST.in
+4	6	setup.py
+
+commit cf34bda66a0b5518c0f27e0446c7ee3f98e2d886
+Author: Matt Mulsow <mamulsow@us.ibm.com>
+Date:   2014-06-27 14:59:51 -0500
+
+    Add etc/* files to wheel
+
+6	0	setup.py
+
+commit 95d2178b99f6c41dac6df38fcf1884a6be048b62
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-27 14:57:12 -0500
+
+    Impove code quality for subnet code
+
+28	37	jumpgate/network/drivers/sl/subnets.py
+58	90	tests/jumpgate-tests/network/test_subnet.py
+
+commit 6e2a9cbce86d85f712ae2daf8b451075b6cc906f
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-27 12:43:13 -0500
+
+    Adds fixes for volume formatting
+
+72	61	jumpgate/compute/drivers/sl/volumes.py
+
+commit b7c5461516903554c6d91ac087ae99fe6ca19791
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-27 12:30:20 -0500
+
+    Import only modules
+
+9	9	tests/jumpgate-tests/network/test_network.py
+
+commit 9d150a5de894d763c35d1b40bce9d892fa411763
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-27 12:28:32 -0500
+
+    Simplify/improve neutron network show/list
+
+25	48	jumpgate/network/drivers/sl/networks.py
+7	7	setup.py
+94	116	tests/jumpgate-tests/network/test_network.py
+1	1	tox.ini
+
+commit fac01e899e888efde39d26f0015151075a339b9a
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-27 10:25:47 -0500
+
+    Adds openstack's hacking library to tests
+    
+    * The biggest change is to not allow importing of non-modules, which
+      makes for more easily mocking, cleaner namespaces and makes understanding
+      much easier.
+    * Renames some improperly named modules (for identity v3)
+
+0	1	.travis.yml
+29	26	jumpgate/api.py
+2	2	jumpgate/baremetal/drivers/openstack.py
+4	5	jumpgate/baremetal/drivers/sl/__init__.py
+6	6	jumpgate/baremetal/drivers/sl/nodes.py
+5	3	jumpgate/cmd_main.py
+5	3	jumpgate/common/aes.py
+6	5	jumpgate/common/config.py
+2	2	jumpgate/common/dispatcher.py
+9	5	jumpgate/common/exceptions.py
+5	4	jumpgate/common/hooks/__init__.py
+7	4	jumpgate/common/hooks/admin_token.py
+3	3	jumpgate/common/hooks/auth_token.py
+5	5	jumpgate/common/hooks/core.py
+2	2	jumpgate/common/hooks/log.py
+8	7	jumpgate/common/hooks/sl/client.py
+10	7	jumpgate/common/hooks/sl/timedclient.py
+18	18	jumpgate/common/hooks/sl/timelog.py
+3	2	jumpgate/common/nyi.py
+1	2	jumpgate/common/openstack.py
+11	10	jumpgate/common/sl/__init__.py
+49	34	jumpgate/common/sl/auth.py
+13	14	jumpgate/common/sl/errors.py
+3	5	jumpgate/common/utils.py
+2	2	jumpgate/compute/drivers/openstack.py
+69	63	jumpgate/compute/drivers/sl/__init__.py
+4	4	jumpgate/compute/drivers/sl/availability_zones.py
+12	12	jumpgate/compute/drivers/sl/dns.py
+3	2	jumpgate/compute/drivers/sl/extensions.py
+9	6	jumpgate/compute/drivers/sl/flavors.py
+9	7	jumpgate/compute/drivers/sl/instance_actions.py
+20	19	jumpgate/compute/drivers/sl/keypairs.py
+1	1	jumpgate/compute/drivers/sl/limits.py
+6	5	jumpgate/compute/drivers/sl/server_ips.py
+86	69	jumpgate/compute/drivers/sl/servers.py
+4	4	jumpgate/compute/drivers/sl/usage.py
+33	22	jumpgate/identity/drivers/core.py
+2	2	jumpgate/identity/drivers/openstack.py
+21	20	jumpgate/identity/drivers/sl/__init__.py
+16	18	jumpgate/identity/drivers/sl/{authTokensV3.py => auth_tokens_v3.py}
+0	0	jumpgate/identity/drivers/sl/{servicesV3.py => services_v3.py}
+34	26	jumpgate/identity/drivers/sl/tokens.py
+6	4	jumpgate/identity/drivers/sl/user.py
+6	4	jumpgate/identity/drivers/sl/{userProjectsV3.py => user_projects_v3.py}
+2	2	jumpgate/image/drivers/openstack.py
+13	14	jumpgate/image/drivers/sl/__init__.py
+30	28	jumpgate/image/drivers/sl/images.py
+2	2	jumpgate/network/drivers/openstack.py
+10	10	jumpgate/network/drivers/sl/__init__.py
+2	2	jumpgate/volume/drivers/openstack.py
+9	9	jumpgate/volume/drivers/sl/__init__.py
+54	45	jumpgate/volume/drivers/sl/volumes.py
+15	14	jumpgate/wsgi.py
+1	1	tests/jumpgate-tests/common/hooks/test_hooks.py
+1	2	tests/jumpgate-tests/compute/test_availability_zones.py
+11	9	tests/jumpgate-tests/compute/test_servers.py
+2	1	tools/requirements.txt
+2	0	tools/test-requirements.txt
+7	14	tox.ini
+
+commit e2b01cd0fe79179feeacbcaf40c019eda730c6b4
+Merge: d8f636d 5366886
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-27 10:31:02 -0500
+
+    Merge pull request #118 from ajiang38740/volume_attach_detach
+    
+    attach & detach volumes apis for compute
+
+commit d8f636d0c2e5b3f2973bb83a4b5b85380c184f0d
+Merge: f405abf 581c401
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-27 10:30:00 -0500
+
+    Merge pull request #117 from ajiang38740/net-subnet-list-show-improvement
+    
+    Complete net-show/net-list/subnet-list/subnet-show
+
+commit 581c4017efd96d5246b148f2c4f230ac6dfbe6a1
+Author: Andrew <afly@us.ibm.com>
+Date:   2014-06-16 17:48:27 -0500
+
+    Complete net-show/net-list/subnet-list/subnet-show
+    
+    Change-Id: I0047c14eee758c1a283cdc53757544c45994faf3
+    
+    Defect - replace self allocation_pool calculation with ipaddress - ip_network call
+    
+    Change-Id: I0c131a65e884ac48646f8c2602d33e53d1316d83
+
+3	2	jumpgate/network/__init__.py
+4	2	jumpgate/network/drivers/sl/__init__.py
+81	7	jumpgate/network/drivers/sl/networks.py
+84	2	jumpgate/network/drivers/sl/subnets.py
+15	9	setup.py
+0	0	tests/jumpgate-tests/network/__init__.py
+168	0	tests/jumpgate-tests/network/test_network.py
+148	0	tests/jumpgate-tests/network/test_subnet.py
+
+commit 5366886fce29c498be656cdf0417211b94a758d1
+Author: Dharmesh Bhakta <bhakta@us.ibm.com>
+Date:   2014-06-23 13:32:51 -0500
+
+    attach & detach volumes apis for compute
+    
+    Change-Id: I1a7abcfc83f581601c730d93440dca7d447a53a0
+
+4	0	.gitignore
+4	0	jumpgate/compute/__init__.py
+3	0	jumpgate/compute/drivers/sl/__init__.py
+205	1	jumpgate/compute/drivers/sl/volumes.py
+
+commit f405abf7139886f0fbe8e6b7c5871e088b6649c3
+Merge: 49ccf8e bf277f0
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-24 16:55:56 -0500
+
+    Merge pull request #116 from ajiang38740/sl_portable_storage_volume_create_delete
+    
+    Add  create and delete to Jumpgate volume API
+
+commit bf277f0ea8dac8164abda1cb3c2e142da633920b
+Author: Alan Jiang <ajiang@us.ibm.com>
+Date:   2014-06-20 11:44:03 -0500
+
+    Fix the invalid create volume response body and add the test
+    
+    Change-Id: I56777a602913ccd3f260cc714042bfb04b206a1e
+
+36	10	jumpgate/volume/drivers/sl/volumes.py
+1	0	tests/jumpgate-tests/volume/test_volumes.py
+
+commit c20bd2d0e30c9762f836c82417a5a811d3ebe66d
+Author: Alan Jiang <ajiang@us.ibm.com>
+Date:   2014-06-18 16:31:04 -0500
+
+    Add  create and delete to Jumpgate volume API
+    
+        1. Support SL portable storage create operation via jumpdate
+        2. Support SL portable storage delete operation via jumpdate
+        3. Add unittest coverage for jumpgate volume create/delete
+    
+    Change-Id: I9cd6acb0832279fdfa5080e728ecaef9ac9de638
+
+1	0	etc/jumpgate.conf
+2	0	jumpgate/common/config.py
+237	11	jumpgate/volume/drivers/sl/volumes.py
+113	6	tests/jumpgate-tests/volume/test_volumes.py
+
+commit 49ccf8e4f011a2d622cb334fada3aa4af7dd0b4d
+Merge: 29e7d4f 1956852
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-18 10:46:52 -0500
+
+    Merge pull request #114 from ajiang38740/sl_portable_storage_cinder_api
+    
+    Add cinder volume list support
+
+commit 1956852f71e526279732eb77b76a035d46846ed2
+Author: Alan Jiang <ajiang@us.ibm.com>
+Date:   2014-06-13 04:35:31 -0500
+
+    Add cinder volume list support
+    
+    Manage SL portable storage volumes. Those volumes are used for VSI
+    deploy(boot/swap) or attachable/detachable to the running VSI.
+    
+    Also rename jumpgate/cmd.py to jumpgate/cmd_main.py due to the
+    namespace collision of cmd.py with the python module cmd used by
+    pdb.
+    
+    Add volume unittest coverage
+    
+    Change-Id: Iba60d56ac67d82e9227f654d8e5ef907f2cd1158
+
+4	4	etc/identity.templates
+4	4	etc/identity_v3.templates
+3	3	etc/jumpgate.conf
+0	0	jumpgate/{cmd.py => cmd_main.py}
+4	4	jumpgate/common/config.py
+4	0	jumpgate/common/error_handling.py
+3	1	jumpgate/volume/__init__.py
+7	1	jumpgate/volume/drivers/sl/__init__.py
+190	0	jumpgate/volume/drivers/sl/volumes.py
+1	1	setup.py
+0	0	tests/jumpgate-tests/volume/__init__.py
+169	0	tests/jumpgate-tests/volume/test_volumes.py
+
+commit 29e7d4fd23326da309db0d90a0480b4116cd5d77
+Merge: 6e9263f b0349ba
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-17 16:26:13 -0500
+
+    Merge pull request #115 from ajiang38740/jumpgate_unit_tests
+    
+    Jumpgate unit tests
+
+commit b0349ba63c5f5792267d0c24d2c44f43ccb32483
+Author: Isaac Karrer <imkarrer@us.ibm.com>
+Date:   2014-06-13 17:06:52 -0500
+
+    Capture Image from running virtual server
+    
+    Change-Id: Ia5ab1eb71bbcf0de5a0e4a9ff5be0a4ebf05c4ec
+
+28	1	tests/jumpgate-tests/compute/test_servers.py
+
+commit 22edf2d9b8def3e1872c195ae2aaaf9cc0d5eee4
+Author: Dharmesh Bhakta <bhakta@us.ibm.com>
+Date:   2014-06-17 05:59:46 -0500
+
+    unit and pep8 fix for availibility zones
+    
+    Change-Id: Ibf1d9df4f43a7606eb53444221906815f9c523fe
+
+1	0	jumpgate/compute/drivers/sl/availability_zones.py
+4	1	tests/jumpgate-tests/compute/test_availability_zones.py
+
+commit 4fb56d33369842757a17e63eeeca6c47e66a26ad
+Author: Harsha <schivuk@us.ibm.com>
+Date:   2014-06-16 17:08:14 -0500
+
+    Unit tests for listing availability zones
+    
+    Change-Id: If015edba853a7fb34f075cb44779af90256597be
+
+32	0	tests/jumpgate-tests/compute/test_availability_zones.py
+
+commit 6e9263f06dd4e99e6205d5ece2d6366117edaae3
+Merge: dd9429e 226086f
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-16 11:21:36 -0500
+
+    Merge pull request #113 from ajiang38740/unittest_flavor_list
+    
+    Unittest flavor list
+
+commit 226086f3d6e7beed5493dee93a6d626daf6e0c13
+Author: Alan Jiang <ajiang@us.ibm.com>
+Date:   2014-06-14 20:42:36 -0500
+
+        1. Fix flavor list unit test python 3.3 compatibility issue.
+        2. tox.ini: setup pep8 ignore and exclude list.
+        3. add pylintrc to customize pylint
+    
+    Change-Id: I43a1e0c3243cc8c6b3aa1e1a7d43c837cc5fe7a8
+
+38	0	pylintrc
+1	0	tests/jumpgate-tests/common/test_dispatchers.py
+6	5	tests/jumpgate-tests/compute/test_flavors.py
+1	3	tests/jumpgate-tests/compute/test_servers.py
+9	4	tox.ini
+
+commit 0f073ac58ea1b6a192a0ae73eb3dffbd5997e849
+Author: Dharmesh Bhakta <bhakta@us.ibm.com>
+Date:   2014-06-13 01:11:46 -0500
+
+    Adding unit tests for flavor lists.
+    
+    Change-Id: Ic8ed3ac8da657dfd9168b6976d96916f10dc8437
+
+111	0	tests/jumpgate-tests/compute/test_flavors.py
+
+commit d930ea76efcafddbfeef880cea53176e5fddb3db
+Author: Dharmesh Bhakta <bhakta@us.ibm.com>
+Date:   2014-06-13 00:09:15 -0500
+
+    Removing previous unit tests folder with duplicate identity config file
+    
+    Change-Id: Ic8f84dd113787f58214ee29d768e1bfe970625cb
+
+0	29	tests/softlayer/identity_v3.templates
+
+commit dd9429e84844c37b556fce84cd95d5404f1e9c0b
+Merge: 43e37c2 b79c171
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-13 13:55:11 -0500
+
+    Merge pull request #112 from Neetuj/dcissue
+    
+    Data center info to config file #issue81
+
+commit b79c171e0216e0f6bb685922ae88cfa4e13536a2
+Author: njain <njain@softlayer.com>
+Date:   2014-06-13 13:31:19 -0500
+
+    pep8 correction
+
+1	1	jumpgate/compute/drivers/sl/servers.py
+
+commit b31272c88c44eae4fe0384da7c9778940dae8db2
+Author: njain <njain@softlayer.com>
+Date:   2014-06-13 13:11:23 -0500
+
+    data center info from config
+
+4	2	jumpgate/compute/drivers/sl/servers.py
+
+commit a6c7b726f0b0a4854f8f28d0ca4e8c944ae8eb73
+Author: njain <njain@softlayer.com>
+Date:   2014-06-13 13:09:40 -0500
+
+    data center info from config
+
+1	0	jumpgate/common/config.py
+1	2	jumpgate/compute/drivers/sl/servers.py
+
+commit 43e37c20a5f1625fa5f5cf7e9eb258ea47a927bb
+Merge: c7416f3 acd23de
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-12 14:52:31 -0500
+
+    Merge pull request #110 from Neetuj/issue81
+    
+     solving token_auth referenced before assignment issue
+
+commit acd23de3515ba7fe7b87b1601b22978f7b44a2c1
+Author: njain <njain@softlayer.com>
+Date:   2014-06-12 12:32:23 -0500
+
+    removing trailing space
+
+1	1	jumpgate/identity/drivers/sl/tokens.py
+
+commit 2fed692b0bb2ab82c3d1e8139ce41714be33ae62
+Author: njain <njain@softlayer.com>
+Date:   2014-06-12 11:55:34 -0500
+
+     solving token_auth referenced before assginment issue
+
+1	1	jumpgate/identity/drivers/sl/tokens.py
+
+commit 7f4b03ee9c0f98704f38bc5e0a6152053a9e764f
+Author: James A. Lindeman <lindj@us.ibm.com>
+Date:   2014-06-12 09:44:39 -0700
+
+    Fix uninitialized token_auth value in tokens.py authenticate method
+
+1	0	jumpgate/identity/drivers/sl/tokens.py
+
+commit c7416f3f7d514504a619fd2764fe2f691ee8a53c
+Merge: 97f5d38 6b46d49
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-12 10:45:27 -0500
+
+    Merge pull request #109 from ajiang38740/unit_test_1
+    
+    start to add unit_test for servers.py
+
+commit 6b46d499be3d3d0dd10ca7c75a8a078a4323f073
+Author: Dharmesh Bhakta <bhakta@us.ibm.com>
+Date:   2014-06-11 07:20:35 -0500
+
+    [PATCH] fixing unit tests related identity_v3.template
+    
+    Change-Id: Ifeda5466eb7f4038d8a36e2704c8a28f817e005e
+
+1	1	jumpgate/common/sl/__init__.py
+30	0	tests/jumpgate-tests/identity_v3.templates
+
+commit fb419356b09dfd2023b0dff22c669b9395bbc29b
+Author: Dharmesh Bhakta <bhakta@us.ibm.com>
+Date:   2014-06-09 23:21:59 -0500
+
+    [PATCH] [PATCH] Mainly there are three changes:
+    
+    1) One line change in Servers.py file (fix).
+    2) test_despathcers.py has a minor fix for the identity.templates path.
+    3) /tests/ folder has been refactored to mirror the /jumpgate source
+    folders. Also a /jumpgate-tests/compute/test_servers.py and
+    /jumpgate-tests/compute/__init__.py file have been added under
+    /tests/jumpgate-tests/ folder. (Unit-tests for servers.py)
+    
+    Change-Id: I7c11181e7d19bd00cd17bffc3cf55f1dfe42d00f
+
+1	1	jumpgate/compute/drivers/sl/servers.py
+0	0	tests/{ => jumpgate-tests}/__init__.py
+0	0	tests/{softlayer => jumpgate-tests/common}/__init__.py
+0	0	tests/jumpgate-tests/common/hooks/__init__.py
+2	3	tests/{ => jumpgate-tests/common/hooks}/test_hooks.py
+0	0	tests/{ => jumpgate-tests/common}/test_config.py
+1	1	tests/{ => jumpgate-tests/common}/test_dispatcher.py
+2	3	tests/{softlayer => jumpgate-tests/common}/test_dispatchers.py
+0	0	tests/{ => jumpgate-tests/common}/test_error_handling.py
+0	0	tests/{ => jumpgate-tests/common}/test_nyi.py
+0	0	tests/{ => jumpgate-tests/common}/test_openstack.py
+0	0	tests/{ => jumpgate-tests/common}/test_utils.py
+0	0	tests/jumpgate-tests/compute/__init__.py
+113	0	tests/jumpgate-tests/compute/test_servers.py
+0	0	tests/{softlayer => jumpgate-tests}/identity.templates
+0	0	tests/{ => jumpgate-tests}/test.jumpgate.conf
+0	0	tests/{ => jumpgate-tests}/test_jumpgate.py
+0	0	tests/{ => jumpgate-tests}/test_services.py
+0	0	tests/{ => jumpgate-tests}/test_wsgi.py
+
+commit 97f5d387847ecd20c0e3ff822e2b5d57ec45638d
+Merge: 3a58c53 8d520a7
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-06-10 11:34:59 -0500
+
+    Merge pull request #108 from jimlindeman/master
+    
+    Identity-V3 with token and services/user support
+
+commit 8d520a7c5cd6734888d5c54498d8883c59e760e2
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-05-29 11:20:47 -0700
+
+    add missing duplicate identity_v3.templates to test dir
+
+29	0	tests/softlayer/identity_v3.templates
+
+commit 483a42159c71504bfb6059ae07a51198b87dc47d
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-05-29 11:16:50 -0700
+
+    Fix various errors detected through Travis CI, and revert tokens.py changes
+
+0	1	jumpgate/common/sl/auth.py
+6	15	jumpgate/identity/drivers/sl/servicesV3.py
+10	6	jumpgate/identity/drivers/sl/tokens.py
+
+commit f8f410383daa978270bdf66c8d7b6079f3764caf
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-05-28 14:33:08 -0700
+
+    Fix PEP8 errors
+
+9	8	jumpgate/common/sl/auth.py
+5	5	jumpgate/identity/drivers/sl/__init__.py
+20	22	jumpgate/identity/drivers/sl/authTokensV3.py
+8	10	jumpgate/identity/drivers/sl/servicesV3.py
+1	1	jumpgate/identity/drivers/sl/tokens.py
+12	11	jumpgate/identity/drivers/sl/userProjectsV3.py
+15	18	jumpgate/identity/drivers/sl/v3.py
+
+commit adfdeafde1d6209c3bdfedc707bda338b8b2e6b0
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-05-28 13:17:41 -0700
+
+    Change authentication logging line to debug from info
+
+1	3	jumpgate/common/sl/auth.py
+
+commit 1c04ae83d7e9095dcfa99d32018b88b9dce15b05
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-05-28 13:08:07 -0700
+
+    Identity-V3 support with tokens support
+
+30	0	etc/identity_v3.templates
+
+commit 0d7ab13158dd2a6531bb3e839edfb4617c7c678b
+Author: Jim Lindeman <lindj@us.ibm.com>
+Date:   2014-05-28 12:39:31 -0700
+
+    Identity-V3 support with tokens support
+
+1	0	etc/jumpgate.conf
+34	0	jumpgate/common/sl/__init__.py
+134	1	jumpgate/common/sl/auth.py
+3	0	jumpgate/identity/__init__.py
+22	2	jumpgate/identity/drivers/sl/__init__.py
+173	0	jumpgate/identity/drivers/sl/authTokensV3.py
+93	0	jumpgate/identity/drivers/sl/servicesV3.py
+9	13	jumpgate/identity/drivers/sl/tokens.py
+21	0	jumpgate/identity/drivers/sl/userProjectsV3.py
+23	0	jumpgate/identity/drivers/sl/v3.py
+33	0	jumpgate/identity/drivers/sl/versions.py
+2	0	tests/softlayer/test_dispatchers.py
+
+commit 3a58c53079d044cae5ad6e0fc0cf0758681cf574
+Merge: 130f7ed ec9635d
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-05-21 10:18:00 -0500
+
+    Merge pull request #106 from ajiang38740/master
+    
+    Add nova cci instance resize support
+
+commit ec9635d53156eae8761f31bba9efc3d259f093c7
+Author: Alan Jiang <ajiang@us.ibm.com>
+Date:   2014-05-20 23:38:32 -0500
+
+    fix pep8 error
+
+0	6	jumpgate/compute/drivers/sl/servers.py
+
+commit 202f8a65859eb41ca665fb177cbdf8ead1ac7a1c
+Merge: b5d69ca 00ba95e
+Author: Alan Jiang <ajiang@us.ibm.com>
+Date:   2014-05-20 23:36:56 -0500
+
+    Merge branch 'resize-cci'
+    
+    Conflicts:
+            jumpgate/compute/drivers/sl/servers.py
+
+commit 00ba95e79d4a27f325a89d4f20471ebe471eec34
+Author: Alan Jiang <ajiang@us.ibm.com>
+Date:   2014-05-20 23:35:58 -0500
+
+    Fix pep8 error
+
+4	2	jumpgate/compute/drivers/sl/servers.py
+
+commit d6d05089bd37ac01ba5b60cd698facf4aac42c8b
+Author: Alan Jiang <ajiang@us.ibm.com>
+Date:   2014-05-20 23:20:31 -0500
+
+    Add nova cci instance resize support
+
+12	0	jumpgate/compute/drivers/sl/servers.py
+
+commit b5d69cafe25eb3159c5cc31908f616f715022cce
+Author: Alan Jiang <ajiang@us.ibm.com>
+Date:   2014-05-20 23:20:31 -0500
+
+    Add nova resize support
+
+12	0	jumpgate/compute/drivers/sl/servers.py
+
+commit 130f7ed301de797a209f3d31a26a105974886c2b
+Merge: 8474552 a980e26
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-05-16 08:14:55 -0500
+
+    Merge pull request #104 from sudorandom/test-py34
+    
+    Run tox and travis tests with Python 3.4
+
+commit a980e26fd2bf09e2ce25fa524031e1a266f70f61
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-05-15 20:44:53 -0400
+
+    Run tox and travis tests with Python 3.4
+
+1	0	.travis.yml
+1	1	tox.ini
+
+commit 847455292a92431e812f7c0be0ace0dc6b31bf7a
+Merge: ca2490a 33fba77
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-05-15 08:03:36 -0500
+
+    Merge pull request #102 from sudorandom/issue-89
+    
+    Fixes typo and removes erroneous slash in identity templates
+
+commit 33fba772ddff2fb290424b4db9b57fca7a67a3b1
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-05-14 22:04:46 -0400
+
+    Fixes typo and removes erroneous slash in identity templates
+
+4	4	etc/identity.templates
+
+commit ca2490a505059eda7f5e3ed2d39aa2f5855cc88d
+Merge: 4f50a20 1bd54b4
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-05-14 15:31:03 -0500
+
+    Merge pull request #101 from sudorandom/longlines
+    
+    Removes long lines
+
+commit 1bd54b4af7f0c26a59e38b8063dc07538c8bf118
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-05-14 16:12:30 -0400
+
+    Import print statement for 2.7
+
+3	2	jumpgate/cmd.py
+
+commit a743b85336694c966d8071727ca104ea0c3776a9
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-05-14 16:10:32 -0400
+
+    Removes dangereous (mutable) default values
+
+3	3	jumpgate/common/nyi.py
+
+commit 0681e3b177c4f69ea049595ec808c7c18f0c8a33
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-05-14 16:03:51 -0400
+
+    Removes long lines
+
+2	1	jumpgate/compute/drivers/sl/extensions.py
+6	3	jumpgate/compute/drivers/sl/quota_sets.py
+2	1	jumpgate/identity/drivers/sl/tokens.py
+8	3	jumpgate/identity/drivers/sl/versions.py
+49	15	jumpgate/image/drivers/sl/images.py
+2	1	tools/test-requirements.txt
+0	1	tox.ini
+
+commit 4f50a2097448285e4a7a26c006f1fbe0ef067510
+Merge: 509c1d4 34840dd
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-05-14 07:52:43 -0500
+
+    Merge pull request #99 from sudorandom/v1images
+    
+    Fixes default image endpoint to work better with v1 clients. Fixes other issues with v1 images
+
+commit 34840dd9c071c145b56114767fe8f076728978ee
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-05-13 17:08:55 -0400
+
+    Fixes default image endpoint to work better with v1 clients. Fixes other issues with v1 images
+
+3	3	etc/identity.templates
+4	4	jumpgate/image/drivers/sl/images.py
+
+commit 509c1d43a5f4b91c7f3ad5c0cd34abf61bb0a3ee
+Merge: 2e3494f bf1def4
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-05-07 14:46:58 -0500
+
+    Merge pull request #96 from wpf710/master
+    
+    support the authentication with payload of auth.token.id
+
+commit bf1def4972164e817b5d343caba7513dfb9e2d72
+Author: wpf <wpf710@gmail.com>
+Date:   2014-04-25 13:56:12 +0800
+
+    support the authentication with payload of auth.token.id
+
+15	2	jumpgate/identity/drivers/sl/tokens.py
+
+commit 2e3494f416ba64c493622dc0876578201ac264ab
+Merge: ff91e7a 1cc284c
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-04-24 14:04:40 -0500
+
+    Merge pull request #93 from wpf710/master
+    
+    Adds mock nova extensions endpoint. Returns network.id as a string
+
+commit ff91e7ae7db6da4ea11febee87155d5051f432ae
+Merge: 9cb8110 e616af4
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-04-24 12:08:09 -0500
+
+    Merge pull request #95 from sudorandom/glance-listing-marker
+    
+    Resolves issue with `glance image-list` pagination using marker
+
+commit e616af45397cf04245fca1c3def8422256d542c4
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-04-24 11:59:18 -0500
+
+    Resolves issue with `glance image-list` pagination using marker
+
+25	52	jumpgate/image/drivers/sl/images.py
+
+commit 1cc284c368f95993b145293fcebc3b1164de4ec4
+Author: wpf <wpf710@gmail.com>
+Date:   2014-04-24 15:46:50 +0800
+
+    support listing network extensions with empty result
+
+1	0	jumpgate/network/__init__.py
+2	0	jumpgate/network/drivers/sl/__init__.py
+6	0	jumpgate/network/drivers/sl/extensions.py
+
+commit d7aa4d40361a36de84e89f34f7c50b82b9c3bee9
+Author: wpf <wpf710@gmail.com>
+Date:   2014-04-24 14:16:44 +0800
+
+    return network.id as a string rather than number
+
+1	1	jumpgate/network/drivers/sl/networks.py
+
+commit 9cb81102fa89efaebfae0d6dedfa4fda69df0e4e
+Merge: cbca5be 68c3c5a
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-04-17 14:06:49 -0500
+
+    Merge pull request #90 from sudorandom/jumpgate-cmd
+    
+    Jumpgate server command
+
+commit 68c3c5a1892121e1c01b976362448d7f404addca
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-04-17 10:45:55 -0500
+
+    Improves warning message
+
+5	3	jumpgate/cmd.py
+
+commit 48c06b3b161d626865d16d6de48557412e1dfe38
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-04-17 10:38:57 -0500
+
+    Removes gunicorn req
+
+0	1	setup.py
+0	1	tools/requirements.txt
+
+commit a794f717ba63747af3e07891d7e941e7ff9c8994
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-04-17 10:36:36 -0500
+
+    Adds 'jumpgate' command for easier testing.
+    
+    The server uses wsgiref so it's single threaded and not suited
+    for production use.
+    
+    Example usage: jumpgate --config=etc/jumpgate.conf
+
+31	0	jumpgate/cmd.py
+18	5	jumpgate/wsgi.py
+2	0	setup.py
+2	1	tools/requirements.txt
+
+commit cbca5be01de8b73720d91c003765850dd74d4196
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-04-16 09:30:08 -0500
+
+    Use '==' for Equality and 'is' for identity
+
+1	1	jumpgate/compute/drivers/sl/servers.py
+
+commit 19349d8b23c535d63cae61dfcea4947997bce433
+Merge: 07dbbf0 7ff5f70
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-04-15 15:28:15 -0500
+
+    Merge pull request #88 from Neetuj/master
+    
+    adding SAN support  #61
+
+commit 7ff5f707bd91d0fe8406b629bf5c9a3343780493
+Author: njain <njain@softlayer.com>
+Date:   2014-04-15 12:12:57 -0500
+
+    changing config to hold quota-sets
+
+12	0	etc/jumpgate.conf
+11	0	jumpgate/common/config.py
+
+commit c708093bfdbcfa8c5b203b30f214322e8a6124cf
+Author: njain <njain@softlayer.com>
+Date:   2014-04-15 12:11:55 -0500
+
+    set local_disk flag from flavor details
+
+12	12	jumpgate/compute/drivers/sl/quota_sets.py
+
+commit b5215253a9f4c501cf86e68c0cfe6b09f302abda
+Author: njain <njain@softlayer.com>
+Date:   2014-04-10 09:57:21 -0500
+
+    correcting the check for local disk
+
+1	1	jumpgate/compute/drivers/sl/servers.py
+
+commit 9fee8572115fca141c434bcaf5400b2fa4d6d32e
+Author: njain <njain@softlayer.com>
+Date:   2014-04-09 14:43:48 -0500
+
+    set local_disk flag from flavor details
+
+1	0	jumpgate/compute/drivers/sl/servers.py
+
+commit cac8e3193093cea96201ecd7bd58694d43eb2988
+Author: njain <njain@softlayer.com>
+Date:   2014-04-09 14:14:21 -0500
+
+    reverting the test
+
+0	2	setup.cfg
+
+commit 9678d06a0340e45a62b1aae37dd1bdae20a9fb69
+Author: njain <njain@softlayer.com>
+Date:   2014-04-09 14:06:50 -0500
+
+    removing rnaodm changes
+
+0	5	.idea/encodings.xml
+0	9	.idea/jumpgate.iml
+0	5	.idea/misc.xml
+0	9	.idea/modules.xml
+0	7	.idea/vcs.xml
+
+commit a80f9625bb0d919a89125205b8e404822967c6f8
+Author: njain <njain@softlayer.com>
+Date:   2014-04-09 13:57:53 -0500
+
+    random files it complaints about
+
+5	0	.idea/encodings.xml
+9	0	.idea/jumpgate.iml
+5	0	.idea/misc.xml
+9	0	.idea/modules.xml
+7	0	.idea/vcs.xml
+
+commit 09ea3bfecd1a9b7e81e87ab652c6b80a1ea3506e
+Author: njain <njain@softlayer.com>
+Date:   2014-04-09 13:42:37 -0500
+
+    adding SAN
+
+1	55	jumpgate/compute/drivers/sl/flavors.py
+
+commit 830546a2fd31bd08467cbf51b4ba351320ee81a3
+Merge: 7dd7c75 2c95f7b
+Author: njain <njain@softlayer.com>
+Date:   2014-04-09 13:40:27 -0500
+
+    Merge remote-tracking branch 'origin/master'
+    
+    Conflicts:
+            jumpgate/compute/drivers/sl/flavors.py
+
+commit 7dd7c7508443ae8a2570bd4ea623ff3cef911099
+Author: njain <njain@softlayer.com>
+Date:   2014-04-09 13:35:36 -0500
+
+    pep 8
+
+1	8	jumpgate/compute/drivers/sl/flavors.py
+
+commit aca6f957fc1dfea761914ad64aae6701429776cd
+Author: njain <njain@softlayer.com>
+Date:   2014-04-09 13:16:35 -0500
+
+    test
+
+2	0	setup.cfg
+
+commit b5dc6fce0b890888ae0672fb7f083da4924bb4b3
+Author: njain <njain@softlayer.com>
+Date:   2014-04-09 13:14:35 -0500
+
+    add disk-type local/SAN,
+
+3	51	jumpgate/compute/drivers/sl/flavors.py
+
+commit 7fee23ae07d6e29719e2d79a74d806a1f0f6032e
+Author: njain <njain@softlayer.com>
+Date:   2014-04-07 16:08:54 -0500
+
+    convert IDs to base 64 , add disk-type local/SAN, generate flavour details from id
+
+107	5	jumpgate/compute/drivers/sl/flavors.py
+
+commit 07dbbf0693cc721ac1b7d309ef6201d5cbe82c5d
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-04-08 08:32:14 -0500
+
+    Revert accidental push directly into upstream
+
+5	107	jumpgate/compute/drivers/sl/flavors.py
+
+commit 28d338497057454f500367ff440ad9d690beccca
+Merge: 9c2f61f d89c975
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-04-07 17:31:55 -0500
+
+    Merge pull request #85 from beittenc/fix_pep8_and_unit_tests
+    
+    Fix pep8 and unit tests
+
+commit 2c95f7b4db2c03f1d9c336e653470c0d9b9e0a7f
+Author: njain <njain@softlayer.com>
+Date:   2014-04-07 16:08:54 -0500
+
+    convert IDs to base 64 , add disk-type local/SAN, generate flavour details from id
+
+107	5	jumpgate/compute/drivers/sl/flavors.py
+
+commit d89c975f8ea6e0d920f52887c395dbe8d73a65bc
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-04-07 16:03:23 -0500
+
+    Fixed encoding error with Python 3.x
+
+2	1	jumpgate/compute/drivers/sl/flavors.py
+
+commit bee521ed1df09fc693e2c12eec2674964ea72165
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-04-07 15:34:27 -0500
+
+    Fixing PEP8 errors
+
+4	5	jumpgate/compute/drivers/sl/flavors.py
+
+commit 9c2f61f67d06708b15b49fb207f13af27082cb81
+Merge: 920f93f 12b8eff
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-04-07 15:25:56 -0500
+
+    Merge pull request #60 from anil-kumbhar/user-get-request
+    
+    Gets detailed information about specified user-id
+
+commit 920f93fa8ed099910380ff10258122078edb2d24
+Merge: e6fccd6 7d5fd6d
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-04-07 15:01:53 -0500
+
+    Merge pull request #73 from amol/request-record
+    
+    Addresses #10: Created new hooks to record
+
+commit e6fccd68c88d00a8c0ab60283bd657d6cfb79b24
+Merge: 29e17a4 56d41fd
+Author: njain <njain@softlayer.com>
+Date:   2014-04-07 13:38:50 -0500
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 29e17a402d35cde37074bedfb1487a00fe30deb1
+Author: njain <njain@softlayer.com>
+Date:   2014-04-07 13:10:21 -0500
+
+    convert IDs to base 64 , add disk-type local/SAN, generate flavour details from id
+
+107	5	jumpgate/compute/drivers/sl/flavors.py
+
+commit 56d41fd5475105094f89eefa531c906e8899be5e
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-04-07 10:38:06 -0500
+
+    Fixing minor PEP8 issue
+
+2	2	jumpgate/identity/drivers/sl/tokens.py
+
+commit 2bf243b0233465abd4f9bac27841c16d9b33b887
+Merge: 8fbd3b8 33afde7
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-04-07 10:37:25 -0500
+
+    Merge pull request #84 from sudorandom/issue-46
+    
+    Instances with a TEAR_DOWN transaction state will cause the task_state to be 'deleting'
+
+commit 33afde7fbb253ba6e61778278048a4044601b309
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-04-07 10:21:39 -0500
+
+    Fixes one instance where #46 happens
+
+2	1	jumpgate/compute/drivers/sl/servers.py
+
+commit 8fbd3b8eaca3c32d5e3cb0ee1c41776e4489c270
+Merge: 0dc6acd 34e0eab
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-04-02 16:24:42 -0500
+
+    Merge pull request #83 from sudorandom/proxy-temp-fix
+    
+    A temp fix proxy option
+
+commit 34e0eab795c24a8e4f1407931ccc20f5aaa0a49f
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-04-02 14:44:05 -0500
+
+    A temp fix for softlayer-python < 3.1.0
+
+7	3	jumpgate/common/hooks/sl/client.py
+
+commit 0dc6acd78aad9d57509446ea366b7f98c047b18b
+Merge: cd2b737 149db78
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-04-01 16:10:45 -0500
+
+    Merge pull request #66 from amol/image-import
+    
+    Addresses #6: Swift location import supported
+
+commit cd2b737b398cad9eeb8b15835685ff51fa152f5c
+Merge: 0eae4a0 8d17fb3
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-04-01 16:01:10 -0500
+
+    Merge pull request #79 from bodenr/bodenr/domain-name
+    
+    support for default domain in jumpgate.conf
+
+commit 149db781ae771931da09a2a7beb5931470ab996e
+Author: Amol Jadhav <amolj.1306@gmail.com>
+Date:   2014-03-21 18:14:42 +0530
+
+    Addresses \#6: Swift location import supported
+    
+    When Swift direct-url with account name, container and object name is
+    given that is used to import image template using
+    SoftLayer_Virtual_Guest_Block_Device_Template_Group service.
+    Removed duplication among schema by reusing `member` and `image` schema inside `memebers` and `images`
+
+4	0	jumpgate/image/__init__.py
+4	1	jumpgate/image/drivers/sl/__init__.py
+249	349	jumpgate/image/drivers/sl/images.py
+
+commit 0eae4a020a176884d06bc3ae3a623359945b1621
+Merge: 5cf5097 170dbc8
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-03-27 13:10:19 -0500
+
+    Merge pull request #78 from anil-kumbhar/token-get-endpoints
+    
+    Retrieved associated endpoints with given token
+
+commit 8d17fb3d08294dc418a4b06b9a1c410ee9726d28
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-03-27 12:12:39 -0400
+
+    support for default domain in jumpgate.conf
+    
+    adds support for the specification of the default domain to use when
+    booting servers in the conf file rather than hardcoding it to
+    'jumpgate.com' in the py code. this is a partial implementation of
+    https://github.com/softlayer/jumpgate/issues/63 which allows
+    configurable domain per jumpgate service. a future PR will include
+    additional support such as that discussed in
+    https://github.com/softlayer/jumpgate/issues/63
+
+1	0	etc/jumpgate.conf
+2	1	jumpgate/common/config.py
+2	1	jumpgate/compute/drivers/sl/servers.py
+
+commit 170dbc8cabbfaca2ec9bfb64091feaed8ddc3bc3
+Author: Anil Kumbhar <anil_kumbhar@persistent.co.in>
+Date:   2014-03-27 16:32:45 +0530
+
+    Retrieved associated endpoints with given token
+    
+    Handling Identity endpoint-list using specified token #58
+    According to Identity API Specification [1], endpoints should be returned with following request:
+    GET v2.0/tokens/{tokenId}/endpoints
+    [1]http://api.openstack.org/api-ref-identity.html#identity-v2
+
+1	1	jumpgate/identity/drivers/sl/__init__.py
+22	0	jumpgate/identity/drivers/sl/tokens.py
+
+commit 12b8eff0b78cd2928ebc010d0380a83f77179e62
+Author: Anil Kumbhar <anil_kumbhar@persistent.co.in>
+Date:   2014-03-26 15:35:36 +0530
+
+    Handled appropriate exception and raised others
+    
+    Apart from exception handling user details are given if present.
+
+18	18	jumpgate/identity/drivers/sl/user.py
+
+commit 6d81574a45325da78e32dd380610112f3e0afb3f
+Merge: 5cf5097 13eccab
+Author: anil <anil@anil-virtual-machine.(none)>
+Date:   2014-03-26 11:14:16 +0530
+
+    Merge branch 'user-get-request' of https://github.com/anil-kumbhar/jumpgate into user-get-request
+
+commit 7d5fd6df41c4823ac4447838c51b9554ba250ec9
+Author: Amol Jadhav <amolj.1306@gmail.com>
+Date:   2014-03-26 11:02:49 +0530
+
+    Tuples expanded in `for` loop.
+
+1	2	jumpgate/common/hooks/sl/timelog.py
+
+commit 5cf5097d7c2aa0758f159210fdd3df866078d481
+Merge: 178a86c 41046bf
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-03-25 16:23:42 -0500
+
+    Merge pull request #74 from sudorandom/json-extention
+    
+    Adds .json suffix to each route
+
+commit 41046bf114c9a4a682625d410a0be74653f9a5a7
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-03-25 15:50:46 -0500
+
+    Fixes test and removes some un-used imports
+
+1	4	tests/test_jumpgate.py
+
+commit 0ca770ff4d4a84fdce11f62df8306f2788f04062
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-03-25 15:42:01 -0500
+
+    Removes .json suffix from networks/subnets routes
+
+2	2	jumpgate/network/__init__.py
+
+commit 77c14a5a7178cd062482541fb7db1f68383849c4
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-03-25 15:34:08 -0500
+
+    Adds .json suffix to each route
+    
+    This fixes an issue where clients were expecting most (all?) routes to
+    be able to have a .json suffix.
+
+1	0	jumpgate/api.py
+
+commit 178a86c263e47c01699f720048e7586d71ed1af0
+Merge: 8f31b36 799520e
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-03-25 12:56:54 -0500
+
+    Merge pull request #70 from bodenr/bodenr/image-props
+    
+    updates to image attributes
+
+commit 13eccab5d2b22718bfe000bd6d414c9dcaacbf65
+Author: Anil Kumbhar <anil_kumbhar@persistent.co.in>
+Date:   2014-03-25 08:15:32 -0500
+
+    Always raised 404, even if user is unauthorized
+    
+    User can retrieve details of all users that he has access to otherwise 404 HTTP error will be returned.
+
+36	41	jumpgate/identity/drivers/sl/user.py
+
+commit ec7e13e471778400f17bd56919487d59fef253b4
+Author: Amol Jadhav <amolj.1306@gmail.com>
+Date:   2014-03-25 17:11:31 +0530
+
+    PEP8 compatible imports
+
+1	1	jumpgate/common/hooks/sl/timedclient.py
+1	2	jumpgate/common/hooks/sl/timelog.py
+
+commit a4a6eb88200ad79ced1622c27f8bde24eff16505
+Author: Amol Jadhav <amolj.1306@gmail.com>
+Date:   2014-03-25 15:23:27 +0530
+
+    Addresses #10: Created new hooks to record
+    
+    New Request Hook has been added to create TimedClient and new Response
+    Hook has been created to log the time used by individual requests.
+
+19	0	jumpgate/common/hooks/sl/timedclient.py
+37	0	jumpgate/common/hooks/sl/timelog.py
+
+commit 3c533a74854a3a04792b49abca4489251d9903ea
+Merge: 8f31b36 ac0f856
+Author: root <root@anil.localdomain>
+Date:   2014-03-25 04:27:10 -0500
+
+    Merge branch 'user-get-request' of https://github.com/anil-kumbhar/jumpgate into user-get-request
+
+commit 799520e2f86af5ffd319eaadab8fcc043a9ecc1e
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-03-24 06:00:18 -0400
+
+    additional image property updates including min_ram
+
+2	2	jumpgate/image/drivers/sl/images.py
+
+commit b33709088a7ba8468a7cf6f19fbc7f46b459d12c
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-03-24 05:09:57 -0400
+
+    style - single quotes on min_disk
+
+2	2	jumpgate/image/drivers/sl/images.py
+
+commit 7d317118a9dc814ad305ca09525616f235cbed7e
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-03-24 05:08:24 -0400
+
+    additional image attrs required by client side consumers
+
+8	1	jumpgate/image/drivers/sl/images.py
+
+commit 5ad9dff613c8775f05888fd474cc3afb30f68419
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-03-24 04:27:23 -0400
+
+    add is_public and owner attrs to image details dict
+    
+    for openstack compatibility purposes, image details response json needs
+    to include the 'is_public' and 'owner' attributes. without these atts
+    set some client side consumers break. this PR adds those attrs to the
+    image details dict.
+
+10	3	jumpgate/image/drivers/sl/images.py
+
+commit ac0f856a429aabc77d580e9061a2e7505e501fc6
+Author: root <root@user.localdomain>
+Date:   2014-03-21 09:11:00 -0500
+
+    Corrected pep8 error from previous build
+
+0	1	jumpgate/identity/drivers/sl/user.py
+
+commit 8f31b36f0e9c74e1041de7895bf095504684b767
+Merge: 362b3d2 88b9849
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-03-21 09:04:00 -0500
+
+    Merge pull request #65 from amol/proxy
+    
+    Allowing proxy as a config option
+
+commit f95d55d854cbd07a65cac05d8ca7e2a935415442
+Author: root <root@user.localdomain>
+Date:   2014-03-21 09:01:28 -0500
+
+    User can display details of itself and its child only
+
+41	14	jumpgate/identity/drivers/sl/user.py
+
+commit 88b984964feaa8d5793fb674e48ad2366404a0dc
+Author: Amol Jadhav <amolj.1306@gmail.com>
+Date:   2014-03-21 13:03:01 +0530
+
+    Allowing proxy as a config option
+    
+    Proxy was not part of config setting for SL driver. Allowing it so that
+    users behind proxy can use it.
+
+1	0	jumpgate/common/config.py
+2	1	jumpgate/common/hooks/sl/client.py
+4	2	jumpgate/identity/drivers/sl/tokens.py
+
+commit 80be823546f7a779f68b132b5d5d14dc5dc948e3
+Author: anil k <anil@anil1.localdomain>
+Date:   2014-03-20 09:34:21 -0500
+
+    Corrected pep8 error from previous build
+
+3	3	jumpgate/identity/drivers/sl/user.py
+
+commit 09429ed95239e4ccc3020df7a50a72eec6713b34
+Author: anil k <anil@anil1.localdomain>
+Date:   2014-03-20 09:06:56 -0500
+
+    If user is unauthorized corresponding HTTP code/message has been given
+
+9	6	jumpgate/identity/drivers/sl/user.py
+
+commit 21a993f3783a75e0b26924ea43aca08ca083a353
+Author: anil k <anil@anil1.localdomain>
+Date:   2014-03-20 00:49:50 -0500
+
+    If user doesn't exists corresponding HTTP code/message has been given
+
+2	4	jumpgate/identity/drivers/sl/user.py
+
+commit 98afc413b7c2787602ed279ae0b6ddf85f454c79
+Merge: 362b3d2 8e12bf9
+Author: anil k <anil@anil1.localdomain>
+Date:   2014-03-19 08:31:05 -0500
+
+    Merge branch 'user-get-request' of https://github.com/anil-kumbhar/jumpgate into user-get-request
+
+commit 362b3d29694ae3e7901ccf35a1f5bb28e46249bb
+Merge: b7525fe 3aac7df
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-03-18 13:42:15 -0500
+
+    Merge pull request #62 from bodenr/bodenr/cci-init
+    
+    nova CCI metadata / user-data / personality cloud-init mitigation
+
+commit 3aac7dfa42a3c9fb81cb916e3d1cd74709f255b1
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-03-18 13:26:37 -0400
+
+    fix cci_init user_data and metadata bugs
+
+2	2	tools/bin/cci_init
+
+commit 912539ba8ddc8d95ce9b9a6d889fb21188a874a8
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-03-18 11:05:54 -0400
+
+    reduce json rest client class into function + fix flake8 issues
+
+30	63	tools/bin/cci_init
+
+commit 8e12bf94c08bc1bb76e68ee9337ba2b33e0a1e1d
+Author: anil kumbhar <anil_kumbhar@persistent.co.in>
+Date:   2014-03-18 06:39:51 -0500
+
+    Retrieved specified user details.
+    
+    Corrected getCurrentUser with getUsers with specified user id.
+
+13	10	jumpgate/identity/drivers/sl/user.py
+
+commit b0bc2d945691540a453f1effcbe2878726dd42d0
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-03-17 16:13:20 -0400
+
+    nova CCI metadata / user-data / personality cloud-init mitigation
+    
+    As I'm sure you guys know, OpenStack nova compute supports the ability
+    to pass through the following data on a boot VM call:
+    
+    * User Data http://docs.openstack.org/user-guide/content/user-data.html
+    * Arbitrary key/value pairs as metadata
+    http://docs.openstack.org/grizzly/openstack-compute/admin/content/instance-data.html
+    * Server personality
+    http://docs.openstack.org/api/openstack-compute/2/content/Server_Personality-d1e2543.html
+    
+    In an OpenStack proper environment such "metadata" is typically realized
+    using something like Cloud-Init + Config Drive
+    (http://cloudinit.readthedocs.org/en/latest/topics/datasources.html#config-drive).
+    
+    In SoftLayer we obviously have the CCI user metadata service to pass
+    arbitrary data through and make it accessible to a CCI. However, to the
+    best of my knowledge there is no support integrating Cloud-Init +
+    SoftLayer CCI user metadata. This leaves us with a gap in the SoftLayer
+    / nova compute space -- how to realize nova metadata customization on a
+    CCI via Jumpgate.
+    
+    To me an ideal solution would be to implement a datasource
+    (http://cloudinit.readthedocs.org/en/latest/topics/datasources.html)
+    provider for Cloud-Init which is compatible with SoftLayer's CCI user
+    metadata. However such an implementation is likely a bit of work.
+    
+    As a mitigation I have implemented a simple 'cci_init' python script
+    which can realize all 3 flavors of nova metadata in it's simplest form
+    -- it realizes raw metadata but does not support any "active
+    capabilities" of Cloud-Init. We have been using this cci_init in our
+    SoftLayer RDS implementation and thus I feel it provides a stopgap for
+    some of the metadata functionality in the nova / Jumpgate space.
+
+154	0	tools/bin/cci_init
+
+commit 49dc133c16c5962b5384e421962d15eb058bc37b
+Author: anil kumbhar <anil_kumbhar@persistent.co.in>
+Date:   2014-03-14 06:50:08 -0500
+
+    Gets detailed information about specified user-id
+    
+    According to Identity API Specification [1], user can get details about herself with following request:
+    
+    GET v2.0/users/<USER_ID>
+    
+    This was not supported by SoftLayer driver, we are supporting this using SoftLayer_Account service's getCurrentUser [2] method.
+    
+    [1] http://api.openstack.org/api-ref-identity.html#identity-v2
+    [2] http://sldn.softlayer.com/reference/services/SoftLayer_Account/getCurrentUser
+
+2	0	jumpgate/identity/drivers/sl/__init__.py
+17	0	jumpgate/identity/drivers/sl/user.py
+
+commit b7525fe11678f58f430691dd9ca13dd505507e6f
+Merge: 9f46861 027b2da
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-03-07 09:08:07 -0600
+
+    Merge pull request #53 from amol/ip.type
+    
+    Handling issue #52
+
+commit 9f46861e81bdf7b4c5e93fe2222df28898d774a3
+Merge: a5a43d4 1231b0d
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-03-07 09:02:44 -0600
+
+    Merge pull request #59 from amol/token-using-token
+    
+    Generates new token from old token.
+
+commit 027b2da5434ba43fa62a8d5e7611587532b43de1
+Merge: f23a18a a5a43d4
+Author: Amol Jadhav <amolj.1306@gmail.com>
+Date:   2014-03-07 14:49:45 +0530
+
+    Merge branch 'master' into ip.type
+
+commit f23a18ad21865c842f186ccc2341d78ec610cfd6
+Author: Amol Jadhav <amolj.1306@gmail.com>
+Date:   2014-03-07 14:44:52 +0530
+
+    Made primaryIpAddress as fixed.
+    
+    The primaryIpAddress is static and doesn't change during its life-cycle,
+    it was more appropriate to keep it as 'fixed' instead of 'floating'. The
+    portable IP from SoftLayer makes more sense for 'floating' IP.
+
+1	1	jumpgate/compute/drivers/sl/servers.py
+
+commit 1231b0dd1de9a1c076854ebfacd96ca723554fe8
+Author: Amol Jadhav <amolj.1306@gmail.com>
+Date:   2014-03-06 03:44:45 -0600
+
+    Removed _is_token_auth()
+    
+    If request contains token id it is assumed to be token auth.
+
+1	4	jumpgate/identity/drivers/sl/tokens.py
+
+commit 4e0a3a24998a872fb118d6b277aa7c6171d78a39
+Author: Amol Jadhav <amolj.1306@gmail.com>
+Date:   2014-03-05 06:20:55 -0600
+
+    Username/Credentials retrived from token driver
+    
+    Since each token driver is free to use the way it wants to store the
+    username/password, username() and credential() method are invoked to get
+    the values. token_driver.credentials() added in view of this need.
+
+10	0	jumpgate/identity/drivers/core.py
+4	6	jumpgate/identity/drivers/sl/tokens.py
+
+commit 4eff1f0c0bf83e4c0e286b94cfd809d00ae6574a
+Author: Amol Jadhav <amolj.1306@gmail.com>
+Date:   2014-03-05 04:17:48 -0600
+
+    Generates new token from old token.
+    
+    The API Specification http://api.openstack.org/api-ref-identity.html allows users to authenticate and generate token from old token.
+    Request body format:
+        {
+            "auth" :
+                { "token" : {"id" : "old_token"} }
+        }
+    
+    such request:
+        1. validates the token
+        2. decodes the token
+        3. and generates new
+
+12	0	jumpgate/identity/drivers/sl/tokens.py
+
+commit f2ff835236f8103bda26671ec141a067368d45a2
+Author: Amol Jadhav <amolj.1306@gmail.com>
+Date:   2014-03-03 11:39:38 +0530
+
+    Fixed public ip type
+    
+    Public IP is known as floating IP in OpenStack changed public type to
+    floating.
+
+1	1	jumpgate/compute/drivers/sl/servers.py
+
+commit a5a43d45ded7b59fa9df5fb97d56f3996f36c692
+Merge: 2095dbf 48d1df6
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-02-28 15:08:33 -0600
+
+    Merge pull request #56 from bodenr/bugs/get-token-issues
+    
+    identity bug fixes for non-url friendly tokens + get /tokens/{id} authn
+
+commit 48d1df6965946155a4883191cb9d478308e8a80b
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-02-28 15:46:25 -0500
+
+    identity bug fixes for non-url friendly tokens + get /tokens/{id} authn
+    
+    implements fixes for the following:
+    - Tokens can be generated which are non-url friendly. This impacts the
+    consumers ability to use the token on a GET /tokens/{token_id} call.
+    - The API pipeline should allow unauthenticated calls to GET
+    /tokens/{token_id} to validate an existing token
+    
+    fixes https://github.com/softlayer/jumpgate/issues/55
+
+3	1	jumpgate/common/hooks/auth_token.py
+3	2	jumpgate/identity/drivers/core.py
+2	1	tests/test_hooks.py
+
+commit 2095dbfeb6b6983ce62b571436cfb24a3193fc65
+Merge: 577f072 34c5ea4
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-02-28 09:14:22 -0600
+
+    Merge pull request #54 from sudorandom/server-filter
+    
+    Fixes name filtering to work with nova list using --name and --instance-name
+
+commit 6ab6b0f48e04601c429197bd6e7d5f89b3f951e6
+Author: Amol Jadhav <amolj.1306@gmail.com>
+Date:   2014-02-28 11:49:54 +0530
+
+    Handling issue #52
+    
+    Many consumers of the compute service uses 'OS-EXT-IPS:type' field,
+    which is easy to support as SL always assigns private
+    (primaryBackendIpAddress) and public (primaryIpAddress) IPs which can be
+    categorized into 'fixed' and 'public' respectively.
+
+2	0	jumpgate/compute/drivers/sl/servers.py
+
+commit 34c5ea4c5c86348141dac74b37f4297a1a0ab623
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-02-27 17:38:01 -0600
+
+    Fixes name filtering for nova list with --name and --instance-name
+
+3	4	jumpgate/compute/drivers/sl/servers.py
+2	1	tools/test-requirements.txt
+
+commit 577f072e18fb7a509dc2c2e82f7887d60af8b60a
+Merge: e7fddd5 ecdaf04
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-02-27 10:41:35 -0600
+
+    Merge pull request #48 from bodenr/bodenr/pluggable-authtoken
+    
+    pluggable token auth driver
+
+commit ecdaf04a8c49489ca0607253c1f4bd7a5c93a6e7
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-02-26 09:23:03 -0500
+
+    fix pylint related errors
+
+4	2	jumpgate/identity/drivers/core.py
+3	3	jumpgate/identity/drivers/sl/tokens.py
+
+commit a09066b1b4c7403b7964b0d261065cbeea596f7f
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-02-26 08:48:44 -0500
+
+    updates to pluggable auth token impl
+    
+    updates to the pluggable token, auth, hooks implementation including:
+    pydoc for the extendible driver interfaces, unit tests, minor bug fixes,
+    replace of global var usage in hooks with singleton pattern.
+    
+    implements https://github.com/softlayer/jumpgate/issues/47
+
+6	6	jumpgate/api.py
+74	49	jumpgate/common/hooks/__init__.py
+114	9	jumpgate/identity/drivers/core.py
+17	11	jumpgate/identity/drivers/sl/tokens.py
+100	0	tests/test_hooks.py
+2	1	tests/test_jumpgate.py
+
+commit cb61e68163e3646ac80805a8f6532661e3b4f2e2
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-02-25 11:32:24 -0500
+
+    pluggable api hooks, tokens & auth
+    
+    this change implements the notion of pluggable API hooks whereupon
+    providers and latch-in before/after hooks for the request/response flow.
+    it also refactors the existing per request authN, logging, etc. into
+    hooks. also included in this PR is the notion of pluggable identity
+    token, token-id and authentication drivers which permits consumers to
+    easily plug into the existing identity workflow without changing base
+    jumpgate code.
+    
+    implements: https://github.com/softlayer/jumpgate/issues/47
+
+5	2	etc/jumpgate.conf
+8	8	jumpgate/api.py
+6	2	jumpgate/common/config.py
+15	0	jumpgate/common/exceptions.py
+78	0	jumpgate/common/hooks/__init__.py
+4	3	jumpgate/common/{middleware => hooks}/admin_token.py
+44	0	jumpgate/common/hooks/auth_token.py
+3	2	jumpgate/common/{hooks.py => hooks/core.py}
+2	2	jumpgate/common/{middleware => hooks}/log.py
+0	0	jumpgate/common/{middleware => hooks}/sl/__init__.py
+3	3	jumpgate/common/{middleware => hooks}/sl/client.py
+0	58	jumpgate/common/middleware/__init__.py
+0	28	jumpgate/common/middleware/sl/auth_token.py
+0	22	jumpgate/common/sl/auth.py
+32	1	jumpgate/common/utils.py
+0	1	jumpgate/identity/__init__.py
+143	0	jumpgate/identity/drivers/core.py
+55	60	jumpgate/identity/drivers/sl/tokens.py
+4	3	tests/test_hooks.py
+3	2	tests/test_jumpgate.py
+1	1	tests/test_nyi.py
+
+commit a357eb2bb8d2575e2f2fe821b112168bc5b39d7c
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-02-24 12:01:29 -0500
+
+    pluggable authentication support
+    
+    implements pluggable authentication by means of introducing "middleware"
+    hooks which can be added to the request/response pipeline. various
+    portions of the existing pipeline are refactored into their own hooks
+    including; validation of auth token (X-AUTH-TOKEN header), SL client
+    binding and logging. additional refactoring is also done to make the
+    identity token driver more extensible specifically allowing consumers to
+    extend the token driver and plug in their own authentication and
+    jumpgate token creation methods. finally the existing jumpgate auth
+    token has been unified as a single json/dict.
+    
+    implements https://github.com/softlayer/jumpgate/issues/47
+
+2	1	etc/jumpgate.conf
+11	3	jumpgate/api.py
+7	0	jumpgate/common/config.py
+0	9	jumpgate/common/hooks.py
+58	0	jumpgate/common/middleware/__init__.py
+21	0	jumpgate/common/middleware/admin_token.py
+15	0	jumpgate/common/middleware/log.py
+0	0	jumpgate/common/middleware/sl/__init__.py
+28	0	jumpgate/common/middleware/sl/auth_token.py
+16	0	jumpgate/common/middleware/sl/client.py
+12	5	jumpgate/common/nyi.py
+0	41	jumpgate/common/sl/__init__.py
+7	25	jumpgate/common/sl/auth.py
+0	11	jumpgate/common/utils.py
+0	30	jumpgate/identity/drivers/driver.py
+51	46	jumpgate/identity/drivers/sl/tokens.py
+
+commit 74914e0fa46bb87e891b5cf273afb157354bbfbe
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-02-20 08:29:15 -0500
+
+    fix pep8 errors
+
+1	1	jumpgate/common/utils.py
+2	2	jumpgate/identity/drivers/driver.py
+7	5	jumpgate/identity/drivers/sl/tokens.py
+
+commit 237b0efe556cd561743b7e1db837fe752d9e6457
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-02-20 08:08:06 -0500
+
+    pluggable token auth driver
+    
+    implements a means to plug-in authentication token drivers by means of
+    providing a token driver interface with a default (base) implementation
+    for SLAPI. this change remains backwards compatible, but also permits an
+    easy way to plug-in a different driver. token auth drivers are
+    responsible for authenticating with an identity provider and
+    building/returning a well formed jumpgate auth token. this is part of
+    the keystone identity/auth workflow.
+    
+    implements: https://github.com/softlayer/jumpgate/issues/47
+
+1	0	etc/jumpgate.conf
+2	0	jumpgate/common/config.py
+16	40	jumpgate/common/sl/auth.py
+11	0	jumpgate/common/utils.py
+30	0	jumpgate/identity/drivers/driver.py
+45	2	jumpgate/identity/drivers/sl/tokens.py
+
+commit e7fddd58794b15c10756565e5b2e4e6b5e8c5ced
+Merge: 36cee1f b75372a
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-02-17 11:43:07 -0600
+
+    Merge pull request #44 from bodenr/bodenr/authn-tenant
+    
+    validate tenant id against account id during authN
+
+commit b75372adab57a33fd5f393cdf4b7235595d97c9f
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-02-17 04:58:55 -0500
+
+    validate tenant id against account id during authN
+    
+    this change validates that a native openstack authN request which
+    contains a tenantId is validated against the users SL account id. if the
+    two don't match the authN request is invalid and rejected.
+    
+    implements: https://github.com/softlayer/jumpgate/issues/43
+
+7	0	jumpgate/common/sl/auth.py
+
+commit 36cee1f1fe72704823a80f8fd40a111a060dd681
+Merge: 1b8fb4f aa046e7
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-02-14 10:28:44 -0600
+
+    Merge pull request #42 from bodenr/bodenr/issue39
+    
+    return user_id in server details
+
+commit aa046e70ee82a3fb7faed4c66e6219eb48e0161b
+Author: boden <boden@linux.vnet.ibm.com>
+Date:   2014-02-14 11:17:05 -0500
+
+    return user_id in server details
+    
+    obtains and returns the cci creator user id in a servers response.
+    however a cci creator user id is only accessible if the API callers
+    credentials permit it. in cases where not accessible a JSON value of
+    null is sent over the wire for the server.user_id
+
+5	0	jumpgate/compute/drivers/sl/servers.py
+
+commit 1b8fb4f96bd74c8bc5e3d4920a9b73916b221a6f
+Merge: b4d0d35 6fc8bd9
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-02-13 16:20:41 -0600
+
+    Merge pull request #38 from bodenr/bugs/server-str-id
+    
+    return server.id as string
+
+commit 6fc8bd98c9309ea948ada4a738a6444674adee9d
+Author: boden <bodenru@gmail.com>
+Date:   2014-02-13 17:05:54 -0500
+
+    return server.id as string
+    
+    returns server.id as a string rather then number.
+    fixes https://github.com/softlayer/jumpgate/issues/37
+
+1	1	jumpgate/compute/drivers/sl/servers.py
+
+commit b4d0d35dd8923aad1490a64fde509c22e57746ac
+Merge: 3fece06 486f245
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-02-13 09:08:35 -0600
+
+    Merge pull request #36 from bodenr/features/admin_token
+    
+    admin_token identity support
+
+commit 486f245da9e5edf69d514a398ca8d2208536392b
+Author: boden <brussell@us.ibm.com>
+Date:   2014-02-13 10:01:59 -0500
+
+    admin_token support
+    
+    updates in-line comment for clarity.
+
+2	1	jumpgate/common/sl/__init__.py
+
+commit c0387819dd154be49836e602d4eee3189f51d747
+Author: boden <brussell@us.ibm.com>
+Date:   2014-02-13 09:08:04 -0500
+
+    admin_token identity support
+    
+    adds basic admin_token support to jumpgate whereupon a shared secret
+    (the admin_token) can be used to authn/z to the jumpgate API. this
+    secret does not map into the SLAPI.
+    
+    implements https://github.com/softlayer/jumpgate/issues/35
+
+1	0	etc/jumpgate.conf
+7	2	jumpgate/common/sl/__init__.py
+
+commit 3fece064d5356a104491eaced5c8feb8f854c5a4
+Merge: 3ac8fbd c3a4197
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-02-11 09:11:28 -0600
+
+    Merge pull request #34 from sudorandom/testing
+    
+    Adds pylint to testing. Travis now uses tox. Adds test-requirements.txt
+
+commit c3a41971037310515cfeef2db267d2d4d19f6f2d
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-02-10 14:44:52 -0600
+
+    Adds pylint to testing. Travis now uses tox. Adds test-requirements.txt
+
+9	9	.travis.yml
+3	3	jumpgate/compute/drivers/sl/dns.py
+0	0	requirements.txt => tools/requirements.txt
+3	0	tools/test-requirements.txt
+13	6	tox.ini
+
+commit 3ac8fbdc9430e7d444d959c92508555795cfc722
+Merge: 3435def 7dede8c
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-02-05 14:35:58 -0600
+
+    Merge pull request #33 from bodenr/feature/usermeta
+    
+    server personality + user_data support
+
+commit 7dede8cc9fa50a6aa5a2f5226ac1288ee708ab09
+Author: boden <brussell@us.ibm.com>
+Date:   2014-02-05 15:12:13 -0500
+
+    server personality + user_data support
+
+5	1	jumpgate/compute/drivers/sl/servers.py
+
+commit 3435defc86a74778cd10e79627e35399e7698bd3
+Merge: 5134135 55c4e91
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-02-04 08:49:18 -0800
+
+    Merge pull request #30 from sudorandom/instance_actions_redo
+    
+    Instance actions redo
+
+commit 55c4e915c7f0d7149cd73891a404547f3c23c3ee
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-01-31 14:45:43 -0600
+
+    Adds instance actions detail as a valid endpoint
+
+3	0	jumpgate/compute/__init__.py
+2	1	jumpgate/compute/drivers/sl/__init__.py
+
+commit 3f4c24ba129df008088e21da17afab8bb0a58e4a
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-01-31 14:40:35 -0600
+
+    Re-implements instance-actions using Event_Log
+
+47	42	jumpgate/compute/drivers/sl/instance_actions.py
+2	1	requirements.txt
+1	0	setup.py
+4	2	whitelists/softlayer.txt
+
+commit 5134135596a9df5125df27ec4497abf0a4da94f6
+Merge: 3f06091 a5eb395
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-01-27 10:44:20 -0800
+
+    Merge pull request #26 from sudorandom/dupe-flavor
+    
+    Filters Default Flavor from detailed listing
+
+commit a5eb395a1486ba38d52225045a66789286364742
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-01-27 11:40:19 -0600
+
+    Filters Default Flavor from detailed listing
+
+1	1	jumpgate/compute/drivers/sl/flavors.py
+
+commit 3f060916cda74b1d69bcd2dc9574ee3b64b301d1
+Merge: 272e201 9afef17
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-01-27 09:35:39 -0800
+
+    Merge pull request #24 from sudorandom/update-1
+    
+    Adds root version endpoint for keystone (for SL driver)
+
+commit 9afef17cf725df3e90eaae012c9a97cae046b554
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-01-27 10:08:50 -0600
+
+    Adds root version endpoint (for keystone)
+
+3	0	jumpgate/identity/__init__.py
+2	0	jumpgate/identity/drivers/sl/__init__.py
+41	0	jumpgate/identity/drivers/sl/versions.py
+
+commit 272e201ced2c6b100034c90076af3e33d21309f2
+Merge: 56b214f 1418ee3
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2014-01-27 07:08:06 -0800
+
+    Merge pull request #23 from sudorandom/update-1
+    
+    Exceptions Handlers, Test Updates, Tokens
+
+commit 1418ee368f0045d76c4d5479b8a8270c251012d4
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-01-26 19:19:35 -0600
+
+    Improves logging of unexpected error (removes print statement)
+
+1	2	jumpgate/api.py
+
+commit 93ee6bc2516c261ea72b7c7a4a79f5a40a3260e3
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-01-26 19:15:14 -0600
+
+    Moves Error handler for ResponseException to ResponseException
+
+2	2	jumpgate/api.py
+0	4	jumpgate/common/error_handling.py
+5	0	jumpgate/common/exceptions.py
+5	4	jumpgate/common/sl/errors.py
+
+commit d7b0887b7ddc2abd8c98bf6f798c34383d802bd3
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-01-25 12:01:06 -0600
+
+    Adds missing pycrypto requirement
+
+2	1	requirements.txt
+2	1	setup.py
+
+commit bf5c28d9e468931195e5cd8dbbb7096b847a39bc
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-01-25 11:51:41 -0600
+
+    Exceptions Handlers, Test Updates, Tokens
+    
+    Implements encryption/decryption for api tokens - secret key set in jumpgate.conf- Resolves #21
+    Implements Validate Token Endpoint - Resolves #22
+    Adjusts tempest tests to be up-to-date with tempest master (lots of renames and some removed tests)
+    Uses Falcon's New Exception Handler
+
+1	0	etc/jumpgate.conf
+25	0	jumpgate/api.py
+25	0	jumpgate/common/aes.py
+3	0	jumpgate/common/config.py
+4	0	jumpgate/common/error_handling.py
+17	0	jumpgate/common/exceptions.py
+5	11	jumpgate/common/nyi.py
+14	8	jumpgate/common/sl/__init__.py
+55	58	jumpgate/common/sl/auth.py
+20	38	jumpgate/common/sl/errors.py
+21	0	jumpgate/common/utils.py
+5	5	jumpgate/compute/drivers/sl/flavors.py
+0	3	jumpgate/compute/drivers/sl/server_ips.py
+0	8	jumpgate/compute/drivers/sl/servers.py
+48	36	jumpgate/identity/drivers/sl/tokens.py
+3	1	jumpgate/wsgi.py
+5	13	tests/test_nyi.py
+15	19	whitelists/softlayer.txt
+
+commit 56b214fa5c90f1c5827b69254c5b3c1830520727
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-01-17 17:10:26 -0600
+
+    Adds softlayer as a dependency and bumps falcon to a non-rc version
+
+1	1	jumpgate/api.py
+2	1	requirements.txt
+2	1	setup.py
+0	7	tests/test_jumpgate.py
+
+commit 98e2d38b29e4e31041ce3884b6f5bcc755db486e
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-01-10 09:29:46 -0600
+
+    Adds log_level config
+
+1	0	etc/jumpgate.conf
+9	9	jumpgate/common/config.py
+3	0	jumpgate/wsgi.py
+
+commit 72a8dba21492e03c711033853940ac2f3c5fa2bc
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-01-09 16:37:54 -0600
+
+    Fixes last instance of lowercase header bug
+
+1	1	jumpgate/common/sl/__init__.py
+
+commit 488b897535f4773128d429f110c1b9d11e5d961e
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-01-09 16:26:30 -0600
+
+    Pins falcon version
+
+1	1	requirements.txt
+
+commit 2f0a17e0753cf915279bcb4f7538813f2f4262de
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-01-09 16:23:21 -0600
+
+    Fixes issue with falcon no longer lowercasing headers. PEP8 fixes
+
+8	7	jumpgate/common/sl/auth.py
+5	12	jumpgate/compute/drivers/sl/dns.py
+1	1	jumpgate/compute/drivers/sl/flavors.py
+6	2	jumpgate/image/drivers/sl/images.py
+
+commit 5ee2b1ba5af3fb3fda0cbf2527aa1725e0c10ef8
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2014-01-08 17:28:57 -0600
+
+    Prints exceptions until logging can be worked out
+
+2	0	jumpgate/common/sl/errors.py
+
+commit 6ad3b8c4a3398691a658af37b5f7ffd59e1d7e6a
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-12-09 16:52:01 -0600
+
+    Fixes ~some~ of the code smell issues
+
+3	3	etc/identity.templates
+2	1	jumpgate/baremetal/__init__.py
+2	2	jumpgate/common/openstack.py
+1	1	jumpgate/common/sl/__init__.py
+1	1	jumpgate/common/sl/errors.py
+1	1	jumpgate/compute/drivers/sl/dns.py
+1	1	jumpgate/compute/drivers/sl/keypairs.py
+5	4	jumpgate/identity/drivers/sl/tokens.py
+11	9	jumpgate/image/drivers/sl/images.py
+14	18	jumpgate/network/drivers/sl/networks.py
+1	1	jumpgate/network/drivers/sl/subnets.py
+
+commit 8488ee602d3162274e9ea4e5f64925d39dd66aec
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-12-09 08:14:36 -0600
+
+    Adds support for server ip endpoints. +5 tempest tests
+
+4	3	jumpgate/compute/__init__.py
+4	0	jumpgate/compute/drivers/sl/__init__.py
+53	0	jumpgate/compute/drivers/sl/server_ips.py
+1	3	run_tempest_tests.py
+8	0	whitelists/softlayer.txt
+
+commit 5df4bb98f4a80df215467025d761f6f6aef22331
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-12-06 20:35:36 -0600
+
+    Logs unexpected SoftLayer exceptions in convert_errors()
+
+8	5	jumpgate/common/sl/errors.py
+
+commit 9f2ca3894f96d1bc4addbb63fe9fbab9804b68ca
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-12-03 15:47:59 -0600
+
+    Update README.rst
+
+1	1	README.rst
+
+commit d859a96a9df93eed23609a47ae1569c9291415b9
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-12-03 15:05:28 -0600
+
+    Removing DRIVERS.rst as it's already in the gh-pages site
+
+0	292	DRIVERS.rst
+
+commit 243805d94454ff4c647059e5657e924c45c3c456
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-12-02 16:09:55 -0600
+
+    Adds support for extension detail endpoint
+
+2	1	jumpgate/compute/drivers/sl/__init__.py
+21	12	jumpgate/compute/drivers/sl/extensions.py
+
+commit bd6eb2bb846b2b7ad22de974a9a758c52842700f
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-12-02 13:44:23 -0600
+
+    Misc Updates
+
+6	0	etc/identity.templates
+0	3	etc/jumpgate.conf
+2	2	jumpgate/compute/drivers/sl/servers.py
+4	0	jumpgate/identity/drivers/sl/__init__.py
+2	0	jumpgate/identity/drivers/sl/tokens.py
+1	1	test_server.sh
+9	9	whitelists/softlayer.txt
+
+commit f112a905c88dd7b49534bd77c7ce0a96baa6698b
+Author: Michael O'Rourke <michael.orourke@zoho.com>
+Date:   2013-11-30 11:30:00 -0600
+
+    Update README.rst
+
+2	2	README.rst
+
+commit d8c3c8edfcd0b33bb557d4388ebe3f8b1d7dc99d
+Author: Michael O'Rourke <michael.orourke@zoho.com>
+Date:   2013-11-30 01:06:28 -0600
+
+    Update README.rst
+
+2	2	README.rst
+
+commit 9256ade6cb0795571e3f0e6730fe48cd82783cf5
+Author: Michael O'Rourke <michael.orourke@zoho.com>
+Date:   2013-11-30 01:04:19 -0600
+
+    Update README.rst
+
+3	1	README.rst
+
+commit fd4f8ecfa97933c2382aca1fe9ff7efcf194d321
+Author: Michael O'Rourke <michael.orourke@zoho.com>
+Date:   2013-11-30 00:41:44 -0600
+
+    Update README.rst
+
+4	36	README.rst
+
+commit 2f9c8bb69e7872dea471ddda0c6540091c81c556
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-24 21:39:35 -0600
+
+    Openstack: Streams incoming requests to Openstack Backend
+
+22	3	jumpgate/common/openstack.py
+1	0	tests/test_hooks.py
+26	9	tests/test_openstack.py
+
+commit 6975dc6bf1b0e19ad9ecd336fd0794ef7302e7d4
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-24 19:48:09 -0600
+
+    Formats X-Compute-Request-Id same as nova
+
+1	1	jumpgate/common/hooks.py
+
+commit e7f99eef087a87d08d38d98a9e16ea1bb03a7dac
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-24 19:34:12 -0600
+
+    Adds Openstack tests
+
+6	6	jumpgate/common/openstack.py
+130	0	tests/test_openstack.py
+
+commit 0301a22ca3e2f357a73bfdd62db3bd5669038700
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-24 13:33:53 -0600
+
+    Fixes OpenStack responder for all whitelisted tests
+
+1	1	jumpgate/baremetal/drivers/openstack.py
+15	5	jumpgate/common/{openstack/responder.py => openstack.py}
+0	0	jumpgate/common/openstack/__init__.py
+1	1	jumpgate/compute/drivers/openstack.py
+1	1	jumpgate/identity/drivers/openstack.py
+1	1	jumpgate/image/drivers/openstack.py
+1	1	jumpgate/network/drivers/openstack.py
+1	1	jumpgate/volume/drivers/openstack.py
+
+commit ff03defa5280f776c4666ba859d9634418be5db2
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-23 23:49:04 -0600
+
+    Improved Openstack passthrough
+
+8	2	etc/jumpgate.conf
+2	5	jumpgate/api.py
+1	1	jumpgate/baremetal/drivers/openstack.py
+40	50	jumpgate/common/openstack/responder.py
+1	1	jumpgate/compute/drivers/openstack.py
+1	1	jumpgate/compute/drivers/sl/dns.py
+1	1	jumpgate/identity/drivers/openstack.py
+1	1	jumpgate/image/drivers/openstack.py
+1	1	jumpgate/network/drivers/openstack.py
+1	1	jumpgate/volume/drivers/openstack.py
+6	6	run_tempest_tests.py
+
+commit f9fca13fbe8eba787821706ce947885b78fd850b
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-23 10:01:17 -0600
+
+    Fixes test_server.sh
+
+4	5	run_tempest_tests.py
+1	1	test_server.sh
+
+commit 12607e0296cb3867d9cd948a87baf9d63bf90605
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-23 09:53:30 -0600
+
+    Refactor/Organization
+    
+    Adds the ability to customize config file location by setting a
+    JUMPGATE_CONFIG environmental variable.
+
+0	0	etc/{softlayer => }/identity.templates
+1	1	etc/jumpgate.conf
+4	15	jumpgate/api.py
+0	0	jumpgate/{compute/drivers/openstack/compute.py => baremetal/drivers/openstack.py}
+2	2	jumpgate/common/openstack/responder.py
+0	0	jumpgate/{image/drivers/openstack/image.py => compute/drivers/openstack.py}
+0	0	jumpgate/{volume/drivers/openstack/volume.py => identity/drivers/openstack.py}
+7	1	jumpgate/identity/drivers/sl/__init__.py
+2	7	jumpgate/identity/drivers/sl/tokens.py
+1	1	jumpgate/{identity/drivers/openstack/identity.py => image/drivers/openstack.py}
+5	0	jumpgate/network/drivers/openstack.py
+5	0	jumpgate/volume/drivers/openstack.py
+0	0	jumpgate/volume/drivers/openstack/__init__.py
+21	2	jumpgate/wsgi.py
+1	1	test_server.sh
+0	0	{jumpgate/compute/drivers/openstack => tests}/__init__.py
+0	0	{jumpgate/identity/drivers/openstack => tests/softlayer}/__init__.py
+24	0	tests/softlayer/identity.templates
+10	2	tests/{test_softlayer.py => softlayer/test_dispatchers.py}
+22	0	tests/test.jumpgate.conf
+13	22	tests/test_jumpgate.py
+19	0	tests/test_wsgi.py
+0	0	{etc/whitelists => whitelists}/softlayer.txt
+
+commit e545519041444f2a6062e37ef8433328445482da
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-22 19:12:49 -0600
+
+    Fix tests for Python 3
+
+5	3	tests/test_jumpgate.py
+
+commit 8f5ff7a11b4db13447c9a24f4eade834a59ba162
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-22 19:07:59 -0600
+
+    Adds very simple test for all softlayer drivers
+
+9	7	jumpgate/api.py
+0	0	jumpgate/baremetal/drivers/__init__.py
+30	13	tests/test_jumpgate.py
+20	0	tests/test_softlayer.py
+
+commit 167ad0c452c13604987d5eec6aa5d8201582107c
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-21 23:28:18 -0600
+
+    Remove debug statement
+
+0	2	jumpgate/baremetal/__init__.py
+
+commit 9ca4fed73f3399c4a3ed7c417ab8a038850ba250
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-21 22:52:10 -0600
+
+    Adds Catalog Templates for Identity/SoftLayer + Refactor
+    
+    Renames block_storage to volume.
+    Moves nova-image stuff from image to nova.
+    Fixes bugs with config file loading.
+
+4	7	jumpgate.conf => etc/jumpgate.conf
+24	0	etc/softlayer/identity.templates
+24	20	jumpgate/api.py
+3	5	jumpgate/baremetal/__init__.py
+1	1	jumpgate/baremetal/drivers/sl/__init__.py
+23	9	jumpgate/common/config.py
+11	3	jumpgate/common/dispatcher.py
+1	0	jumpgate/common/sl/__init__.py
+11	5	jumpgate/compute/__init__.py
+1	1	jumpgate/compute/drivers/openstack/compute.py
+14	1	jumpgate/compute/drivers/sl/__init__.py
+0	0	jumpgate/{openstack => compute}/drivers/sl/index.py
+2	7	jumpgate/identity/__init__.py
+1	1	jumpgate/identity/drivers/openstack/identity.py
+1	1	jumpgate/identity/drivers/sl/__init__.py
+69	61	jumpgate/identity/drivers/sl/tokens.py
+1	10	jumpgate/image/__init__.py
+1	1	jumpgate/image/drivers/openstack/image.py
+1	4	jumpgate/image/drivers/sl/__init__.py
+20	9	jumpgate/image/drivers/sl/images.py
+1	5	jumpgate/network/__init__.py
+1	1	jumpgate/network/drivers/sl/__init__.py
+0	11	jumpgate/openstack/__init__.py
+0	13	jumpgate/openstack/drivers/sl/__init__.py
+1	5	jumpgate/{block_storage => volume}/__init__.py
+0	0	jumpgate/{block_storage => volume}/drivers/__init__.py
+0	0	jumpgate/{block_storage => volume}/drivers/openstack/__init__.py
+1	1	jumpgate/{block_storage/drivers/openstack/block_storage.py => volume/drivers/openstack/volume.py}
+1	1	jumpgate/{block_storage => volume}/drivers/sl/__init__.py
+0	0	jumpgate/{block_storage => volume}/drivers/sl/volumes.py
+17	4	tests/test_dispatcher.py
+13	9	tests/test_jumpgate.py
+3	3	tests/test_services.py
+
+commit a448ea40d620f724b5f60a173f5003c98b63ce32
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-21 07:57:21 -0600
+
+    Fixes some issues with image management. Rewrites auth handling for SL. Rewrites error handling for SL.
+
+3	3	DRIVERS.rst
+1	1	README.rst
+24	20	jumpgate/common/sl/auth.py
+31	26	jumpgate/common/sl/errors.py
+82	81	jumpgate/image/drivers/sl/images.py
+1	1	setup.cfg
+0	1	test-requirements.txt
+10	0	tests/test_config.py
+
+commit 36f398eaa788f57bd37f771b0c939bc64f44317b
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-20 17:54:30 -0600
+
+    Adds oslo.config
+    
+    Combines config files into one (jumpgate.conf)
+    Improved Tests
+
+0	6	driver.conf
+9	0	jumpgate.conf
+31	34	jumpgate/api.py
+34	0	jumpgate/common/config.py
+10	14	jumpgate/common/nyi.py
+8	3	jumpgate/common/openstack/responder.py
+10	4	jumpgate/common/sl/__init__.py
+4	0	jumpgate/config.py
+2	1	requirements.txt
+7	2	setup.py
+1	0	test-requirements.txt
+1	1	tests/test_hooks.py
+55	6	tests/test_jumpgate.py
+
+commit 580a6dc978db6184956ebefd6e4b4071149d2cc4
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-20 08:26:03 -0600
+
+    Adds more tests. Decouples dispatcher from APP altogether
+
+6	0	jumpgate/__init__.py
+6	10	jumpgate/api.py
+2	2	jumpgate/baremetal/__init__.py
+4	0	jumpgate/baremetal/drivers/sl/__init__.py
+2	2	jumpgate/block_storage/__init__.py
+3	0	jumpgate/block_storage/drivers/sl/__init__.py
+4	3	jumpgate/common/dispatcher.py
+4	3	jumpgate/common/sl/__init__.py
+2	2	jumpgate/compute/__init__.py
+4	0	jumpgate/compute/drivers/sl/__init__.py
+2	2	jumpgate/identity/__init__.py
+3	0	jumpgate/identity/drivers/sl/__init__.py
+2	2	jumpgate/image/__init__.py
+3	0	jumpgate/image/drivers/sl/__init__.py
+2	2	jumpgate/network/__init__.py
+3	0	jumpgate/network/drivers/sl/__init__.py
+2	2	jumpgate/openstack/__init__.py
+3	0	jumpgate/openstack/drivers/sl/__init__.py
+2	5	tests/test_dispatcher.py
+1	1	tests/test_error_handling.py
+10	19	tests/test_jumpgate.py
+15	0	tests/test_services.py
+
+commit f0d9ff94420dbcf38302a7225cb995ab35baf15f
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-19 20:36:30 -0600
+
+    Adds unit tests for most core code
+    
+    Adds tox config.
+    Adds nose config.
+    Flattens out some of the module organization. The __init__.py files were getting silly
+
+10	0	.travis.yml
+4	25	driver.conf
+22	4	jumpgate.conf
+0	0	jumpgate/{identity/drivers/sl/endpoints => }/__init__.py
+19	36	jumpgate/api.py
+1	1	jumpgate/baremetal/drivers/sl/__init__.py
+0	0	jumpgate/{shared => block_storage/drivers}/__init__.py
+0	0	jumpgate/block_storage/drivers/openstack/__init__.py
+2	2	jumpgate/block_storage/drivers/openstack/block_storage.py
+1	1	jumpgate/block_storage/drivers/sl/__init__.py
+0	0	jumpgate/block_storage/drivers/sl/{endpoints => }/volumes.py
+0	0	jumpgate/common/__init__.py
+4	5	jumpgate/common/dispatcher.py
+8	10	jumpgate/common/error_handling.py
+19	1	jumpgate/common/{format.py => hooks.py}
+0	4	jumpgate/common/nested_dict.py
+0	0	jumpgate/common/openstack/__init__.py
+0	0	jumpgate/{shared/drivers => common}/openstack/responder.py
+2	2	jumpgate/{shared/drivers => common}/sl/__init__.py
+1	1	jumpgate/{shared/drivers => common}/sl/auth.py
+0	0	jumpgate/{shared/drivers => common}/sl/errors.py
+6	0	jumpgate/common/utils.py
+0	0	jumpgate/compute/drivers/__init__.py
+0	0	jumpgate/compute/drivers/openstack/__init__.py
+2	2	jumpgate/compute/drivers/openstack/compute.py
+18	21	jumpgate/compute/drivers/sl/__init__.py
+1	1	jumpgate/compute/drivers/sl/{endpoints => }/availability_zones.py
+4	4	jumpgate/compute/drivers/sl/{endpoints => }/dns.py
+0	0	jumpgate/compute/drivers/sl/{endpoints => }/extensions.py
+0	0	jumpgate/compute/drivers/sl/{endpoints => }/extra_specs.py
+0	0	jumpgate/compute/drivers/sl/{endpoints => }/flavors.py
+0	0	jumpgate/compute/drivers/sl/{endpoints => }/floating_ips.py
+0	0	jumpgate/compute/drivers/sl/{endpoints => }/instance_actions.py
+0	0	jumpgate/compute/drivers/sl/{endpoints => }/keypairs.py
+0	0	jumpgate/compute/drivers/sl/{endpoints => }/limits.py
+0	0	jumpgate/compute/drivers/sl/{endpoints => }/networks.py
+0	0	jumpgate/compute/drivers/sl/{endpoints => }/quota_sets.py
+0	0	jumpgate/compute/drivers/sl/{endpoints => }/security_groups.py
+2	2	jumpgate/compute/drivers/sl/{endpoints => }/servers.py
+0	0	jumpgate/compute/drivers/sl/{endpoints => }/usage.py
+0	0	jumpgate/compute/drivers/sl/{endpoints => }/volumes.py
+0	0	jumpgate/identity/drivers/__init__.py
+0	0	jumpgate/identity/drivers/openstack/__init__.py
+2	2	jumpgate/identity/drivers/openstack/identity.py
+3	3	jumpgate/identity/drivers/sl/__init__.py
+0	0	jumpgate/identity/drivers/sl/{endpoints => }/tenants.py
+2	2	jumpgate/identity/drivers/sl/{endpoints => }/tokens.py
+0	0	jumpgate/image/drivers/__init__.py
+2	2	jumpgate/image/drivers/openstack/image.py
+2	4	jumpgate/image/drivers/sl/__init__.py
+0	0	jumpgate/image/drivers/sl/{endpoints => }/images.py
+0	0	jumpgate/network/drivers/__init__.py
+3	3	jumpgate/network/drivers/sl/__init__.py
+0	0	jumpgate/network/drivers/sl/{endpoints => }/networks.py
+0	0	jumpgate/network/drivers/sl/{endpoints => }/subnets.py
+2	2	jumpgate/openstack/drivers/sl/__init__.py
+0	0	jumpgate/openstack/drivers/sl/{endpoints => }/index.py
+3	0	jumpgate/wsgi.py
+1	1	requirements.txt
+8	0	setup.cfg
+1	1	test_server.sh
+0	3	testing.cfg
+81	0	tests/test_dispatcher.py
+43	0	tests/test_error_handling.py
+65	0	tests/test_hooks.py
+67	0	tests/test_jumpgate.py
+32	0	tests/test_nyi.py
+12	0	tests/test_utils.py
+10	0	tox.ini
+
+commit e82852a8905b6013c5b4c7d3d9a9973a95facc69
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-19 10:12:42 -0600
+
+    Routing Refactor
+    
+    This change refactors how we build our routes in order to use far less
+     global state to pave the way to make unit tests. The initial round of
+     tests are next.
+
+26	4	driver.conf
+4	25	jumpgate.conf
+80	45	jumpgate/api.py
+27	25	jumpgate/baremetal/__init__.py
+3	7	jumpgate/baremetal/drivers/sl/__init__.py
+20	23	jumpgate/block_storage/__init__.py
+3	8	jumpgate/block_storage/drivers/openstack/block_storage.py
+4	10	jumpgate/block_storage/drivers/sl/__init__.py
+11	19	jumpgate/common/dispatcher.py
+153	168	jumpgate/compute/__init__.py
+3	8	jumpgate/compute/drivers/openstack/compute.py
+36	58	jumpgate/compute/drivers/sl/__init__.py
+17	8	jumpgate/compute/drivers/sl/endpoints/flavors.py
+28	16	jumpgate/compute/drivers/sl/endpoints/servers.py
+112	110	jumpgate/identity/__init__.py
+3	8	jumpgate/identity/drivers/openstack/identity.py
+7	14	jumpgate/identity/drivers/sl/__init__.py
+6	20	jumpgate/identity/drivers/sl/endpoints/tokens.py
+26	30	jumpgate/image/__init__.py
+3	8	jumpgate/image/drivers/openstack/image.py
+14	18	jumpgate/image/drivers/sl/__init__.py
+34	21	jumpgate/image/drivers/sl/endpoints/images.py
+8	6	jumpgate/network/__init__.py
+4	8	jumpgate/network/drivers/sl/__init__.py
+7	5	jumpgate/openstack/__init__.py
+6	12	jumpgate/openstack/drivers/sl/__init__.py
+5	3	jumpgate/openstack/drivers/sl/endpoints/index.py
+0	0	jumpgate/shared/__init__.py
+8	1	jumpgate/shared/drivers/openstack/responder.py
+3	2	jumpgate/shared/drivers/sl/__init__.py
+1	0	requirements.txt
+2	0	test_server.sh
+3	0	testing.cfg
+
+commit 56972c2c71702f8f538fc939702b2bdba5749aee
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-14 12:53:54 -0600
+
+    Fixes refactor bug with image capture.
+    
+    Also adds more references to Jumpgate in the docs
+
+1	1	CONTRIBUTING.rst
+8	8	DRIVERS.rst
+16	5	jumpgate/compute/drivers/sl/endpoints/servers.py
+0	2	jumpgate/image/drivers/sl/endpoints/images.py
+
+commit c238205d715c0b95437995d5a205873452356256
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-11-14 11:12:45 -0600
+
+    Rename from Babelfish to Jumpgate
+
+25	25	DRIVERS.rst
+5	5	README.rst
+0	24	babelfish.conf
+0	0	etc/{softlayer-whitelist.txt => whitelists/softlayer.txt}
+27	0	jumpgate.conf
+9	9	{babelfish => jumpgate}/api.py
+38	0	jumpgate/baremetal/__init__.py
+10	0	jumpgate/baremetal/drivers/sl/__init__.py
+39	0	jumpgate/baremetal/drivers/sl/nodes.py
+2	2	{babelfish => jumpgate}/block_storage/__init__.py
+2	2	{babelfish => jumpgate}/block_storage/drivers/openstack/block_storage.py
+1	1	{babelfish => jumpgate}/block_storage/drivers/sl/__init__.py
+0	0	{babelfish => jumpgate}/block_storage/drivers/sl/endpoints/volumes.py
+0	0	{babelfish => jumpgate}/common/dispatcher.py
+0	0	{babelfish => jumpgate}/common/error_handling.py
+0	0	{babelfish => jumpgate}/common/format.py
+0	0	{babelfish => jumpgate}/common/nested_dict.py
+1	1	{babelfish => jumpgate}/common/nyi.py
+0	0	{babelfish => jumpgate}/common/utils.py
+2	2	{babelfish => jumpgate}/compute/__init__.py
+2	2	{babelfish => jumpgate}/compute/drivers/openstack/compute.py
+1	1	{babelfish => jumpgate}/compute/drivers/sl/__init__.py
+1	1	{babelfish => jumpgate}/compute/drivers/sl/endpoints/availability_zones.py
+1	1	{babelfish => jumpgate}/compute/drivers/sl/endpoints/dns.py
+0	0	{babelfish => jumpgate}/compute/drivers/sl/endpoints/extensions.py
+0	0	{babelfish => jumpgate}/compute/drivers/sl/endpoints/extra_specs.py
+2	2	{babelfish => jumpgate}/compute/drivers/sl/endpoints/flavors.py
+0	0	{babelfish => jumpgate}/compute/drivers/sl/endpoints/floating_ips.py
+1	1	{babelfish => jumpgate}/compute/drivers/sl/endpoints/instance_actions.py
+1	1	{babelfish => jumpgate}/compute/drivers/sl/endpoints/keypairs.py
+0	0	{babelfish => jumpgate}/compute/drivers/sl/endpoints/limits.py
+0	0	{babelfish => jumpgate}/compute/drivers/sl/endpoints/networks.py
+0	0	{babelfish => jumpgate}/compute/drivers/sl/endpoints/quota_sets.py
+0	0	{babelfish => jumpgate}/compute/drivers/sl/endpoints/security_groups.py
+8	9	{babelfish => jumpgate}/compute/drivers/sl/endpoints/servers.py
+0	0	{babelfish => jumpgate}/compute/drivers/sl/endpoints/usage.py
+0	0	{babelfish => jumpgate}/compute/drivers/sl/endpoints/volumes.py
+2	2	{babelfish => jumpgate}/identity/__init__.py
+2	2	{babelfish => jumpgate}/identity/drivers/openstack/identity.py
+1	1	{babelfish => jumpgate}/identity/drivers/sl/__init__.py
+0	0	{babelfish => jumpgate}/identity/drivers/sl/endpoints/__init__.py
+0	0	{babelfish => jumpgate}/identity/drivers/sl/endpoints/tenants.py
+18	4	{babelfish => jumpgate}/identity/drivers/sl/endpoints/tokens.py
+2	2	{babelfish => jumpgate}/image/__init__.py
+2	2	{babelfish => jumpgate}/image/drivers/openstack/image.py
+1	1	{babelfish => jumpgate}/image/drivers/sl/__init__.py
+34	66	{babelfish => jumpgate}/image/drivers/sl/endpoints/images.py
+2	2	{babelfish => jumpgate}/network/__init__.py
+1	1	{babelfish => jumpgate}/network/drivers/sl/__init__.py
+0	0	{babelfish => jumpgate}/network/drivers/sl/endpoints/networks.py
+0	0	{babelfish => jumpgate}/network/drivers/sl/endpoints/subnets.py
+2	2	{babelfish => jumpgate}/openstack/__init__.py
+1	1	{babelfish => jumpgate}/openstack/drivers/sl/__init__.py
+1	1	{babelfish => jumpgate}/openstack/drivers/sl/endpoints/index.py
+0	0	{babelfish => jumpgate}/shared/drivers/openstack/responder.py
+2	2	{babelfish => jumpgate}/shared/drivers/sl/__init__.py
+2	2	{babelfish => jumpgate}/shared/drivers/sl/auth.py
+1	1	{babelfish => jumpgate}/shared/drivers/sl/errors.py
+1	1	setup.py
+
+commit 4d7ac18e04621b4813457cea0393175b708bfecf
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-11-01 10:08:50 -0500
+
+    Documentation updates including the new docs on building drivers.
+
+0	9	CONTRIBUTING.md
+12	0	CONTRIBUTING.rst
+292	0	DRIVERS.rst
+14	0	README.rst
+3	0	babelfish.conf
+7	4	babelfish/identity/drivers/sl/endpoints/tokens.py
+
+commit c748ca6ab014bfef8820145ce8f0b0b7dc7df682
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-27 17:55:09 -0500
+
+    Removes Falcon References (Only numeric status code required)
+    
+    Also removes defunct openstack_mapper.py
+
+7	0	babelfish/common/format.py
+1	3	babelfish/compute/drivers/sl/endpoints/dns.py
+1	2	babelfish/compute/drivers/sl/endpoints/keypairs.py
+0	2	babelfish/compute/drivers/sl/endpoints/limits.py
+0	2	babelfish/compute/drivers/sl/endpoints/security_groups.py
+11	12	babelfish/compute/drivers/sl/endpoints/servers.py
+0	2	babelfish/compute/drivers/sl/endpoints/volumes.py
+1	2	babelfish/identity/drivers/sl/endpoints/tokens.py
+2	5	babelfish/image/drivers/sl/endpoints/images.py
+0	59	babelfish/openstack_mapper.py
+1	3	babelfish/shared/drivers/openstack/responder.py
+
+commit 4253a110de2b1d04e4a320587a9831beecfe9191
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-24 17:16:43 -0500
+
+    Removes broken import
+
+0	1	babelfish/compute/drivers/sl/__init__.py
+0	0	etc/{tempest-whitelist.txt => softlayer-whitelist.txt}
+
+commit 20c50c2403682736741ac449cfa5f25d09ada2ff
+Merge: fb06f05 42e1ba4
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-10-24 10:46:32 -0500
+
+    Merge branch 'master' of https://github.com/softlayer/slapi-stack
+
+commit fb06f05ddddc0aed39f72447a589f985b1d5403c
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-10-24 10:46:10 -0500
+
+    Renaming classes to a shorter naming convention
+
+2	2	babelfish/api.py
+3	3	babelfish/block_storage/drivers/sl/__init__.py
+1	1	babelfish/block_storage/drivers/sl/endpoints/volumes.py
+46	45	babelfish/compute/drivers/sl/__init__.py
+1	1	babelfish/compute/drivers/sl/endpoints/availability_zones.py
+2	2	babelfish/compute/drivers/sl/endpoints/dns.py
+1	1	babelfish/compute/drivers/sl/endpoints/extensions.py
+1	1	babelfish/compute/drivers/sl/endpoints/extra_specs.py
+3	3	babelfish/compute/drivers/sl/endpoints/flavors.py
+1	1	babelfish/compute/drivers/sl/endpoints/floating_ips.py
+1	1	babelfish/compute/drivers/sl/endpoints/instance_actions.py
+2	2	babelfish/compute/drivers/sl/endpoints/keypairs.py
+1	1	babelfish/compute/drivers/sl/endpoints/limits.py
+2	2	babelfish/compute/drivers/sl/endpoints/networks.py
+2	2	babelfish/compute/drivers/sl/endpoints/quota_sets.py
+1	1	babelfish/compute/drivers/sl/endpoints/security_groups.py
+4	4	babelfish/compute/drivers/sl/endpoints/servers.py
+1	1	babelfish/compute/drivers/sl/endpoints/usage.py
+1	1	babelfish/compute/drivers/sl/endpoints/volumes.py
+0	6	babelfish/identity/__init__.py
+5	8	babelfish/identity/drivers/sl/__init__.py
+1	1	babelfish/identity/drivers/sl/endpoints/tenants.py
+2	2	babelfish/identity/drivers/sl/endpoints/tokens.py
+14	14	babelfish/image/drivers/sl/__init__.py
+5	6	babelfish/image/drivers/sl/endpoints/images.py
+4	4	babelfish/network/drivers/sl/__init__.py
+1	1	babelfish/network/drivers/sl/endpoints/networks.py
+1	1	babelfish/network/drivers/sl/endpoints/subnets.py
+9	0	babelfish/openstack/__init__.py
+16	0	babelfish/openstack/drivers/sl/__init__.py
+4	4	babelfish/{identity => openstack}/drivers/sl/endpoints/index.py
+2	0	requirements.txt
+1	1	setup.py
+
+commit 42e1ba48b79a9df6cfcceb0e9047671d18584129
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-24 09:19:02 -0500
+
+    Adds handling for transport errors with the SL Client
+
+1	1	CONTRIBUTING.md
+0	1	README.rst
+1	1	babelfish/compute/drivers/sl/endpoints/servers.py
+4	1	babelfish/shared/drivers/sl/errors.py
+
+commit 4aff722a2ebc5af3c625ba62351d7f9dfc9225da
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-10-16 16:04:38 -0500
+
+    Cleanup
+
+1	2	babelfish/common/dispatcher.py
+3	9	babelfish/compute/drivers/sl/endpoints/servers.py
+21	25	babelfish/image/drivers/sl/endpoints/images.py
+
+commit e29cd4bd7a656d8dca347dac0ea428181e45d674
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-14 10:08:19 -0500
+
+    Renames README to README.rst
+
+0	0	README => README.rst
+
+commit 54e111dd0ab7d44d12549cbaceb6d8cfd867b400
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-14 10:07:50 -0500
+
+    Removes README.md
+
+0	2	README.md
+
+commit d265b8eb9aa58ae79cc2314e22ab5cde3aa94db1
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-14 10:07:27 -0500
+
+    Adds README and LICENSE files
+
+19	0	LICENSE
+25	0	README
+
+commit f1984ec718ce733fdd02e2bde499eb42f4037973
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-14 10:07:05 -0500
+
+    Removes Network endpoint until enough is implemented for horizon to be happy
+
+1	4	babelfish/compute/drivers/sl/endpoints/servers.py
+16	15	babelfish/identity/drivers/sl/endpoints/tokens.py
+
+commit 8fb20417eade6585fff8f5720e5b10e63f8690fd
+Merge: b42c495 59a39cb
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-10-10 13:34:16 -0500
+
+    Merge branch 'master' of https://github.com/softlayer/slapi-stack
+
+commit b42c4951214ae4bee7bddcad91ca2bb2752784ed
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-10-10 13:33:52 -0500
+
+    Getting a number of image tests working. Also created a first draft of the contribution guidelines.
+
+9	0	CONTRIBUTING.md
+28	3	babelfish/compute/drivers/sl/endpoints/servers.py
+0	4	babelfish/identity/__init__.py
+2	2	babelfish/image/drivers/sl/__init__.py
+71	26	babelfish/image/drivers/sl/endpoints/images.py
+24	5	etc/tempest-whitelist.txt
+
+commit 59a39cb0b9ef23d5f8444230685f1cc8ca3eb86f
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-09 13:41:29 -0500
+
+    Creating Servers now accepts availability zone
+
+12	1	babelfish/compute/drivers/sl/endpoints/extensions.py
+8	4	babelfish/compute/drivers/sl/endpoints/servers.py
+0	4	babelfish/identity/__init__.py
+0	2	babelfish/identity/drivers/sl/endpoints/tenants.py
+2	2	babelfish/identity/drivers/sl/endpoints/tokens.py
+1	1	babelfish/shared/drivers/sl/errors.py
+
+commit 093323482bd828d4873e8a20c745b014a0e81e54
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-09 13:02:59 -0500
+
+    Adds more commented (skipped) tests for the whitelist
+
+17	2	etc/tempest-whitelist.txt
+
+commit dd1dad0fdae744cf687c3d1e2cd8d608980595b2
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-10-08 10:17:59 -0500
+
+    Minor fix
+
+1	1	babelfish/compute/drivers/sl/endpoints/servers.py
+1	0	etc/tempest-whitelist.txt
+
+commit 8e4bee852ef79aeeadac2651d035ea0af1247540
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-10-08 09:52:31 -0500
+
+    Getting the compute ListImages tests working
+
+20	10	babelfish/image/drivers/sl/endpoints/images.py
+3	0	etc/tempest-whitelist.txt
+
+commit 16f2afee8cf8b9a90c97b3ceb46b2c878b079787
+Merge: a5698ef cf9b0e5
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-07 16:25:44 -0500
+
+    Merge branch 'master' of github.com:softlayer/slapi-stack
+    
+    Conflicts:
+            etc/tempest-whitelist.txt
+
+commit a5698ef0bf3656bcc912aabb9e08a13cf27eec2c
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-07 16:24:37 -0500
+
+    Adds server actions tests to whitelist
+
+4	0	babelfish/common/error_handling.py
+5	9	babelfish/common/nyi.py
+2	0	babelfish/compute/drivers/sl/endpoints/limits.py
+4	1	babelfish/compute/drivers/sl/endpoints/servers.py
+22	3	etc/tempest-whitelist.txt
+
+commit cf9b0e5cc66daab879ec801920af9802975477b4
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-10-07 15:53:11 -0500
+
+    Working on more image tests
+
+18	4	babelfish/compute/drivers/sl/endpoints/servers.py
+6	1	babelfish/image/__init__.py
+3	0	babelfish/image/drivers/sl/__init__.py
+24	4	babelfish/image/drivers/sl/endpoints/images.py
+14	1	etc/tempest-whitelist.txt
+
+commit 8548d3711a7103daac49fe3964e582dc3fadd7a5
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-10-07 13:10:40 -0500
+
+    Working on V1 image tests
+
+14	1	babelfish/identity/drivers/sl/endpoints/index.py
+1	1	babelfish/image/__init__.py
+62	9	babelfish/image/drivers/sl/endpoints/images.py
+4	0	etc/tempest-whitelist.txt
+
+commit 8ffd616654917af63cced01e0da84e8ce3057695
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-10-07 10:03:49 -0500
+
+    Fixing some issues from my stash merge
+
+4	4	babelfish/identity/drivers/sl/endpoints/tokens.py
+0	23	services/common/babelfish.py
+0	129	services/identity/drivers/sl/endpoints/tokens.py
+0	631	services/image/drivers/sl/endpoints/images.py
+
+commit 80b51e3bf1a9efa4cb683686b884caad16f047f6
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-10-07 09:56:27 -0500
+
+    Working on image tests
+
+8	1	babelfish/identity/__init__.py
+2	0	babelfish/identity/drivers/sl/__init__.py
+3	1	babelfish/image/__init__.py
+6	2	babelfish/image/drivers/sl/__init__.py
+458	5	babelfish/image/drivers/sl/endpoints/images.py
+23	0	services/common/babelfish.py
+129	0	services/identity/drivers/sl/endpoints/tokens.py
+631	0	services/image/drivers/sl/endpoints/images.py
+
+commit 76c698e7c3e4feff7657ac9ee3d29bee59e66c2c
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-07 09:40:41 -0500
+
+    Refactoring, Added negative server tests
+    
+    * Moves all source into a top-level babelfish directory
+    * Adds support for many of the ServersNegativeTestJSON tests
+    * Adds support for request tracking
+    * Lots of other little changes to (hopefull) help testing
+
+10	10	babelfish.conf
+75	0	babelfish/api.py
+3	3	{services => babelfish}/block_storage/__init__.py
+2	3	{services => babelfish}/block_storage/drivers/openstack/block_storage.py
+1	1	{services => babelfish}/block_storage/drivers/sl/__init__.py
+0	0	{services => babelfish}/block_storage/drivers/sl/endpoints/volumes.py
+0	0	{services => babelfish}/common/dispatcher.py
+1	2	{services => babelfish}/common/error_handling.py
+1	0	{services => babelfish}/common/format.py
+0	0	{services => babelfish}/common/nested_dict.py
+6	5	{services => babelfish}/common/nyi.py
+0	0	{services => babelfish}/common/utils.py
+3	3	{services => babelfish}/compute/__init__.py
+2	3	{services => babelfish}/compute/drivers/openstack/compute.py
+1	2	{services => babelfish}/compute/drivers/sl/__init__.py
+1	1	{services => babelfish}/compute/drivers/sl/endpoints/availability_zones.py
+1	1	{services => babelfish}/compute/drivers/sl/endpoints/dns.py
+0	0	{services => babelfish}/compute/drivers/sl/endpoints/extensions.py
+0	0	{services => babelfish}/compute/drivers/sl/endpoints/extra_specs.py
+2	3	{services => babelfish}/compute/drivers/sl/endpoints/flavors.py
+0	0	{services => babelfish}/compute/drivers/sl/endpoints/floating_ips.py
+1	1	{services => babelfish}/compute/drivers/sl/endpoints/instance_actions.py
+1	1	{services => babelfish}/compute/drivers/sl/endpoints/keypairs.py
+1	1	{services => babelfish}/compute/drivers/sl/endpoints/limits.py
+0	0	{services => babelfish}/compute/drivers/sl/endpoints/networks.py
+0	0	{services => babelfish}/compute/drivers/sl/endpoints/quota_sets.py
+0	0	{services => babelfish}/compute/drivers/sl/endpoints/security_groups.py
+55	20	{services => babelfish}/compute/drivers/sl/endpoints/servers.py
+0	0	{services => babelfish}/compute/drivers/sl/endpoints/usage.py
+0	0	{services => babelfish}/compute/drivers/sl/endpoints/volumes.py
+3	3	{services => babelfish}/identity/__init__.py
+2	3	{services => babelfish}/identity/drivers/openstack/identity.py
+1	1	{services => babelfish}/identity/drivers/sl/__init__.py
+0	0	{services => babelfish}/identity/drivers/sl/endpoints/__init__.py
+9	11	{services => babelfish}/identity/drivers/sl/endpoints/index.py
+0	0	{services => babelfish}/identity/drivers/sl/endpoints/tenants.py
+115	0	babelfish/identity/drivers/sl/endpoints/tokens.py
+3	3	{services => babelfish}/image/__init__.py
+2	3	{services => babelfish}/image/drivers/openstack/image.py
+1	1	{services => babelfish}/image/drivers/sl/__init__.py
+2	2	{services => babelfish}/image/drivers/sl/endpoints/images.py
+3	3	{services => babelfish}/network/__init__.py
+1	1	{services => babelfish}/network/drivers/sl/__init__.py
+0	0	{services => babelfish}/network/drivers/sl/endpoints/networks.py
+1	2	{services => babelfish}/network/drivers/sl/endpoints/subnets.py
+0	0	{services => babelfish}/openstack_mapper.py
+0	0	{services => babelfish}/shared/drivers/openstack/responder.py
+26	0	babelfish/shared/drivers/sl/__init__.py
+3	2	{services => babelfish}/shared/drivers/sl/auth.py
+48	0	babelfish/shared/drivers/sl/errors.py
+0	38	core.py
+34	1	etc/tempest-whitelist.txt
+0	22	services/common/babelfish.py
+0	129	services/identity/drivers/sl/endpoints/tokens.py
+0	23	services/shared/drivers/sl/__init__.py
+21	0	setup.py
+
+commit abf1166230d1d5c23eeed37ec4334169e407a610
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-04 14:08:13 -0500
+
+    Removed incorrect comment
+
+0	2	services/image/drivers/sl/endpoints/images.py
+
+commit c5028057e32665949b612dec5d0d8fa6b2fafc06
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-04 11:18:39 -0500
+
+    Misc Dev
+
+1	1	core.py
+7	1	services/compute/drivers/sl/endpoints/servers.py
+2	2	services/identity/drivers/sl/endpoints/tenants.py
+1	1	services/shared/drivers/sl/auth.py
+
+commit 50129105429a9efd948fdb3b133121cb12e025c3
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-03 13:28:04 -0500
+
+    Dev Work - Network, JSON Formatting, and more
+    
+    Adds a couple network endpoints.
+    Adds universal JSON formatter as an after hook.
+    Adds logic to create private-only CCIs if only the private network was given
+    Up to 42 working Tempest tests
+
+4	1	babelfish.conf
+5	3	core.py
+2	8	services/block_storage/drivers/sl/endpoints/volumes.py
+4	4	services/common/babelfish.py
+8	0	services/common/format.py
+1	2	services/compute/drivers/sl/endpoints/availability_zones.py
+5	5	services/compute/drivers/sl/endpoints/dns.py
+1	2	services/compute/drivers/sl/endpoints/extensions.py
+1	2	services/compute/drivers/sl/endpoints/extra_specs.py
+8	6	services/compute/drivers/sl/endpoints/flavors.py
+1	2	services/compute/drivers/sl/endpoints/floating_ips.py
+3	2	services/compute/drivers/sl/endpoints/instance_actions.py
+4	4	services/compute/drivers/sl/endpoints/keypairs.py
+1	2	services/compute/drivers/sl/endpoints/limits.py
+2	3	services/compute/drivers/sl/endpoints/networks.py
+1	2	services/compute/drivers/sl/endpoints/quota_sets.py
+2	5	services/compute/drivers/sl/endpoints/security_groups.py
+12	5	services/compute/drivers/sl/endpoints/servers.py
+1	2	services/compute/drivers/sl/endpoints/usage.py
+1	4	services/compute/drivers/sl/endpoints/volumes.py
+1	2	services/identity/drivers/sl/endpoints/index.py
+1	2	services/identity/drivers/sl/endpoints/tenants.py
+1	2	services/identity/drivers/sl/endpoints/tokens.py
+4	6	services/image/drivers/sl/endpoints/images.py
+10	0	services/network/__init__.py
+12	0	services/network/drivers/sl/__init__.py
+21	0	services/network/drivers/sl/endpoints/networks.py
+7	0	services/network/drivers/sl/endpoints/subnets.py
+
+commit 6f3bc0c796d5f93e41125bcdf80af9bdcf6d1fd8
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-02 14:20:32 -0500
+
+    Adds ability to auth using apikey in place of password
+
+16	12	etc/tempest-whitelist.txt
+23	16	services/compute/drivers/sl/endpoints/flavors.py
+95	43	services/compute/drivers/sl/endpoints/servers.py
+1	1	services/compute/drivers/sl/endpoints/usage.py
+8	31	services/identity/drivers/sl/endpoints/tokens.py
+5	4	services/shared/drivers/sl/__init__.py
+66	0	services/shared/drivers/sl/auth.py
+
+commit 573f525d42bf2e3a7e3c675cdef055e6e495debf
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-10-01 14:41:09 -0500
+
+    A lot of DNS management now works
+
+9	0	services/compute/__init__.py
+6	0	services/compute/drivers/sl/__init__.py
+95	0	services/compute/drivers/sl/endpoints/dns.py
+
+commit 6bb801ad35c098995719cc5c60bfb1017d7dc2d1
+Merge: 077ca5a 99febb8
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-10-01 11:42:06 -0500
+
+    Merge branch 'master' of https://github.com/softlayer/slapi-stack
+    
+    Conflicts:
+            services/compute/drivers/sl/__init__.py
+            services/image/__init__.py
+            services/image/drivers/sl/__init__.py
+            services/image/drivers/sl/endpoints/images.py
+
+commit 077ca5a9bc48e9ce9b919cc95b8ff1dfa0c63146
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-10-01 11:30:48 -0500
+
+    Working on Nova CLI functionality. nova flavor-list, nova image-list, and nova boot all work in their default forms.
+
+4	1	babelfish.conf
+1	1	core.py
+2	2	services/common/nyi.py
+8	0	services/compute/__init__.py
+4	0	services/compute/drivers/sl/__init__.py
+6	0	services/compute/drivers/sl/endpoints/extra_specs.py
+2	24	services/identity/drivers/sl/__init__.py
+9	7	services/identity/drivers/sl/endpoints/tokens.py
+5	2	services/image/__init__.py
+7	1	services/image/drivers/sl/__init__.py
+74	33	services/image/drivers/sl/endpoints/images.py
+22	0	services/shared/drivers/sl/__init__.py
+
+commit 99febb87d17ac35a8d9f74713dae8cc40da6e390
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-01 10:44:27 -0500
+
+    Removes debugging
+
+1	1	services/compute/drivers/sl/endpoints/flavors.py
+0	3	services/compute/drivers/sl/endpoints/servers.py
+0	2	services/identity/drivers/sl/endpoints/tokens.py
+
+commit e979d7a76370207884900e4ec4b766affba8d2c6
+Merge: b8dd56f 3610140
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-01 10:32:48 -0500
+
+    Merge branch 'master' of github.com:softlayer/slapi-stack
+
+commit 36101400e76ac714cfd80c9e1d93ca2b17cc6c8e
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-10-01 10:32:27 -0500
+
+    Removing debug code
+
+0	1	services/common/babelfish.py
+
+commit b8dd56f8261fd4894fbfc16b6005a14fcffc11be
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-10-01 10:32:08 -0500
+
+    Adds Hard-coded Flavors - Up to 36 tempest tests passing
+
+4	19	core.py
+42	22	etc/tempest-whitelist.txt
+2	0	services/block_storage/__init__.py
+1	0	services/block_storage/drivers/sl/__init__.py
+8	0	services/block_storage/drivers/sl/endpoints/volumes.py
+5	3	services/compute/drivers/sl/__init__.py
+119	37	services/compute/drivers/sl/endpoints/flavors.py
+8	0	services/compute/drivers/sl/endpoints/instance_actions.py
+5	1	services/compute/drivers/sl/endpoints/servers.py
+18	1	services/identity/drivers/sl/endpoints/tokens.py
+6	2	services/image/__init__.py
+7	1	services/image/drivers/sl/__init__.py
+3	3	services/image/drivers/sl/endpoints/images.py
+
+commit 796a130b45d07f4e7fdb8f5e0ac5cd2b423c1a8c
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-09-30 16:01:33 -0500
+
+    Switching back to the SoftLayer driver and minor syntax fix
+
+8	8	babelfish.conf
+2	2	services/compute/drivers/sl/endpoints/servers.py
+
+commit dfe595af7561d8810068dc4ebc5abe657b8be396
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-09-30 11:04:50 -0500
+
+    Working on the OpenStack passthrough layer/sample driver.
+
+8	5	babelfish.conf
+3	1	driver.conf
+10	0	services/block_storage/__init__.py
+11	0	services/block_storage/drivers/openstack/block_storage.py
+49	12	services/compute/__init__.py
+11	0	services/compute/drivers/openstack/compute.py
+0	8	services/identity/drivers/openstack/__init__.py
+11	0	services/identity/drivers/openstack/identity.py
+11	0	services/image/drivers/openstack/image.py
+58	0	services/shared/drivers/openstack/responder.py
+
+commit 53c9c3e7cdd64f65296bb3eec2b8b153e46e4cb1
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-09-29 21:30:35 -0500
+
+    Many Improvements to help pass more tempest tests
+
+27	2	etc/tempest-whitelist.txt
+6	10	services/common/dispatcher.py
+6	4	services/compute/drivers/sl/endpoints/flavors.py
+20	6	services/compute/drivers/sl/endpoints/instance_actions.py
+27	22	services/compute/drivers/sl/endpoints/servers.py
+1	1	services/identity/drivers/sl/endpoints/index.py
+3	1	services/identity/drivers/sl/endpoints/tokens.py
+11	10	services/image/drivers/sl/endpoints/images.py
+
+commit d2c13f3067a1d2ff204d3f061e83cc6b355c3012
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-09-27 11:46:30 -0500
+
+    Reworks where SoftLayer client instances and current tenant_id are stored (to a non-global place)
+
+5	0	etc/tempest-whitelist.txt
+0	2	services/common/babelfish.py
+8	7	services/common/dispatcher.py
+3	0	services/compute/__init__.py
+3	0	services/compute/drivers/sl/__init__.py
+1	2	services/compute/drivers/sl/endpoints/availability_zones.py
+41	0	services/compute/drivers/sl/endpoints/instance_actions.py
+4	5	services/compute/drivers/sl/endpoints/keypairs.py
+1	3	services/compute/drivers/sl/endpoints/limits.py
+4	5	services/compute/drivers/sl/endpoints/networks.py
+10	13	services/compute/drivers/sl/endpoints/servers.py
+1	2	services/compute/drivers/sl/endpoints/usage.py
+5	7	services/identity/drivers/sl/__init__.py
+1	2	services/identity/drivers/sl/endpoints/tenants.py
+1	2	services/identity/drivers/sl/endpoints/tokens.py
+8	6	services/image/drivers/sl/endpoints/images.py
+
+commit 197d5ca9db15fb91bb10a9985dc09b362a4dc8c7
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-09-26 15:51:12 -0500
+
+    Adds Network listing and details
+
+13	0	services/compute/__init__.py
+11	0	services/compute/drivers/sl/__init__.py
+40	0	services/compute/drivers/sl/endpoints/networks.py
+
+commit 2ab63e2c188bccd609f9eb0ef55e1239a0c6e67f
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-09-26 14:39:03 -0500
+
+    Improves Server Status Reporting. Adds missing verbs to NYI class
+
+10	2	services/common/nyi.py
+4	3	services/compute/drivers/sl/endpoints/servers.py
+
+commit 9d8976894ac1b68fff6478cccb24306bfc9c7797
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-09-26 14:30:46 -0500
+
+    Improves tempest tester (fixes issue where it tries to run all tests)
+
+3	2	run_tempest_tests.py
+
+commit 27f956d46c3c9bb4f29b1fa33368569a7fcc7511
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-09-25 17:53:17 -0500
+
+    Adjusts how status/power states are translated for servers. Fixes server delete
+
+8	6	etc/tempest-whitelist.txt
+2	0	services/compute/__init__.py
+2	0	services/compute/drivers/sl/__init__.py
+35	30	services/compute/drivers/sl/endpoints/servers.py
+
+commit c4752e0f1b9dd6c1e0f52eb144b47db49b30226a
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-09-25 13:28:53 -0500
+
+    Refactor
+
+4	4	services/compute/drivers/sl/endpoints/flavors.py
+8	8	services/compute/drivers/sl/endpoints/servers.py
+1	1	services/identity/drivers/sl/endpoints/index.py
+0	18	services/identity/drivers/sl/endpoints/tokens.py
+6	6	services/image/drivers/sl/endpoints/images.py
+
+commit 9fa6a5b3b51f54ed792734d6c3b5020bdbb99ad3
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-09-25 13:10:02 -0500
+
+    Adds ability to generate full URLs using the dispatchers. This does require request... for now...
+
+14	9	services/common/dispatcher.py
+0	1	services/compute/drivers/sl/endpoints/servers.py
+3	8	services/identity/drivers/sl/endpoints/tokens.py
+
+commit 8ff606d7973111493ca58a744e325fd8f3bf4cc9
+Author: Kevin McDonald <k3vinmcdonald@gmail.com>
+Date:   2013-09-24 15:27:17 -0500
+
+    Adds tempests tests. Adjusts Token/Keypair SL drivers
+
+27	0	etc/tempest-whitelist.txt
+411	0	etc/tempest.conf.sample
+84	0	run_tempest_tests.py
+5	5	services/common/dispatcher.py
+8	7	services/common/error_handling.py
+14	10	services/compute/drivers/sl/endpoints/keypairs.py
+28	18	services/identity/drivers/sl/endpoints/tokens.py
+
+commit 654aeb05d07f8d6929b0d4b391d3b57206d5c856
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-09-24 15:01:20 -0500
+
+    Minor bug fixes for servers and images
+
+1	1	services/compute/drivers/sl/endpoints/servers.py
+32	7	services/image/drivers/sl/endpoints/images.py
+
+commit 5c284a4f1219ec89ce3a52f3c4605e8d5e10e3bc
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-09-24 14:31:18 -0500
+
+    Tweaks and bug fixes
+
+1	0	services/common/babelfish.py
+17	1	services/compute/__init__.py
+12	1	services/compute/drivers/sl/__init__.py
+0	13	services/compute/drivers/sl/endpoints/__init__.py
+6	0	services/compute/drivers/sl/endpoints/floating_ips.py
+9	9	services/compute/drivers/sl/endpoints/limits.py
+22	0	services/compute/drivers/sl/endpoints/quota_sets.py
+81	4	services/compute/drivers/sl/endpoints/servers.py
+44	3	services/compute/drivers/sl/endpoints/usage.py
+1	1	services/identity/drivers/sl/__init__.py
+0	2	services/identity/drivers/sl/endpoints/tenants.py
+
+commit 6523343630d37778fc37a04da21bc24e1a09ce21
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-09-24 10:13:34 -0500
+
+    Porting error handling from POC branch and adding a bunch of new end points for Horizon support
+
+3	0	driver.conf
+1	1	services/block_storage/__init__.py
+12	0	services/block_storage/drivers/sl/__init__.py
+6	0	services/block_storage/drivers/sl/endpoints/volumes.py
+4	1	services/common/dispatcher.py
+32	0	services/common/error_handling.py
+20	7	services/compute/__init__.py
+22	3	services/compute/drivers/sl/__init__.py
+25	0	services/compute/drivers/sl/endpoints/availability_zones.py
+6	0	services/compute/drivers/sl/endpoints/extensions.py
+0	3	services/compute/drivers/sl/endpoints/flavors.py
+107	0	services/compute/drivers/sl/endpoints/keypairs.py
+7	6	services/compute/drivers/sl/endpoints/servers.py
+3	3	services/identity/__init__.py
+3	3	services/image/__init__.py
+3	1	services/image/drivers/sl/__init__.py
+35	13	services/image/drivers/sl/endpoints/images.py
+
+commit 09e7114d14160c6d081157067b35e61d1eb44592
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-09-23 10:22:05 -0500
+
+    Fixing some Python object property scoping bugs. Removing some debug code. Adding a few more endpoints to allow viewing an instance through Horizon.
+
+3	3	core.py
+4	6	services/common/dispatcher.py
+10	0	services/compute/__init__.py
+6	0	services/compute/drivers/sl/__init__.py
+0	1	services/compute/drivers/sl/endpoints/flavors.py
+17	0	services/compute/drivers/sl/endpoints/security_groups.py
+2	2	services/compute/drivers/sl/endpoints/servers.py
+10	0	services/compute/drivers/sl/endpoints/volumes.py
+6	6	services/image/__init__.py
+10	0	services/image/drivers/sl/__init__.py
+118	0	services/image/drivers/sl/endpoints/images.py
+
+commit be49af84924401b3b4a191eff7dfb2b9436ace12
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-09-19 16:05:47 -0500
+
+    Expanding SL functionality
+
+3	1	core.py
+2	0	services/common/dispatcher.py
+6	1	services/compute/__init__.py
+16	7	services/compute/drivers/sl/__init__.py
+3	2	services/compute/drivers/sl/endpoints/flavors.py
+1	2	services/compute/drivers/sl/endpoints/limits.py
+45	2	services/compute/drivers/sl/endpoints/servers.py
+8	0	services/compute/drivers/sl/endpoints/usage.py
+
+commit 5ce2bce149c4f79ccc68f97dbe3b7fcdddeefc92
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-09-19 10:32:06 -0500
+
+    Continuing to port functionality from the old POC. Also added standard before_request handler as an experiment.
+
+3	3	core.py
+15	0	services/common/babelfish.py
+11	1	services/common/dispatcher.py
+9	0	services/compute/__init__.py
+7	13	services/compute/drivers/sl/__init__.py
+13	0	services/compute/drivers/sl/endpoints/__init__.py
+51	0	services/compute/drivers/sl/endpoints/flavors.py
+36	0	services/compute/drivers/sl/endpoints/limits.py
+4	4	services/compute/drivers/sl/endpoints/servers.py
+27	0	services/identity/drivers/sl/__init__.py
+0	0	services/identity/drivers/sl/endpoints/__init__.py
+23	0	services/identity/drivers/sl/endpoints/tenants.py
+9	6	services/identity/drivers/sl/endpoints/tokens.py
+
+commit 318b31478103f30741d065688dec3012d3dfcc6d
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-09-18 15:18:33 -0500
+
+    Starting to port code from the old proof of concept
+
+10	1	babelfish.conf
+11	10	core.py
+18	0	services/block_storage/__init__.py
+1	1	services/common/dispatcher.py
+44	0	services/compute/__init__.py
+26	0	services/compute/drivers/sl/__init__.py
+209	0	services/compute/drivers/sl/endpoints/servers.py
+28	1	services/identity/__init__.py
+10	5	services/identity/drivers/sl/__init__.py
+2	2	services/identity/drivers/sl/endpoints/index.py
+12	4	services/identity/drivers/sl/endpoints/tokens.py
+26	0	services/image/__init__.py
+
+commit 9c0c4b758c70a0c80937201d3c858cd5b0a58769
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-09-18 13:41:12 -0500
+
+    Adding in V3 Identity endpoint mappings and getting the SL driver Tokens POST function working
+
+1	1	core.py
+19	2	services/common/dispatcher.py
+4	0	services/common/nested_dict.py
+0	9	services/common/utils.py
+82	2	services/identity/__init__.py
+7	1	services/identity/drivers/sl/__init__.py
+3	3	services/identity/drivers/sl/endpoints/index.py
+137	0	services/identity/drivers/sl/endpoints/tokens.py
+
+commit 98b363681148eaa234358025e906b761905fb644
+Author: Nathan Beittenmiller <nbeittenmiller@softlayer.com>
+Date:   2013-09-18 11:09:44 -0500
+
+    Expansion of the framework. Added some OpenStack driver skeletal work as well as an OpenStack mapper that can (mostly) serve as a silent passthrough layer allowing us to use Horizon or Tempest to map OpenStack's endpoints. Experimenting with a new dispatcher.
+
+37	0	.gitignore
+3	0	babelfish.conf
+48	0	core.py
+9	0	services/common/babelfish.py
+28	0	services/common/dispatcher.py
+19	0	services/common/nyi.py
+9	0	services/common/utils.py
+7	0	services/identity/__init__.py
+8	0	services/identity/drivers/openstack/__init__.py
+6	0	services/identity/drivers/sl/__init__.py
+24	0	services/identity/drivers/sl/endpoints/index.py
+59	0	services/openstack_mapper.py
+
+commit da40b86e6bf855562287841cdf7c1db53c70337b
+Author: Phil <pjackson@softlayer.com>
+Date:   2013-09-13 13:21:44 -0700
+
+    Initial commit
+
+2	0	README.md

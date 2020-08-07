@@ -1,0 +1,294 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "linkchecker\\linkchecker-sdsm",
+  "variables" : [ "linkchecker/doc/examples/filter_xml_output.py", "linkchecker/linkcheck/ansicolor.py", "linkchecker/linkcheck/bookmarks/chrome.py", "linkchecker/linkcheck/bookmarks/chromium.py", "linkchecker/linkcheck/bookmarks/firefox.py", "linkchecker/linkcheck/bookmarks/opera.py", "linkchecker/linkcheck/bookmarks/safari.py", "linkchecker/linkcheck/bookmarks/__init__.py", "linkchecker/linkcheck/cache/connection.py", "linkchecker/linkcheck/cache/content.py", "linkchecker/linkcheck/cache/cookie.py", "linkchecker/linkcheck/cache/robots_txt.py", "linkchecker/linkcheck/cache/urlqueue.py", "linkchecker/linkcheck/cache/__init__.py", "linkchecker/linkcheck/checker/const.py", "linkchecker/linkcheck/checker/fileurl.py", "linkchecker/linkcheck/checker/ftpurl.py", "linkchecker/linkcheck/checker/httpheaders.py", "linkchecker/linkcheck/checker/httpsurl.py", "linkchecker/linkcheck/checker/httpurl.py", "linkchecker/linkcheck/checker/ignoreurl.py", "linkchecker/linkcheck/checker/internpaturl.py", "linkchecker/linkcheck/checker/mailtourl.py", "linkchecker/linkcheck/checker/nntpurl.py", "linkchecker/linkcheck/checker/pooledconnection.py", "linkchecker/linkcheck/checker/proxysupport.py", "linkchecker/linkcheck/checker/telneturl.py", "linkchecker/linkcheck/checker/unknownurl.py", "linkchecker/linkcheck/checker/urlbase.py", "linkchecker/linkcheck/checker/__init__.py", "linkchecker/linkcheck/clamav.py", "linkchecker/linkcheck/cmdline.py", "linkchecker/linkcheck/colorama.py", "linkchecker/linkcheck/configuration/confparse.py", "linkchecker/linkcheck/configuration/__init__.py", "linkchecker/linkcheck/containers.py", "linkchecker/linkcheck/cookies.py", "linkchecker/linkcheck/decorators.py", "linkchecker/linkcheck/director/aggregator.py", "linkchecker/linkcheck/director/checker.py", "linkchecker/linkcheck/director/cleanup.py", "linkchecker/linkcheck/director/console.py", "linkchecker/linkcheck/director/logger.py", "linkchecker/linkcheck/director/status.py", "linkchecker/linkcheck/director/task.py", "linkchecker/linkcheck/director/__init__.py", "linkchecker/linkcheck/dummy.py", "linkchecker/linkcheck/fileutil.py", "linkchecker/linkcheck/ftpparse.py", "linkchecker/linkcheck/geoip.py", "linkchecker/linkcheck/gui/checker.py", "linkchecker/linkcheck/gui/contextmenu.py", "linkchecker/linkcheck/gui/debug.py", "linkchecker/linkcheck/gui/editor.py", "linkchecker/linkcheck/gui/editor_qsci.py", "linkchecker/linkcheck/gui/editor_qt.py", "linkchecker/linkcheck/gui/help.py", "linkchecker/linkcheck/gui/lineedit.py", "linkchecker/linkcheck/gui/linkchecker_rc.py", "linkchecker/linkcheck/gui/linkchecker_ui_debug.py", "linkchecker/linkcheck/gui/linkchecker_ui_editor.py", "linkchecker/linkcheck/gui/linkchecker_ui_main.py", "linkchecker/linkcheck/gui/linkchecker_ui_options.py", "linkchecker/linkcheck/gui/logger.py", "linkchecker/linkcheck/gui/options.py", "linkchecker/linkcheck/gui/projects.py", "linkchecker/linkcheck/gui/properties.py", "linkchecker/linkcheck/gui/recentdocs.py", "linkchecker/linkcheck/gui/settings.py", "linkchecker/linkcheck/gui/statistics.py", "linkchecker/linkcheck/gui/syntax.py", "linkchecker/linkcheck/gui/updater.py", "linkchecker/linkcheck/gui/urlmodel.py", "linkchecker/linkcheck/gui/urlsave.py", "linkchecker/linkcheck/gui/validator.py", "linkchecker/linkcheck/gui/__init__.py", "linkchecker/linkcheck/gzip2.py", "linkchecker/linkcheck/HtmlParser/htmllib.py", "linkchecker/linkcheck/HtmlParser/__init__.py", "linkchecker/linkcheck/htmlutil/linkname.py", "linkchecker/linkcheck/htmlutil/linkparse.py", "linkchecker/linkcheck/htmlutil/__init__.py", "linkchecker/linkcheck/httplib2.py", "linkchecker/linkcheck/httputil.py", "linkchecker/linkcheck/i18n.py", "linkchecker/linkcheck/lc_cgi.py", "linkchecker/linkcheck/lock.py", "linkchecker/linkcheck/log.py", "linkchecker/linkcheck/logger/blacklist.py", "linkchecker/linkcheck/logger/csvlog.py", "linkchecker/linkcheck/logger/customxml.py", "linkchecker/linkcheck/logger/dot.py", "linkchecker/linkcheck/logger/gml.py", "linkchecker/linkcheck/logger/graph.py", "linkchecker/linkcheck/logger/gxml.py", "linkchecker/linkcheck/logger/html.py", "linkchecker/linkcheck/logger/none.py", "linkchecker/linkcheck/logger/sitemapxml.py", "linkchecker/linkcheck/logger/sql.py", "linkchecker/linkcheck/logger/text.py", "linkchecker/linkcheck/logger/xmllog.py", "linkchecker/linkcheck/logger/__init__.py", "linkchecker/linkcheck/mem.py", "linkchecker/linkcheck/memoryutil.py", "linkchecker/linkcheck/network/iputil.py", "linkchecker/linkcheck/network/__init__.py", "linkchecker/linkcheck/robotparser2.py", "linkchecker/linkcheck/socketutil.py", "linkchecker/linkcheck/strformat.py", "linkchecker/linkcheck/threader.py", "linkchecker/linkcheck/trace.py", "linkchecker/linkcheck/updater.py", "linkchecker/linkcheck/url.py", "linkchecker/linkcheck/winutil.py", "linkchecker/linkcheck/__init__.py", "linkchecker/po/msgfmt.py", "linkchecker/setup.py", "linkchecker/tests/analyze_memdump.py", "linkchecker/tests/cache/test_cookiejar.py", "linkchecker/tests/cache/__init__.py", "linkchecker/tests/checker/ftpserver.py", "linkchecker/tests/checker/httpserver.py", "linkchecker/tests/checker/telnetserver.py", "linkchecker/tests/checker/test_anchor.py", "linkchecker/tests/checker/test_base.py", "linkchecker/tests/checker/test_bookmarks.py", "linkchecker/tests/checker/test_error.py", "linkchecker/tests/checker/test_file.py", "linkchecker/tests/checker/test_frames.py", "linkchecker/tests/checker/test_ftp.py", "linkchecker/tests/checker/test_http.py", "linkchecker/tests/checker/test_https.py", "linkchecker/tests/checker/test_https_redirect.py", "linkchecker/tests/checker/test_http_misc.py", "linkchecker/tests/checker/test_http_redirect.py", "linkchecker/tests/checker/test_http_robots.py", "linkchecker/tests/checker/test_internpat.py", "linkchecker/tests/checker/test_mail_bad.py", "linkchecker/tests/checker/test_mail_good.py", "linkchecker/tests/checker/test_misc.py", "linkchecker/tests/checker/test_news.py", "linkchecker/tests/checker/test_noproxy.py", "linkchecker/tests/checker/test_robotstxt.py", "linkchecker/tests/checker/test_telnet.py", "linkchecker/tests/checker/test_unknown.py", "linkchecker/tests/checker/test_urllen.py", "linkchecker/tests/checker/test_whitespace.py", "linkchecker/tests/checker/__init__.py", "linkchecker/tests/configuration/test_config.py", "linkchecker/tests/configuration/__init__.py", "linkchecker/tests/debugparse.py", "linkchecker/tests/logger/test_csvlog.py", "linkchecker/tests/logger/__init__.py", "linkchecker/tests/test_cgi.py", "linkchecker/tests/test_clamav.py", "linkchecker/tests/test_console.py", "linkchecker/tests/test_containers.py", "linkchecker/tests/test_cookies.py", "linkchecker/tests/test_decorators.py", "linkchecker/tests/test_dummy.py", "linkchecker/tests/test_filenames.py", "linkchecker/tests/test_fileutil.py", "linkchecker/tests/test_ftpparse.py", "linkchecker/tests/test_gui.py", "linkchecker/tests/test_linkname.py", "linkchecker/tests/test_linkparser.py", "linkchecker/tests/test_network.py", "linkchecker/tests/test_parser.py", "linkchecker/tests/test_po.py", "linkchecker/tests/test_robotparser.py", "linkchecker/tests/test_robotstxt.py", "linkchecker/tests/test_strformat.py", "linkchecker/tests/test_updater.py", "linkchecker/tests/test_url.py", "linkchecker/tests/test_urlbuild.py", "linkchecker/tests/__init__.py", "linkchecker/third_party/dnspython/dns/dnssec.py", "linkchecker/third_party/dnspython/dns/e164.py", "linkchecker/third_party/dnspython/dns/edns.py", "linkchecker/third_party/dnspython/dns/entropy.py", "linkchecker/third_party/dnspython/dns/exception.py", "linkchecker/third_party/dnspython/dns/flags.py", "linkchecker/third_party/dnspython/dns/hash.py", "linkchecker/third_party/dnspython/dns/inet.py", "linkchecker/third_party/dnspython/dns/ipv4.py", "linkchecker/third_party/dnspython/dns/ipv6.py", "linkchecker/third_party/dnspython/dns/message.py", "linkchecker/third_party/dnspython/dns/name.py", "linkchecker/third_party/dnspython/dns/namedict.py", "linkchecker/third_party/dnspython/dns/node.py", "linkchecker/third_party/dnspython/dns/opcode.py", "linkchecker/third_party/dnspython/dns/query.py", "linkchecker/third_party/dnspython/dns/rcode.py", "linkchecker/third_party/dnspython/dns/rdata.py", "linkchecker/third_party/dnspython/dns/rdataclass.py", "linkchecker/third_party/dnspython/dns/rdataset.py", "linkchecker/third_party/dnspython/dns/rdatatype.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/AFSDB.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/CERT.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/CNAME.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/DLV.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/DNAME.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/DNSKEY.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/DS.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/GPOS.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/HINFO.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/HIP.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/ISDN.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/LOC.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/MX.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/NS.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/NSEC.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/NSEC3.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/NSEC3PARAM.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/PTR.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/RP.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/RRSIG.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/RT.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/SOA.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/SPF.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/SSHFP.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/TXT.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/X25.py", "linkchecker/third_party/dnspython/dns/rdtypes/ANY/__init__.py", "linkchecker/third_party/dnspython/dns/rdtypes/dsbase.py", "linkchecker/third_party/dnspython/dns/rdtypes/IN/A.py", "linkchecker/third_party/dnspython/dns/rdtypes/IN/AAAA.py", "linkchecker/third_party/dnspython/dns/rdtypes/IN/APL.py", "linkchecker/third_party/dnspython/dns/rdtypes/IN/DHCID.py", "linkchecker/third_party/dnspython/dns/rdtypes/IN/IPSECKEY.py", "linkchecker/third_party/dnspython/dns/rdtypes/IN/KX.py", "linkchecker/third_party/dnspython/dns/rdtypes/IN/NAPTR.py", "linkchecker/third_party/dnspython/dns/rdtypes/IN/NSAP.py", "linkchecker/third_party/dnspython/dns/rdtypes/IN/NSAP_PTR.py", "linkchecker/third_party/dnspython/dns/rdtypes/IN/PX.py", "linkchecker/third_party/dnspython/dns/rdtypes/IN/SRV.py", "linkchecker/third_party/dnspython/dns/rdtypes/IN/WKS.py", "linkchecker/third_party/dnspython/dns/rdtypes/IN/__init__.py", "linkchecker/third_party/dnspython/dns/rdtypes/mxbase.py", "linkchecker/third_party/dnspython/dns/rdtypes/nsbase.py", "linkchecker/third_party/dnspython/dns/rdtypes/txtbase.py", "linkchecker/third_party/dnspython/dns/rdtypes/__init__.py", "linkchecker/third_party/dnspython/dns/renderer.py", "linkchecker/third_party/dnspython/dns/resolver.py", "linkchecker/third_party/dnspython/dns/reversename.py", "linkchecker/third_party/dnspython/dns/rrset.py", "linkchecker/third_party/dnspython/dns/set.py", "linkchecker/third_party/dnspython/dns/tokenizer.py", "linkchecker/third_party/dnspython/dns/tsig.py", "linkchecker/third_party/dnspython/dns/tsigkeyring.py", "linkchecker/third_party/dnspython/dns/ttl.py", "linkchecker/third_party/dnspython/dns/update.py", "linkchecker/third_party/dnspython/dns/version.py", "linkchecker/third_party/dnspython/dns/wiredata.py", "linkchecker/third_party/dnspython/dns/zone.py", "linkchecker/third_party/dnspython/dns/__init__.py", "linkchecker/third_party/dnspython/tests/bugs.py", "linkchecker/third_party/dnspython/tests/dnssec.py", "linkchecker/third_party/dnspython/tests/flags.py", "linkchecker/third_party/dnspython/tests/message.py", "linkchecker/third_party/dnspython/tests/name.py", "linkchecker/third_party/dnspython/tests/namedict.py", "linkchecker/third_party/dnspython/tests/ntoaaton.py", "linkchecker/third_party/dnspython/tests/rdtypeandclass.py", "linkchecker/third_party/dnspython/tests/resolver.py", "linkchecker/third_party/dnspython/tests/rrset.py", "linkchecker/third_party/dnspython/tests/set.py", "linkchecker/third_party/dnspython/tests/tokenizer.py", "linkchecker/third_party/dnspython/tests/update.py", "linkchecker/third_party/dnspython/tests/zone.py", "linkchecker/third_party/miniboa-r42/chat_demo.py", "linkchecker/third_party/miniboa-r42/handler_demo.py", "linkchecker/third_party/miniboa-r42/hello_demo.py", "linkchecker/third_party/miniboa-r42/miniboa/async.py", "linkchecker/third_party/miniboa-r42/miniboa/error.py", "linkchecker/third_party/miniboa-r42/miniboa/telnet.py", "linkchecker/third_party/miniboa-r42/miniboa/xterm.py", "linkchecker/third_party/miniboa-r42/miniboa/__init__.py" ],
+  "cells" : [ {
+    "src" : 16,
+    "dest" : 273,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 275,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 120,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 121,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 122,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 235,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 273,
+    "values" : {
+      "P6" : 6.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 275,
+    "values" : {
+      "P6" : 6.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 120,
+    "values" : {
+      "P6" : 6.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 121,
+    "values" : {
+      "P6" : 6.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 122,
+    "values" : {
+      "P6" : 6.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 235,
+    "values" : {
+      "P6" : 6.0
+    }
+  }, {
+    "src" : 147,
+    "dest" : 273,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 147,
+    "dest" : 275,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 147,
+    "dest" : 120,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 147,
+    "dest" : 121,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 147,
+    "dest" : 122,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 147,
+    "dest" : 235,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 243,
+    "dest" : 273,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 243,
+    "dest" : 275,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 243,
+    "dest" : 120,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 243,
+    "dest" : 121,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 243,
+    "dest" : 122,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 243,
+    "dest" : 235,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 273,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 275,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 120,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 121,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 122,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 235,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 273,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 275,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 120,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 121,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 122,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 235,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 273,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 275,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 120,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 121,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 122,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 235,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 273,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 275,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 120,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 121,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 122,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 235,
+    "values" : {
+      "P6" : 1.0
+    }
+  } ]
+}

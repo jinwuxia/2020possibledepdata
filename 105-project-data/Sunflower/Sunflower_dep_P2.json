@@ -1,0 +1,822 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "Sunflower\\Sunflower-sdsm",
+  "variables" : [ "Sunflower/sunflower/accelerator_group.py", "Sunflower/sunflower/accelerator_manager.py", "Sunflower/sunflower/associations.py", "Sunflower/sunflower/common.py", "Sunflower/sunflower/config.py", "Sunflower/sunflower/emblems.py", "Sunflower/sunflower/gui/about_window.py", "Sunflower/sunflower/gui/error_list.py", "Sunflower/sunflower/gui/history_list.py", "Sunflower/sunflower/gui/input_dialog.py", "Sunflower/sunflower/gui/keyring_manager_window.py", "Sunflower/sunflower/gui/main_window.py", "Sunflower/sunflower/gui/operation_dialog.py", "Sunflower/sunflower/gui/preferences/accelerators.py", "Sunflower/sunflower/gui/preferences/associations.py", "Sunflower/sunflower/gui/preferences/bookmarks.py", "Sunflower/sunflower/gui/preferences/commands.py", "Sunflower/sunflower/gui/preferences/display.py", "Sunflower/sunflower/gui/preferences/item_list.py", "Sunflower/sunflower/gui/preferences/operation.py", "Sunflower/sunflower/gui/preferences/plugins.py", "Sunflower/sunflower/gui/preferences/terminal.py", "Sunflower/sunflower/gui/preferences/toolbar.py", "Sunflower/sunflower/gui/preferences/view_and_edit.py", "Sunflower/sunflower/gui/preferences/__init__.py", "Sunflower/sunflower/gui/preferences_window.py", "Sunflower/sunflower/gui/properties_window.py", "Sunflower/sunflower/gui/__init__.py", "Sunflower/sunflower/history.py", "Sunflower/sunflower/icons.py", "Sunflower/sunflower/indicator.py", "Sunflower/sunflower/keyring.py", "Sunflower/sunflower/menus.py", "Sunflower/sunflower/mounts.py", "Sunflower/sunflower/notifications.py", "Sunflower/sunflower/operation.py", "Sunflower/sunflower/parameters.py", "Sunflower/sunflower/plugins/archive_support/plugin.py", "Sunflower/sunflower/plugins/archive_support/zip_provider.py", "Sunflower/sunflower/plugins/archive_support/__init__.py", "Sunflower/sunflower/plugins/default_toolbar/bookmarks_button.py", "Sunflower/sunflower/plugins/default_toolbar/bookmark_button.py", "Sunflower/sunflower/plugins/default_toolbar/home_directory_button.py", "Sunflower/sunflower/plugins/default_toolbar/parent_directory_button.py", "Sunflower/sunflower/plugins/default_toolbar/plugin.py", "Sunflower/sunflower/plugins/default_toolbar/separator.py", "Sunflower/sunflower/plugins/default_toolbar/__init__.py", "Sunflower/sunflower/plugins/file_list/column_editor.py", "Sunflower/sunflower/plugins/file_list/dialogs.py", "Sunflower/sunflower/plugins/file_list/file_list.py", "Sunflower/sunflower/plugins/file_list/gio_extension.py", "Sunflower/sunflower/plugins/file_list/gio_provider.py", "Sunflower/sunflower/plugins/file_list/gio_wrapper.py", "Sunflower/sunflower/plugins/file_list/local_monitor.py", "Sunflower/sunflower/plugins/file_list/local_provider.py", "Sunflower/sunflower/plugins/file_list/plugin.py", "Sunflower/sunflower/plugins/file_list/trash_list.py", "Sunflower/sunflower/plugins/file_list/__init__.py", "Sunflower/sunflower/plugins/find_file_extensions/contents.py", "Sunflower/sunflower/plugins/find_file_extensions/default.py", "Sunflower/sunflower/plugins/find_file_extensions/plugin.py", "Sunflower/sunflower/plugins/find_file_extensions/size.py", "Sunflower/sunflower/plugins/find_file_extensions/__init__.py", "Sunflower/sunflower/plugins/gvim_viewer/plugin.py", "Sunflower/sunflower/plugins/gvim_viewer/__init__.py", "Sunflower/sunflower/plugins/owner_column/plugin.py", "Sunflower/sunflower/plugins/owner_column/__init__.py", "Sunflower/sunflower/plugins/rename_extensions/audio_metadata.py", "Sunflower/sunflower/plugins/rename_extensions/default.py", "Sunflower/sunflower/plugins/rename_extensions/letter_case.py", "Sunflower/sunflower/plugins/rename_extensions/plugin.py", "Sunflower/sunflower/plugins/rename_extensions/__init__.py", "Sunflower/sunflower/plugins/sessions/plugin.py", "Sunflower/sunflower/plugins/sessions/__init__.py", "Sunflower/sunflower/plugins/system_terminal/plugin.py", "Sunflower/sunflower/plugins/system_terminal/__init__.py", "Sunflower/sunflower/plugins/__init__.py", "Sunflower/sunflower/plugin_base/column_editor_extension.py", "Sunflower/sunflower/plugin_base/column_extension.py", "Sunflower/sunflower/plugin_base/find_extension.py", "Sunflower/sunflower/plugin_base/item_list.py", "Sunflower/sunflower/plugin_base/monitor.py", "Sunflower/sunflower/plugin_base/mount_manager_extension.py", "Sunflower/sunflower/plugin_base/plugin.py", "Sunflower/sunflower/plugin_base/provider.py", "Sunflower/sunflower/plugin_base/rename_extension.py", "Sunflower/sunflower/plugin_base/terminal.py", "Sunflower/sunflower/plugin_base/toolbar_factory.py", "Sunflower/sunflower/plugin_base/viewer_extension.py", "Sunflower/sunflower/plugin_base/__init__.py", "Sunflower/sunflower/queue.py", "Sunflower/sunflower/toolbar.py", "Sunflower/sunflower/tools/advanced_rename.py", "Sunflower/sunflower/tools/disk_usage.py", "Sunflower/sunflower/tools/find_files.py", "Sunflower/sunflower/tools/version_check.py", "Sunflower/sunflower/tools/viewer.py", "Sunflower/sunflower/tools/__init__.py", "Sunflower/sunflower/widgets/breadcrumbs.py", "Sunflower/sunflower/widgets/completion_entry.py", "Sunflower/sunflower/widgets/context_menu.py", "Sunflower/sunflower/widgets/emblems_renderer.py", "Sunflower/sunflower/widgets/location_menu.py", "Sunflower/sunflower/widgets/settings_page.py", "Sunflower/sunflower/widgets/status_bar.py", "Sunflower/sunflower/widgets/tab_label.py", "Sunflower/sunflower/widgets/thumbnail_view.py", "Sunflower/sunflower/widgets/title_bar.py", "Sunflower/sunflower/widgets/__init__.py", "Sunflower/sunflower/__init__.py", "Sunflower/sunflower/__main__.py" ],
+  "cells" : [ {
+    "src" : 0,
+    "dest" : 1,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 1,
+    "dest" : 0,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 2,
+    "dest" : 0,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 2,
+    "dest" : 81,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 2,
+    "dest" : 84,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 2,
+    "dest" : 77,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 68,
+    "dest" : 92,
+    "values" : {
+      "P2" : 5.0
+    }
+  }, {
+    "src" : 68,
+    "dest" : 94,
+    "values" : {
+      "P2" : 5.0
+    }
+  }, {
+    "src" : 8,
+    "dest" : 80,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 8,
+    "dest" : 81,
+    "values" : {
+      "P2" : 3.0
+    }
+  }, {
+    "src" : 8,
+    "dest" : 84,
+    "values" : {
+      "P2" : 3.0
+    }
+  }, {
+    "src" : 8,
+    "dest" : 56,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 8,
+    "dest" : 9,
+    "values" : {
+      "P2" : 20.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 81,
+    "values" : {
+      "P2" : 3.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 36,
+    "values" : {
+      "P2" : 8.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 4,
+    "values" : {
+      "P2" : 12.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 84,
+    "values" : {
+      "P2" : 3.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 9,
+    "values" : {
+      "P2" : 8.0
+    }
+  }, {
+    "src" : 9,
+    "dest" : 36,
+    "values" : {
+      "P2" : 20.0
+    }
+  }, {
+    "src" : 9,
+    "dest" : 4,
+    "values" : {
+      "P2" : 20.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 9,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 74,
+    "dest" : 36,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 74,
+    "dest" : 4,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 80,
+    "values" : {
+      "P2" : 19.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 1,
+    "values" : {
+      "P2" : 20.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 83,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 36,
+    "values" : {
+      "P2" : 27.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 4,
+    "values" : {
+      "P2" : 47.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 56,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 72,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 9,
+    "values" : {
+      "P2" : 14.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 74,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 77,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 47,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 12,
+    "dest" : 81,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 12,
+    "dest" : 35,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 12,
+    "dest" : 9,
+    "values" : {
+      "P2" : 36.0
+    }
+  }, {
+    "src" : 14,
+    "dest" : 4,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 14,
+    "dest" : 36,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 14,
+    "dest" : 9,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 81,
+    "values" : {
+      "P2" : 3.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 84,
+    "values" : {
+      "P2" : 3.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 36,
+    "values" : {
+      "P2" : 8.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 4,
+    "values" : {
+      "P2" : 8.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 81,
+    "values" : {
+      "P2" : 3.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 84,
+    "values" : {
+      "P2" : 3.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 36,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 4,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 80,
+    "dest" : 81,
+    "values" : {
+      "P2" : 9.0
+    }
+  }, {
+    "src" : 80,
+    "dest" : 100,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 80,
+    "dest" : 84,
+    "values" : {
+      "P2" : 11.0
+    }
+  }, {
+    "src" : 80,
+    "dest" : 36,
+    "values" : {
+      "P2" : 8.0
+    }
+  }, {
+    "src" : 80,
+    "dest" : 4,
+    "values" : {
+      "P2" : 8.0
+    }
+  }, {
+    "src" : 80,
+    "dest" : 56,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 80,
+    "dest" : 9,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 80,
+    "dest" : 107,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 36,
+    "values" : {
+      "P2" : 32.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 4,
+    "values" : {
+      "P2" : 32.0
+    }
+  }, {
+    "src" : 81,
+    "dest" : 36,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 81,
+    "dest" : 4,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 18,
+    "dest" : 81,
+    "values" : {
+      "P2" : 8.0
+    }
+  }, {
+    "src" : 18,
+    "dest" : 84,
+    "values" : {
+      "P2" : 8.0
+    }
+  }, {
+    "src" : 18,
+    "dest" : 36,
+    "values" : {
+      "P2" : 42.0
+    }
+  }, {
+    "src" : 18,
+    "dest" : 4,
+    "values" : {
+      "P2" : 42.0
+    }
+  }, {
+    "src" : 19,
+    "dest" : 36,
+    "values" : {
+      "P2" : 10.0
+    }
+  }, {
+    "src" : 19,
+    "dest" : 4,
+    "values" : {
+      "P2" : 10.0
+    }
+  }, {
+    "src" : 83,
+    "dest" : 36,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 83,
+    "dest" : 4,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 36,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 4,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 9,
+    "values" : {
+      "P2" : 20.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 36,
+    "values" : {
+      "P2" : 18.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 4,
+    "values" : {
+      "P2" : 18.0
+    }
+  }, {
+    "src" : 22,
+    "dest" : 81,
+    "values" : {
+      "P2" : 3.0
+    }
+  }, {
+    "src" : 22,
+    "dest" : 84,
+    "values" : {
+      "P2" : 3.0
+    }
+  }, {
+    "src" : 22,
+    "dest" : 36,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 22,
+    "dest" : 4,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 23,
+    "dest" : 36,
+    "values" : {
+      "P2" : 12.0
+    }
+  }, {
+    "src" : 23,
+    "dest" : 4,
+    "values" : {
+      "P2" : 12.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 103,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 0,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 80,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 81,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 84,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 53,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 9,
+    "values" : {
+      "P2" : 12.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 77,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 36,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 4,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 9,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 36,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 4,
+    "values" : {
+      "P2" : 7.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 9,
+    "values" : {
+      "P2" : 3.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 80,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 56,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 36,
+    "values" : {
+      "P2" : 9.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 4,
+    "values" : {
+      "P2" : 9.0
+    }
+  }, {
+    "src" : 94,
+    "dest" : 80,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 94,
+    "dest" : 36,
+    "values" : {
+      "P2" : 5.0
+    }
+  }, {
+    "src" : 94,
+    "dest" : 4,
+    "values" : {
+      "P2" : 5.0
+    }
+  }, {
+    "src" : 94,
+    "dest" : 56,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 94,
+    "dest" : 9,
+    "values" : {
+      "P2" : 12.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 9,
+    "values" : {
+      "P2" : 14.0
+    }
+  }, {
+    "src" : 33,
+    "dest" : 0,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 33,
+    "dest" : 77,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 80,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 56,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 9,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 35,
+    "dest" : 81,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 35,
+    "dest" : 84,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 35,
+    "dest" : 36,
+    "values" : {
+      "P2" : 6.0
+    }
+  }, {
+    "src" : 35,
+    "dest" : 4,
+    "values" : {
+      "P2" : 6.0
+    }
+  }, {
+    "src" : 102,
+    "dest" : 80,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 102,
+    "dest" : 56,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 80,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 56,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 77,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 47,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 47,
+    "dest" : 80,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 47,
+    "dest" : 36,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 47,
+    "dest" : 4,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 85,
+    "values" : {
+      "P2" : 6.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 79,
+    "values" : {
+      "P2" : 6.0
+    }
+  }, {
+    "src" : 49,
+    "dest" : 81,
+    "values" : {
+      "P2" : 44.0
+    }
+  }, {
+    "src" : 49,
+    "dest" : 84,
+    "values" : {
+      "P2" : 44.0
+    }
+  }, {
+    "src" : 49,
+    "dest" : 36,
+    "values" : {
+      "P2" : 8.0
+    }
+  }, {
+    "src" : 49,
+    "dest" : 4,
+    "values" : {
+      "P2" : 8.0
+    }
+  }, {
+    "src" : 49,
+    "dest" : 9,
+    "values" : {
+      "P2" : 12.0
+    }
+  }, {
+    "src" : 49,
+    "dest" : 77,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 49,
+    "dest" : 47,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 92,
+    "values" : {
+      "P2" : 9.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 94,
+    "values" : {
+      "P2" : 9.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 81,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 84,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 36,
+    "values" : {
+      "P2" : 3.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 4,
+    "values" : {
+      "P2" : 3.0
+    }
+  } ]
+}

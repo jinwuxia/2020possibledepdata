@@ -1,0 +1,366 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "tashi\\tashi-sdsm",
+  "variables" : [ "tashi/src/tashi/accounting/accounting.py", "tashi/src/tashi/accounting/accountingservice.py", "tashi/src/tashi/accounting/__init__.py", "tashi/src/tashi/agents/dhcpdns.py", "tashi/src/tashi/agents/instancehook.py", "tashi/src/tashi/agents/mauiwiki.py", "tashi/src/tashi/agents/primitive.py", "tashi/src/tashi/agents/primitive_zoni.py", "tashi/src/tashi/agents/__init__.py", "tashi/src/tashi/aws/impl/address.py", "tashi/src/tashi/aws/impl/bundle.py", "tashi/src/tashi/aws/impl/images.py", "tashi/src/tashi/aws/impl/instances.py", "tashi/src/tashi/aws/impl/keys.py", "tashi/src/tashi/aws/impl/location.py", "tashi/src/tashi/aws/impl/monitor.py", "tashi/src/tashi/aws/impl/other.py", "tashi/src/tashi/aws/impl/reservation.py", "tashi/src/tashi/aws/impl/security.py", "tashi/src/tashi/aws/impl/volume.py", "tashi/src/tashi/aws/impl/__init__.py", "tashi/src/tashi/aws/query.py", "tashi/src/tashi/aws/soap.py", "tashi/src/tashi/aws/trans.py", "tashi/src/tashi/aws/util.py", "tashi/src/tashi/aws/wsdl/__init__.py", "tashi/src/tashi/aws/__init__.py", "tashi/src/tashi/client/tashi-admin.py", "tashi/src/tashi/client/tashi-client.py", "tashi/src/tashi/client/__init__.py", "tashi/src/tashi/clustermanager/clustermanager.py", "tashi/src/tashi/clustermanager/clustermanagerservice.py", "tashi/src/tashi/clustermanager/data/datainterface.py", "tashi/src/tashi/clustermanager/data/fromconfig.py", "tashi/src/tashi/clustermanager/data/getentoverride.py", "tashi/src/tashi/clustermanager/data/ldapoverride.py", "tashi/src/tashi/clustermanager/data/pickled.py", "tashi/src/tashi/clustermanager/data/sql.py", "tashi/src/tashi/clustermanager/data/__init__.py", "tashi/src/tashi/clustermanager/__init__.py", "tashi/src/tashi/connectionmanager.py", "tashi/src/tashi/dfs/dfsinterface.py", "tashi/src/tashi/dfs/diskimage.py", "tashi/src/tashi/dfs/diskimageinterface.py", "tashi/src/tashi/dfs/vfs.py", "tashi/src/tashi/dfs/__init__.py", "tashi/src/tashi/messaging/gangliapublisher.py", "tashi/src/tashi/messaging/messagingloghandler.py", "tashi/src/tashi/messaging/__init__.py", "tashi/src/tashi/nodemanager/nodemanager.py", "tashi/src/tashi/nodemanager/nodemanagerservice.py", "tashi/src/tashi/nodemanager/vmcontrol/qemu.py", "tashi/src/tashi/nodemanager/vmcontrol/vmcontrolinterface.py", "tashi/src/tashi/nodemanager/vmcontrol/xenpv.py", "tashi/src/tashi/nodemanager/vmcontrol/__init__.py", "tashi/src/tashi/nodemanager/__init__.py", "tashi/src/tashi/parallel.py", "tashi/src/tashi/rpycservices/rpycservices.py", "tashi/src/tashi/rpycservices/rpyctypes.py", "tashi/src/tashi/rpycservices/__init__.py", "tashi/src/tashi/util.py", "tashi/src/tashi/utils/config.py", "tashi/src/tashi/utils/pseudoDes.py", "tashi/src/tashi/utils/timeout.py", "tashi/src/tashi/utils/__init__.py", "tashi/src/tashi/version.py", "tashi/src/tashi/__init__.py", "tashi/src/utils/nmd.py", "tashi/src/zoni/agents/dhcpdns.py", "tashi/src/zoni/agents/__init__.py", "tashi/src/zoni/bootstrap/bootstrapinterface.py", "tashi/src/zoni/bootstrap/pxe.py", "tashi/src/zoni/bootstrap/__init__.py", "tashi/src/zoni/client/zoni-cli.py", "tashi/src/zoni/client/__init__.py", "tashi/src/zoni/data/infostore.py", "tashi/src/zoni/data/reservation.py", "tashi/src/zoni/data/reservationmanagementinterface.py", "tashi/src/zoni/data/resourcequerysql.py", "tashi/src/zoni/data/usermanagement.py", "tashi/src/zoni/data/usermanagementinterface.py", "tashi/src/zoni/data/__init__.py", "tashi/src/zoni/extensions/install/db/m_extendDbSetup.py", "tashi/src/zoni/extensions/install/www/bootnode.py", "tashi/src/zoni/extensions/install/www/getnpass.py", "tashi/src/zoni/extensions/m_extensions.py", "tashi/src/zoni/extra/util.py", "tashi/src/zoni/extra/__init__.py", "tashi/src/zoni/hardware/apcswitchedrackpdu.py", "tashi/src/zoni/hardware/delldrac.py", "tashi/src/zoni/hardware/dellswitch.py", "tashi/src/zoni/hardware/f10s50switch.py", "tashi/src/zoni/hardware/hpilo.py", "tashi/src/zoni/hardware/hpswitch.py", "tashi/src/zoni/hardware/hwswitchinterface.py", "tashi/src/zoni/hardware/ipmi.py", "tashi/src/zoni/hardware/raritanpdu.py", "tashi/src/zoni/hardware/systemmanagement.py", "tashi/src/zoni/hardware/systemmanagementinterface.py", "tashi/src/zoni/hardware/__init__.py", "tashi/src/zoni/install/db/zoniDbSetup.py", "tashi/src/zoni/install/dnsdhcp/zoniDnsDhcpSetup.py", "tashi/src/zoni/install/pxe/zoniPxeSetup.py", "tashi/src/zoni/install/www/zoniWebSetup.py", "tashi/src/zoni/services/pcvciservice.py", "tashi/src/zoni/services/rpycservices.py", "tashi/src/zoni/services/zonimanager.py", "tashi/src/zoni/services/__init__.py", "tashi/src/zoni/version.py", "tashi/src/zoni/__init__.py" ],
+  "cells" : [ {
+    "src" : 33,
+    "dest" : 58,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 33,
+    "dest" : 47,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 34,
+    "dest" : 32,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 34,
+    "dest" : 33,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 34,
+    "dest" : 35,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 34,
+    "dest" : 5,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 34,
+    "dest" : 31,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 0,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 1,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 53,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 6,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 58,
+    "values" : {
+      "P5" : 8.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 47,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 35,
+    "dest" : 32,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 35,
+    "dest" : 33,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 35,
+    "dest" : 34,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 35,
+    "dest" : 5,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 35,
+    "dest" : 31,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 5,
+    "dest" : 32,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 5,
+    "dest" : 33,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 5,
+    "dest" : 34,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 5,
+    "dest" : 35,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 5,
+    "dest" : 58,
+    "values" : {
+      "P5" : 8.0
+    }
+  }, {
+    "src" : 5,
+    "dest" : 31,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 5,
+    "dest" : 47,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 32,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 33,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 34,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 35,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 31,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 32,
+    "values" : {
+      "P5" : 13.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 33,
+    "values" : {
+      "P5" : 13.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 34,
+    "values" : {
+      "P5" : 13.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 35,
+    "values" : {
+      "P5" : 13.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 58,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 31,
+    "values" : {
+      "P5" : 13.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 47,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 57,
+    "dest" : 58,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 57,
+    "dest" : 47,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 12,
+    "dest" : 58,
+    "values" : {
+      "P5" : 24.0
+    }
+  }, {
+    "src" : 12,
+    "dest" : 47,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 30,
+    "dest" : 32,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 30,
+    "dest" : 33,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 30,
+    "dest" : 34,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 30,
+    "dest" : 35,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 30,
+    "dest" : 31,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 78,
+    "dest" : 85,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 78,
+    "dest" : 37,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 78,
+    "dest" : 57,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 78,
+    "dest" : 105,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 32,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 33,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 97,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 34,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 35,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 71,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 104,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 58,
+    "values" : {
+      "P5" : 52.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 76,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 47,
+    "values" : {
+      "P5" : 13.0
+    }
+  } ]
+}

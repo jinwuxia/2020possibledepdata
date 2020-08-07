@@ -1,0 +1,1030 @@
+commit 8cfcb8378684b0083eb11748f21d1bc74636cdb6
+Author: Jyothis Edathoot <jyothis@LM-BWI-00711388.corp.ebay.com>
+Date:   2013-01-18 14:04:14 -0500
+
+    Removing names that are no longer stewards
+
+0	15	stewbot/DefaultSettings.py
+
+commit 825e73824b6f065b01cf3a1a3418d7694cb38fc6
+Author: grunny <mwgrunny@gmail.com>
+Date:   2012-12-05 23:03:22 +1000
+
+    Add recent change to changelog
+
+3	0	CHANGELOG.py
+1	1	stewbot/DefaultSettings.py
+
+commit 0584f71aa550cc93dc75ecabfb5c2e7cef7bf595
+Author: grunny <mwgrunny@gmail.com>
+Date:   2012-12-03 16:30:11 +1000
+
+    Add .gitignore
+
+11	0	.gitignore
+
+commit 3432a7688b0802f3a683204f81c6189f6db21374
+Merge: 81060f1 e30440e
+Author: grunny <mwgrunny@gmail.com>
+Date:   2012-12-03 15:31:31 +1000
+
+    Merge branch 'ipv6-support'
+
+commit e30440e6dc1163bc67499844ded647bc8bffbd51
+Author: grunny <mwgrunny@gmail.com>
+Date:   2012-12-03 15:29:37 +1000
+
+    Add support for IPv6 addresses to isAddress
+    
+    Fixes #18
+
+7	1	stewbot/components/BaseClass.py
+
+commit 81060f14b7ccf1d6cb525e3d08444b9be4cbfb32
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2011-04-03 02:00:24 +0000
+
+    fix last commit
+
+2	2	stewbot/DefaultSettings.py
+
+commit 54773b83d8af6b09a6fea715e5a060e3258b0d1b
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2011-04-03 01:59:06 +0000
+
+    moved version constant into package
+
+0	1	CHANGELOG.py
+1	1	stewbot/DefaultSettings.py
+
+commit 385cc4753fe71f5fcaee83a567bcebdb53a901c5
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2011-04-02 23:51:58 +0000
+
+    bugfix: no module named irclib
+
+0	0	stewbot/components/modules/irclib/__init__.py
+
+commit 050778d2fb87e2ba0118672f95198bc731eb5e77
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2011-04-02 22:58:32 +0000
+
+    fixed config example
+
+1	1	__config__.example.py
+
+commit 156a3ab270663b8643d9b51cfc2be5f41fe5a908
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2011-04-02 22:44:22 +0000
+
+    bugfix: import errors in Python 2.6, packaged module precedence.
+
+6	2	stewbot/__init__.py
+
+commit 9a2556620979c83f858d16dbee35ebb28babc4be
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2011-04-02 19:51:30 +0000
+
+    temporary workaround for Wikimedia bug #28393
+
+4	2	CHANGELOG.py
+9	1	stewbot/components/Wikimedia.py
+
+commit eb241c083a8c83d69196b68465ddc7c8be228bf6
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2011-04-02 19:43:46 +0000
+
+    use new API modules for getGlobalDetails (merged from getGlobalRights, getGlobalAccounts, and getGlobalEdits); general cleanup.
+
+25	18	stewbot/__init__.py
+47	67	stewbot/components/Browser.py
+1	1	stewbot/components/Wikimedia.py
+
+commit f1fde255a71210e41eac8be842913c97e2c0acd1
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2011-04-02 06:40:59 +0000
+
+    general cleanup
+
+2	1	README
+4	4	__config__.example.py
+3	16	__init__.py
+
+commit 87197f06546d9c60aa2028d2845fed46d1eb3ecf
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2011-04-02 06:33:21 +0000
+
+    general cleanup
+
+3	4	CHANGELOG.py
+0	1	stewbot/DefaultSettings.py
+28	30	stewbot/__init__.py
+0	20	stewbot/components/BaseClass.py
+2	2	stewbot/components/Bash.py
+15	20	stewbot/components/Browser.py
+9	11	stewbot/components/CommandParser.py
+3	3	stewbot/components/Documentation.py
+6	3	stewbot/components/IRC.py
+17	16	stewbot/components/StrictDict.py
+2	2	stewbot/components/Wikimedia.py
+
+commit d615ed5c146865d5a888e3b642cda8dae1099715
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2011-04-02 05:46:41 +0000
+
+    new explicit package (simpler, less conflicts, more robust)
+
+6	2	CHANGELOG.py
+5	3	__init__.py
+0	60	components/Interface.py
+0	8	components/__init__.py
+0	1	components/interfaces/__init__.py
+0	70	components/modules/Formatting.py
+0	1	components/modules/__init__.py
+19	20	DefaultSettings.py => stewbot/DefaultSettings.py
+35	34	Stewardbot.py => stewbot/__init__.py
+42	39	{components => stewbot/components}/BaseClass.py
+3	4	{components => stewbot/components}/Bash.py
+26	27	{components => stewbot/components}/Browser.py
+1	1	{components => stewbot/components}/CommandParser.py
+1	1	{components => stewbot/components}/Documentation.py
+6	7	{components => stewbot/components}/IRC.py
+67	0	stewbot/components/Interface.py
+6	6	{components => stewbot/components}/LogConsole.py
+10	10	{components => stewbot/components}/LogFile.py
+5	5	{components => stewbot/components}/LogSilent.py
+0	0	{components => stewbot/components}/StrictDict.py
+3	4	{components => stewbot/components}/Wikimedia.py
+0	0	stewbot/components/__init__.py
+0	0	{components => stewbot/components}/modules/BeautifulSoup.py
+74	0	stewbot/components/modules/Formatting.py
+0	0	stewbot/components/modules/__init__.py
+0	0	{components => stewbot/components}/modules/chardet/__init__.py
+0	0	{components => stewbot/components}/modules/chardet/big5freq.py
+0	0	{components => stewbot/components}/modules/chardet/big5prober.py
+0	0	{components => stewbot/components}/modules/chardet/chardistribution.py
+0	0	{components => stewbot/components}/modules/chardet/charsetgroupprober.py
+0	0	{components => stewbot/components}/modules/chardet/charsetprober.py
+0	0	{components => stewbot/components}/modules/chardet/codingstatemachine.py
+0	0	{components => stewbot/components}/modules/chardet/constants.py
+0	0	{components => stewbot/components}/modules/chardet/escprober.py
+0	0	{components => stewbot/components}/modules/chardet/escsm.py
+0	0	{components => stewbot/components}/modules/chardet/eucjpprober.py
+0	0	{components => stewbot/components}/modules/chardet/euckrfreq.py
+0	0	{components => stewbot/components}/modules/chardet/euckrprober.py
+0	0	{components => stewbot/components}/modules/chardet/euctwfreq.py
+0	0	{components => stewbot/components}/modules/chardet/euctwprober.py
+0	0	{components => stewbot/components}/modules/chardet/gb2312freq.py
+0	0	{components => stewbot/components}/modules/chardet/gb2312prober.py
+0	0	{components => stewbot/components}/modules/chardet/hebrewprober.py
+0	0	{components => stewbot/components}/modules/chardet/jisfreq.py
+0	0	{components => stewbot/components}/modules/chardet/jpcntx.py
+0	0	{components => stewbot/components}/modules/chardet/langbulgarianmodel.py
+0	0	{components => stewbot/components}/modules/chardet/langcyrillicmodel.py
+0	0	{components => stewbot/components}/modules/chardet/langgreekmodel.py
+0	0	{components => stewbot/components}/modules/chardet/langhebrewmodel.py
+0	0	{components => stewbot/components}/modules/chardet/langhungarianmodel.py
+0	0	{components => stewbot/components}/modules/chardet/langthaimodel.py
+0	0	{components => stewbot/components}/modules/chardet/latin1prober.py
+0	0	{components => stewbot/components}/modules/chardet/mbcharsetprober.py
+0	0	{components => stewbot/components}/modules/chardet/mbcsgroupprober.py
+0	0	{components => stewbot/components}/modules/chardet/mbcssm.py
+0	0	{components => stewbot/components}/modules/chardet/sbcharsetprober.py
+0	0	{components => stewbot/components}/modules/chardet/sbcsgroupprober.py
+0	0	{components => stewbot/components}/modules/chardet/setup.py
+0	0	{components => stewbot/components}/modules/chardet/sjisprober.py
+0	0	{components => stewbot/components}/modules/chardet/test.py
+0	0	{components => stewbot/components}/modules/chardet/universaldetector.py
+0	0	{components => stewbot/components}/modules/chardet/utf8prober.py
+0	0	{components => stewbot/components}/modules/dammit.py
+0	0	{components => stewbot/components}/modules/irclib/COPYING
+0	0	{components => stewbot/components}/modules/irclib/ChangeLog
+0	0	{components => stewbot/components}/modules/irclib/Makefile
+0	0	{components => stewbot/components}/modules/irclib/README
+0	0	{components => stewbot/components}/modules/irclib/dccreceive
+0	0	{components => stewbot/components}/modules/irclib/dccsend
+0	0	{components => stewbot/components}/modules/irclib/ircbot.py
+0	0	{components => stewbot/components}/modules/irclib/irccat
+0	0	{components => stewbot/components}/modules/irclib/irccat2
+0	0	{components => stewbot/components}/modules/irclib/irclib.py
+0	0	{components => stewbot/components}/modules/irclib/python-irclib.spec
+0	0	{components => stewbot/components}/modules/irclib/servermap
+0	0	{components => stewbot/components}/modules/irclib/setup.py
+0	0	{components => stewbot/components}/modules/irclib/testbot.py
+0	0	{components => stewbot/components}/modules/mechanize/__init__.py
+0	0	{components => stewbot/components}/modules/mechanize/_auth.py
+0	0	{components => stewbot/components}/modules/mechanize/_beautifulsoup.py
+0	0	{components => stewbot/components}/modules/mechanize/_clientcookie.py
+0	0	{components => stewbot/components}/modules/mechanize/_debug.py
+0	0	{components => stewbot/components}/modules/mechanize/_firefox3cookiejar.py
+0	0	{components => stewbot/components}/modules/mechanize/_form.py
+0	0	{components => stewbot/components}/modules/mechanize/_gzip.py
+0	0	{components => stewbot/components}/modules/mechanize/_headersutil.py
+0	0	{components => stewbot/components}/modules/mechanize/_html.py
+0	0	{components => stewbot/components}/modules/mechanize/_http.py
+0	0	{components => stewbot/components}/modules/mechanize/_lwpcookiejar.py
+0	0	{components => stewbot/components}/modules/mechanize/_markupbase.py
+0	0	{components => stewbot/components}/modules/mechanize/_mechanize.py
+0	0	{components => stewbot/components}/modules/mechanize/_mozillacookiejar.py
+0	0	{components => stewbot/components}/modules/mechanize/_msiecookiejar.py
+0	0	{components => stewbot/components}/modules/mechanize/_opener.py
+0	0	{components => stewbot/components}/modules/mechanize/_pullparser.py
+0	0	{components => stewbot/components}/modules/mechanize/_request.py
+0	0	{components => stewbot/components}/modules/mechanize/_response.py
+0	0	{components => stewbot/components}/modules/mechanize/_rfc3986.py
+0	0	{components => stewbot/components}/modules/mechanize/_sgmllib_copy.py
+0	0	{components => stewbot/components}/modules/mechanize/_sockettimeout.py
+0	0	{components => stewbot/components}/modules/mechanize/_testcase.py
+0	0	{components => stewbot/components}/modules/mechanize/_urllib2.py
+0	0	{components => stewbot/components}/modules/mechanize/_urllib2_fork.py
+0	0	{components => stewbot/components}/modules/mechanize/_useragent.py
+0	0	{components => stewbot/components}/modules/mechanize/_util.py
+-	-	{components => stewbot/components}/modules/simplejson/.___init__.py
+-	-	{components => stewbot/components}/modules/simplejson/.__speedups.c
+-	-	{components => stewbot/components}/modules/simplejson/._decoder.py
+-	-	{components => stewbot/components}/modules/simplejson/._encoder.py
+-	-	{components => stewbot/components}/modules/simplejson/._ordered_dict.py
+-	-	{components => stewbot/components}/modules/simplejson/._scanner.py
+-	-	{components => stewbot/components}/modules/simplejson/._tool.py
+0	0	{components => stewbot/components}/modules/simplejson/__init__.py
+0	0	{components => stewbot/components}/modules/simplejson/_speedups.c
+0	0	{components => stewbot/components}/modules/simplejson/decoder.py
+0	0	{components => stewbot/components}/modules/simplejson/encoder.py
+0	0	{components => stewbot/components}/modules/simplejson/ordered_dict.py
+0	0	{components => stewbot/components}/modules/simplejson/scanner.py
+-	-	{components => stewbot/components}/modules/simplejson/tests/.___init__.py
+-	-	{components => stewbot/components}/modules/simplejson/tests/._test_decimal.py
+-	-	{components => stewbot/components}/modules/simplejson/tests/._test_decode.py
+-	-	{components => stewbot/components}/modules/simplejson/tests/._test_default.py
+-	-	{components => stewbot/components}/modules/simplejson/tests/._test_dump.py
+-	-	{components => stewbot/components}/modules/simplejson/tests/._test_encode_basestring_ascii.py
+-	-	{components => stewbot/components}/modules/simplejson/tests/._test_float.py
+-	-	{components => stewbot/components}/modules/simplejson/tests/._test_unicode.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/__init__.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_check_circular.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_decimal.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_decode.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_default.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_dump.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_encode_basestring_ascii.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_encode_for_html.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_fail.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_float.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_indent.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_pass1.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_pass2.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_pass3.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_recursion.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_scanstring.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_separators.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_speedups.py
+0	0	{components => stewbot/components}/modules/simplejson/tests/test_unicode.py
+0	0	{components => stewbot/components}/modules/simplejson/tool.py
+0	0	{components => stewbot}/interfaces/ILogger.py
+0	0	stewbot/interfaces/__init__.py
+
+commit 6db46741f1ba4e7aa643341d91cd4dbc8ff4c837
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2011-03-31 01:47:46 +0000
+
+    packaged interfaces for future expansion
+
+2	2	components/BaseClass.py
+2	2	components/LogConsole.py
+2	2	components/LogFile.py
+2	2	components/LogSilent.py
+2	1	components/__init__.py
+2	2	components/{ => interfaces}/ILogger.py
+1	0	components/interfaces/__init__.py
+
+commit b53b8f31345c32a6f4b120b86982a028350bcf9d
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2011-03-31 01:41:21 +0000
+
+    new configuration: toggle handling of !commit command
+
+1	0	DefaultSettings.py
+2	1	Stewardbot.py
+
+commit c6c79e0e0886e26a590f5a268fecbdcb28bce2c0
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2011-03-30 01:52:20 +0000
+
+    bugfix: Wikimedia handler assigned incorrect family to betawikiversity.
+
+5	2	CHANGELOG.py
+7	6	components/Wikimedia.py
+
+commit ce989cea4979a5b40123dc11189cc2b33e69bb76
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2011-03-01 05:14:51 +0000
+
+    fixed global edit count parsing for MW1.17wmf, added command parameter trimming.
+
+5	1	CHANGELOG.py
+1	1	components/Browser.py
+1	1	components/CommandParser.py
+
+commit 4d6689eb1a52ce2283cd500a6bf3c4ce891cf10f
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-11-20 07:14:58 +0000
+
+    revamped blockhide conflict detection, added option to hide accounts even if they have edits
+
+6	2	CHANGELOG.py
+1	1	DefaultSettings.py
+55	26	Stewardbot.py
+1	1	components/Browser.py
+
+commit 09ee3fe31b374a139e99ce6aefebccdb82808849
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-10-18 03:39:41 +0000
+
+    bumped version
+
+4	1	CHANGELOG.py
+
+commit 9fbc80b78b509064f17a660c915454d4da48c53a
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-10-18 03:37:46 +0000
+
+    Wikimedia.py: fixed handling of special *wikimedia wikis.
+
+2	2	components/Wikimedia.py
+
+commit e5154c941be5ba1b0d629101c63c96a8d15cccb4
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-08-10 00:14:58 +0000
+
+    bumped version
+
+4	1	CHANGELOG.py
+
+commit 5a8596ceaf988c77ac6bc710666615365249e2d0
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-08-10 00:13:36 +0000
+
+    override no-block list when hiding
+
+2	2	Stewardbot.py
+
+commit a3c53fdcdae53cc26b0371c4dea20d066f320bfe
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-08-08 23:37:36 +0000
+
+    bumped version
+
+5	1	CHANGELOG.py
+
+commit 6d9e8275dcc9174afc77e54aa84aae1a4155c85d
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-08-08 23:31:22 +0000
+
+    added enwikibooks exception - won't block there when \!stab'bing
+
+17	12	Stewardbot.py
+
+commit 4deeaea65cb61b24764f94ef9e9825e14c7db718
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-07-28 02:41:46 +0000
+
+    Interface.Assert() now enforces interface properties
+
+37	21	components/Interface.py
+
+commit dd3bc8998e55a7898b10b83402d5f1760bc1c368
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-07-13 04:48:51 +0000
+
+    - now raises ValueError when user is assigned multiple access levels in config;
+    - overrode StrictDict iterators to never iterate over internal __name__ item.
+
+6	2	CHANGELOG.py
+2	0	components/CommandParser.py
+23	1	components/StrictDict.py
+
+commit 152a46e1c4041d189109bf4b9dc17246fba274b3
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-07-07 23:21:53 +0000
+
+    better handle undecodable non-string objects
+
+6	2	components/modules/Formatting.py
+
+commit 7bbb46607e232346a6ac1b117628c937c8ac3c96
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-06-30 05:57:30 +0000
+
+    - BREAKING CHANGE: replaced config.debug* options for straight-to-file state
+      dumping with new config.components.exceptionLogger. The config.debug*
+      lines can be safely removed from configuration files without replacement
+      to send exceptions to ERROR_LOG.txt in the bot directory.
+    - abstracted string encoding, fixed encoding crash when logging non-latin
+      characters;
+    - simplified setting version number;
+    - simplified component file structure.
+
+12	3	CHANGELOG => CHANGELOG.py
+9	14	DefaultSettings.py
+41	34	Stewardbot.py
+0	4	__config__.example.py
+2	1	__init__.py
+172	232	components/BaseClass.py
+18	18	components/Browser.py
+1	1	components/CommandParser.py
+22	0	components/ILogger.py
+4	4	components/IRC.py
+35	57	components/Interface.py
+26	0	components/LogConsole.py
+16	2	components/{logging/FileLogger.py => LogFile.py}
+24	0	components/LogSilent.py
+1	1	components/Wikimedia.py
+5	3	components/__init__.py
+0	13	components/logging/ConsoleLogger.py
+0	10	components/logging/ILogger.py
+0	12	components/logging/SilentLogger.py
+0	0	components/logging/__init__.py
+66	0	components/modules/Formatting.py
+1	0	components/modules/__init__.py
+
+commit 19d3a5106b653424400e719b4adab0bd5abfeea1
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-06-29 05:30:19 +0000
+
+    typo
+
+3	2	CHANGELOG
+
+commit 471bc366a3fb0be6e36849232fb800197ee644ca
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-06-29 05:29:10 +0000
+
+    added stewbot versioning
+
+53	0	CHANGELOG
+1	1	DefaultSettings.py
+
+commit 5beed45c8b03986848025c3f115c1adf98350eb6
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-06-29 04:30:41 +0000
+
+    prefer packaged modules to system modules, to fix version conflicts (issue 9)
+
+2	2	components/__init__.py
+
+commit c11dcda48ae68a07f510a72d04001e83f0ed986b
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-06-29 03:59:48 +0000
+
+    improved file structure; simplified module inclusion; added configurable logging/output with new component interface pattern (messages can now be sent to console, file, or nowhere).
+
+10	6	stewardbot/DefaultSettings.py => DefaultSettings.py
+20	21	stewardbot/Stewardbot.py => Stewardbot.py
+0	0	stewardbot/__config__.example.py => __config__.example.py
+2	4	stewardbot/__init__.py => __init__.py
+17	15	{modules => components}/BaseClass.py
+6	8	{modules => components}/Bash.py
+4	10	{modules => components}/Browser.py
+3	2	{modules => components}/CommandParser.py
+2	2	{modules => components}/Documentation.py
+20	25	{modules => components}/IRC.py
+66	0	components/Interface.py
+0	0	{modules => components}/StrictDict.py
+3	5	{modules => components}/Wikimedia.py
+5	0	components/__init__.py
+13	0	components/logging/ConsoleLogger.py
+27	0	components/logging/FileLogger.py
+10	0	components/logging/ILogger.py
+12	0	components/logging/SilentLogger.py
+0	0	components/logging/__init__.py
+0	0	{modules => components/modules}/BeautifulSoup.py
+0	0	{modules => components/modules}/chardet/__init__.py
+0	0	{modules => components/modules}/chardet/big5freq.py
+0	0	{modules => components/modules}/chardet/big5prober.py
+0	0	{modules => components/modules}/chardet/chardistribution.py
+0	0	{modules => components/modules}/chardet/charsetgroupprober.py
+0	0	{modules => components/modules}/chardet/charsetprober.py
+0	0	{modules => components/modules}/chardet/codingstatemachine.py
+0	0	{modules => components/modules}/chardet/constants.py
+0	0	{modules => components/modules}/chardet/escprober.py
+0	0	{modules => components/modules}/chardet/escsm.py
+0	0	{modules => components/modules}/chardet/eucjpprober.py
+0	0	{modules => components/modules}/chardet/euckrfreq.py
+0	0	{modules => components/modules}/chardet/euckrprober.py
+0	0	{modules => components/modules}/chardet/euctwfreq.py
+0	0	{modules => components/modules}/chardet/euctwprober.py
+0	0	{modules => components/modules}/chardet/gb2312freq.py
+0	0	{modules => components/modules}/chardet/gb2312prober.py
+0	0	{modules => components/modules}/chardet/hebrewprober.py
+0	0	{modules => components/modules}/chardet/jisfreq.py
+0	0	{modules => components/modules}/chardet/jpcntx.py
+0	0	{modules => components/modules}/chardet/langbulgarianmodel.py
+0	0	{modules => components/modules}/chardet/langcyrillicmodel.py
+0	0	{modules => components/modules}/chardet/langgreekmodel.py
+0	0	{modules => components/modules}/chardet/langhebrewmodel.py
+0	0	{modules => components/modules}/chardet/langhungarianmodel.py
+0	0	{modules => components/modules}/chardet/langthaimodel.py
+0	0	{modules => components/modules}/chardet/latin1prober.py
+0	0	{modules => components/modules}/chardet/mbcharsetprober.py
+0	0	{modules => components/modules}/chardet/mbcsgroupprober.py
+0	0	{modules => components/modules}/chardet/mbcssm.py
+0	0	{modules => components/modules}/chardet/sbcharsetprober.py
+0	0	{modules => components/modules}/chardet/sbcsgroupprober.py
+0	0	{modules => components/modules}/chardet/setup.py
+0	0	{modules => components/modules}/chardet/sjisprober.py
+0	0	{modules => components/modules}/chardet/test.py
+0	0	{modules => components/modules}/chardet/universaldetector.py
+0	0	{modules => components/modules}/chardet/utf8prober.py
+0	0	{modules => components/modules}/dammit.py
+0	0	{modules => components/modules}/irclib/COPYING
+0	0	{modules => components/modules}/irclib/ChangeLog
+0	0	{modules => components/modules}/irclib/Makefile
+0	0	{modules => components/modules}/irclib/README
+0	0	{modules => components/modules}/irclib/dccreceive
+0	0	{modules => components/modules}/irclib/dccsend
+0	0	{modules => components/modules}/irclib/ircbot.py
+0	0	{modules => components/modules}/irclib/irccat
+0	0	{modules => components/modules}/irclib/irccat2
+0	0	{modules => components/modules}/irclib/irclib.py
+0	0	{modules => components/modules}/irclib/python-irclib.spec
+0	0	{modules => components/modules}/irclib/servermap
+0	0	{modules => components/modules}/irclib/setup.py
+0	0	{modules => components/modules}/irclib/testbot.py
+0	0	{modules => components/modules}/mechanize/__init__.py
+0	0	{modules => components/modules}/mechanize/_auth.py
+0	0	{modules => components/modules}/mechanize/_beautifulsoup.py
+0	0	{modules => components/modules}/mechanize/_clientcookie.py
+0	0	{modules => components/modules}/mechanize/_debug.py
+0	0	{modules => components/modules}/mechanize/_firefox3cookiejar.py
+0	0	{modules => components/modules}/mechanize/_form.py
+0	0	{modules => components/modules}/mechanize/_gzip.py
+0	0	{modules => components/modules}/mechanize/_headersutil.py
+0	0	{modules => components/modules}/mechanize/_html.py
+0	0	{modules => components/modules}/mechanize/_http.py
+0	0	{modules => components/modules}/mechanize/_lwpcookiejar.py
+0	0	{modules => components/modules}/mechanize/_markupbase.py
+0	0	{modules => components/modules}/mechanize/_mechanize.py
+0	0	{modules => components/modules}/mechanize/_mozillacookiejar.py
+0	0	{modules => components/modules}/mechanize/_msiecookiejar.py
+0	0	{modules => components/modules}/mechanize/_opener.py
+0	0	{modules => components/modules}/mechanize/_pullparser.py
+0	0	{modules => components/modules}/mechanize/_request.py
+0	0	{modules => components/modules}/mechanize/_response.py
+0	0	{modules => components/modules}/mechanize/_rfc3986.py
+0	0	{modules => components/modules}/mechanize/_sgmllib_copy.py
+0	0	{modules => components/modules}/mechanize/_sockettimeout.py
+0	0	{modules => components/modules}/mechanize/_testcase.py
+0	0	{modules => components/modules}/mechanize/_urllib2.py
+0	0	{modules => components/modules}/mechanize/_urllib2_fork.py
+0	0	{modules => components/modules}/mechanize/_useragent.py
+0	0	{modules => components/modules}/mechanize/_util.py
+-	-	{modules => components/modules}/simplejson/.___init__.py
+-	-	{modules => components/modules}/simplejson/.__speedups.c
+-	-	{modules => components/modules}/simplejson/._decoder.py
+-	-	{modules => components/modules}/simplejson/._encoder.py
+-	-	{modules => components/modules}/simplejson/._ordered_dict.py
+-	-	{modules => components/modules}/simplejson/._scanner.py
+-	-	{modules => components/modules}/simplejson/._tool.py
+0	0	{modules => components/modules}/simplejson/__init__.py
+0	0	{modules => components/modules}/simplejson/_speedups.c
+0	0	{modules => components/modules}/simplejson/decoder.py
+0	0	{modules => components/modules}/simplejson/encoder.py
+0	0	{modules => components/modules}/simplejson/ordered_dict.py
+0	0	{modules => components/modules}/simplejson/scanner.py
+-	-	{modules => components/modules}/simplejson/tests/.___init__.py
+-	-	{modules => components/modules}/simplejson/tests/._test_decimal.py
+-	-	{modules => components/modules}/simplejson/tests/._test_decode.py
+-	-	{modules => components/modules}/simplejson/tests/._test_default.py
+-	-	{modules => components/modules}/simplejson/tests/._test_dump.py
+-	-	{modules => components/modules}/simplejson/tests/._test_encode_basestring_ascii.py
+-	-	{modules => components/modules}/simplejson/tests/._test_float.py
+-	-	{modules => components/modules}/simplejson/tests/._test_unicode.py
+0	0	{modules => components/modules}/simplejson/tests/__init__.py
+0	0	{modules => components/modules}/simplejson/tests/test_check_circular.py
+0	0	{modules => components/modules}/simplejson/tests/test_decimal.py
+0	0	{modules => components/modules}/simplejson/tests/test_decode.py
+0	0	{modules => components/modules}/simplejson/tests/test_default.py
+0	0	{modules => components/modules}/simplejson/tests/test_dump.py
+0	0	{modules => components/modules}/simplejson/tests/test_encode_basestring_ascii.py
+0	0	{modules => components/modules}/simplejson/tests/test_encode_for_html.py
+0	0	{modules => components/modules}/simplejson/tests/test_fail.py
+0	0	{modules => components/modules}/simplejson/tests/test_float.py
+0	0	{modules => components/modules}/simplejson/tests/test_indent.py
+0	0	{modules => components/modules}/simplejson/tests/test_pass1.py
+0	0	{modules => components/modules}/simplejson/tests/test_pass2.py
+0	0	{modules => components/modules}/simplejson/tests/test_pass3.py
+0	0	{modules => components/modules}/simplejson/tests/test_recursion.py
+0	0	{modules => components/modules}/simplejson/tests/test_scanstring.py
+0	0	{modules => components/modules}/simplejson/tests/test_separators.py
+0	0	{modules => components/modules}/simplejson/tests/test_speedups.py
+0	0	{modules => components/modules}/simplejson/tests/test_unicode.py
+0	0	{modules => components/modules}/simplejson/tool.py
+
+commit 63b023aa7dc4f62a8de13ce99d12523823bdad6d
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-06-27 03:57:01 +0000
+
+    updated default access
+
+3	1	stewardbot/DefaultSettings.py
+
+commit 4068c75fb3cdb1059a5cb5ff42573b6f658150a3
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-05-15 17:00:49 +0000
+
+    updated CentralAuth screenscraping for interface change
+
+1	1	modules/Browser.py
+
+commit 701c9cc4d611d3818c895d89b0d8a5a5a1f01bde
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-05-15 04:25:30 +0000
+
+    added quote
+
+1	0	modules/Bash.py
+
+commit 50a490a3df316f12093487f8f04d1615e46ae264
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-05-14 01:51:54 +0000
+
+    fix !activity for enwiki
+
+3	0	stewardbot/Stewardbot.py
+
+commit 6369ea041ea93587d32571dc1636bc3701b5988d
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-30 07:48:47 +0000
+
+    randomise error messages
+
+19	0	modules/Bash.py
+1	1	stewardbot/Stewardbot.py
+
+commit 773ab90e93dc3b246022223d980b4f329231a960
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-28 00:16:51 +0000
+
+    bugfix: reblockIfChanged did nothing if reblock=false
+
+1	0	modules/Browser.py
+
+commit 9f70b59f6a56bada2ea84e4ce6277d0bbc35c226
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-18 18:24:48 +0000
+
+    Browser::centralAuth(): when hiding an account that is suppressed, silently convert hide to suppress to avoid implicitly reducing hide level
+
+8	5	modules/Browser.py
+
+commit 0fd3f4280d9680282ab9780f65367a94f947d7e3
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-18 00:46:02 +0000
+
+    Added !getblocks command; added IP support in Browser::getBlockStatus(), which now returns an array of current blocks; added Browser::getGlobalBlocks() and Browser::getCentralAuthStatus(); bugfix.
+
+99	25	modules/Browser.py
+5	4	stewardbot/DefaultSettings.py
+88	1	stewardbot/Stewardbot.py
+
+commit 44d8b938dbbb41537854bf41e4d3eac84ce84c18
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-17 22:45:38 +0000
+
+    show edit count in !stab/!stabhide output, fix double-counting of page creations that are also the top edits
+
+10	6	modules/Browser.py
+6	5	stewardbot/Stewardbot.py
+
+commit 4dacf40873df3504a71373eee12506eab835636d
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-16 03:24:46 +0000
+
+    bugfix
+
+1	1	stewardbot/Stewardbot.py
+
+commit 6909828e6597826f833cf1a18f025183d1938faf
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-15 06:58:30 +0000
+
+    correction in docs
+
+1	1	stewardbot/DefaultSettings.py
+
+commit e33cc9e300785cd802dc98c8cf9d41c622ebc591
+Merge: a2edbf1 87533d7
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-14 02:03:57 +0000
+
+    Merge branch 'master' of github.com:Pathoschild/stewbot
+
+commit a2edbf1773b333080e170f00f3ef3664fab0907e
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-14 01:52:38 +0000
+
+    bugfix
+
+1	1	stewardbot/Stewardbot.py
+
+commit 87533d795543ee9f76ff0cb40b92d1514be7dc41
+Author: Pathoschild <pathoschild+github@gmail.com>
+Date:   2010-04-12 06:42:42 -0700
+
+    default settings scheme done.
+
+1	2	README
+
+commit b7eb3f4ae860bdf65f83502b69854c3acd81702a
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-12 05:33:44 +0000
+
+    fixed StrictDict.toDict() algorithm, rm unused StrictDict.consumeDict() failQuietly parameter
+
+9	10	modules/StrictDict.py
+
+commit 7e0653b8837ffbe602e47a7f41c46634e02e6fb0
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-12 05:18:56 +0000
+
+    overhauled configuration system, now uses default settings scheme with a SrictDict object which validates user configuration
+
+2	2	modules/CommandParser.py
+104	0	modules/StrictDict.py
+231	0	stewardbot/DefaultSettings.py
+28	28	stewardbot/Stewardbot.py
+25	225	stewardbot/__config__.example.py
+8	8	stewardbot/__init__.py
+
+commit 6d2dacafffefda9450eef883bd82abd1f2508f16
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-11 19:08:40 +0000
+
+    fixed parser bug when page contains "<br/>" without standard spaces
+
+5	1	modules/Browser.py
+
+commit d6ab51587bee8a472185d0980044320c98085df9
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-11 09:16:09 +0000
+
+    updated CentralAuth scraping for MW1.16wmf4 overhaul; added globalOversight command; updated whitelist; removed unused global account deletion
+
+40	44	modules/Browser.py
+8	5	stewardbot/Stewardbot.py
+4	2	stewardbot/__config__.example.py
+
+commit 48aac13a8f11f019c4df20a2459aeb427c3a574a
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-11 09:07:07 +0000
+
+    updated mechanize (cont.)
+
+0	3401	modules/mechanize/ClientForm.py
+0	60	modules/mechanize/_file.py
+0	16	modules/mechanize/_seek.py
+0	40	modules/mechanize/_upgrade.py
+
+commit 8c1cfb368313654fae9b39d3d7297bd59da61080
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-11 08:59:32 +0000
+
+    updated mechanize
+
+82	14	modules/mechanize/__init__.py
+2	456	modules/mechanize/_auth.py
+35	38	modules/mechanize/_beautifulsoup.py
+11	16	modules/mechanize/_clientcookie.py
+1	1	modules/mechanize/_debug.py
+4	5	modules/mechanize/_firefox3cookiejar.py
+3275	0	modules/mechanize/_form.py
+4	2	modules/mechanize/_gzip.py
+30	49	modules/mechanize/_html.py
+145	456	modules/mechanize/_http.py
+1	1	modules/mechanize/_lwpcookiejar.py
+393	0	modules/mechanize/_markupbase.py
+16	20	modules/mechanize/_mechanize.py
+1	1	modules/mechanize/_msiecookiejar.py
+73	67	modules/mechanize/_opener.py
+4	3	modules/mechanize/_pullparser.py
+4	51	modules/mechanize/_request.py
+6	8	modules/mechanize/_response.py
+4	0	modules/mechanize/_rfc3986.py
+559	0	modules/mechanize/_sgmllib_copy.py
+89	1	modules/mechanize/_testcase.py
+21	26	modules/mechanize/_urllib2.py
+1418	0	modules/mechanize/_urllib2_fork.py
+24	9	modules/mechanize/_useragent.py
+
+commit 2c52b2316300eb356f7cb879a3242e9e342a1544
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-07 02:32:21 +0000
+
+    tweak documentation for new error class
+
+4	1	modules/BaseClass.py
+
+commit 6b16f7cacacf7a51e7b623b5b4ef788e87319850
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-04-07 02:29:52 +0000
+
+    Updated for security changes in MW1.15.13: https://bugzilla.wikimedia.org/show_bug.cgi?id=23076
+
+2	1	modules/BaseClass.py
+34	19	modules/Browser.py
+
+commit 2f44ae3daa8ab88078b54450e811acbe827e71a0
+Author: Grunny <grunny01@gmail.com>
+Date:   2010-03-29 03:03:12 -0700
+
+    adding ssl option
+
+7	2	modules/IRC.py
+
+commit 2cd34a64b55bac5009a88cef239c51db73beeeda
+Author: Grunny <grunny01@gmail.com>
+Date:   2010-03-29 03:02:16 -0700
+
+    adding ssl option
+
+3	2	stewardbot/Stewardbot.py
+
+commit dbeffe04a23d436aeb8e0a0e167692f88ff23fd0
+Author: Grunny <grunny01@gmail.com>
+Date:   2010-03-29 03:01:25 -0700
+
+    adding ssl option
+
+3	2	stewardbot/__config__.example.py
+
+commit b71b0e0a94c64dfab2435f5c3c34f734ac677079
+Author: Grunny <grunny01@gmail.com>
+Date:   2010-03-29 03:00:10 -0700
+
+    adding ssl option
+
+3	2	stewardbot/__init__.py
+
+commit 1daf6fcc94c832464b2c4eadfee6488396d3167e
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-03-29 05:17:28 +0000
+
+    package irclib and simplejson into /modules/
+
+510	0	modules/irclib/COPYING
+432	0	modules/irclib/ChangeLog
+42	0	modules/irclib/Makefile
+110	0	modules/irclib/README
+77	0	modules/irclib/dccreceive
+91	0	modules/irclib/dccsend
+438	0	modules/irclib/ircbot.py
+64	0	modules/irclib/irccat
+66	0	modules/irclib/irccat2
+1560	0	modules/irclib/irclib.py
+74	0	modules/irclib/python-irclib.spec
+164	0	modules/irclib/servermap
+9	0	modules/irclib/setup.py
+118	0	modules/irclib/testbot.py
+-	-	modules/simplejson/.___init__.py
+-	-	modules/simplejson/.__speedups.c
+-	-	modules/simplejson/._decoder.py
+-	-	modules/simplejson/._encoder.py
+-	-	modules/simplejson/._ordered_dict.py
+-	-	modules/simplejson/._scanner.py
+-	-	modules/simplejson/._tool.py
+437	0	modules/simplejson/__init__.py
+2560	0	modules/simplejson/_speedups.c
+421	0	modules/simplejson/decoder.py
+501	0	modules/simplejson/encoder.py
+119	0	modules/simplejson/ordered_dict.py
+77	0	modules/simplejson/scanner.py
+-	-	modules/simplejson/tests/.___init__.py
+-	-	modules/simplejson/tests/._test_decimal.py
+-	-	modules/simplejson/tests/._test_decode.py
+-	-	modules/simplejson/tests/._test_default.py
+-	-	modules/simplejson/tests/._test_dump.py
+-	-	modules/simplejson/tests/._test_encode_basestring_ascii.py
+-	-	modules/simplejson/tests/._test_float.py
+-	-	modules/simplejson/tests/._test_unicode.py
+63	0	modules/simplejson/tests/__init__.py
+30	0	modules/simplejson/tests/test_check_circular.py
+33	0	modules/simplejson/tests/test_decimal.py
+73	0	modules/simplejson/tests/test_decode.py
+9	0	modules/simplejson/tests/test_default.py
+27	0	modules/simplejson/tests/test_dump.py
+41	0	modules/simplejson/tests/test_encode_basestring_ascii.py
+32	0	modules/simplejson/tests/test_encode_for_html.py
+91	0	modules/simplejson/tests/test_fail.py
+19	0	modules/simplejson/tests/test_float.py
+53	0	modules/simplejson/tests/test_indent.py
+76	0	modules/simplejson/tests/test_pass1.py
+14	0	modules/simplejson/tests/test_pass2.py
+20	0	modules/simplejson/tests/test_pass3.py
+67	0	modules/simplejson/tests/test_recursion.py
+117	0	modules/simplejson/tests/test_scanstring.py
+42	0	modules/simplejson/tests/test_separators.py
+14	0	modules/simplejson/tests/test_speedups.py
+99	0	modules/simplejson/tests/test_unicode.py
+39	0	modules/simplejson/tool.py
+
+commit 7761e750fb6221a948b6b0e4868f40aaecb741fd
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-03-28 08:50:03 +0000
+
+    updated default whitelist
+
+3	6	stewardbot/__config__.example.py
+
+commit 2769885eeace0e436bc6fab455457d64eb2b2834
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-03-28 01:04:04 +0000
+
+    fix issue #5: commands can be queued for !commit even if they're configured as uncommittable
+
+2	1	stewardbot/Stewardbot.py
+
+commit 5055a692a47aa46b18690ea7f98db5c7d751d077
+Author: Jesse Plamondon-Willard <pathoschild+github@gmail.com>
+Date:   2010-03-27 03:09:21 +0000
+
+    initial commit
+
+13	0	LICENSE
+9	0	README
+305	0	modules/BaseClass.py
+202	0	modules/Bash.py
+2000	0	modules/BeautifulSoup.py
+1093	0	modules/Browser.py
+384	0	modules/CommandParser.py
+95	0	modules/Documentation.py
+241	0	modules/IRC.py
+181	0	modules/Wikimedia.py
+26	0	modules/chardet/__init__.py
+923	0	modules/chardet/big5freq.py
+41	0	modules/chardet/big5prober.py
+200	0	modules/chardet/chardistribution.py
+96	0	modules/chardet/charsetgroupprober.py
+60	0	modules/chardet/charsetprober.py
+56	0	modules/chardet/codingstatemachine.py
+47	0	modules/chardet/constants.py
+79	0	modules/chardet/escprober.py
+240	0	modules/chardet/escsm.py
+85	0	modules/chardet/eucjpprober.py
+594	0	modules/chardet/euckrfreq.py
+41	0	modules/chardet/euckrprober.py
+426	0	modules/chardet/euctwfreq.py
+41	0	modules/chardet/euctwprober.py
+471	0	modules/chardet/gb2312freq.py
+41	0	modules/chardet/gb2312prober.py
+269	0	modules/chardet/hebrewprober.py
+567	0	modules/chardet/jisfreq.py
+210	0	modules/chardet/jpcntx.py
+228	0	modules/chardet/langbulgarianmodel.py
+329	0	modules/chardet/langcyrillicmodel.py
+225	0	modules/chardet/langgreekmodel.py
+201	0	modules/chardet/langhebrewmodel.py
+225	0	modules/chardet/langhungarianmodel.py
+200	0	modules/chardet/langthaimodel.py
+136	0	modules/chardet/latin1prober.py
+82	0	modules/chardet/mbcharsetprober.py
+50	0	modules/chardet/mbcsgroupprober.py
+514	0	modules/chardet/mbcssm.py
+106	0	modules/chardet/sbcharsetprober.py
+64	0	modules/chardet/sbcsgroupprober.py
+52	0	modules/chardet/setup.py
+85	0	modules/chardet/sjisprober.py
+21	0	modules/chardet/test.py
+154	0	modules/chardet/universaldetector.py
+76	0	modules/chardet/utf8prober.py
+292	0	modules/dammit.py
+3401	0	modules/mechanize/ClientForm.py
+140	0	modules/mechanize/__init__.py
+522	0	modules/mechanize/_auth.py
+1080	0	modules/mechanize/_beautifulsoup.py
+1707	0	modules/mechanize/_clientcookie.py
+28	0	modules/mechanize/_debug.py
+60	0	modules/mechanize/_file.py
+249	0	modules/mechanize/_firefox3cookiejar.py
+103	0	modules/mechanize/_gzip.py
+232	0	modules/mechanize/_headersutil.py
+631	0	modules/mechanize/_html.py
+758	0	modules/mechanize/_http.py
+185	0	modules/mechanize/_lwpcookiejar.py
+676	0	modules/mechanize/_mechanize.py
+161	0	modules/mechanize/_mozillacookiejar.py
+388	0	modules/mechanize/_msiecookiejar.py
+436	0	modules/mechanize/_opener.py
+390	0	modules/mechanize/_pullparser.py
+87	0	modules/mechanize/_request.py
+527	0	modules/mechanize/_response.py
+241	0	modules/mechanize/_rfc3986.py
+16	0	modules/mechanize/_seek.py
+6	0	modules/mechanize/_sockettimeout.py
+73	0	modules/mechanize/_testcase.py
+40	0	modules/mechanize/_upgrade.py
+55	0	modules/mechanize/_urllib2.py
+352	0	modules/mechanize/_useragent.py
+291	0	modules/mechanize/_util.py
+1296	0	stewardbot/Stewardbot.py
+225	0	stewardbot/__config__.example.py
+31	0	stewardbot/__init__.py

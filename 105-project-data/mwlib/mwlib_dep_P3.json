@@ -1,0 +1,414 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "mwlib\\mwlib-sdsm",
+  "variables" : [ "mwlib/conftest.py", "mwlib/docs/conf.py", "mwlib/mwlib/advtree.py", "mwlib/mwlib/allnodes.py", "mwlib/mwlib/apps/buildzip.py", "mwlib/mwlib/apps/client.py", "mwlib/mwlib/apps/make_nuwiki.py", "mwlib/mwlib/apps/render.py", "mwlib/mwlib/apps/serve.py", "mwlib/mwlib/apps/__init__.py", "mwlib/mwlib/argv.py", "mwlib/mwlib/async/__init__.py", "mwlib/mwlib/authors.py", "mwlib/mwlib/bookshelf.py", "mwlib/mwlib/caller.py", "mwlib/mwlib/client.py", "mwlib/mwlib/conf.py", "mwlib/mwlib/dummydb.py", "mwlib/mwlib/dumpparser.py", "mwlib/mwlib/expander.py", "mwlib/mwlib/expr.py", "mwlib/mwlib/filequeue.py", "mwlib/mwlib/htmlcolornames.py", "mwlib/mwlib/imgmap.py", "mwlib/mwlib/infobox_magic.py", "mwlib/mwlib/l10n.py", "mwlib/mwlib/linuxmem.py", "mwlib/mwlib/log.py", "mwlib/mwlib/lrucache.py", "mwlib/mwlib/main_trampoline.py", "mwlib/mwlib/mathml.py", "mwlib/mwlib/mathutils.py", "mwlib/mwlib/metabook.py", "mwlib/mwlib/myjson.py", "mwlib/mwlib/net/fetch.py", "mwlib/mwlib/net/sapi.py", "mwlib/mwlib/net/__init__.py", "mwlib/mwlib/nserve.py", "mwlib/mwlib/nshandling.py", "mwlib/mwlib/nslave.py", "mwlib/mwlib/nuwiki.py", "mwlib/mwlib/odfconf.py", "mwlib/mwlib/odfstyles.py", "mwlib/mwlib/odfwriter.py", "mwlib/mwlib/old_uparser.py", "mwlib/mwlib/options.py", "mwlib/mwlib/parser/nodes.py", "mwlib/mwlib/parser/styleanalyzer.py", "mwlib/mwlib/parser/__init__.py", "mwlib/mwlib/parse_collection_page.py", "mwlib/mwlib/podclient.py", "mwlib/mwlib/postman.py", "mwlib/mwlib/refine/compat.py", "mwlib/mwlib/refine/core.py", "mwlib/mwlib/refine/parse_table.py", "mwlib/mwlib/refine/tagparser.py", "mwlib/mwlib/refine/uparser.py", "mwlib/mwlib/refine/util.py", "mwlib/mwlib/refine/__init__.py", "mwlib/mwlib/sanitychecker.py", "mwlib/mwlib/serve.py", "mwlib/mwlib/siteinfo/fetch_siteinfo.py", "mwlib/mwlib/siteinfo/__init__.py", "mwlib/mwlib/snippets.py", "mwlib/mwlib/status.py", "mwlib/mwlib/strftime.py", "mwlib/mwlib/tagext.py", "mwlib/mwlib/templ/evaluate.py", "mwlib/mwlib/templ/magics.py", "mwlib/mwlib/templ/magic_nodes.py", "mwlib/mwlib/templ/magic_time.py", "mwlib/mwlib/templ/marks.py", "mwlib/mwlib/templ/misc.py", "mwlib/mwlib/templ/mwlocals.py", "mwlib/mwlib/templ/nodes.py", "mwlib/mwlib/templ/parser.py", "mwlib/mwlib/templ/pp.py", "mwlib/mwlib/templ/scanner.py", "mwlib/mwlib/templ/__init__.py", "mwlib/mwlib/timeline.py", "mwlib/mwlib/treecleaner.py", "mwlib/mwlib/treecleanerhelper.py", "mwlib/mwlib/trustedrevs.py", "mwlib/mwlib/uniq.py", "mwlib/mwlib/uparser.py", "mwlib/mwlib/utils.py", "mwlib/mwlib/utoken.py", "mwlib/mwlib/wiki.py", "mwlib/mwlib/writer/fontswitcher.py", "mwlib/mwlib/writer/formatter.py", "mwlib/mwlib/writer/imageutils.py", "mwlib/mwlib/writer/licensechecker.py", "mwlib/mwlib/writer/miscutils.py", "mwlib/mwlib/writer/styleutils.py", "mwlib/mwlib/writer/__init__.py", "mwlib/mwlib/writerbase.py", "mwlib/mwlib/_conf.py", "mwlib/mwlib/_locale.py", "mwlib/mwlib/_version.py", "mwlib/mwlib/__init__.py", "mwlib/sandbox/anywikisampler.py", "mwlib/sandbox/bigswitch.py", "mwlib/sandbox/citeweb.py", "mwlib/sandbox/multicoll.py", "mwlib/sandbox/mw-serve-stresser.py", "mwlib/sandbox/time-expr.py", "mwlib/sandbox/time-parse.py", "mwlib/setup.py", "mwlib/tests/memeater.py", "mwlib/tests/test_advtree.py", "mwlib/tests/test_async_import.py", "mwlib/tests/test_authors.py", "mwlib/tests/test_convert_templates.py", "mwlib/tests/test_ebad.py", "mwlib/tests/test_expander.py", "mwlib/tests/test_expander_parser.py", "mwlib/tests/test_expander_time.py", "mwlib/tests/test_expr.py", "mwlib/tests/test_iferror_rx.py", "mwlib/tests/test_imgmap.py", "mwlib/tests/test_math_utils.py", "mwlib/tests/test_metabook.py", "mwlib/tests/test_miscutils.py", "mwlib/tests/test_mwscan.py", "mwlib/tests/test_nserve.py", "mwlib/tests/test_nshandling.py", "mwlib/tests/test_nuwiki.py", "mwlib/tests/test_odfwriter.py", "mwlib/tests/test_parser.py", "mwlib/tests/test_parse_params.py", "mwlib/tests/test_purge_cache.py", "mwlib/tests/test_redirect.py", "mwlib/tests/test_refine.py", "mwlib/tests/test_render.py", "mwlib/tests/test_sanitychecker.py", "mwlib/tests/test_serve.py", "mwlib/tests/test_styleanalyzer.py", "mwlib/tests/test_styleutils.py", "mwlib/tests/test_table.py", "mwlib/tests/test_tagext.py", "mwlib/tests/test_templ_parser.py", "mwlib/tests/test_templ_pp.py", "mwlib/tests/test_timeline.py", "mwlib/tests/test_treecleaner.py", "mwlib/tests/test_uniq.py", "mwlib/tests/test_utils.py", "mwlib/tests/test_writerutils.py", "mwlib/tests/test_zipwiki.py", "mwlib/tools/set-interwiki.py" ],
+  "cells" : [ {
+    "src" : 32,
+    "dest" : 34,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 91,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 2,
+    "dest" : 86,
+    "values" : {
+      "P3" : 9.0
+    }
+  }, {
+    "src" : 2,
+    "dest" : 46,
+    "values" : {
+      "P3" : 18.0
+    }
+  }, {
+    "src" : 34,
+    "dest" : 32,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 34,
+    "dest" : 35,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 34,
+    "dest" : 100,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 4,
+    "dest" : 87,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 4,
+    "dest" : 40,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 4,
+    "dest" : 45,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 34,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 87,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 40,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 132,
+    "dest" : 34,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 132,
+    "dest" : 53,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 132,
+    "dest" : 40,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 32,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 34,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 87,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 40,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 91,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 32,
+    "values" : {
+      "P3" : 12.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 38,
+    "values" : {
+      "P3" : 12.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 43,
+    "values" : {
+      "P3" : 12.0
+    }
+  }, {
+    "src" : 40,
+    "dest" : 34,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 40,
+    "dest" : 87,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 104,
+    "dest" : 32,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 104,
+    "dest" : 35,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 104,
+    "dest" : 100,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 18,
+    "values" : {
+      "P3" : 9.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 86,
+    "values" : {
+      "P3" : 9.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 87,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 40,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 45,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 140,
+    "dest" : 66,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 140,
+    "dest" : 57,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 140,
+    "dest" : 75,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 45,
+    "dest" : 32,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 45,
+    "dest" : 34,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 45,
+    "dest" : 91,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 34,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 87,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 40,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 83,
+    "dest" : 75,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 83,
+    "dest" : 77,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 83,
+    "dest" : 63,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 18,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 34,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 53,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 86,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 40,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 43,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 66,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 34,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 54,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 40,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 57,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 75,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 32,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 34,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 40,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 91,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 45,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 56,
+    "dest" : 32,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 56,
+    "dest" : 38,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 56,
+    "dest" : 43,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 95,
+    "dest" : 40,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 95,
+    "dest" : 12,
+    "values" : {
+      "P3" : 1.0
+    }
+  } ]
+}

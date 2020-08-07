@@ -1,0 +1,312 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "softlayer-python\\softlayer-python-sdsm",
+  "variables" : [ "softlayer-python/docs/conf.py", "softlayer-python/fabfile.py", "softlayer-python/setup.py", "softlayer-python/SoftLayer/API.py", "softlayer-python/SoftLayer/auth.py", "softlayer-python/SoftLayer/CLI/block/access/authorize.py", "softlayer-python/SoftLayer/CLI/block/access/list.py", "softlayer-python/SoftLayer/CLI/block/access/password.py", "softlayer-python/SoftLayer/CLI/block/access/revoke.py", "softlayer-python/SoftLayer/CLI/block/access/__init__.py", "softlayer-python/SoftLayer/CLI/block/cancel.py", "softlayer-python/SoftLayer/CLI/block/count.py", "softlayer-python/SoftLayer/CLI/block/detail.py", "softlayer-python/SoftLayer/CLI/block/duplicate.py", "softlayer-python/SoftLayer/CLI/block/list.py", "softlayer-python/SoftLayer/CLI/block/lun.py", "softlayer-python/SoftLayer/CLI/block/modify.py", "softlayer-python/SoftLayer/CLI/block/order.py", "softlayer-python/SoftLayer/CLI/block/replication/failback.py", "softlayer-python/SoftLayer/CLI/block/replication/failover.py", "softlayer-python/SoftLayer/CLI/block/replication/locations.py", "softlayer-python/SoftLayer/CLI/block/replication/order.py", "softlayer-python/SoftLayer/CLI/block/replication/partners.py", "softlayer-python/SoftLayer/CLI/block/replication/__init__.py", "softlayer-python/SoftLayer/CLI/block/snapshot/cancel.py", "softlayer-python/SoftLayer/CLI/block/snapshot/create.py", "softlayer-python/SoftLayer/CLI/block/snapshot/delete.py", "softlayer-python/SoftLayer/CLI/block/snapshot/disable.py", "softlayer-python/SoftLayer/CLI/block/snapshot/enable.py", "softlayer-python/SoftLayer/CLI/block/snapshot/list.py", "softlayer-python/SoftLayer/CLI/block/snapshot/order.py", "softlayer-python/SoftLayer/CLI/block/snapshot/restore.py", "softlayer-python/SoftLayer/CLI/block/snapshot/schedule_list.py", "softlayer-python/SoftLayer/CLI/block/snapshot/__init__.py", "softlayer-python/SoftLayer/CLI/block/__init__.py", "softlayer-python/SoftLayer/CLI/call_api.py", "softlayer-python/SoftLayer/CLI/cdn/detail.py", "softlayer-python/SoftLayer/CLI/cdn/list.py", "softlayer-python/SoftLayer/CLI/cdn/load.py", "softlayer-python/SoftLayer/CLI/cdn/origin_add.py", "softlayer-python/SoftLayer/CLI/cdn/origin_list.py", "softlayer-python/SoftLayer/CLI/cdn/origin_remove.py", "softlayer-python/SoftLayer/CLI/cdn/purge.py", "softlayer-python/SoftLayer/CLI/cdn/__init__.py", "softlayer-python/SoftLayer/CLI/columns.py", "softlayer-python/SoftLayer/CLI/config/setup.py", "softlayer-python/SoftLayer/CLI/config/show.py", "softlayer-python/SoftLayer/CLI/config/__init__.py", "softlayer-python/SoftLayer/CLI/core.py", "softlayer-python/SoftLayer/CLI/custom_types.py", "softlayer-python/SoftLayer/CLI/dedicatedhost/cancel.py", "softlayer-python/SoftLayer/CLI/dedicatedhost/cancel_guests.py", "softlayer-python/SoftLayer/CLI/dedicatedhost/create.py", "softlayer-python/SoftLayer/CLI/dedicatedhost/create_options.py", "softlayer-python/SoftLayer/CLI/dedicatedhost/detail.py", "softlayer-python/SoftLayer/CLI/dedicatedhost/list.py", "softlayer-python/SoftLayer/CLI/dedicatedhost/list_guests.py", "softlayer-python/SoftLayer/CLI/dedicatedhost/__init__.py", "softlayer-python/SoftLayer/CLI/deprecated.py", "softlayer-python/SoftLayer/CLI/dns/record_add.py", "softlayer-python/SoftLayer/CLI/dns/record_edit.py", "softlayer-python/SoftLayer/CLI/dns/record_list.py", "softlayer-python/SoftLayer/CLI/dns/record_remove.py", "softlayer-python/SoftLayer/CLI/dns/zone_create.py", "softlayer-python/SoftLayer/CLI/dns/zone_delete.py", "softlayer-python/SoftLayer/CLI/dns/zone_import.py", "softlayer-python/SoftLayer/CLI/dns/zone_list.py", "softlayer-python/SoftLayer/CLI/dns/zone_print.py", "softlayer-python/SoftLayer/CLI/dns/__init__.py", "softlayer-python/SoftLayer/CLI/environment.py", "softlayer-python/SoftLayer/CLI/event_log/get.py", "softlayer-python/SoftLayer/CLI/event_log/types.py", "softlayer-python/SoftLayer/CLI/event_log/__init__.py", "softlayer-python/SoftLayer/CLI/exceptions.py", "softlayer-python/SoftLayer/CLI/file/access/authorize.py", "softlayer-python/SoftLayer/CLI/file/access/list.py", "softlayer-python/SoftLayer/CLI/file/access/revoke.py", "softlayer-python/SoftLayer/CLI/file/access/__init__.py", "softlayer-python/SoftLayer/CLI/file/cancel.py", "softlayer-python/SoftLayer/CLI/file/count.py", "softlayer-python/SoftLayer/CLI/file/detail.py", "softlayer-python/SoftLayer/CLI/file/duplicate.py", "softlayer-python/SoftLayer/CLI/file/list.py", "softlayer-python/SoftLayer/CLI/file/modify.py", "softlayer-python/SoftLayer/CLI/file/order.py", "softlayer-python/SoftLayer/CLI/file/replication/failback.py", "softlayer-python/SoftLayer/CLI/file/replication/failover.py", "softlayer-python/SoftLayer/CLI/file/replication/locations.py", "softlayer-python/SoftLayer/CLI/file/replication/order.py", "softlayer-python/SoftLayer/CLI/file/replication/partners.py", "softlayer-python/SoftLayer/CLI/file/replication/__init__.py", "softlayer-python/SoftLayer/CLI/file/snapshot/cancel.py", "softlayer-python/SoftLayer/CLI/file/snapshot/create.py", "softlayer-python/SoftLayer/CLI/file/snapshot/delete.py", "softlayer-python/SoftLayer/CLI/file/snapshot/disable.py", "softlayer-python/SoftLayer/CLI/file/snapshot/enable.py", "softlayer-python/SoftLayer/CLI/file/snapshot/list.py", "softlayer-python/SoftLayer/CLI/file/snapshot/order.py", "softlayer-python/SoftLayer/CLI/file/snapshot/restore.py", "softlayer-python/SoftLayer/CLI/file/snapshot/schedule_list.py", "softlayer-python/SoftLayer/CLI/file/snapshot/__init__.py", "softlayer-python/SoftLayer/CLI/file/__init__.py", "softlayer-python/SoftLayer/CLI/firewall/add.py", "softlayer-python/SoftLayer/CLI/firewall/cancel.py", "softlayer-python/SoftLayer/CLI/firewall/detail.py", "softlayer-python/SoftLayer/CLI/firewall/edit.py", "softlayer-python/SoftLayer/CLI/firewall/list.py", "softlayer-python/SoftLayer/CLI/firewall/__init__.py", "softlayer-python/SoftLayer/CLI/formatting.py", "softlayer-python/SoftLayer/CLI/globalip/assign.py", "softlayer-python/SoftLayer/CLI/globalip/cancel.py", "softlayer-python/SoftLayer/CLI/globalip/create.py", "softlayer-python/SoftLayer/CLI/globalip/list.py", "softlayer-python/SoftLayer/CLI/globalip/unassign.py", "softlayer-python/SoftLayer/CLI/globalip/__init__.py", "softlayer-python/SoftLayer/CLI/hardware/cancel.py", "softlayer-python/SoftLayer/CLI/hardware/cancel_reasons.py", "softlayer-python/SoftLayer/CLI/hardware/create.py", "softlayer-python/SoftLayer/CLI/hardware/create_options.py", "softlayer-python/SoftLayer/CLI/hardware/credentials.py", "softlayer-python/SoftLayer/CLI/hardware/detail.py", "softlayer-python/SoftLayer/CLI/hardware/edit.py", "softlayer-python/SoftLayer/CLI/hardware/list.py", "softlayer-python/SoftLayer/CLI/hardware/power.py", "softlayer-python/SoftLayer/CLI/hardware/ready.py", "softlayer-python/SoftLayer/CLI/hardware/reflash_firmware.py", "softlayer-python/SoftLayer/CLI/hardware/reload.py", "softlayer-python/SoftLayer/CLI/hardware/toggle_ipmi.py", "softlayer-python/SoftLayer/CLI/hardware/update_firmware.py", "softlayer-python/SoftLayer/CLI/hardware/__init__.py", "softlayer-python/SoftLayer/CLI/helpers.py", "softlayer-python/SoftLayer/CLI/image/delete.py", "softlayer-python/SoftLayer/CLI/image/detail.py", "softlayer-python/SoftLayer/CLI/image/edit.py", "softlayer-python/SoftLayer/CLI/image/export.py", "softlayer-python/SoftLayer/CLI/image/import.py", "softlayer-python/SoftLayer/CLI/image/list.py", "softlayer-python/SoftLayer/CLI/image/__init__.py", "softlayer-python/SoftLayer/CLI/loadbal/cancel.py", "softlayer-python/SoftLayer/CLI/loadbal/create.py", "softlayer-python/SoftLayer/CLI/loadbal/create_options.py", "softlayer-python/SoftLayer/CLI/loadbal/detail.py", "softlayer-python/SoftLayer/CLI/loadbal/group_add.py", "softlayer-python/SoftLayer/CLI/loadbal/group_delete.py", "softlayer-python/SoftLayer/CLI/loadbal/group_edit.py", "softlayer-python/SoftLayer/CLI/loadbal/group_reset.py", "softlayer-python/SoftLayer/CLI/loadbal/health_checks.py", "softlayer-python/SoftLayer/CLI/loadbal/list.py", "softlayer-python/SoftLayer/CLI/loadbal/routing_methods.py", "softlayer-python/SoftLayer/CLI/loadbal/routing_types.py", "softlayer-python/SoftLayer/CLI/loadbal/service_add.py", "softlayer-python/SoftLayer/CLI/loadbal/service_delete.py", "softlayer-python/SoftLayer/CLI/loadbal/service_edit.py", "softlayer-python/SoftLayer/CLI/loadbal/service_toggle.py", "softlayer-python/SoftLayer/CLI/loadbal/__init__.py", "softlayer-python/SoftLayer/CLI/metadata.py", "softlayer-python/SoftLayer/CLI/nas/credentials.py", "softlayer-python/SoftLayer/CLI/nas/list.py", "softlayer-python/SoftLayer/CLI/nas/__init__.py", "softlayer-python/SoftLayer/CLI/object_storage/list_accounts.py", "softlayer-python/SoftLayer/CLI/object_storage/list_endpoints.py", "softlayer-python/SoftLayer/CLI/object_storage/__init__.py", "softlayer-python/SoftLayer/CLI/order/category_list.py", "softlayer-python/SoftLayer/CLI/order/item_list.py", "softlayer-python/SoftLayer/CLI/order/package_list.py", "softlayer-python/SoftLayer/CLI/order/package_locations.py", "softlayer-python/SoftLayer/CLI/order/place.py", "softlayer-python/SoftLayer/CLI/order/place_quote.py", "softlayer-python/SoftLayer/CLI/order/preset_list.py", "softlayer-python/SoftLayer/CLI/order/__init__.py", "softlayer-python/SoftLayer/CLI/report/bandwidth.py", "softlayer-python/SoftLayer/CLI/report/__init__.py", "softlayer-python/SoftLayer/CLI/routes.py", "softlayer-python/SoftLayer/CLI/rwhois/edit.py", "softlayer-python/SoftLayer/CLI/rwhois/show.py", "softlayer-python/SoftLayer/CLI/rwhois/__init__.py", "softlayer-python/SoftLayer/CLI/securitygroup/create.py", "softlayer-python/SoftLayer/CLI/securitygroup/delete.py", "softlayer-python/SoftLayer/CLI/securitygroup/detail.py", "softlayer-python/SoftLayer/CLI/securitygroup/edit.py", "softlayer-python/SoftLayer/CLI/securitygroup/event_log.py", "softlayer-python/SoftLayer/CLI/securitygroup/interface.py", "softlayer-python/SoftLayer/CLI/securitygroup/list.py", "softlayer-python/SoftLayer/CLI/securitygroup/rule.py", "softlayer-python/SoftLayer/CLI/securitygroup/__init__.py", "softlayer-python/SoftLayer/CLI/sshkey/add.py", "softlayer-python/SoftLayer/CLI/sshkey/edit.py", "softlayer-python/SoftLayer/CLI/sshkey/list.py", "softlayer-python/SoftLayer/CLI/sshkey/print.py", "softlayer-python/SoftLayer/CLI/sshkey/remove.py", "softlayer-python/SoftLayer/CLI/sshkey/__init__.py", "softlayer-python/SoftLayer/CLI/ssl/add.py", "softlayer-python/SoftLayer/CLI/ssl/download.py", "softlayer-python/SoftLayer/CLI/ssl/edit.py", "softlayer-python/SoftLayer/CLI/ssl/list.py", "softlayer-python/SoftLayer/CLI/ssl/remove.py", "softlayer-python/SoftLayer/CLI/ssl/__init__.py", "softlayer-python/SoftLayer/CLI/storage_utils.py", "softlayer-python/SoftLayer/CLI/subnet/cancel.py", "softlayer-python/SoftLayer/CLI/subnet/create.py", "softlayer-python/SoftLayer/CLI/subnet/detail.py", "softlayer-python/SoftLayer/CLI/subnet/list.py", "softlayer-python/SoftLayer/CLI/subnet/lookup.py", "softlayer-python/SoftLayer/CLI/subnet/__init__.py", "softlayer-python/SoftLayer/CLI/summary.py", "softlayer-python/SoftLayer/CLI/template.py", "softlayer-python/SoftLayer/CLI/ticket/attach.py", "softlayer-python/SoftLayer/CLI/ticket/create.py", "softlayer-python/SoftLayer/CLI/ticket/detach.py", "softlayer-python/SoftLayer/CLI/ticket/detail.py", "softlayer-python/SoftLayer/CLI/ticket/list.py", "softlayer-python/SoftLayer/CLI/ticket/subjects.py", "softlayer-python/SoftLayer/CLI/ticket/summary.py", "softlayer-python/SoftLayer/CLI/ticket/update.py", "softlayer-python/SoftLayer/CLI/ticket/upload.py", "softlayer-python/SoftLayer/CLI/ticket/__init__.py", "softlayer-python/SoftLayer/CLI/user/create.py", "softlayer-python/SoftLayer/CLI/user/delete.py", "softlayer-python/SoftLayer/CLI/user/detail.py", "softlayer-python/SoftLayer/CLI/user/edit_details.py", "softlayer-python/SoftLayer/CLI/user/edit_permissions.py", "softlayer-python/SoftLayer/CLI/user/list.py", "softlayer-python/SoftLayer/CLI/user/permissions.py", "softlayer-python/SoftLayer/CLI/user/__init__.py", "softlayer-python/SoftLayer/CLI/virt/cancel.py", "softlayer-python/SoftLayer/CLI/virt/capacity/create.py", "softlayer-python/SoftLayer/CLI/virt/capacity/create_guest.py", "softlayer-python/SoftLayer/CLI/virt/capacity/create_options.py", "softlayer-python/SoftLayer/CLI/virt/capacity/detail.py", "softlayer-python/SoftLayer/CLI/virt/capacity/list.py", "softlayer-python/SoftLayer/CLI/virt/capacity/__init__.py", "softlayer-python/SoftLayer/CLI/virt/capture.py", "softlayer-python/SoftLayer/CLI/virt/create.py", "softlayer-python/SoftLayer/CLI/virt/create_options.py", "softlayer-python/SoftLayer/CLI/virt/credentials.py", "softlayer-python/SoftLayer/CLI/virt/detail.py", "softlayer-python/SoftLayer/CLI/virt/dns.py", "softlayer-python/SoftLayer/CLI/virt/edit.py", "softlayer-python/SoftLayer/CLI/virt/list.py", "softlayer-python/SoftLayer/CLI/virt/placementgroup/create.py", "softlayer-python/SoftLayer/CLI/virt/placementgroup/create_options.py", "softlayer-python/SoftLayer/CLI/virt/placementgroup/delete.py", "softlayer-python/SoftLayer/CLI/virt/placementgroup/detail.py", "softlayer-python/SoftLayer/CLI/virt/placementgroup/list.py", "softlayer-python/SoftLayer/CLI/virt/placementgroup/__init__.py", "softlayer-python/SoftLayer/CLI/virt/power.py", "softlayer-python/SoftLayer/CLI/virt/ready.py", "softlayer-python/SoftLayer/CLI/virt/reload.py", "softlayer-python/SoftLayer/CLI/virt/upgrade.py", "softlayer-python/SoftLayer/CLI/virt/__init__.py", "softlayer-python/SoftLayer/CLI/vlan/detail.py", "softlayer-python/SoftLayer/CLI/vlan/list.py", "softlayer-python/SoftLayer/CLI/vlan/__init__.py", "softlayer-python/SoftLayer/CLI/vpn/ipsec/configure.py", "softlayer-python/SoftLayer/CLI/vpn/ipsec/detail.py", "softlayer-python/SoftLayer/CLI/vpn/ipsec/list.py", "softlayer-python/SoftLayer/CLI/vpn/ipsec/subnet/add.py", "softlayer-python/SoftLayer/CLI/vpn/ipsec/subnet/remove.py", "softlayer-python/SoftLayer/CLI/vpn/ipsec/subnet/__init__.py", "softlayer-python/SoftLayer/CLI/vpn/ipsec/translation/add.py", "softlayer-python/SoftLayer/CLI/vpn/ipsec/translation/remove.py", "softlayer-python/SoftLayer/CLI/vpn/ipsec/translation/update.py", "softlayer-python/SoftLayer/CLI/vpn/ipsec/translation/__init__.py", "softlayer-python/SoftLayer/CLI/vpn/ipsec/update.py", "softlayer-python/SoftLayer/CLI/vpn/ipsec/__init__.py", "softlayer-python/SoftLayer/CLI/vpn/__init__.py", "softlayer-python/SoftLayer/CLI/__init__.py", "softlayer-python/SoftLayer/config.py", "softlayer-python/SoftLayer/consts.py", "softlayer-python/SoftLayer/decoration.py", "softlayer-python/SoftLayer/exceptions.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Account.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Billing_Item.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Billing_Order_Quote.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Dns_Domain.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Dns_Domain_ResourceRecord.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Event_Log.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Hardware_Server.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Location.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Health_Check_Type.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Routing_Method.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Routing_Type.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_Service_Group.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_VirtualIpAddress.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Application_Delivery_Controller_LoadBalancer_VirtualServer.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Component_Firewall.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_ContentDelivery_Account.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Firewall_Update_Request.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Pod.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_SecurityGroup.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Storage.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Storage_Allowed_Host.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Subnet.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Subnet_IpAddress.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Subnet_IpAddress_Global.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Subnet_Rwhois_Data.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Vlan.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Network_Vlan_Firewall.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Product_Order.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Product_Package.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Product_Package_Preset.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Resource_Metadata.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Security_Certificate.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Security_Ssh_Key.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Ticket.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Ticket_Subject.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_User_Customer.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_User_Customer_CustomerPermission_Permission.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Virtual_DedicatedHost.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Virtual_Guest.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Virtual_Guest_Block_Device_Template_Group.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Virtual_PlacementGroup.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Virtual_PlacementGroup_Rule.py", "softlayer-python/SoftLayer/fixtures/SoftLayer_Virtual_ReservedCapacityGroup.py", "softlayer-python/SoftLayer/fixtures/__init__.py", "softlayer-python/SoftLayer/managers/block.py", "softlayer-python/SoftLayer/managers/cdn.py", "softlayer-python/SoftLayer/managers/dedicated_host.py", "softlayer-python/SoftLayer/managers/dns.py", "softlayer-python/SoftLayer/managers/event_log.py", "softlayer-python/SoftLayer/managers/file.py", "softlayer-python/SoftLayer/managers/firewall.py", "softlayer-python/SoftLayer/managers/hardware.py", "softlayer-python/SoftLayer/managers/image.py", "softlayer-python/SoftLayer/managers/ipsec.py", "softlayer-python/SoftLayer/managers/load_balancer.py", "softlayer-python/SoftLayer/managers/metadata.py", "softlayer-python/SoftLayer/managers/network.py", "softlayer-python/SoftLayer/managers/object_storage.py", "softlayer-python/SoftLayer/managers/ordering.py", "softlayer-python/SoftLayer/managers/sshkey.py", "softlayer-python/SoftLayer/managers/ssl.py", "softlayer-python/SoftLayer/managers/storage_utils.py", "softlayer-python/SoftLayer/managers/ticket.py", "softlayer-python/SoftLayer/managers/user.py", "softlayer-python/SoftLayer/managers/vs.py", "softlayer-python/SoftLayer/managers/vs_capacity.py", "softlayer-python/SoftLayer/managers/vs_placement.py", "softlayer-python/SoftLayer/managers/__init__.py", "softlayer-python/SoftLayer/shell/cmd_env.py", "softlayer-python/SoftLayer/shell/cmd_exit.py", "softlayer-python/SoftLayer/shell/cmd_help.py", "softlayer-python/SoftLayer/shell/completer.py", "softlayer-python/SoftLayer/shell/core.py", "softlayer-python/SoftLayer/shell/routes.py", "softlayer-python/SoftLayer/shell/__init__.py", "softlayer-python/SoftLayer/testing/xmlrpc.py", "softlayer-python/SoftLayer/testing/__init__.py", "softlayer-python/SoftLayer/transports.py", "softlayer-python/SoftLayer/utils.py", "softlayer-python/SoftLayer/__init__.py", "softlayer-python/tests/api_tests.py", "softlayer-python/tests/auth_tests.py", "softlayer-python/tests/basic_tests.py", "softlayer-python/tests/CLI/core_tests.py", "softlayer-python/tests/CLI/custom_types_tests.py", "softlayer-python/tests/CLI/deprecated_tests.py", "softlayer-python/tests/CLI/environment_tests.py", "softlayer-python/tests/CLI/helper_tests.py", "softlayer-python/tests/CLI/modules/block_tests.py", "softlayer-python/tests/CLI/modules/call_api_tests.py", "softlayer-python/tests/CLI/modules/cdn_tests.py", "softlayer-python/tests/CLI/modules/config_tests.py", "softlayer-python/tests/CLI/modules/dedicatedhost_tests.py", "softlayer-python/tests/CLI/modules/dns_tests.py", "softlayer-python/tests/CLI/modules/event_log_tests.py", "softlayer-python/tests/CLI/modules/file_tests.py", "softlayer-python/tests/CLI/modules/firewall_tests.py", "softlayer-python/tests/CLI/modules/globalip_tests.py", "softlayer-python/tests/CLI/modules/ipsec_tests.py", "softlayer-python/tests/CLI/modules/nas_tests.py", "softlayer-python/tests/CLI/modules/object_storage_tests.py", "softlayer-python/tests/CLI/modules/order_tests.py", "softlayer-python/tests/CLI/modules/report_tests.py", "softlayer-python/tests/CLI/modules/rwhois_tests.py", "softlayer-python/tests/CLI/modules/securitygroup_tests.py", "softlayer-python/tests/CLI/modules/server_tests.py", "softlayer-python/tests/CLI/modules/shell_tests.py", "softlayer-python/tests/CLI/modules/sshkey_tests.py", "softlayer-python/tests/CLI/modules/subnet_tests.py", "softlayer-python/tests/CLI/modules/summary_tests.py", "softlayer-python/tests/CLI/modules/ticket_tests.py", "softlayer-python/tests/CLI/modules/user_tests.py", "softlayer-python/tests/CLI/modules/vlan_tests.py", "softlayer-python/tests/CLI/modules/vs/vs_capacity_tests.py", "softlayer-python/tests/CLI/modules/vs/vs_create_tests.py", "softlayer-python/tests/CLI/modules/vs/vs_placement_tests.py", "softlayer-python/tests/CLI/modules/vs/vs_tests.py", "softlayer-python/tests/CLI/modules/vs/__init__.py", "softlayer-python/tests/CLI/modules/__init__.py", "softlayer-python/tests/CLI/__init__.py", "softlayer-python/tests/config_tests.py", "softlayer-python/tests/conftest.py", "softlayer-python/tests/decoration_tests.py", "softlayer-python/tests/functional_tests.py", "softlayer-python/tests/managers/block_tests.py", "softlayer-python/tests/managers/cdn_tests.py", "softlayer-python/tests/managers/dedicated_host_tests.py", "softlayer-python/tests/managers/dns_tests.py", "softlayer-python/tests/managers/event_log_tests.py", "softlayer-python/tests/managers/file_tests.py", "softlayer-python/tests/managers/firewall_tests.py", "softlayer-python/tests/managers/hardware_tests.py", "softlayer-python/tests/managers/image_tests.py", "softlayer-python/tests/managers/ipsec_tests.py", "softlayer-python/tests/managers/loadbal_tests.py", "softlayer-python/tests/managers/metadata_tests.py", "softlayer-python/tests/managers/network_tests.py", "softlayer-python/tests/managers/object_storage_tests.py", "softlayer-python/tests/managers/ordering_tests.py", "softlayer-python/tests/managers/sshkey_tests.py", "softlayer-python/tests/managers/ssl_tests.py", "softlayer-python/tests/managers/storage_utils_tests.py", "softlayer-python/tests/managers/ticket_tests.py", "softlayer-python/tests/managers/user_tests.py", "softlayer-python/tests/managers/vs/vs_capacity_tests.py", "softlayer-python/tests/managers/vs/vs_order_tests.py", "softlayer-python/tests/managers/vs/vs_placement_tests.py", "softlayer-python/tests/managers/vs/vs_tests.py", "softlayer-python/tests/managers/vs/vs_waiting_for_ready_tests.py", "softlayer-python/tests/managers/vs/__init__.py", "softlayer-python/tests/managers/__init__.py", "softlayer-python/tests/transport_tests.py", "softlayer-python/tests/__init__.py" ],
+  "cells" : [ {
+    "src" : 416,
+    "dest" : 336,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 416,
+    "dest" : 337,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 416,
+    "dest" : 323,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 416,
+    "dest" : 318,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 353,
+    "dest" : 4,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 354,
+    "dest" : 73,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 354,
+    "dest" : 108,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 354,
+    "dest" : 270,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 355,
+    "dest" : 48,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 355,
+    "dest" : 244,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 355,
+    "dest" : 69,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 355,
+    "dest" : 230,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 419,
+    "dest" : 336,
+    "values" : {
+      "P4" : 40.0
+    }
+  }, {
+    "src" : 419,
+    "dest" : 337,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 419,
+    "dest" : 323,
+    "values" : {
+      "P4" : 40.0
+    }
+  }, {
+    "src" : 419,
+    "dest" : 318,
+    "values" : {
+      "P4" : 40.0
+    }
+  }, {
+    "src" : 419,
+    "dest" : 319,
+    "values" : {
+      "P4" : 38.0
+    }
+  }, {
+    "src" : 358,
+    "dest" : 48,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 358,
+    "dest" : 244,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 358,
+    "dest" : 69,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 358,
+    "dest" : 230,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 233,
+    "dest" : 336,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 233,
+    "dest" : 337,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 233,
+    "dest" : 323,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 233,
+    "dest" : 318,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 398,
+    "dest" : 336,
+    "values" : {
+      "P4" : 16.0
+    }
+  }, {
+    "src" : 398,
+    "dest" : 337,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 398,
+    "dest" : 323,
+    "values" : {
+      "P4" : 16.0
+    }
+  }, {
+    "src" : 398,
+    "dest" : 318,
+    "values" : {
+      "P4" : 16.0
+    }
+  }, {
+    "src" : 398,
+    "dest" : 319,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 399,
+    "dest" : 336,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 399,
+    "dest" : 323,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 399,
+    "dest" : 318,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 399,
+    "dest" : 319,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 403,
+    "dest" : 336,
+    "values" : {
+      "P4" : 5.0
+    }
+  }, {
+    "src" : 403,
+    "dest" : 337,
+    "values" : {
+      "P4" : 3.0
+    }
+  }, {
+    "src" : 403,
+    "dest" : 323,
+    "values" : {
+      "P4" : 5.0
+    }
+  }, {
+    "src" : 403,
+    "dest" : 318,
+    "values" : {
+      "P4" : 5.0
+    }
+  }, {
+    "src" : 403,
+    "dest" : 319,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 336,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 337,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 323,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 318,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 342,
+    "dest" : 48,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 342,
+    "dest" : 244,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 342,
+    "dest" : 69,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 342,
+    "dest" : 230,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 343,
+    "dest" : 48,
+    "values" : {
+      "P4" : 7.0
+    }
+  }, {
+    "src" : 343,
+    "dest" : 244,
+    "values" : {
+      "P4" : 7.0
+    }
+  }, {
+    "src" : 343,
+    "dest" : 69,
+    "values" : {
+      "P4" : 7.0
+    }
+  }, {
+    "src" : 343,
+    "dest" : 230,
+    "values" : {
+      "P4" : 7.0
+    }
+  } ]
+}

@@ -1,0 +1,654 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "gensim\\gensim-sdsm",
+  "variables" : [ "gensim/docker/check_fast_version.py", "gensim/docs/notebooks/test_notebooks.py", "gensim/docs/src/conf.py", "gensim/gensim/corpora/bleicorpus.py", "gensim/gensim/corpora/csvcorpus.py", "gensim/gensim/corpora/dictionary.py", "gensim/gensim/corpora/hashdictionary.py", "gensim/gensim/corpora/indexedcorpus.py", "gensim/gensim/corpora/lowcorpus.py", "gensim/gensim/corpora/malletcorpus.py", "gensim/gensim/corpora/mmcorpus.py", "gensim/gensim/corpora/sharded_corpus.py", "gensim/gensim/corpora/svmlightcorpus.py", "gensim/gensim/corpora/textcorpus.py", "gensim/gensim/corpora/ucicorpus.py", "gensim/gensim/corpora/wikicorpus.py", "gensim/gensim/corpora/__init__.py", "gensim/gensim/downloader.py", "gensim/gensim/examples/dmlcz/dmlcorpus.py", "gensim/gensim/examples/dmlcz/gensim_build.py", "gensim/gensim/examples/dmlcz/gensim_genmodel.py", "gensim/gensim/examples/dmlcz/gensim_xml.py", "gensim/gensim/examples/dmlcz/sources.py", "gensim/gensim/examples/dmlcz/__init__.py", "gensim/gensim/interfaces.py", "gensim/gensim/matutils.py", "gensim/gensim/models/atmodel.py", "gensim/gensim/models/basemodel.py", "gensim/gensim/models/base_any2vec.py", "gensim/gensim/models/callbacks.py", "gensim/gensim/models/coherencemodel.py", "gensim/gensim/models/deprecated/doc2vec.py", "gensim/gensim/models/deprecated/fasttext.py", "gensim/gensim/models/deprecated/fasttext_wrapper.py", "gensim/gensim/models/deprecated/keyedvectors.py", "gensim/gensim/models/deprecated/old_saveload.py", "gensim/gensim/models/deprecated/word2vec.py", "gensim/gensim/models/deprecated/__init__.py", "gensim/gensim/models/doc2vec.py", "gensim/gensim/models/fasttext.py", "gensim/gensim/models/hdpmodel.py", "gensim/gensim/models/keyedvectors.py", "gensim/gensim/models/ldamodel.py", "gensim/gensim/models/ldamulticore.py", "gensim/gensim/models/ldaseqmodel.py", "gensim/gensim/models/lda_dispatcher.py", "gensim/gensim/models/lda_worker.py", "gensim/gensim/models/logentropy_model.py", "gensim/gensim/models/lsimodel.py", "gensim/gensim/models/lsi_dispatcher.py", "gensim/gensim/models/lsi_worker.py", "gensim/gensim/models/nmf.py", "gensim/gensim/models/normmodel.py", "gensim/gensim/models/phrases.py", "gensim/gensim/models/poincare.py", "gensim/gensim/models/rpmodel.py", "gensim/gensim/models/tfidfmodel.py", "gensim/gensim/models/translation_matrix.py", "gensim/gensim/models/utils_any2vec.py", "gensim/gensim/models/word2vec.py", "gensim/gensim/models/wrappers/dtmmodel.py", "gensim/gensim/models/wrappers/fasttext.py", "gensim/gensim/models/wrappers/ldamallet.py", "gensim/gensim/models/wrappers/ldavowpalwabbit.py", "gensim/gensim/models/wrappers/varembed.py", "gensim/gensim/models/wrappers/wordrank.py", "gensim/gensim/models/wrappers/__init__.py", "gensim/gensim/models/_fasttext_bin.py", "gensim/gensim/models/__init__.py", "gensim/gensim/nosy.py", "gensim/gensim/parsing/porter.py", "gensim/gensim/parsing/preprocessing.py", "gensim/gensim/parsing/__init__.py", "gensim/gensim/scripts/glove2word2vec.py", "gensim/gensim/scripts/make_wiki.py", "gensim/gensim/scripts/make_wikicorpus.py", "gensim/gensim/scripts/make_wiki_lemma.py", "gensim/gensim/scripts/make_wiki_online.py", "gensim/gensim/scripts/make_wiki_online_lemma.py", "gensim/gensim/scripts/make_wiki_online_nodebug.py", "gensim/gensim/scripts/package_info.py", "gensim/gensim/scripts/segment_wiki.py", "gensim/gensim/scripts/word2vec2tensor.py", "gensim/gensim/scripts/word2vec_standalone.py", "gensim/gensim/scripts/__init__.py", "gensim/gensim/similarities/docsim.py", "gensim/gensim/similarities/index.py", "gensim/gensim/similarities/levenshtein.py", "gensim/gensim/similarities/termsim.py", "gensim/gensim/similarities/__init__.py", "gensim/gensim/sklearn_api/atmodel.py", "gensim/gensim/sklearn_api/d2vmodel.py", "gensim/gensim/sklearn_api/ftmodel.py", "gensim/gensim/sklearn_api/hdp.py", "gensim/gensim/sklearn_api/ldamodel.py", "gensim/gensim/sklearn_api/ldaseqmodel.py", "gensim/gensim/sklearn_api/lsimodel.py", "gensim/gensim/sklearn_api/phrases.py", "gensim/gensim/sklearn_api/rpmodel.py", "gensim/gensim/sklearn_api/text2bow.py", "gensim/gensim/sklearn_api/tfidf.py", "gensim/gensim/sklearn_api/w2vmodel.py", "gensim/gensim/sklearn_api/__init__.py", "gensim/gensim/summarization/bm25.py", "gensim/gensim/summarization/commons.py", "gensim/gensim/summarization/graph.py", "gensim/gensim/summarization/keywords.py", "gensim/gensim/summarization/mz_entropy.py", "gensim/gensim/summarization/pagerank_weighted.py", "gensim/gensim/summarization/summarizer.py", "gensim/gensim/summarization/syntactic_unit.py", "gensim/gensim/summarization/textcleaner.py", "gensim/gensim/summarization/__init__.py", "gensim/gensim/topic_coherence/aggregation.py", "gensim/gensim/topic_coherence/direct_confirmation_measure.py", "gensim/gensim/topic_coherence/indirect_confirmation_measure.py", "gensim/gensim/topic_coherence/probability_estimation.py", "gensim/gensim/topic_coherence/segmentation.py", "gensim/gensim/topic_coherence/text_analysis.py", "gensim/gensim/topic_coherence/__init__.py", "gensim/gensim/utils.py", "gensim/gensim/viz/poincare.py", "gensim/gensim/viz/__init__.py", "gensim/gensim/__init__.py", "gensim/setup.py" ],
+  "cells" : [ {
+    "src" : 32,
+    "dest" : 36,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 101,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 54,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 91,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 59,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 92,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 28,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 65,
+    "dest" : 33,
+    "values" : {
+      "P6" : 5.0
+    }
+  }, {
+    "src" : 65,
+    "dest" : 34,
+    "values" : {
+      "P6" : 5.0
+    }
+  }, {
+    "src" : 65,
+    "dest" : 36,
+    "values" : {
+      "P6" : 5.0
+    }
+  }, {
+    "src" : 65,
+    "dest" : 54,
+    "values" : {
+      "P6" : 5.0
+    }
+  }, {
+    "src" : 65,
+    "dest" : 41,
+    "values" : {
+      "P6" : 5.0
+    }
+  }, {
+    "src" : 65,
+    "dest" : 59,
+    "values" : {
+      "P6" : 5.0
+    }
+  }, {
+    "src" : 3,
+    "dest" : 4,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 3,
+    "dest" : 85,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 3,
+    "dest" : 7,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 3,
+    "dest" : 120,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 3,
+    "dest" : 12,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 3,
+    "dest" : 13,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 34,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 101,
+    "values" : {
+      "P6" : 16.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 54,
+    "values" : {
+      "P6" : 16.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 41,
+    "values" : {
+      "P6" : 8.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 91,
+    "values" : {
+      "P6" : 16.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 59,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 92,
+    "values" : {
+      "P6" : 16.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 28,
+    "values" : {
+      "P6" : 16.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 31,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 39,
+    "dest" : 36,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 39,
+    "dest" : 101,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 39,
+    "dest" : 54,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 39,
+    "dest" : 91,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 39,
+    "dest" : 92,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 39,
+    "dest" : 28,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 42,
+    "dest" : 48,
+    "values" : {
+      "P6" : 39.0
+    }
+  }, {
+    "src" : 42,
+    "dest" : 51,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 42,
+    "dest" : 54,
+    "values" : {
+      "P6" : 35.0
+    }
+  }, {
+    "src" : 42,
+    "dest" : 40,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 42,
+    "dest" : 26,
+    "values" : {
+      "P6" : 35.0
+    }
+  }, {
+    "src" : 42,
+    "dest" : 94,
+    "values" : {
+      "P6" : 35.0
+    }
+  }, {
+    "src" : 42,
+    "dest" : 62,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 42,
+    "dest" : 63,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 48,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 54,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 42,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 26,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 94,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 54,
+    "values" : {
+      "P6" : 9.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 42,
+    "values" : {
+      "P6" : 18.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 26,
+    "values" : {
+      "P6" : 9.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 94,
+    "values" : {
+      "P6" : 9.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 33,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 34,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 36,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 54,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 41,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 59,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 5,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 6,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 56,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 25,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 52,
+    "dest" : 14,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 48,
+    "values" : {
+      "P6" : 5.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 5,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 6,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 54,
+    "values" : {
+      "P6" : 5.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 56,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 25,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 42,
+    "values" : {
+      "P6" : 10.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 26,
+    "values" : {
+      "P6" : 5.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 14,
+    "values" : {
+      "P6" : 1.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 94,
+    "values" : {
+      "P6" : 5.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 34,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 36,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 41,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 28,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 31,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 48,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 54,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 42,
+    "values" : {
+      "P6" : 8.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 26,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 94,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 48,
+    "values" : {
+      "P6" : 7.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 54,
+    "values" : {
+      "P6" : 7.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 42,
+    "values" : {
+      "P6" : 14.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 26,
+    "values" : {
+      "P6" : 7.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 94,
+    "values" : {
+      "P6" : 7.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 36,
+    "values" : {
+      "P6" : 8.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 101,
+    "values" : {
+      "P6" : 8.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 54,
+    "values" : {
+      "P6" : 8.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 91,
+    "values" : {
+      "P6" : 8.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 92,
+    "values" : {
+      "P6" : 8.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 28,
+    "values" : {
+      "P6" : 8.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 34,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 36,
+    "values" : {
+      "P6" : 6.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 101,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 54,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 41,
+    "values" : {
+      "P6" : 8.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 91,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 92,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 28,
+    "dest" : 31,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 36,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 101,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 54,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 91,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 59,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 92,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 31,
+    "dest" : 28,
+    "values" : {
+      "P6" : 2.0
+    }
+  } ]
+}

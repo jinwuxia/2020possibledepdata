@@ -1,0 +1,696 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "tryton\\tryton-sdsm",
+  "variables" : [ "tryton/doc/build.py", "tryton/doc/conf.py", "tryton/setup-freeze.py", "tryton/setup.py", "tryton/tryton/action/main.py", "tryton/tryton/action/__init__.py", "tryton/tryton/bus.py", "tryton/tryton/client.py", "tryton/tryton/common/button.py", "tryton/tryton/common/cellrendererbinary.py", "tryton/tryton/common/cellrendererbutton.py", "tryton/tryton/common/cellrendererclickablepixbuf.py", "tryton/tryton/common/cellrenderercombo.py", "tryton/tryton/common/cellrendererfloat.py", "tryton/tryton/common/cellrendererinteger.py", "tryton/tryton/common/cellrenderertext.py", "tryton/tryton/common/cellrenderertoggle.py", "tryton/tryton/common/common.py", "tryton/tryton/common/completion.py", "tryton/tryton/common/datetime_.py", "tryton/tryton/common/domain_inversion.py", "tryton/tryton/common/domain_parser.py", "tryton/tryton/common/entry_position.py", "tryton/tryton/common/environment.py", "tryton/tryton/common/focus.py", "tryton/tryton/common/htmltextbuffer.py", "tryton/tryton/common/number_entry.py", "tryton/tryton/common/popup_menu.py", "tryton/tryton/common/selection.py", "tryton/tryton/common/timedelta.py", "tryton/tryton/common/treeviewcontrol.py", "tryton/tryton/common/underline.py", "tryton/tryton/common/widget_style.py", "tryton/tryton/common/__init__.py", "tryton/tryton/config.py", "tryton/tryton/exceptions.py", "tryton/tryton/fingerprints.py", "tryton/tryton/gui/main.py", "tryton/tryton/gui/window/about.py", "tryton/tryton/gui/window/attachment.py", "tryton/tryton/gui/window/board.py", "tryton/tryton/gui/window/dblogin.py", "tryton/tryton/gui/window/email_.py", "tryton/tryton/gui/window/form.py", "tryton/tryton/gui/window/infobar.py", "tryton/tryton/gui/window/limit.py", "tryton/tryton/gui/window/nomodal.py", "tryton/tryton/gui/window/note.py", "tryton/tryton/gui/window/preference.py", "tryton/tryton/gui/window/revision.py", "tryton/tryton/gui/window/tabcontent.py", "tryton/tryton/gui/window/view_board/action.py", "tryton/tryton/gui/window/view_board/view_board.py", "tryton/tryton/gui/window/view_board/__init__.py", "tryton/tryton/gui/window/view_form/model/field.py", "tryton/tryton/gui/window/view_form/model/group.py", "tryton/tryton/gui/window/view_form/model/record.py", "tryton/tryton/gui/window/view_form/model/__init__.py", "tryton/tryton/gui/window/view_form/screen/screen.py", "tryton/tryton/gui/window/view_form/screen/__init__.py", "tryton/tryton/gui/window/view_form/view/calendar_.py", "tryton/tryton/gui/window/view_form/view/calendar_gtk/calendar_.py", "tryton/tryton/gui/window/view_form/view/calendar_gtk/dates_period.py", "tryton/tryton/gui/window/view_form/view/calendar_gtk/toolbar.py", "tryton/tryton/gui/window/view_form/view/calendar_gtk/__init__.py", "tryton/tryton/gui/window/view_form/view/form.py", "tryton/tryton/gui/window/view_form/view/form_gtk/binary.py", "tryton/tryton/gui/window/view_form/view/form_gtk/calendar_.py", "tryton/tryton/gui/window/view_form/view/form_gtk/char.py", "tryton/tryton/gui/window/view_form/view/form_gtk/checkbox.py", "tryton/tryton/gui/window/view_form/view/form_gtk/dictionary.py", "tryton/tryton/gui/window/view_form/view/form_gtk/float.py", "tryton/tryton/gui/window/view_form/view/form_gtk/image.py", "tryton/tryton/gui/window/view_form/view/form_gtk/integer.py", "tryton/tryton/gui/window/view_form/view/form_gtk/many2many.py", "tryton/tryton/gui/window/view_form/view/form_gtk/many2one.py", "tryton/tryton/gui/window/view_form/view/form_gtk/multiselection.py", "tryton/tryton/gui/window/view_form/view/form_gtk/one2many.py", "tryton/tryton/gui/window/view_form/view/form_gtk/one2one.py", "tryton/tryton/gui/window/view_form/view/form_gtk/progressbar.py", "tryton/tryton/gui/window/view_form/view/form_gtk/pyson.py", "tryton/tryton/gui/window/view_form/view/form_gtk/reference.py", "tryton/tryton/gui/window/view_form/view/form_gtk/richtextbox.py", "tryton/tryton/gui/window/view_form/view/form_gtk/selection.py", "tryton/tryton/gui/window/view_form/view/form_gtk/state_widget.py", "tryton/tryton/gui/window/view_form/view/form_gtk/textbox.py", "tryton/tryton/gui/window/view_form/view/form_gtk/timedelta.py", "tryton/tryton/gui/window/view_form/view/form_gtk/url.py", "tryton/tryton/gui/window/view_form/view/form_gtk/widget.py", "tryton/tryton/gui/window/view_form/view/form_gtk/__init__.py", "tryton/tryton/gui/window/view_form/view/graph.py", "tryton/tryton/gui/window/view_form/view/graph_gtk/bar.py", "tryton/tryton/gui/window/view_form/view/graph_gtk/graph.py", "tryton/tryton/gui/window/view_form/view/graph_gtk/line.py", "tryton/tryton/gui/window/view_form/view/graph_gtk/pie.py", "tryton/tryton/gui/window/view_form/view/graph_gtk/__init__.py", "tryton/tryton/gui/window/view_form/view/list.py", "tryton/tryton/gui/window/view_form/view/list_gtk/editabletree.py", "tryton/tryton/gui/window/view_form/view/list_gtk/widget.py", "tryton/tryton/gui/window/view_form/view/list_gtk/__init__.py", "tryton/tryton/gui/window/view_form/view/screen_container.py", "tryton/tryton/gui/window/view_form/view/__init__.py", "tryton/tryton/gui/window/view_form/__init__.py", "tryton/tryton/gui/window/window.py", "tryton/tryton/gui/window/win_csv.py", "tryton/tryton/gui/window/win_export.py", "tryton/tryton/gui/window/win_form.py", "tryton/tryton/gui/window/win_import.py", "tryton/tryton/gui/window/win_search.py", "tryton/tryton/gui/window/wizard.py", "tryton/tryton/gui/window/__init__.py", "tryton/tryton/gui/__init__.py", "tryton/tryton/jsonrpc.py", "tryton/tryton/plugins/translation/__init__.py", "tryton/tryton/plugins/__init__.py", "tryton/tryton/pyson.py", "tryton/tryton/rpc.py", "tryton/tryton/signal_event.py", "tryton/tryton/translate.py", "tryton/tryton/__init__.py" ],
+  "cells" : [ {
+    "src" : 96,
+    "dest" : 50,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 54,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 70,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 71,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 56,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 26,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 109,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 54,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 70,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 71,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 26,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 50,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 51,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 56,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 74,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 106,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 108,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 77,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 109,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 50,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 56,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 109,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 71,
+    "dest" : 54,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 71,
+    "dest" : 70,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 71,
+    "dest" : 26,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 104,
+    "dest" : 40,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 104,
+    "dest" : 105,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 104,
+    "dest" : 43,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 104,
+    "dest" : 107,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 104,
+    "dest" : 76,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 9,
+    "dest" : 34,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 9,
+    "dest" : 36,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 9,
+    "dest" : 55,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 9,
+    "dest" : 56,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 9,
+    "dest" : 90,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 34,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 36,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 55,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 56,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 90,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 74,
+    "dest" : 50,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 74,
+    "dest" : 56,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 74,
+    "dest" : 109,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 50,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 56,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 109,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 50,
+    "values" : {
+      "P5" : 9.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 51,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 56,
+    "values" : {
+      "P5" : 27.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 74,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 106,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 108,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 109,
+    "values" : {
+      "P5" : 9.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 77,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 50,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 40,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 56,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 105,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 43,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 107,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 76,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 51,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 40,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 105,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 74,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 106,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 43,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 107,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 76,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 108,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 77,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 51,
+    "dest" : 50,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 51,
+    "dest" : 56,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 51,
+    "dest" : 109,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 23,
+    "dest" : 50,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 23,
+    "dest" : 56,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 23,
+    "dest" : 109,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 55,
+    "dest" : 50,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 55,
+    "dest" : 56,
+    "values" : {
+      "P5" : 12.0
+    }
+  }, {
+    "src" : 55,
+    "dest" : 109,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 56,
+    "dest" : 50,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 56,
+    "dest" : 109,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 50,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 56,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 109,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 50,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 34,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 36,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 55,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 56,
+    "values" : {
+      "P5" : 25.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 90,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 109,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 27,
+    "dest" : 50,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 27,
+    "dest" : 56,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 27,
+    "dest" : 109,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 34,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 36,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 55,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 56,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 90,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 34,
+    "values" : {
+      "P5" : 28.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 36,
+    "values" : {
+      "P5" : 28.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 55,
+    "values" : {
+      "P5" : 28.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 56,
+    "values" : {
+      "P5" : 28.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 90,
+    "values" : {
+      "P5" : 28.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 34,
+    "values" : {
+      "P5" : 22.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 36,
+    "values" : {
+      "P5" : 22.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 55,
+    "values" : {
+      "P5" : 22.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 56,
+    "values" : {
+      "P5" : 22.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 90,
+    "values" : {
+      "P5" : 22.0
+    }
+  }, {
+    "src" : 94,
+    "dest" : 34,
+    "values" : {
+      "P5" : 9.0
+    }
+  }, {
+    "src" : 94,
+    "dest" : 36,
+    "values" : {
+      "P5" : 9.0
+    }
+  }, {
+    "src" : 94,
+    "dest" : 55,
+    "values" : {
+      "P5" : 9.0
+    }
+  }, {
+    "src" : 94,
+    "dest" : 56,
+    "values" : {
+      "P5" : 9.0
+    }
+  }, {
+    "src" : 94,
+    "dest" : 90,
+    "values" : {
+      "P5" : 9.0
+    }
+  } ]
+}

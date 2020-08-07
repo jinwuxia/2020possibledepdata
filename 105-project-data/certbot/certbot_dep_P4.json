@@ -1,0 +1,402 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "certbot\\certbot-sdsm",
+  "variables" : [ "certbot/acme/acme/challenges.py", "certbot/acme/acme/client.py", "certbot/acme/acme/crypto_util.py", "certbot/acme/acme/errors.py", "certbot/acme/acme/fields.py", "certbot/acme/acme/jws.py", "certbot/acme/acme/magic_typing.py", "certbot/acme/acme/messages.py", "certbot/acme/acme/standalone.py", "certbot/acme/acme/test_util.py", "certbot/acme/acme/util.py", "certbot/acme/acme/__init__.py", "certbot/acme/docs/conf.py", "certbot/acme/examples/http01_example.py", "certbot/acme/setup.py", "certbot/certbot/account.py", "certbot/certbot/achallenges.py", "certbot/certbot/auth_handler.py", "certbot/certbot/cert_manager.py", "certbot/certbot/cli.py", "certbot/certbot/client.py", "certbot/certbot/compat.py", "certbot/certbot/configuration.py", "certbot/certbot/constants.py", "certbot/certbot/crypto_util.py", "certbot/certbot/display/completer.py", "certbot/certbot/display/dummy_readline.py", "certbot/certbot/display/enhancements.py", "certbot/certbot/display/ops.py", "certbot/certbot/display/util.py", "certbot/certbot/display/__init__.py", "certbot/certbot/eff.py", "certbot/certbot/errors.py", "certbot/certbot/error_handler.py", "certbot/certbot/hooks.py", "certbot/certbot/interfaces.py", "certbot/certbot/lock.py", "certbot/certbot/log.py", "certbot/certbot/main.py", "certbot/certbot/notify.py", "certbot/certbot/ocsp.py", "certbot/certbot/plugins/common.py", "certbot/certbot/plugins/disco.py", "certbot/certbot/plugins/dns_common.py", "certbot/certbot/plugins/dns_common_lexicon.py", "certbot/certbot/plugins/dns_test_common.py", "certbot/certbot/plugins/dns_test_common_lexicon.py", "certbot/certbot/plugins/enhancements.py", "certbot/certbot/plugins/manual.py", "certbot/certbot/plugins/null.py", "certbot/certbot/plugins/selection.py", "certbot/certbot/plugins/standalone.py", "certbot/certbot/plugins/storage.py", "certbot/certbot/plugins/util.py", "certbot/certbot/plugins/webroot.py", "certbot/certbot/plugins/__init__.py", "certbot/certbot/renewal.py", "certbot/certbot/reporter.py", "certbot/certbot/reverter.py", "certbot/certbot/storage.py", "certbot/certbot/tests/acme_util.py", "certbot/certbot/tests/display/__init__.py", "certbot/certbot/tests/util.py", "certbot/certbot/tests/__init__.py", "certbot/certbot/updater.py", "certbot/certbot/util.py", "certbot/certbot/__init__.py", "certbot/certbot-apache/certbot_apache/apache_util.py", "certbot/certbot-apache/certbot_apache/augeas_configurator.py", "certbot/certbot-apache/certbot_apache/configurator.py", "certbot/certbot-apache/certbot_apache/constants.py", "certbot/certbot-apache/certbot_apache/display_ops.py", "certbot/certbot-apache/certbot_apache/entrypoint.py", "certbot/certbot-apache/certbot_apache/http_01.py", "certbot/certbot-apache/certbot_apache/obj.py", "certbot/certbot-apache/certbot_apache/override_arch.py", "certbot/certbot-apache/certbot_apache/override_centos.py", "certbot/certbot-apache/certbot_apache/override_darwin.py", "certbot/certbot-apache/certbot_apache/override_debian.py", "certbot/certbot-apache/certbot_apache/override_gentoo.py", "certbot/certbot-apache/certbot_apache/override_suse.py", "certbot/certbot-apache/certbot_apache/parser.py", "certbot/certbot-apache/certbot_apache/tests/util.py", "certbot/certbot-apache/certbot_apache/tests/__init__.py", "certbot/certbot-apache/certbot_apache/tls_sni_01.py", "certbot/certbot-apache/certbot_apache/__init__.py", "certbot/certbot-apache/docs/conf.py", "certbot/certbot-apache/setup.py", "certbot/certbot-ci/certbot_integration_tests/certbot_tests/context.py", "certbot/certbot-ci/certbot_integration_tests/certbot_tests/test_main.py", "certbot/certbot-ci/certbot_integration_tests/certbot_tests/__init__.py", "certbot/certbot-ci/certbot_integration_tests/conftest.py", "certbot/certbot-ci/certbot_integration_tests/nginx_tests/context.py", "certbot/certbot-ci/certbot_integration_tests/nginx_tests/test_main.py", "certbot/certbot-ci/certbot_integration_tests/nginx_tests/__init__.py", "certbot/certbot-ci/certbot_integration_tests/utils/acme_server.py", "certbot/certbot-ci/certbot_integration_tests/utils/misc.py", "certbot/certbot-ci/certbot_integration_tests/utils/__init__.py", "certbot/certbot-ci/certbot_integration_tests/__init__.py", "certbot/certbot-ci/setup.py", "certbot/certbot-compatibility-test/certbot_compatibility_test/configurators/apache/common.py", "certbot/certbot-compatibility-test/certbot_compatibility_test/configurators/apache/__init__.py", "certbot/certbot-compatibility-test/certbot_compatibility_test/configurators/common.py", "certbot/certbot-compatibility-test/certbot_compatibility_test/configurators/nginx/common.py", "certbot/certbot-compatibility-test/certbot_compatibility_test/configurators/nginx/__init__.py", "certbot/certbot-compatibility-test/certbot_compatibility_test/configurators/__init__.py", "certbot/certbot-compatibility-test/certbot_compatibility_test/errors.py", "certbot/certbot-compatibility-test/certbot_compatibility_test/interfaces.py", "certbot/certbot-compatibility-test/certbot_compatibility_test/test_driver.py", "certbot/certbot-compatibility-test/certbot_compatibility_test/util.py", "certbot/certbot-compatibility-test/certbot_compatibility_test/validator.py", "certbot/certbot-compatibility-test/certbot_compatibility_test/__init__.py", "certbot/certbot-compatibility-test/docs/conf.py", "certbot/certbot-compatibility-test/nginx/roundtrip.py", "certbot/certbot-compatibility-test/setup.py", "certbot/certbot-dns-cloudflare/certbot_dns_cloudflare/dns_cloudflare.py", "certbot/certbot-dns-cloudflare/certbot_dns_cloudflare/__init__.py", "certbot/certbot-dns-cloudflare/docs/conf.py", "certbot/certbot-dns-cloudflare/setup.py", "certbot/certbot-dns-cloudxns/certbot_dns_cloudxns/dns_cloudxns.py", "certbot/certbot-dns-cloudxns/certbot_dns_cloudxns/__init__.py", "certbot/certbot-dns-cloudxns/docs/conf.py", "certbot/certbot-dns-cloudxns/setup.py", "certbot/certbot-dns-digitalocean/certbot_dns_digitalocean/dns_digitalocean.py", "certbot/certbot-dns-digitalocean/certbot_dns_digitalocean/__init__.py", "certbot/certbot-dns-digitalocean/docs/conf.py", "certbot/certbot-dns-digitalocean/setup.py", "certbot/certbot-dns-dnsimple/certbot_dns_dnsimple/dns_dnsimple.py", "certbot/certbot-dns-dnsimple/certbot_dns_dnsimple/__init__.py", "certbot/certbot-dns-dnsimple/docs/conf.py", "certbot/certbot-dns-dnsimple/setup.py", "certbot/certbot-dns-dnsmadeeasy/certbot_dns_dnsmadeeasy/dns_dnsmadeeasy.py", "certbot/certbot-dns-dnsmadeeasy/certbot_dns_dnsmadeeasy/__init__.py", "certbot/certbot-dns-dnsmadeeasy/docs/conf.py", "certbot/certbot-dns-dnsmadeeasy/setup.py", "certbot/certbot-dns-gehirn/certbot_dns_gehirn/dns_gehirn.py", "certbot/certbot-dns-gehirn/certbot_dns_gehirn/__init__.py", "certbot/certbot-dns-gehirn/docs/conf.py", "certbot/certbot-dns-gehirn/setup.py", "certbot/certbot-dns-google/certbot_dns_google/dns_google.py", "certbot/certbot-dns-google/certbot_dns_google/__init__.py", "certbot/certbot-dns-google/docs/conf.py", "certbot/certbot-dns-google/docs/_ext/jsonlexer.py", "certbot/certbot-dns-google/setup.py", "certbot/certbot-dns-linode/certbot_dns_linode/dns_linode.py", "certbot/certbot-dns-linode/certbot_dns_linode/__init__.py", "certbot/certbot-dns-linode/docs/conf.py", "certbot/certbot-dns-linode/setup.py", "certbot/certbot-dns-luadns/certbot_dns_luadns/dns_luadns.py", "certbot/certbot-dns-luadns/certbot_dns_luadns/__init__.py", "certbot/certbot-dns-luadns/docs/conf.py", "certbot/certbot-dns-luadns/setup.py", "certbot/certbot-dns-nsone/certbot_dns_nsone/dns_nsone.py", "certbot/certbot-dns-nsone/certbot_dns_nsone/__init__.py", "certbot/certbot-dns-nsone/docs/conf.py", "certbot/certbot-dns-nsone/setup.py", "certbot/certbot-dns-ovh/certbot_dns_ovh/dns_ovh.py", "certbot/certbot-dns-ovh/certbot_dns_ovh/__init__.py", "certbot/certbot-dns-ovh/docs/conf.py", "certbot/certbot-dns-ovh/setup.py", "certbot/certbot-dns-rfc2136/certbot_dns_rfc2136/dns_rfc2136.py", "certbot/certbot-dns-rfc2136/certbot_dns_rfc2136/__init__.py", "certbot/certbot-dns-rfc2136/docs/conf.py", "certbot/certbot-dns-rfc2136/setup.py", "certbot/certbot-dns-route53/certbot_dns_route53/authenticator.py", "certbot/certbot-dns-route53/certbot_dns_route53/dns_route53.py", "certbot/certbot-dns-route53/certbot_dns_route53/__init__.py", "certbot/certbot-dns-route53/docs/conf.py", "certbot/certbot-dns-route53/setup.py", "certbot/certbot-dns-sakuracloud/certbot_dns_sakuracloud/dns_sakuracloud.py", "certbot/certbot-dns-sakuracloud/certbot_dns_sakuracloud/__init__.py", "certbot/certbot-dns-sakuracloud/docs/conf.py", "certbot/certbot-dns-sakuracloud/setup.py", "certbot/certbot-nginx/certbot_nginx/configurator.py", "certbot/certbot-nginx/certbot_nginx/constants.py", "certbot/certbot-nginx/certbot_nginx/display_ops.py", "certbot/certbot-nginx/certbot_nginx/http_01.py", "certbot/certbot-nginx/certbot_nginx/nginxparser.py", "certbot/certbot-nginx/certbot_nginx/obj.py", "certbot/certbot-nginx/certbot_nginx/parser.py", "certbot/certbot-nginx/certbot_nginx/parser_obj.py", "certbot/certbot-nginx/certbot_nginx/tests/util.py", "certbot/certbot-nginx/certbot_nginx/tests/__init__.py", "certbot/certbot-nginx/certbot_nginx/tls_sni_01.py", "certbot/certbot-nginx/certbot_nginx/__init__.py", "certbot/certbot-nginx/docs/conf.py", "certbot/certbot-nginx/setup.py", "certbot/certbot-postfix/certbot_postfix/constants.py", "certbot/certbot-postfix/certbot_postfix/installer.py", "certbot/certbot-postfix/certbot_postfix/postconf.py", "certbot/certbot-postfix/certbot_postfix/tests/__init__.py", "certbot/certbot-postfix/certbot_postfix/util.py", "certbot/certbot-postfix/certbot_postfix/__init__.py", "certbot/certbot-postfix/docs/conf.py", "certbot/certbot-postfix/setup.py", "certbot/docs/conf.py", "certbot/examples/plugins/certbot_example_plugins.py", "certbot/examples/plugins/setup.py", "certbot/letsencrypt-auto-source/build.py", "certbot/letsencrypt-auto-source/pieces/fetch.py", "certbot/letsencrypt-auto-source/pieces/pipstrap.py", "certbot/letsencrypt-auto-source/tests/fake-letsencrypt/letsencrypt.py", "certbot/letsencrypt-auto-source/tests/fake-letsencrypt/setup.py", "certbot/letsencrypt-auto-source/tests/__init__.py", "certbot/letsencrypt-auto-source/version.py", "certbot/letshelp-certbot/docs/conf.py", "certbot/letshelp-certbot/letshelp_certbot/apache.py", "certbot/letshelp-certbot/letshelp_certbot/magic_typing.py", "certbot/letshelp-certbot/letshelp_certbot/__init__.py", "certbot/letshelp-certbot/setup.py", "certbot/linter_plugin.py", "certbot/setup.py", "certbot/tests/letstest/multitester.py", "certbot/tests/modification-check.py", "certbot/tests/run_http_server.py", "certbot/tools/deactivate.py", "certbot/tools/merge_requirements.py", "certbot/tools/pip_install.py", "certbot/tools/pip_install_editable.py", "certbot/tools/readlink.py", "certbot/tools/simple_http_server.py", "certbot/tools/strip_hashes.py", "certbot/tools/venv.py", "certbot/tools/venv3.py", "certbot/tools/_venv_common.py", "certbot/tox.cover.py" ],
+  "cells" : [ {
+    "src" : 1,
+    "dest" : 0,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 1,
+    "dest" : 7,
+    "values" : {
+      "P4" : 96.0
+    }
+  }, {
+    "src" : 65,
+    "dest" : 3,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 65,
+    "dest" : 7,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 36,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 7,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 41,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 42,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 74,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 7,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 41,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 42,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 74,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 38,
+    "dest" : 7,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 0,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 41,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 42,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 74,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 49,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 35,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 58,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 42,
+    "dest" : 7,
+    "values" : {
+      "P4" : 3.0
+    }
+  }, {
+    "src" : 42,
+    "dest" : 41,
+    "values" : {
+      "P4" : 3.0
+    }
+  }, {
+    "src" : 42,
+    "dest" : 74,
+    "values" : {
+      "P4" : 3.0
+    }
+  }, {
+    "src" : 139,
+    "dest" : 7,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 108,
+    "dest" : 49,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 108,
+    "dest" : 35,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 108,
+    "dest" : 41,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 108,
+    "dest" : 58,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 108,
+    "dest" : 188,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 108,
+    "dest" : 173,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 13,
+    "dest" : 7,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 173,
+    "dest" : 49,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 173,
+    "dest" : 35,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 173,
+    "dest" : 41,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 173,
+    "dest" : 58,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 49,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 35,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 41,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 58,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 7,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 7,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 41,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 42,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 74,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 210,
+    "dest" : 7,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 210,
+    "dest" : 41,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 210,
+    "dest" : 42,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 210,
+    "dest" : 74,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 49,
+    "values" : {
+      "P4" : 24.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 35,
+    "values" : {
+      "P4" : 24.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 7,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 41,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 58,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 42,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 74,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 188,
+    "values" : {
+      "P4" : 18.0
+    }
+  }, {
+    "src" : 20,
+    "dest" : 173,
+    "values" : {
+      "P4" : 18.0
+    }
+  }, {
+    "src" : 212,
+    "dest" : 7,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 212,
+    "dest" : 41,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 212,
+    "dest" : 42,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 212,
+    "dest" : 74,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 123,
+    "dest" : 7,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 123,
+    "dest" : 41,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 123,
+    "dest" : 42,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 123,
+    "dest" : 74,
+    "values" : {
+      "P4" : 4.0
+    }
+  } ]
+}

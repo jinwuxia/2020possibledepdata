@@ -1,0 +1,1242 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "ChatterBot\\ChatterBot-sdsm",
+  "variables" : [ "ChatterBot/chatterbot/adapters.py", "ChatterBot/chatterbot/chatterbot.py", "ChatterBot/chatterbot/comparisons.py", "ChatterBot/chatterbot/constants.py", "ChatterBot/chatterbot/conversation.py", "ChatterBot/chatterbot/corpus.py", "ChatterBot/chatterbot/ext/django_chatterbot/abstract_models.py", "ChatterBot/chatterbot/ext/django_chatterbot/admin.py", "ChatterBot/chatterbot/ext/django_chatterbot/apps.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0001_initial.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0002_statement_extra_data.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0003_change_occurrence_default.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0004_rename_in_response_to.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0005_statement_created_at.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0006_create_conversation.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0007_response_created_at.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0008_update_conversations.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0009_tags.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0010_statement_text.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0011_blank_extra_data.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0012_statement_created_at.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0013_change_conversations.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0014_remove_statement_extra_data.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0015_statement_persona.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0016_statement_stemmed_text.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0017_tags_unique.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/0018_text_max_length.py", "ChatterBot/chatterbot/ext/django_chatterbot/migrations/__init__.py", "ChatterBot/chatterbot/ext/django_chatterbot/models.py", "ChatterBot/chatterbot/ext/django_chatterbot/model_admin.py", "ChatterBot/chatterbot/ext/django_chatterbot/settings.py", "ChatterBot/chatterbot/ext/django_chatterbot/__init__.py", "ChatterBot/chatterbot/ext/sqlalchemy_app/models.py", "ChatterBot/chatterbot/ext/sqlalchemy_app/__init__.py", "ChatterBot/chatterbot/ext/__init__.py", "ChatterBot/chatterbot/filters.py", "ChatterBot/chatterbot/languages.py", "ChatterBot/chatterbot/logic/best_match.py", "ChatterBot/chatterbot/logic/logic_adapter.py", "ChatterBot/chatterbot/logic/mathematical_evaluation.py", "ChatterBot/chatterbot/logic/specific_response.py", "ChatterBot/chatterbot/logic/time_adapter.py", "ChatterBot/chatterbot/logic/unit_conversion.py", "ChatterBot/chatterbot/logic/__init__.py", "ChatterBot/chatterbot/parsing.py", "ChatterBot/chatterbot/preprocessors.py", "ChatterBot/chatterbot/response_selection.py", "ChatterBot/chatterbot/search.py", "ChatterBot/chatterbot/storage/django_storage.py", "ChatterBot/chatterbot/storage/mongodb.py", "ChatterBot/chatterbot/storage/sql_storage.py", "ChatterBot/chatterbot/storage/storage_adapter.py", "ChatterBot/chatterbot/storage/__init__.py", "ChatterBot/chatterbot/tagging.py", "ChatterBot/chatterbot/trainers.py", "ChatterBot/chatterbot/utils.py", "ChatterBot/chatterbot/__init__.py", "ChatterBot/chatterbot/__main__.py", "ChatterBot/docs/conf.py", "ChatterBot/examples/basic_example.py", "ChatterBot/examples/convert_units.py", "ChatterBot/examples/default_response_example.py", "ChatterBot/examples/django_app/example_app/settings.py", "ChatterBot/examples/django_app/example_app/urls.py", "ChatterBot/examples/django_app/example_app/views.py", "ChatterBot/examples/django_app/example_app/wsgi.py", "ChatterBot/examples/django_app/example_app/__init__.py", "ChatterBot/examples/django_app/manage.py", "ChatterBot/examples/django_app/tests/test_api.py", "ChatterBot/examples/django_app/tests/test_example.py", "ChatterBot/examples/django_app/tests/__init__.py", "ChatterBot/examples/export_example.py", "ChatterBot/examples/learning_feedback_example.py", "ChatterBot/examples/math_and_time.py", "ChatterBot/examples/memory_sql_example.py", "ChatterBot/examples/specific_response_example.py", "ChatterBot/examples/tagged_dataset_example.py", "ChatterBot/examples/terminal_example.py", "ChatterBot/examples/terminal_mongo_example.py", "ChatterBot/examples/tkinter_gui.py", "ChatterBot/examples/training_example_chatterbot_corpus.py", "ChatterBot/examples/training_example_list_data.py", "ChatterBot/examples/training_example_ubuntu_corpus.py", "ChatterBot/examples/__init__.py", "ChatterBot/runtests.py", "ChatterBot/setup.py", "ChatterBot/tests/base_case.py", "ChatterBot/tests/logic/test_best_match.py", "ChatterBot/tests/logic/test_data_cache.py", "ChatterBot/tests/logic/test_logic_adapter.py", "ChatterBot/tests/logic/test_mathematical_evaluation.py", "ChatterBot/tests/logic/test_specific_response.py", "ChatterBot/tests/logic/test_time.py", "ChatterBot/tests/logic/test_unit_conversion.py", "ChatterBot/tests/logic/__init__.py", "ChatterBot/tests/storage/test_mongo_adapter.py", "ChatterBot/tests/storage/test_sql_adapter.py", "ChatterBot/tests/storage/test_storage_adapter.py", "ChatterBot/tests/storage/__init__.py", "ChatterBot/tests/test_adapter_validation.py", "ChatterBot/tests/test_benchmarks.py", "ChatterBot/tests/test_chatbot.py", "ChatterBot/tests/test_cli.py", "ChatterBot/tests/test_comparisons.py", "ChatterBot/tests/test_conversations.py", "ChatterBot/tests/test_corpus.py", "ChatterBot/tests/test_examples.py", "ChatterBot/tests/test_filters.py", "ChatterBot/tests/test_initialization.py", "ChatterBot/tests/test_languages.py", "ChatterBot/tests/test_parsing.py", "ChatterBot/tests/test_preprocessors.py", "ChatterBot/tests/test_response_selection.py", "ChatterBot/tests/test_search.py", "ChatterBot/tests/test_tagging.py", "ChatterBot/tests/test_turing.py", "ChatterBot/tests/test_utils.py", "ChatterBot/tests/training/test_chatterbot_corpus_training.py", "ChatterBot/tests/training/test_list_training.py", "ChatterBot/tests/training/test_training.py", "ChatterBot/tests/training/test_ubuntu_corpus_training.py", "ChatterBot/tests/training/__init__.py", "ChatterBot/tests/__init__.py", "ChatterBot/tests_django/base_case.py", "ChatterBot/tests_django/test_chatbot.py", "ChatterBot/tests_django/test_chatterbot_corpus_training.py", "ChatterBot/tests_django/test_chatterbot_settings.py", "ChatterBot/tests_django/test_django_adapter.py", "ChatterBot/tests_django/test_logic_adapter_integration.py", "ChatterBot/tests_django/test_settings.py", "ChatterBot/tests_django/test_statement_integration.py", "ChatterBot/tests_django/__init__.py" ],
+  "cells" : [ {
+    "src" : 128,
+    "dest" : 48,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 128,
+    "dest" : 0,
+    "values" : {
+      "P4" : 3.0
+    }
+  }, {
+    "src" : 128,
+    "dest" : 49,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 128,
+    "dest" : 50,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 128,
+    "dest" : 51,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 128,
+    "dest" : 54,
+    "values" : {
+      "P4" : 3.0
+    }
+  }, {
+    "src" : 128,
+    "dest" : 47,
+    "values" : {
+      "P4" : 3.0
+    }
+  }, {
+    "src" : 128,
+    "dest" : 79,
+    "values" : {
+      "P4" : 3.0
+    }
+  }, {
+    "src" : 1,
+    "dest" : 48,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 1,
+    "dest" : 49,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 1,
+    "dest" : 50,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 1,
+    "dest" : 51,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 76,
+    "dest" : 48,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 76,
+    "dest" : 49,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 76,
+    "dest" : 50,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 76,
+    "dest" : 51,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 48,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 49,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 50,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 51,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 48,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 49,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 50,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 51,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 48,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 49,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 50,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 51,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 48,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 49,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 50,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 51,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 38,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 39,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 40,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 42,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 38,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 39,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 40,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 42,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 91,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 38,
+    "values" : {
+      "P4" : 54.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 39,
+    "values" : {
+      "P4" : 54.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 40,
+    "values" : {
+      "P4" : 54.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 42,
+    "values" : {
+      "P4" : 54.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 95,
+    "dest" : 48,
+    "values" : {
+      "P4" : 144.0
+    }
+  }, {
+    "src" : 95,
+    "dest" : 49,
+    "values" : {
+      "P4" : 144.0
+    }
+  }, {
+    "src" : 95,
+    "dest" : 50,
+    "values" : {
+      "P4" : 144.0
+    }
+  }, {
+    "src" : 95,
+    "dest" : 51,
+    "values" : {
+      "P4" : 144.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 48,
+    "values" : {
+      "P4" : 134.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 49,
+    "values" : {
+      "P4" : 134.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 50,
+    "values" : {
+      "P4" : 134.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 51,
+    "values" : {
+      "P4" : 134.0
+    }
+  }, {
+    "src" : 97,
+    "dest" : 48,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 97,
+    "dest" : 49,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 97,
+    "dest" : 50,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 97,
+    "dest" : 51,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 35,
+    "dest" : 48,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 35,
+    "dest" : 49,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 35,
+    "dest" : 50,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 35,
+    "dest" : 51,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 0,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 54,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 47,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 79,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 0,
+    "values" : {
+      "P4" : 9.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 54,
+    "values" : {
+      "P4" : 9.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 47,
+    "values" : {
+      "P4" : 9.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 79,
+    "values" : {
+      "P4" : 9.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 101,
+    "dest" : 48,
+    "values" : {
+      "P4" : 40.0
+    }
+  }, {
+    "src" : 101,
+    "dest" : 0,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 101,
+    "dest" : 49,
+    "values" : {
+      "P4" : 40.0
+    }
+  }, {
+    "src" : 101,
+    "dest" : 50,
+    "values" : {
+      "P4" : 40.0
+    }
+  }, {
+    "src" : 101,
+    "dest" : 51,
+    "values" : {
+      "P4" : 40.0
+    }
+  }, {
+    "src" : 101,
+    "dest" : 54,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 101,
+    "dest" : 47,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 101,
+    "dest" : 79,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 38,
+    "dest" : 48,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 38,
+    "dest" : 49,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 38,
+    "dest" : 50,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 38,
+    "dest" : 51,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 107,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 107,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 107,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 107,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 46,
+    "dest" : 48,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 46,
+    "dest" : 49,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 46,
+    "dest" : 50,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 46,
+    "dest" : 51,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 49,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 50,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 51,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 112,
+    "dest" : 48,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 112,
+    "dest" : 49,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 112,
+    "dest" : 50,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 112,
+    "dest" : 51,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 113,
+    "dest" : 0,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 113,
+    "dest" : 48,
+    "values" : {
+      "P4" : 14.0
+    }
+  }, {
+    "src" : 113,
+    "dest" : 49,
+    "values" : {
+      "P4" : 14.0
+    }
+  }, {
+    "src" : 113,
+    "dest" : 50,
+    "values" : {
+      "P4" : 14.0
+    }
+  }, {
+    "src" : 113,
+    "dest" : 51,
+    "values" : {
+      "P4" : 14.0
+    }
+  }, {
+    "src" : 113,
+    "dest" : 54,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 113,
+    "dest" : 47,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 113,
+    "dest" : 79,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 48,
+    "values" : {
+      "P4" : 21.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 49,
+    "values" : {
+      "P4" : 21.0
+    }
+  }, {
+    "src" : 50,
+    "dest" : 51,
+    "values" : {
+      "P4" : 21.0
+    }
+  }, {
+    "src" : 115,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 115,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 115,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 115,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 116,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 116,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 116,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 116,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 117,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 117,
+    "dest" : 48,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 117,
+    "dest" : 49,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 117,
+    "dest" : 50,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 117,
+    "dest" : 51,
+    "values" : {
+      "P4" : 12.0
+    }
+  }, {
+    "src" : 117,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 117,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 117,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 54,
+    "dest" : 48,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 54,
+    "dest" : 49,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 54,
+    "dest" : 50,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 54,
+    "dest" : 51,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 0,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 48,
+    "values" : {
+      "P4" : 9.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 49,
+    "values" : {
+      "P4" : 9.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 50,
+    "values" : {
+      "P4" : 9.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 51,
+    "values" : {
+      "P4" : 9.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 54,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 47,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 118,
+    "dest" : 79,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 119,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 119,
+    "dest" : 48,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 119,
+    "dest" : 49,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 119,
+    "dest" : 50,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 119,
+    "dest" : 51,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 119,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 119,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 119,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 120,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 120,
+    "dest" : 48,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 120,
+    "dest" : 49,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 120,
+    "dest" : 50,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 120,
+    "dest" : 51,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 120,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 120,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 120,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 123,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 123,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 123,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 123,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 124,
+    "dest" : 48,
+    "values" : {
+      "P4" : 38.0
+    }
+  }, {
+    "src" : 124,
+    "dest" : 49,
+    "values" : {
+      "P4" : 38.0
+    }
+  }, {
+    "src" : 124,
+    "dest" : 50,
+    "values" : {
+      "P4" : 38.0
+    }
+  }, {
+    "src" : 124,
+    "dest" : 51,
+    "values" : {
+      "P4" : 38.0
+    }
+  }, {
+    "src" : 125,
+    "dest" : 0,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 125,
+    "dest" : 48,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 125,
+    "dest" : 49,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 125,
+    "dest" : 50,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 125,
+    "dest" : 51,
+    "values" : {
+      "P4" : 10.0
+    }
+  }, {
+    "src" : 125,
+    "dest" : 54,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 125,
+    "dest" : 47,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 125,
+    "dest" : 79,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 127,
+    "dest" : 48,
+    "values" : {
+      "P4" : 155.0
+    }
+  }, {
+    "src" : 127,
+    "dest" : 49,
+    "values" : {
+      "P4" : 155.0
+    }
+  }, {
+    "src" : 127,
+    "dest" : 50,
+    "values" : {
+      "P4" : 155.0
+    }
+  }, {
+    "src" : 127,
+    "dest" : 51,
+    "values" : {
+      "P4" : 155.0
+    }
+  } ]
+}

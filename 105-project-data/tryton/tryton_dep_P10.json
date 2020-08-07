@@ -1,0 +1,600 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "tryton\\tryton-sdsm",
+  "variables" : [ "tryton/doc/build.py", "tryton/doc/conf.py", "tryton/setup-freeze.py", "tryton/setup.py", "tryton/tryton/action/main.py", "tryton/tryton/action/__init__.py", "tryton/tryton/bus.py", "tryton/tryton/client.py", "tryton/tryton/common/button.py", "tryton/tryton/common/cellrendererbinary.py", "tryton/tryton/common/cellrendererbutton.py", "tryton/tryton/common/cellrendererclickablepixbuf.py", "tryton/tryton/common/cellrenderercombo.py", "tryton/tryton/common/cellrendererfloat.py", "tryton/tryton/common/cellrendererinteger.py", "tryton/tryton/common/cellrenderertext.py", "tryton/tryton/common/cellrenderertoggle.py", "tryton/tryton/common/common.py", "tryton/tryton/common/completion.py", "tryton/tryton/common/datetime_.py", "tryton/tryton/common/domain_inversion.py", "tryton/tryton/common/domain_parser.py", "tryton/tryton/common/entry_position.py", "tryton/tryton/common/environment.py", "tryton/tryton/common/focus.py", "tryton/tryton/common/htmltextbuffer.py", "tryton/tryton/common/number_entry.py", "tryton/tryton/common/popup_menu.py", "tryton/tryton/common/selection.py", "tryton/tryton/common/timedelta.py", "tryton/tryton/common/treeviewcontrol.py", "tryton/tryton/common/underline.py", "tryton/tryton/common/widget_style.py", "tryton/tryton/common/__init__.py", "tryton/tryton/config.py", "tryton/tryton/exceptions.py", "tryton/tryton/fingerprints.py", "tryton/tryton/gui/main.py", "tryton/tryton/gui/window/about.py", "tryton/tryton/gui/window/attachment.py", "tryton/tryton/gui/window/board.py", "tryton/tryton/gui/window/dblogin.py", "tryton/tryton/gui/window/email_.py", "tryton/tryton/gui/window/form.py", "tryton/tryton/gui/window/infobar.py", "tryton/tryton/gui/window/limit.py", "tryton/tryton/gui/window/nomodal.py", "tryton/tryton/gui/window/note.py", "tryton/tryton/gui/window/preference.py", "tryton/tryton/gui/window/revision.py", "tryton/tryton/gui/window/tabcontent.py", "tryton/tryton/gui/window/view_board/action.py", "tryton/tryton/gui/window/view_board/view_board.py", "tryton/tryton/gui/window/view_board/__init__.py", "tryton/tryton/gui/window/view_form/model/field.py", "tryton/tryton/gui/window/view_form/model/group.py", "tryton/tryton/gui/window/view_form/model/record.py", "tryton/tryton/gui/window/view_form/model/__init__.py", "tryton/tryton/gui/window/view_form/screen/screen.py", "tryton/tryton/gui/window/view_form/screen/__init__.py", "tryton/tryton/gui/window/view_form/view/calendar_.py", "tryton/tryton/gui/window/view_form/view/calendar_gtk/calendar_.py", "tryton/tryton/gui/window/view_form/view/calendar_gtk/dates_period.py", "tryton/tryton/gui/window/view_form/view/calendar_gtk/toolbar.py", "tryton/tryton/gui/window/view_form/view/calendar_gtk/__init__.py", "tryton/tryton/gui/window/view_form/view/form.py", "tryton/tryton/gui/window/view_form/view/form_gtk/binary.py", "tryton/tryton/gui/window/view_form/view/form_gtk/calendar_.py", "tryton/tryton/gui/window/view_form/view/form_gtk/char.py", "tryton/tryton/gui/window/view_form/view/form_gtk/checkbox.py", "tryton/tryton/gui/window/view_form/view/form_gtk/dictionary.py", "tryton/tryton/gui/window/view_form/view/form_gtk/float.py", "tryton/tryton/gui/window/view_form/view/form_gtk/image.py", "tryton/tryton/gui/window/view_form/view/form_gtk/integer.py", "tryton/tryton/gui/window/view_form/view/form_gtk/many2many.py", "tryton/tryton/gui/window/view_form/view/form_gtk/many2one.py", "tryton/tryton/gui/window/view_form/view/form_gtk/multiselection.py", "tryton/tryton/gui/window/view_form/view/form_gtk/one2many.py", "tryton/tryton/gui/window/view_form/view/form_gtk/one2one.py", "tryton/tryton/gui/window/view_form/view/form_gtk/progressbar.py", "tryton/tryton/gui/window/view_form/view/form_gtk/pyson.py", "tryton/tryton/gui/window/view_form/view/form_gtk/reference.py", "tryton/tryton/gui/window/view_form/view/form_gtk/richtextbox.py", "tryton/tryton/gui/window/view_form/view/form_gtk/selection.py", "tryton/tryton/gui/window/view_form/view/form_gtk/state_widget.py", "tryton/tryton/gui/window/view_form/view/form_gtk/textbox.py", "tryton/tryton/gui/window/view_form/view/form_gtk/timedelta.py", "tryton/tryton/gui/window/view_form/view/form_gtk/url.py", "tryton/tryton/gui/window/view_form/view/form_gtk/widget.py", "tryton/tryton/gui/window/view_form/view/form_gtk/__init__.py", "tryton/tryton/gui/window/view_form/view/graph.py", "tryton/tryton/gui/window/view_form/view/graph_gtk/bar.py", "tryton/tryton/gui/window/view_form/view/graph_gtk/graph.py", "tryton/tryton/gui/window/view_form/view/graph_gtk/line.py", "tryton/tryton/gui/window/view_form/view/graph_gtk/pie.py", "tryton/tryton/gui/window/view_form/view/graph_gtk/__init__.py", "tryton/tryton/gui/window/view_form/view/list.py", "tryton/tryton/gui/window/view_form/view/list_gtk/editabletree.py", "tryton/tryton/gui/window/view_form/view/list_gtk/widget.py", "tryton/tryton/gui/window/view_form/view/list_gtk/__init__.py", "tryton/tryton/gui/window/view_form/view/screen_container.py", "tryton/tryton/gui/window/view_form/view/__init__.py", "tryton/tryton/gui/window/view_form/__init__.py", "tryton/tryton/gui/window/window.py", "tryton/tryton/gui/window/win_csv.py", "tryton/tryton/gui/window/win_export.py", "tryton/tryton/gui/window/win_form.py", "tryton/tryton/gui/window/win_import.py", "tryton/tryton/gui/window/win_search.py", "tryton/tryton/gui/window/wizard.py", "tryton/tryton/gui/window/__init__.py", "tryton/tryton/gui/__init__.py", "tryton/tryton/jsonrpc.py", "tryton/tryton/plugins/translation/__init__.py", "tryton/tryton/plugins/__init__.py", "tryton/tryton/pyson.py", "tryton/tryton/rpc.py", "tryton/tryton/signal_event.py", "tryton/tryton/translate.py", "tryton/tryton/__init__.py" ],
+  "cells" : [ {
+    "src" : 96,
+    "dest" : 65,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 97,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 100,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 40,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 90,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 58,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 43,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 60,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 109,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 96,
+    "values" : {
+      "P10" : 5.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 65,
+    "values" : {
+      "P10" : 5.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 97,
+    "values" : {
+      "P10" : 5.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 67,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 68,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 100,
+    "values" : {
+      "P10" : 6.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 40,
+    "values" : {
+      "P10" : 5.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 73,
+    "values" : {
+      "P10" : 1.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 42,
+    "values" : {
+      "P10" : 1.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 43,
+    "values" : {
+      "P10" : 5.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 109,
+    "values" : {
+      "P10" : 5.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 49,
+    "values" : {
+      "P10" : 1.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 83,
+    "values" : {
+      "P10" : 1.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 86,
+    "values" : {
+      "P10" : 1.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 90,
+    "values" : {
+      "P10" : 5.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 58,
+    "values" : {
+      "P10" : 5.0
+    }
+  }, {
+    "src" : 17,
+    "dest" : 60,
+    "values" : {
+      "P10" : 5.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 96,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 65,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 97,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 100,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 40,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 90,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 58,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 43,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 60,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 109,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 96,
+    "values" : {
+      "P10" : 4.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 65,
+    "values" : {
+      "P10" : 4.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 97,
+    "values" : {
+      "P10" : 4.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 100,
+    "values" : {
+      "P10" : 4.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 40,
+    "values" : {
+      "P10" : 4.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 90,
+    "values" : {
+      "P10" : 4.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 58,
+    "values" : {
+      "P10" : 4.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 43,
+    "values" : {
+      "P10" : 4.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 60,
+    "values" : {
+      "P10" : 4.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 109,
+    "values" : {
+      "P10" : 4.0
+    }
+  }, {
+    "src" : 40,
+    "dest" : 96,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 40,
+    "dest" : 65,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 40,
+    "dest" : 97,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 40,
+    "dest" : 100,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 40,
+    "dest" : 90,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 40,
+    "dest" : 58,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 40,
+    "dest" : 43,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 40,
+    "dest" : 60,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 40,
+    "dest" : 109,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 96,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 65,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 97,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 100,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 40,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 90,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 58,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 43,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 60,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 109,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 96,
+    "values" : {
+      "P10" : 3.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 65,
+    "values" : {
+      "P10" : 3.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 97,
+    "values" : {
+      "P10" : 3.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 100,
+    "values" : {
+      "P10" : 3.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 40,
+    "values" : {
+      "P10" : 3.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 90,
+    "values" : {
+      "P10" : 3.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 58,
+    "values" : {
+      "P10" : 3.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 43,
+    "values" : {
+      "P10" : 3.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 60,
+    "values" : {
+      "P10" : 3.0
+    }
+  }, {
+    "src" : 106,
+    "dest" : 109,
+    "values" : {
+      "P10" : 3.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 96,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 65,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 97,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 100,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 40,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 90,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 58,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 60,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 109,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 97,
+    "values" : {
+      "P10" : 1.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 98,
+    "values" : {
+      "P10" : 5.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 101,
+    "values" : {
+      "P10" : 1.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 88,
+    "values" : {
+      "P10" : 1.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 108,
+    "values" : {
+      "P10" : 1.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 92,
+    "values" : {
+      "P10" : 1.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 96,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 65,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 97,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 100,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 40,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 90,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 58,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 43,
+    "values" : {
+      "P10" : 2.0
+    }
+  }, {
+    "src" : 109,
+    "dest" : 60,
+    "values" : {
+      "P10" : 2.0
+    }
+  } ]
+}

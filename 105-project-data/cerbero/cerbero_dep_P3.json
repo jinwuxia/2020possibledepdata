@@ -1,0 +1,876 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "cerbero\\cerbero-sdsm",
+  "variables" : [ "cerbero/cerbero/bootstrap/android.py", "cerbero/cerbero/bootstrap/bootstrapper.py", "cerbero/cerbero/bootstrap/build_tools.py", "cerbero/cerbero/bootstrap/ios.py", "cerbero/cerbero/bootstrap/linux.py", "cerbero/cerbero/bootstrap/osx.py", "cerbero/cerbero/bootstrap/windows.py", "cerbero/cerbero/bootstrap/__init__.py", "cerbero/cerbero/build/build.py", "cerbero/cerbero/build/cookbook.py", "cerbero/cerbero/build/filesprovider.py", "cerbero/cerbero/build/oven.py", "cerbero/cerbero/build/recipe.py", "cerbero/cerbero/build/source.py", "cerbero/cerbero/build/__init__.py", "cerbero/cerbero/commands/add_package.py", "cerbero/cerbero/commands/add_recipe.py", "cerbero/cerbero/commands/bootstrap.py", "cerbero/cerbero/commands/build.py", "cerbero/cerbero/commands/bundlesource.py", "cerbero/cerbero/commands/check.py", "cerbero/cerbero/commands/checkpackage.py", "cerbero/cerbero/commands/cleanone.py", "cerbero/cerbero/commands/debugpackages.py", "cerbero/cerbero/commands/deps.py", "cerbero/cerbero/commands/fetch.py", "cerbero/cerbero/commands/genlibfiles.py", "cerbero/cerbero/commands/gensdkshell.py", "cerbero/cerbero/commands/genvsprops.py", "cerbero/cerbero/commands/genxcconfig.py", "cerbero/cerbero/commands/info.py", "cerbero/cerbero/commands/list.py", "cerbero/cerbero/commands/package.py", "cerbero/cerbero/commands/rdeps.py", "cerbero/cerbero/commands/runit.py", "cerbero/cerbero/commands/shell.py", "cerbero/cerbero/commands/tag.py", "cerbero/cerbero/commands/wipe.py", "cerbero/cerbero/commands/__init__.py", "cerbero/cerbero/config.py", "cerbero/cerbero/enums.py", "cerbero/cerbero/errors.py", "cerbero/cerbero/hacks.py", "cerbero/cerbero/ide/pkgconfig.py", "cerbero/cerbero/ide/vs/genlib.py", "cerbero/cerbero/ide/vs/pkgconfig2vsprops.py", "cerbero/cerbero/ide/vs/props.py", "cerbero/cerbero/ide/vs/vsprops.py", "cerbero/cerbero/ide/vs/__init__.py", "cerbero/cerbero/ide/xcode/fwlib.py", "cerbero/cerbero/ide/xcode/xcconfig.py", "cerbero/cerbero/ide/xcode/__init__.py", "cerbero/cerbero/ide/__init__.py", "cerbero/cerbero/main.py", "cerbero/cerbero/packages/android.py", "cerbero/cerbero/packages/debian.py", "cerbero/cerbero/packages/disttarball.py", "cerbero/cerbero/packages/linux.py", "cerbero/cerbero/packages/linux_bundle.py", "cerbero/cerbero/packages/osx/buildtools.py", "cerbero/cerbero/packages/osx/bundles.py", "cerbero/cerbero/packages/osx/distribution.py", "cerbero/cerbero/packages/osx/info_plist.py", "cerbero/cerbero/packages/osx/packager.py", "cerbero/cerbero/packages/osx/__init__.py", "cerbero/cerbero/packages/package.py", "cerbero/cerbero/packages/packager.py", "cerbero/cerbero/packages/packagesstore.py", "cerbero/cerbero/packages/rpm.py", "cerbero/cerbero/packages/wix.py", "cerbero/cerbero/packages/wix_packager.py", "cerbero/cerbero/packages/__init__.py", "cerbero/cerbero/tools/depstracker.py", "cerbero/cerbero/tools/libtool.py", "cerbero/cerbero/tools/osxrelocator.py", "cerbero/cerbero/tools/osxuniversalgenerator.py", "cerbero/cerbero/tools/pkgconfig.py", "cerbero/cerbero/tools/strip.py", "cerbero/cerbero/tools/__init__.py", "cerbero/cerbero/utils/git.py", "cerbero/cerbero/utils/messages.py", "cerbero/cerbero/utils/msbuild.py", "cerbero/cerbero/utils/shell.py", "cerbero/cerbero/utils/svn.py", "cerbero/cerbero/utils/__init__.py", "cerbero/cerbero/__init__.py", "cerbero/recipes/custom.py", "cerbero/setup.py", "cerbero/test/test_build_common.py", "cerbero/test/test_cerbero_build_build.py", "cerbero/test/test_cerbero_build_cookbook.py", "cerbero/test/test_cerbero_build_filesprovider.py", "cerbero/test/test_cerbero_build_recipe.py", "cerbero/test/test_cerbero_config.py", "cerbero/test/test_cerbero_ide_pkgconfig.py", "cerbero/test/test_cerbero_ide_xcode_xcconfig.py", "cerbero/test/test_cerbero_packages_disttarball.py", "cerbero/test/test_cerbero_packages_linux.py", "cerbero/test/test_cerbero_packages_osx_info_plist.py", "cerbero/test/test_cerbero_packages_package.py", "cerbero/test/test_cerbero_packages_packagemaker.py", "cerbero/test/test_cerbero_packages_packagesstore.py", "cerbero/test/test_cerbero_packages_pmdoc.py", "cerbero/test/test_cerbero_packages_wix.py", "cerbero/test/test_cerbero_tools_osxuniversalgenerator.py", "cerbero/test/test_common.py", "cerbero/test/test_packages_common.py", "cerbero/test/__init__.py", "cerbero/tools/certdata2pem.py", "cerbero/tools/show-coverage.py" ],
+  "cells" : [ {
+    "src" : 0,
+    "dest" : 69,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 0,
+    "dest" : 105,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 0,
+    "dest" : 10,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 2,
+    "dest" : 69,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 2,
+    "dest" : 105,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 2,
+    "dest" : 10,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 67,
+    "dest" : 65,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 67,
+    "dest" : 106,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 67,
+    "dest" : 12,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 50,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 106,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 60,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 69,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 105,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 6,
+    "dest" : 10,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 18,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 69,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 105,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 10,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 11,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 12,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 71,
+    "dest" : 18,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 71,
+    "dest" : 11,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 71,
+    "dest" : 12,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 8,
+    "dest" : 69,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 8,
+    "dest" : 89,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 8,
+    "dest" : 105,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 8,
+    "dest" : 10,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 8,
+    "dest" : 12,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 65,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 18,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 67,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 71,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 10,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 12,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 13,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 12,
+    "dest" : 13,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 13,
+    "dest" : 69,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 13,
+    "dest" : 89,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 13,
+    "dest" : 105,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 13,
+    "dest" : 10,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 13,
+    "dest" : 12,
+    "values" : {
+      "P3" : 26.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 65,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 18,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 55,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 106,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 11,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 12,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 18,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 106,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 11,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 12,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 18,
+    "dest" : 11,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 18,
+    "dest" : 12,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 19,
+    "dest" : 65,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 19,
+    "dest" : 69,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 19,
+    "dest" : 105,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 19,
+    "dest" : 106,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 19,
+    "dest" : 10,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 19,
+    "dest" : 12,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 8,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 18,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 11,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 12,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 65,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 106,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 12,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 25,
+    "dest" : 13,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 65,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 67,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 11,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 27,
+    "dest" : 70,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 27,
+    "dest" : 43,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 69,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 70,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 8,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 89,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 105,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 10,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 12,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 92,
+    "dest" : 13,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 69,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 105,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 10,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 30,
+    "dest" : 65,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 30,
+    "dest" : 55,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 18,
+    "values" : {
+      "P3" : 11.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 67,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 11,
+    "values" : {
+      "P3" : 13.0
+    }
+  }, {
+    "src" : 32,
+    "dest" : 12,
+    "values" : {
+      "P3" : 11.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 65,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 10,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 97,
+    "dest" : 18,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 97,
+    "dest" : 11,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 97,
+    "dest" : 12,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 34,
+    "dest" : 70,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 34,
+    "dest" : 43,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 106,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 62,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 65,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 67,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 4,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 106,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 11,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 12,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 63,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 18,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 11,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 12,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 70,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 43,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 18,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 11,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 37,
+    "dest" : 12,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 101,
+    "dest" : 106,
+    "values" : {
+      "P3" : 6.0
+    }
+  }, {
+    "src" : 101,
+    "dest" : 12,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 102,
+    "dest" : 50,
+    "values" : {
+      "P3" : 3.0
+    }
+  }, {
+    "src" : 102,
+    "dest" : 69,
+    "values" : {
+      "P3" : 32.0
+    }
+  }, {
+    "src" : 102,
+    "dest" : 46,
+    "values" : {
+      "P3" : 26.0
+    }
+  }, {
+    "src" : 102,
+    "dest" : 47,
+    "values" : {
+      "P3" : 26.0
+    }
+  }, {
+    "src" : 39,
+    "dest" : 69,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 39,
+    "dest" : 105,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 39,
+    "dest" : 10,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 103,
+    "dest" : 69,
+    "values" : {
+      "P3" : 14.0
+    }
+  }, {
+    "src" : 103,
+    "dest" : 105,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 103,
+    "dest" : 10,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 103,
+    "dest" : 46,
+    "values" : {
+      "P3" : 12.0
+    }
+  }, {
+    "src" : 103,
+    "dest" : 47,
+    "values" : {
+      "P3" : 12.0
+    }
+  }, {
+    "src" : 55,
+    "dest" : 65,
+    "values" : {
+      "P3" : 14.0
+    }
+  }, {
+    "src" : 55,
+    "dest" : 106,
+    "values" : {
+      "P3" : 28.0
+    }
+  }, {
+    "src" : 57,
+    "dest" : 18,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 57,
+    "dest" : 11,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 57,
+    "dest" : 12,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 60,
+    "dest" : 65,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 60,
+    "dest" : 106,
+    "values" : {
+      "P3" : 8.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 65,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 4,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 63,
+    "values" : {
+      "P3" : 2.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 65,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 18,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 4,
+    "values" : {
+      "P3" : 4.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 11,
+    "values" : {
+      "P3" : 1.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 12,
+    "values" : {
+      "P3" : 1.0
+    }
+  } ]
+}

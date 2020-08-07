@@ -1,0 +1,504 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "cerbero\\cerbero-sdsm",
+  "variables" : [ "cerbero/cerbero/bootstrap/android.py", "cerbero/cerbero/bootstrap/bootstrapper.py", "cerbero/cerbero/bootstrap/build_tools.py", "cerbero/cerbero/bootstrap/ios.py", "cerbero/cerbero/bootstrap/linux.py", "cerbero/cerbero/bootstrap/osx.py", "cerbero/cerbero/bootstrap/windows.py", "cerbero/cerbero/bootstrap/__init__.py", "cerbero/cerbero/build/build.py", "cerbero/cerbero/build/cookbook.py", "cerbero/cerbero/build/filesprovider.py", "cerbero/cerbero/build/oven.py", "cerbero/cerbero/build/recipe.py", "cerbero/cerbero/build/source.py", "cerbero/cerbero/build/__init__.py", "cerbero/cerbero/commands/add_package.py", "cerbero/cerbero/commands/add_recipe.py", "cerbero/cerbero/commands/bootstrap.py", "cerbero/cerbero/commands/build.py", "cerbero/cerbero/commands/bundlesource.py", "cerbero/cerbero/commands/check.py", "cerbero/cerbero/commands/checkpackage.py", "cerbero/cerbero/commands/cleanone.py", "cerbero/cerbero/commands/debugpackages.py", "cerbero/cerbero/commands/deps.py", "cerbero/cerbero/commands/fetch.py", "cerbero/cerbero/commands/genlibfiles.py", "cerbero/cerbero/commands/gensdkshell.py", "cerbero/cerbero/commands/genvsprops.py", "cerbero/cerbero/commands/genxcconfig.py", "cerbero/cerbero/commands/info.py", "cerbero/cerbero/commands/list.py", "cerbero/cerbero/commands/package.py", "cerbero/cerbero/commands/rdeps.py", "cerbero/cerbero/commands/runit.py", "cerbero/cerbero/commands/shell.py", "cerbero/cerbero/commands/tag.py", "cerbero/cerbero/commands/wipe.py", "cerbero/cerbero/commands/__init__.py", "cerbero/cerbero/config.py", "cerbero/cerbero/enums.py", "cerbero/cerbero/errors.py", "cerbero/cerbero/hacks.py", "cerbero/cerbero/ide/pkgconfig.py", "cerbero/cerbero/ide/vs/genlib.py", "cerbero/cerbero/ide/vs/pkgconfig2vsprops.py", "cerbero/cerbero/ide/vs/props.py", "cerbero/cerbero/ide/vs/vsprops.py", "cerbero/cerbero/ide/vs/__init__.py", "cerbero/cerbero/ide/xcode/fwlib.py", "cerbero/cerbero/ide/xcode/xcconfig.py", "cerbero/cerbero/ide/xcode/__init__.py", "cerbero/cerbero/ide/__init__.py", "cerbero/cerbero/main.py", "cerbero/cerbero/packages/android.py", "cerbero/cerbero/packages/debian.py", "cerbero/cerbero/packages/disttarball.py", "cerbero/cerbero/packages/linux.py", "cerbero/cerbero/packages/linux_bundle.py", "cerbero/cerbero/packages/osx/buildtools.py", "cerbero/cerbero/packages/osx/bundles.py", "cerbero/cerbero/packages/osx/distribution.py", "cerbero/cerbero/packages/osx/info_plist.py", "cerbero/cerbero/packages/osx/packager.py", "cerbero/cerbero/packages/osx/__init__.py", "cerbero/cerbero/packages/package.py", "cerbero/cerbero/packages/packager.py", "cerbero/cerbero/packages/packagesstore.py", "cerbero/cerbero/packages/rpm.py", "cerbero/cerbero/packages/wix.py", "cerbero/cerbero/packages/wix_packager.py", "cerbero/cerbero/packages/__init__.py", "cerbero/cerbero/tools/depstracker.py", "cerbero/cerbero/tools/libtool.py", "cerbero/cerbero/tools/osxrelocator.py", "cerbero/cerbero/tools/osxuniversalgenerator.py", "cerbero/cerbero/tools/pkgconfig.py", "cerbero/cerbero/tools/strip.py", "cerbero/cerbero/tools/__init__.py", "cerbero/cerbero/utils/git.py", "cerbero/cerbero/utils/messages.py", "cerbero/cerbero/utils/msbuild.py", "cerbero/cerbero/utils/shell.py", "cerbero/cerbero/utils/svn.py", "cerbero/cerbero/utils/__init__.py", "cerbero/cerbero/__init__.py", "cerbero/recipes/custom.py", "cerbero/setup.py", "cerbero/test/test_build_common.py", "cerbero/test/test_cerbero_build_build.py", "cerbero/test/test_cerbero_build_cookbook.py", "cerbero/test/test_cerbero_build_filesprovider.py", "cerbero/test/test_cerbero_build_recipe.py", "cerbero/test/test_cerbero_config.py", "cerbero/test/test_cerbero_ide_pkgconfig.py", "cerbero/test/test_cerbero_ide_xcode_xcconfig.py", "cerbero/test/test_cerbero_packages_disttarball.py", "cerbero/test/test_cerbero_packages_linux.py", "cerbero/test/test_cerbero_packages_osx_info_plist.py", "cerbero/test/test_cerbero_packages_package.py", "cerbero/test/test_cerbero_packages_packagemaker.py", "cerbero/test/test_cerbero_packages_packagesstore.py", "cerbero/test/test_cerbero_packages_pmdoc.py", "cerbero/test/test_cerbero_packages_wix.py", "cerbero/test/test_cerbero_tools_osxuniversalgenerator.py", "cerbero/test/test_common.py", "cerbero/test/test_packages_common.py", "cerbero/test/__init__.py", "cerbero/tools/certdata2pem.py", "cerbero/tools/show-coverage.py" ],
+  "cells" : [ {
+    "src" : 96,
+    "dest" : 69,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 71,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 56,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 60,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 61,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 96,
+    "dest" : 15,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 65,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 69,
+    "values" : {
+      "P8" : 7.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 71,
+    "values" : {
+      "P8" : 4.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 7,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 56,
+    "values" : {
+      "P8" : 3.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 89,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 10,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 11,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 60,
+    "values" : {
+      "P8" : 6.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 61,
+    "values" : {
+      "P8" : 3.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 77,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 99,
+    "dest" : 15,
+    "values" : {
+      "P8" : 3.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 65,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 102,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 103,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 106,
+    "values" : {
+      "P8" : 4.0
+    }
+  }, {
+    "src" : 100,
+    "dest" : 109,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 65,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 69,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 71,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 7,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 89,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 10,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 11,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 53,
+    "dest" : 77,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 65,
+    "values" : {
+      "P8" : 10.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 103,
+    "values" : {
+      "P8" : 10.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 106,
+    "values" : {
+      "P8" : 60.0
+    }
+  }, {
+    "src" : 102,
+    "dest" : 65,
+    "values" : {
+      "P8" : 4.0
+    }
+  }, {
+    "src" : 102,
+    "dest" : 69,
+    "values" : {
+      "P8" : 8.0
+    }
+  }, {
+    "src" : 102,
+    "dest" : 71,
+    "values" : {
+      "P8" : 4.0
+    }
+  }, {
+    "src" : 102,
+    "dest" : 103,
+    "values" : {
+      "P8" : 4.0
+    }
+  }, {
+    "src" : 102,
+    "dest" : 56,
+    "values" : {
+      "P8" : 4.0
+    }
+  }, {
+    "src" : 102,
+    "dest" : 106,
+    "values" : {
+      "P8" : 24.0
+    }
+  }, {
+    "src" : 102,
+    "dest" : 60,
+    "values" : {
+      "P8" : 8.0
+    }
+  }, {
+    "src" : 102,
+    "dest" : 61,
+    "values" : {
+      "P8" : 4.0
+    }
+  }, {
+    "src" : 102,
+    "dest" : 15,
+    "values" : {
+      "P8" : 4.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 65,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 69,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 71,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 7,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 10,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 11,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 77,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 65,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 69,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 71,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 7,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 89,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 10,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 11,
+    "dest" : 77,
+    "values" : {
+      "P8" : 1.0
+    }
+  }, {
+    "src" : 60,
+    "dest" : 65,
+    "values" : {
+      "P8" : 5.0
+    }
+  }, {
+    "src" : 60,
+    "dest" : 69,
+    "values" : {
+      "P8" : 3.0
+    }
+  }, {
+    "src" : 60,
+    "dest" : 71,
+    "values" : {
+      "P8" : 3.0
+    }
+  }, {
+    "src" : 60,
+    "dest" : 7,
+    "values" : {
+      "P8" : 3.0
+    }
+  }, {
+    "src" : 60,
+    "dest" : 103,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 60,
+    "dest" : 89,
+    "values" : {
+      "P8" : 3.0
+    }
+  }, {
+    "src" : 60,
+    "dest" : 10,
+    "values" : {
+      "P8" : 3.0
+    }
+  }, {
+    "src" : 60,
+    "dest" : 106,
+    "values" : {
+      "P8" : 12.0
+    }
+  }, {
+    "src" : 60,
+    "dest" : 11,
+    "values" : {
+      "P8" : 3.0
+    }
+  }, {
+    "src" : 60,
+    "dest" : 77,
+    "values" : {
+      "P8" : 3.0
+    }
+  }, {
+    "src" : 30,
+    "dest" : 65,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 30,
+    "dest" : 103,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 30,
+    "dest" : 106,
+    "values" : {
+      "P8" : 12.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 65,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 103,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 106,
+    "values" : {
+      "P8" : 12.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 65,
+    "values" : {
+      "P8" : 4.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 69,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 71,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 7,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 103,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 89,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 10,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 106,
+    "values" : {
+      "P8" : 12.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 11,
+    "values" : {
+      "P8" : 2.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 77,
+    "values" : {
+      "P8" : 2.0
+    }
+  } ]
+}

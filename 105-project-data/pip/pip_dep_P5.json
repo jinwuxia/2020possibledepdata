@@ -1,0 +1,630 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "pip\\pip-sdsm",
+  "variables" : [ "pip/docs/html/conf.py", "pip/docs/pip_sphinxext.py", "pip/setup.py", "pip/src/pip/_internal/build_env.py", "pip/src/pip/_internal/cache.py", "pip/src/pip/_internal/cli/autocompletion.py", "pip/src/pip/_internal/cli/base_command.py", "pip/src/pip/_internal/cli/cmdoptions.py", "pip/src/pip/_internal/cli/main_parser.py", "pip/src/pip/_internal/cli/parser.py", "pip/src/pip/_internal/cli/status_codes.py", "pip/src/pip/_internal/cli/__init__.py", "pip/src/pip/_internal/commands/check.py", "pip/src/pip/_internal/commands/completion.py", "pip/src/pip/_internal/commands/configuration.py", "pip/src/pip/_internal/commands/download.py", "pip/src/pip/_internal/commands/freeze.py", "pip/src/pip/_internal/commands/hash.py", "pip/src/pip/_internal/commands/help.py", "pip/src/pip/_internal/commands/install.py", "pip/src/pip/_internal/commands/list.py", "pip/src/pip/_internal/commands/search.py", "pip/src/pip/_internal/commands/show.py", "pip/src/pip/_internal/commands/uninstall.py", "pip/src/pip/_internal/commands/wheel.py", "pip/src/pip/_internal/commands/__init__.py", "pip/src/pip/_internal/configuration.py", "pip/src/pip/_internal/download.py", "pip/src/pip/_internal/exceptions.py", "pip/src/pip/_internal/index.py", "pip/src/pip/_internal/locations.py", "pip/src/pip/_internal/models/candidate.py", "pip/src/pip/_internal/models/format_control.py", "pip/src/pip/_internal/models/index.py", "pip/src/pip/_internal/models/link.py", "pip/src/pip/_internal/models/__init__.py", "pip/src/pip/_internal/operations/check.py", "pip/src/pip/_internal/operations/freeze.py", "pip/src/pip/_internal/operations/prepare.py", "pip/src/pip/_internal/operations/__init__.py", "pip/src/pip/_internal/pep425tags.py", "pip/src/pip/_internal/pyproject.py", "pip/src/pip/_internal/req/constructors.py", "pip/src/pip/_internal/req/req_file.py", "pip/src/pip/_internal/req/req_install.py", "pip/src/pip/_internal/req/req_set.py", "pip/src/pip/_internal/req/req_tracker.py", "pip/src/pip/_internal/req/req_uninstall.py", "pip/src/pip/_internal/req/__init__.py", "pip/src/pip/_internal/resolve.py", "pip/src/pip/_internal/utils/appdirs.py", "pip/src/pip/_internal/utils/compat.py", "pip/src/pip/_internal/utils/deprecation.py", "pip/src/pip/_internal/utils/encoding.py", "pip/src/pip/_internal/utils/filesystem.py", "pip/src/pip/_internal/utils/glibc.py", "pip/src/pip/_internal/utils/hashes.py", "pip/src/pip/_internal/utils/logging.py", "pip/src/pip/_internal/utils/misc.py", "pip/src/pip/_internal/utils/models.py", "pip/src/pip/_internal/utils/outdated.py", "pip/src/pip/_internal/utils/packaging.py", "pip/src/pip/_internal/utils/setuptools_build.py", "pip/src/pip/_internal/utils/temp_dir.py", "pip/src/pip/_internal/utils/typing.py", "pip/src/pip/_internal/utils/ui.py", "pip/src/pip/_internal/utils/__init__.py", "pip/src/pip/_internal/vcs/bazaar.py", "pip/src/pip/_internal/vcs/git.py", "pip/src/pip/_internal/vcs/mercurial.py", "pip/src/pip/_internal/vcs/subversion.py", "pip/src/pip/_internal/vcs/__init__.py", "pip/src/pip/_internal/wheel.py", "pip/src/pip/_internal/__init__.py", "pip/src/pip/_vendor/appdirs.py", "pip/src/pip/_vendor/cachecontrol/adapter.py", "pip/src/pip/_vendor/cachecontrol/cache.py", "pip/src/pip/_vendor/cachecontrol/caches/file_cache.py", "pip/src/pip/_vendor/cachecontrol/caches/redis_cache.py", "pip/src/pip/_vendor/cachecontrol/caches/__init__.py", "pip/src/pip/_vendor/cachecontrol/compat.py", "pip/src/pip/_vendor/cachecontrol/controller.py", "pip/src/pip/_vendor/cachecontrol/filewrapper.py", "pip/src/pip/_vendor/cachecontrol/heuristics.py", "pip/src/pip/_vendor/cachecontrol/serialize.py", "pip/src/pip/_vendor/cachecontrol/wrapper.py", "pip/src/pip/_vendor/cachecontrol/_cmd.py", "pip/src/pip/_vendor/cachecontrol/__init__.py", "pip/src/pip/_vendor/certifi/core.py", "pip/src/pip/_vendor/certifi/__init__.py", "pip/src/pip/_vendor/certifi/__main__.py", "pip/src/pip/_vendor/chardet/big5freq.py", "pip/src/pip/_vendor/chardet/big5prober.py", "pip/src/pip/_vendor/chardet/chardistribution.py", "pip/src/pip/_vendor/chardet/charsetgroupprober.py", "pip/src/pip/_vendor/chardet/charsetprober.py", "pip/src/pip/_vendor/chardet/cli/chardetect.py", "pip/src/pip/_vendor/chardet/cli/__init__.py", "pip/src/pip/_vendor/chardet/codingstatemachine.py", "pip/src/pip/_vendor/chardet/compat.py", "pip/src/pip/_vendor/chardet/cp949prober.py", "pip/src/pip/_vendor/chardet/enums.py", "pip/src/pip/_vendor/chardet/escprober.py", "pip/src/pip/_vendor/chardet/escsm.py", "pip/src/pip/_vendor/chardet/eucjpprober.py", "pip/src/pip/_vendor/chardet/euckrfreq.py", "pip/src/pip/_vendor/chardet/euckrprober.py", "pip/src/pip/_vendor/chardet/euctwfreq.py", "pip/src/pip/_vendor/chardet/euctwprober.py", "pip/src/pip/_vendor/chardet/gb2312freq.py", "pip/src/pip/_vendor/chardet/gb2312prober.py", "pip/src/pip/_vendor/chardet/hebrewprober.py", "pip/src/pip/_vendor/chardet/jisfreq.py", "pip/src/pip/_vendor/chardet/jpcntx.py", "pip/src/pip/_vendor/chardet/langbulgarianmodel.py", "pip/src/pip/_vendor/chardet/langcyrillicmodel.py", "pip/src/pip/_vendor/chardet/langgreekmodel.py", "pip/src/pip/_vendor/chardet/langhebrewmodel.py", "pip/src/pip/_vendor/chardet/langhungarianmodel.py", "pip/src/pip/_vendor/chardet/langthaimodel.py", "pip/src/pip/_vendor/chardet/langturkishmodel.py", "pip/src/pip/_vendor/chardet/latin1prober.py", "pip/src/pip/_vendor/chardet/mbcharsetprober.py", "pip/src/pip/_vendor/chardet/mbcsgroupprober.py", "pip/src/pip/_vendor/chardet/mbcssm.py", "pip/src/pip/_vendor/chardet/sbcharsetprober.py", "pip/src/pip/_vendor/chardet/sbcsgroupprober.py", "pip/src/pip/_vendor/chardet/sjisprober.py", "pip/src/pip/_vendor/chardet/universaldetector.py", "pip/src/pip/_vendor/chardet/utf8prober.py", "pip/src/pip/_vendor/chardet/version.py", "pip/src/pip/_vendor/chardet/__init__.py", "pip/src/pip/_vendor/colorama/ansi.py", "pip/src/pip/_vendor/colorama/ansitowin32.py", "pip/src/pip/_vendor/colorama/initialise.py", "pip/src/pip/_vendor/colorama/win32.py", "pip/src/pip/_vendor/colorama/winterm.py", "pip/src/pip/_vendor/colorama/__init__.py", "pip/src/pip/_vendor/distlib/compat.py", "pip/src/pip/_vendor/distlib/database.py", "pip/src/pip/_vendor/distlib/index.py", "pip/src/pip/_vendor/distlib/locators.py", "pip/src/pip/_vendor/distlib/manifest.py", "pip/src/pip/_vendor/distlib/markers.py", "pip/src/pip/_vendor/distlib/metadata.py", "pip/src/pip/_vendor/distlib/resources.py", "pip/src/pip/_vendor/distlib/scripts.py", "pip/src/pip/_vendor/distlib/util.py", "pip/src/pip/_vendor/distlib/version.py", "pip/src/pip/_vendor/distlib/wheel.py", "pip/src/pip/_vendor/distlib/_backport/misc.py", "pip/src/pip/_vendor/distlib/_backport/shutil.py", "pip/src/pip/_vendor/distlib/_backport/sysconfig.py", "pip/src/pip/_vendor/distlib/_backport/tarfile.py", "pip/src/pip/_vendor/distlib/_backport/__init__.py", "pip/src/pip/_vendor/distlib/__init__.py", "pip/src/pip/_vendor/distro.py", "pip/src/pip/_vendor/html5lib/constants.py", "pip/src/pip/_vendor/html5lib/filters/alphabeticalattributes.py", "pip/src/pip/_vendor/html5lib/filters/base.py", "pip/src/pip/_vendor/html5lib/filters/inject_meta_charset.py", "pip/src/pip/_vendor/html5lib/filters/lint.py", "pip/src/pip/_vendor/html5lib/filters/optionaltags.py", "pip/src/pip/_vendor/html5lib/filters/sanitizer.py", "pip/src/pip/_vendor/html5lib/filters/whitespace.py", "pip/src/pip/_vendor/html5lib/filters/__init__.py", "pip/src/pip/_vendor/html5lib/html5parser.py", "pip/src/pip/_vendor/html5lib/serializer.py", "pip/src/pip/_vendor/html5lib/treeadapters/genshi.py", "pip/src/pip/_vendor/html5lib/treeadapters/sax.py", "pip/src/pip/_vendor/html5lib/treeadapters/__init__.py", "pip/src/pip/_vendor/html5lib/treebuilders/base.py", "pip/src/pip/_vendor/html5lib/treebuilders/dom.py", "pip/src/pip/_vendor/html5lib/treebuilders/etree.py", "pip/src/pip/_vendor/html5lib/treebuilders/etree_lxml.py", "pip/src/pip/_vendor/html5lib/treebuilders/__init__.py", "pip/src/pip/_vendor/html5lib/treewalkers/base.py", "pip/src/pip/_vendor/html5lib/treewalkers/dom.py", "pip/src/pip/_vendor/html5lib/treewalkers/etree.py", "pip/src/pip/_vendor/html5lib/treewalkers/etree_lxml.py", "pip/src/pip/_vendor/html5lib/treewalkers/genshi.py", "pip/src/pip/_vendor/html5lib/treewalkers/__init__.py", "pip/src/pip/_vendor/html5lib/_ihatexml.py", "pip/src/pip/_vendor/html5lib/_inputstream.py", "pip/src/pip/_vendor/html5lib/_tokenizer.py", "pip/src/pip/_vendor/html5lib/_trie/datrie.py", "pip/src/pip/_vendor/html5lib/_trie/py.py", "pip/src/pip/_vendor/html5lib/_trie/_base.py", "pip/src/pip/_vendor/html5lib/_trie/__init__.py", "pip/src/pip/_vendor/html5lib/_utils.py", "pip/src/pip/_vendor/html5lib/__init__.py", "pip/src/pip/_vendor/idna/codec.py", "pip/src/pip/_vendor/idna/compat.py", "pip/src/pip/_vendor/idna/core.py", "pip/src/pip/_vendor/idna/idnadata.py", "pip/src/pip/_vendor/idna/intranges.py", "pip/src/pip/_vendor/idna/package_data.py", "pip/src/pip/_vendor/idna/uts46data.py", "pip/src/pip/_vendor/idna/__init__.py", "pip/src/pip/_vendor/ipaddress.py", "pip/src/pip/_vendor/lockfile/linklockfile.py", "pip/src/pip/_vendor/lockfile/mkdirlockfile.py", "pip/src/pip/_vendor/lockfile/pidlockfile.py", "pip/src/pip/_vendor/lockfile/sqlitelockfile.py", "pip/src/pip/_vendor/lockfile/symlinklockfile.py", "pip/src/pip/_vendor/lockfile/__init__.py", "pip/src/pip/_vendor/msgpack/exceptions.py", "pip/src/pip/_vendor/msgpack/fallback.py", "pip/src/pip/_vendor/msgpack/_version.py", "pip/src/pip/_vendor/msgpack/__init__.py", "pip/src/pip/_vendor/packaging/markers.py", "pip/src/pip/_vendor/packaging/requirements.py", "pip/src/pip/_vendor/packaging/specifiers.py", "pip/src/pip/_vendor/packaging/utils.py", "pip/src/pip/_vendor/packaging/version.py", "pip/src/pip/_vendor/packaging/_compat.py", "pip/src/pip/_vendor/packaging/_structures.py", "pip/src/pip/_vendor/packaging/__about__.py", "pip/src/pip/_vendor/packaging/__init__.py", "pip/src/pip/_vendor/pep517/build.py", "pip/src/pip/_vendor/pep517/check.py", "pip/src/pip/_vendor/pep517/colorlog.py", "pip/src/pip/_vendor/pep517/compat.py", "pip/src/pip/_vendor/pep517/envbuild.py", "pip/src/pip/_vendor/pep517/wrappers.py", "pip/src/pip/_vendor/pep517/_in_process.py", "pip/src/pip/_vendor/pep517/__init__.py", "pip/src/pip/_vendor/pkg_resources/py31compat.py", "pip/src/pip/_vendor/pkg_resources/__init__.py", "pip/src/pip/_vendor/progress/bar.py", "pip/src/pip/_vendor/progress/counter.py", "pip/src/pip/_vendor/progress/helpers.py", "pip/src/pip/_vendor/progress/spinner.py", "pip/src/pip/_vendor/progress/__init__.py", "pip/src/pip/_vendor/pyparsing.py", "pip/src/pip/_vendor/pytoml/core.py", "pip/src/pip/_vendor/pytoml/parser.py", "pip/src/pip/_vendor/pytoml/test.py", "pip/src/pip/_vendor/pytoml/utils.py", "pip/src/pip/_vendor/pytoml/writer.py", "pip/src/pip/_vendor/pytoml/__init__.py", "pip/src/pip/_vendor/requests/adapters.py", "pip/src/pip/_vendor/requests/api.py", "pip/src/pip/_vendor/requests/auth.py", "pip/src/pip/_vendor/requests/certs.py", "pip/src/pip/_vendor/requests/compat.py", "pip/src/pip/_vendor/requests/cookies.py", "pip/src/pip/_vendor/requests/exceptions.py", "pip/src/pip/_vendor/requests/help.py", "pip/src/pip/_vendor/requests/hooks.py", "pip/src/pip/_vendor/requests/models.py", "pip/src/pip/_vendor/requests/packages.py", "pip/src/pip/_vendor/requests/sessions.py", "pip/src/pip/_vendor/requests/status_codes.py", "pip/src/pip/_vendor/requests/structures.py", "pip/src/pip/_vendor/requests/utils.py", "pip/src/pip/_vendor/requests/_internal_utils.py", "pip/src/pip/_vendor/requests/__init__.py", "pip/src/pip/_vendor/requests/__version__.py", "pip/src/pip/_vendor/retrying.py", "pip/src/pip/_vendor/six.py", "pip/src/pip/_vendor/urllib3/connection.py", "pip/src/pip/_vendor/urllib3/connectionpool.py", "pip/src/pip/_vendor/urllib3/contrib/appengine.py", "pip/src/pip/_vendor/urllib3/contrib/ntlmpool.py", "pip/src/pip/_vendor/urllib3/contrib/pyopenssl.py", "pip/src/pip/_vendor/urllib3/contrib/securetransport.py", "pip/src/pip/_vendor/urllib3/contrib/socks.py", "pip/src/pip/_vendor/urllib3/contrib/_appengine_environ.py", "pip/src/pip/_vendor/urllib3/contrib/_securetransport/bindings.py", "pip/src/pip/_vendor/urllib3/contrib/_securetransport/low_level.py", "pip/src/pip/_vendor/urllib3/contrib/_securetransport/__init__.py", "pip/src/pip/_vendor/urllib3/contrib/__init__.py", "pip/src/pip/_vendor/urllib3/exceptions.py", "pip/src/pip/_vendor/urllib3/fields.py", "pip/src/pip/_vendor/urllib3/filepost.py", "pip/src/pip/_vendor/urllib3/packages/backports/makefile.py", "pip/src/pip/_vendor/urllib3/packages/backports/__init__.py", "pip/src/pip/_vendor/urllib3/packages/six.py", "pip/src/pip/_vendor/urllib3/packages/ssl_match_hostname/_implementation.py", "pip/src/pip/_vendor/urllib3/packages/ssl_match_hostname/__init__.py", "pip/src/pip/_vendor/urllib3/packages/__init__.py", "pip/src/pip/_vendor/urllib3/poolmanager.py", "pip/src/pip/_vendor/urllib3/request.py", "pip/src/pip/_vendor/urllib3/response.py", "pip/src/pip/_vendor/urllib3/util/connection.py", "pip/src/pip/_vendor/urllib3/util/queue.py", "pip/src/pip/_vendor/urllib3/util/request.py", "pip/src/pip/_vendor/urllib3/util/response.py", "pip/src/pip/_vendor/urllib3/util/retry.py", "pip/src/pip/_vendor/urllib3/util/ssl_.py", "pip/src/pip/_vendor/urllib3/util/timeout.py", "pip/src/pip/_vendor/urllib3/util/url.py", "pip/src/pip/_vendor/urllib3/util/wait.py", "pip/src/pip/_vendor/urllib3/util/__init__.py", "pip/src/pip/_vendor/urllib3/_collections.py", "pip/src/pip/_vendor/urllib3/__init__.py", "pip/src/pip/_vendor/webencodings/labels.py", "pip/src/pip/_vendor/webencodings/mklabels.py", "pip/src/pip/_vendor/webencodings/tests.py", "pip/src/pip/_vendor/webencodings/x_user_defined.py", "pip/src/pip/_vendor/webencodings/__init__.py", "pip/src/pip/_vendor/__init__.py", "pip/src/pip/__init__.py", "pip/src/pip/__main__.py", "pip/tasks/generate.py", "pip/tasks/vendoring/__init__.py", "pip/tasks/__init__.py", "pip/tests/conftest.py", "pip/tests/data/packages/BrokenEmitsUTF8/broken.py", "pip/tests/data/packages/BrokenEmitsUTF8/setup.py", "pip/tests/data/packages/FSPkg/fspkg/__init__.py", "pip/tests/data/packages/FSPkg/setup.py", "pip/tests/data/packages/HackedEggInfo/setup.py", "pip/tests/data/packages/LineEndings/setup.py", "pip/tests/data/packages/LocalEnvironMarker/localenvironmarker/__init__.py", "pip/tests/data/packages/LocalEnvironMarker/setup.py", "pip/tests/data/packages/LocalExtras/localextras/__init__.py", "pip/tests/data/packages/LocalExtras/setup.py", "pip/tests/data/packages/LocalExtras-0.0.2/localextras/__init__.py", "pip/tests/data/packages/LocalExtras-0.0.2/setup.py", "pip/tests/data/packages/requires_wheelbroken_upper/requires_wheelbroken_upper/__init__.py", "pip/tests/data/packages/requires_wheelbroken_upper/setup.py", "pip/tests/data/packages/SetupPyLatin1/setup.py", "pip/tests/data/packages/SetupPyUTF8/setup.py", "pip/tests/data/packages/symlinks/setup.py", "pip/tests/data/packages/symlinks/symlinks/__init__.py", "pip/tests/data/src/chattymodule/chattymodule.py", "pip/tests/data/src/chattymodule/setup.py", "pip/tests/data/src/compilewheel/setup.py", "pip/tests/data/src/compilewheel/simple/__init__.py", "pip/tests/data/src/pep517_setup_and_pyproject/setup.py", "pip/tests/data/src/pep517_setup_only/setup.py", "pip/tests/data/src/pep518-3.0/pep518.py", "pip/tests/data/src/pep518-3.0/setup.py", "pip/tests/data/src/pep518_conflicting_requires/pep518.py", "pip/tests/data/src/pep518_conflicting_requires/setup.py", "pip/tests/data/src/pep518_forkbomb-235/pep518_forkbomb.py", "pip/tests/data/src/pep518_forkbomb-235/setup.py", "pip/tests/data/src/pep518_invalid_build_system/pep518.py", "pip/tests/data/src/pep518_invalid_build_system/setup.py", "pip/tests/data/src/pep518_invalid_requires/pep518.py", "pip/tests/data/src/pep518_invalid_requires/setup.py", "pip/tests/data/src/pep518_missing_requires/pep518.py", "pip/tests/data/src/pep518_missing_requires/setup.py", "pip/tests/data/src/pep518_twin_forkbombs_first-234/pep518_twin_forkbombs_first.py", "pip/tests/data/src/pep518_twin_forkbombs_first-234/setup.py", "pip/tests/data/src/pep518_twin_forkbombs_second-238/pep518_twin_forkbombs_second.py", "pip/tests/data/src/pep518_twin_forkbombs_second-238/setup.py", "pip/tests/data/src/pep518_with_extra_and_markers-1.0/pep518_with_extra_and_markers.py", "pip/tests/data/src/pep518_with_extra_and_markers-1.0/setup.py", "pip/tests/data/src/pep518_with_namespace_package-1.0/pep518_with_namespace_package.py", "pip/tests/data/src/pep518_with_namespace_package-1.0/setup.py", "pip/tests/data/src/prjwithdatafile/prjwithdatafile/somemodule.py", "pip/tests/data/src/prjwithdatafile/setup.py", "pip/tests/data/src/requires_simple/requires_simple/__init__.py", "pip/tests/data/src/requires_simple/setup.py", "pip/tests/data/src/requires_simple_extra/requires_simple_extra.py", "pip/tests/data/src/requires_simple_extra/setup.py", "pip/tests/data/src/sample/sample/__init__.py", "pip/tests/data/src/sample/setup.py", "pip/tests/data/src/simplewheel-1.0/setup.py", "pip/tests/data/src/simplewheel-1.0/simplewheel/__init__.py", "pip/tests/data/src/simplewheel-2.0/setup.py", "pip/tests/data/src/simplewheel-2.0/simplewheel/__init__.py", "pip/tests/data/src/simple_namespace/setup.py", "pip/tests/data/src/simple_namespace/simple_namespace/module/__init__.py", "pip/tests/data/src/simple_namespace/simple_namespace/__init__.py", "pip/tests/data/src/singlemodule/setup.py", "pip/tests/data/src/singlemodule/singlemodule.py", "pip/tests/data/src/TopoRequires/setup.py", "pip/tests/data/src/TopoRequires/toporequires/__init__.py", "pip/tests/data/src/TopoRequires2/setup.py", "pip/tests/data/src/TopoRequires2/toporequires2/__init__.py", "pip/tests/data/src/TopoRequires3/setup.py", "pip/tests/data/src/TopoRequires3/toporequires3/__init__.py", "pip/tests/data/src/TopoRequires4/setup.py", "pip/tests/data/src/TopoRequires4/toporequires4/__init__.py", "pip/tests/data/src/withpyproject/setup.py", "pip/tests/functional/test_broken_stdout.py", "pip/tests/functional/test_check.py", "pip/tests/functional/test_completion.py", "pip/tests/functional/test_configuration.py", "pip/tests/functional/test_download.py", "pip/tests/functional/test_freeze.py", "pip/tests/functional/test_hash.py", "pip/tests/functional/test_help.py", "pip/tests/functional/test_install.py", "pip/tests/functional/test_install_check.py", "pip/tests/functional/test_install_cleanup.py", "pip/tests/functional/test_install_compat.py", "pip/tests/functional/test_install_config.py", "pip/tests/functional/test_install_extras.py", "pip/tests/functional/test_install_force_reinstall.py", "pip/tests/functional/test_install_index.py", "pip/tests/functional/test_install_reqs.py", "pip/tests/functional/test_install_upgrade.py", "pip/tests/functional/test_install_user.py", "pip/tests/functional/test_install_vcs_git.py", "pip/tests/functional/test_install_vcs_svn.py", "pip/tests/functional/test_install_wheel.py", "pip/tests/functional/test_list.py", "pip/tests/functional/test_no_color.py", "pip/tests/functional/test_pep517.py", "pip/tests/functional/test_requests.py", "pip/tests/functional/test_search.py", "pip/tests/functional/test_show.py", "pip/tests/functional/test_uninstall.py", "pip/tests/functional/test_uninstall_user.py", "pip/tests/functional/test_vcs_bazaar.py", "pip/tests/functional/test_vcs_git.py", "pip/tests/functional/test_warning.py", "pip/tests/functional/test_wheel.py", "pip/tests/functional/test_yaml.py", "pip/tests/functional/__init__.py", "pip/tests/lib/configuration_helpers.py", "pip/tests/lib/git_submodule_helpers.py", "pip/tests/lib/local_repos.py", "pip/tests/lib/options_helpers.py", "pip/tests/lib/path.py", "pip/tests/lib/scripttest.py", "pip/tests/lib/test_lib.py", "pip/tests/lib/venv.py", "pip/tests/lib/yaml_helpers.py", "pip/tests/lib/__init__.py", "pip/tests/scripts/test_all_pip.py", "pip/tests/unit/test_appdirs.py", "pip/tests/unit/test_base_command.py", "pip/tests/unit/test_build_env.py", "pip/tests/unit/test_cache.py", "pip/tests/unit/test_check.py", "pip/tests/unit/test_command_install.py", "pip/tests/unit/test_compat.py", "pip/tests/unit/test_configuration.py", "pip/tests/unit/test_download.py", "pip/tests/unit/test_finder.py", "pip/tests/unit/test_format_control.py", "pip/tests/unit/test_index.py", "pip/tests/unit/test_index_html_page.py", "pip/tests/unit/test_locations.py", "pip/tests/unit/test_logging.py", "pip/tests/unit/test_models.py", "pip/tests/unit/test_options.py", "pip/tests/unit/test_pep425tags.py", "pip/tests/unit/test_pep517.py", "pip/tests/unit/test_req.py", "pip/tests/unit/test_req_file.py", "pip/tests/unit/test_req_install.py", "pip/tests/unit/test_req_uninstall.py", "pip/tests/unit/test_unit_outdated.py", "pip/tests/unit/test_utils.py", "pip/tests/unit/test_vcs.py", "pip/tests/unit/test_wheel.py", "pip/tests/unit/__init__.py", "pip/tests/__init__.py", "pip/tools/tox_pip.py" ],
+  "cells" : [ {
+    "src" : 128,
+    "dest" : 113,
+    "values" : {
+      "P5" : 11.0
+    }
+  }, {
+    "src" : 128,
+    "dest" : 104,
+    "values" : {
+      "P5" : 11.0
+    }
+  }, {
+    "src" : 128,
+    "dest" : 93,
+    "values" : {
+      "P5" : 11.0
+    }
+  }, {
+    "src" : 128,
+    "dest" : 95,
+    "values" : {
+      "P5" : 11.0
+    }
+  }, {
+    "src" : 128,
+    "dest" : 127,
+    "values" : {
+      "P5" : 11.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 144,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 246,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 27,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 76,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 77,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 133,
+    "dest" : 153,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 199,
+    "dest" : 228,
+    "values" : {
+      "P5" : 29.0
+    }
+  }, {
+    "src" : 199,
+    "dest" : 214,
+    "values" : {
+      "P5" : 58.0
+    }
+  }, {
+    "src" : 139,
+    "dest" : 149,
+    "values" : {
+      "P5" : 24.0
+    }
+  }, {
+    "src" : 139,
+    "dest" : 72,
+    "values" : {
+      "P5" : 8.0
+    }
+  }, {
+    "src" : 78,
+    "dest" : 144,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 78,
+    "dest" : 246,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 78,
+    "dest" : 27,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 78,
+    "dest" : 76,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 78,
+    "dest" : 77,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 82,
+    "dest" : 153,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 147,
+    "dest" : 144,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 147,
+    "dest" : 246,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 147,
+    "dest" : 27,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 147,
+    "dest" : 76,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 147,
+    "dest" : 77,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 276,
+    "dest" : 153,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 22,
+    "dest" : 128,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 22,
+    "dest" : 113,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 22,
+    "dest" : 93,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 22,
+    "dest" : 95,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 22,
+    "dest" : 207,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 152,
+    "dest" : 144,
+    "values" : {
+      "P5" : 13.0
+    }
+  }, {
+    "src" : 152,
+    "dest" : 246,
+    "values" : {
+      "P5" : 13.0
+    }
+  }, {
+    "src" : 152,
+    "dest" : 265,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 152,
+    "dest" : 266,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 152,
+    "dest" : 27,
+    "values" : {
+      "P5" : 13.0
+    }
+  }, {
+    "src" : 152,
+    "dest" : 76,
+    "values" : {
+      "P5" : 13.0
+    }
+  }, {
+    "src" : 152,
+    "dest" : 252,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 152,
+    "dest" : 77,
+    "values" : {
+      "P5" : 13.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 144,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 246,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 27,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 76,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 26,
+    "dest" : 77,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 27,
+    "dest" : 260,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 27,
+    "dest" : 278,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 27,
+    "dest" : 247,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 27,
+    "dest" : 250,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 284,
+    "dest" : 153,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 288,
+    "dest" : 153,
+    "values" : {
+      "P5" : 5.0
+    }
+  }, {
+    "src" : 419,
+    "dest" : 209,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 419,
+    "dest" : 292,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 419,
+    "dest" : 183,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 419,
+    "dest" : 234,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 231,
+    "dest" : 65,
+    "values" : {
+      "P5" : 21.0
+    }
+  }, {
+    "src" : 231,
+    "dest" : 233,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 231,
+    "dest" : 47,
+    "values" : {
+      "P5" : 7.0
+    }
+  }, {
+    "src" : 234,
+    "dest" : 144,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 234,
+    "dest" : 246,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 234,
+    "dest" : 27,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 234,
+    "dest" : 76,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 234,
+    "dest" : 77,
+    "values" : {
+      "P5" : 6.0
+    }
+  }, {
+    "src" : 301,
+    "dest" : 160,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 301,
+    "dest" : 183,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 301,
+    "dest" : 153,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 301,
+    "dest" : 250,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 111,
+    "dest" : 113,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 111,
+    "dest" : 104,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 111,
+    "dest" : 93,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 111,
+    "dest" : 95,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 111,
+    "dest" : 127,
+    "values" : {
+      "P5" : 4.0
+    }
+  }, {
+    "src" : 243,
+    "dest" : 260,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 243,
+    "dest" : 278,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 243,
+    "dest" : 247,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 243,
+    "dest" : 250,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 247,
+    "dest" : 260,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 247,
+    "dest" : 278,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 247,
+    "dest" : 250,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 184,
+    "dest" : 166,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 184,
+    "dest" : 167,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 184,
+    "dest" : 153,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 184,
+    "dest" : 28,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 184,
+    "dest" : 141,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 160,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 183,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 153,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 250,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 58,
+    "dest" : 301,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 122,
+    "dest" : 113,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 122,
+    "dest" : 104,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 122,
+    "dest" : 93,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 122,
+    "dest" : 95,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 122,
+    "dest" : 127,
+    "values" : {
+      "P5" : 2.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 128,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 113,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 93,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 95,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 61,
+    "dest" : 207,
+    "values" : {
+      "P5" : 3.0
+    }
+  }, {
+    "src" : 255,
+    "dest" : 160,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 255,
+    "dest" : 183,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 255,
+    "dest" : 153,
+    "values" : {
+      "P5" : 31.0
+    }
+  }, {
+    "src" : 255,
+    "dest" : 250,
+    "values" : {
+      "P5" : 1.0
+    }
+  }, {
+    "src" : 255,
+    "dest" : 301,
+    "values" : {
+      "P5" : 1.0
+    }
+  } ]
+}

@@ -1,0 +1,1093 @@
+commit 1d0465e8c1e7be1308b8540e41a8020854197312
+Author: David Bieber <dbieber@google.com>
+Date:   2018-12-04 13:36:56 -0800
+
+    docstring parser and initial commit for new usage screens.
+    
+    PiperOrigin-RevId: 224036127
+    Change-Id: Ia0cd2d79b743f31ea7b6fc00686338a79fcca79b
+    Reviewed-on: https://team-review.git.corp.google.com/c/370510
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+1	0	.travis.yml
+4	4	fire/completion.py
+2	2	fire/core.py
+695	0	fire/docstrings.py
+41	0	fire/docstrings_fuzz_test.py
+237	0	fire/docstrings_test.py
+133	7	fire/helputils.py
+119	0	fire/helputils_test.py
+12	0	fire/test_components.py
+4	2	fire/testutils.py
+22	0	fire/trace.py
+39	0	fire/value_types.py
+
+commit 5867c55439ec7ac7b5f88791af28ff2c1c4edf92
+Author: James George <jamesgeorge998001@gmail.com>
+Date:   2018-12-01 03:00:46 +0530
+
+    include license information in readme (#147)
+    
+    Add license information
+
+3	0	README.md
+
+commit 687bf37aa71d87ba8dd7f859fb0f73f84cbb93bc
+Author: David Bieber <dbieber@google.com>
+Date:   2018-10-09 10:26:05 -0700
+
+    Inline _CallCallable into _CallAndUpdateTrace.
+    
+    PiperOrigin-RevId: 216367260
+    Change-Id: I5ab2e522be81655ba412bf534d3493a36bcd181f
+    Reviewed-on: https://team-review.git.corp.google.com/c/332673
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+7	25	fire/core.py
+
+commit 5f83beecdaa6f7525fa3236516bfba916e39ebd8
+Author: David Bieber <dbieber@google.com>
+Date:   2018-10-08 18:30:27 -0700
+
+    Adds test for 1-letter arg names.
+    
+    PiperOrigin-RevId: 216285688
+    Change-Id: I5ab05bc08432562e3c5e30f7bad43d7765ba2f70
+    Reviewed-on: https://team-review.git.corp.google.com/c/332036
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+17	0	fire/fire_test.py
+3	0	fire/test_components.py
+
+commit fe1fda46d9ae2495920a0b7e78ecf7bb054fe727
+Author: David Bieber <dbieber@google.com>
+Date:   2018-10-08 18:15:05 -0700
+
+    Single-character flag improvements:
+    
+    Gives exact matches priority for shortcut flags (-a)
+    and supports equal signs with single-character args (-a=10 should be OK)
+    
+    PiperOrigin-RevId: 216056777
+    Change-Id: I2fdf96842b59b2b90c15b384a13997b800c538c4
+    Reviewed-on: https://team-review.git.corp.google.com/c/332035
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+69	48	fire/core.py
+19	2	fire/fire_test.py
+
+commit 53a3498fd2d1a364b7af6c482772112ef6476694
+Author: David Bieber <dbieber@google.com>
+Date:   2018-10-05 16:30:19 -0700
+
+    Support single-hyphen flags.
+    
+    PiperOrigin-RevId: 215983601
+    Change-Id: I7d7d1323b786bc93f3f311a609e7b8f836011ac4
+    Reviewed-on: https://team-review.git.corp.google.com/c/330493
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+3	3	fire/core.py
+40	0	fire/fire_test.py
+
+commit 5347858957e2f3ec9a390260e52c43a7fd293192
+Author: David Bieber <dbieber@google.com>
+Date:   2018-10-05 16:08:56 -0700
+
+    Support capital letters for single-char flags
+    
+    PiperOrigin-RevId: 215968361
+    Change-Id: I60cbabf5c74bdba78127c664dcf629436ec5d390
+    Reviewed-on: https://team-review.git.corp.google.com/c/330541
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+1	1	fire/core.py
+6	1	fire/fire_test.py
+2	1	fire/helputils.py
+6	0	fire/test_components.py
+
+commit f37dd2b8a52c597c8860de941326143709d5a219
+Author: David Bieber <dbieber@google.com>
+Date:   2018-10-05 13:27:28 -0700
+
+    Refactoring of some helputils, lint clean up, and a spelling fix.
+    
+    Copybara generated commit for Python Fire.
+    
+    PiperOrigin-RevId: 215941316
+    Change-Id: I32a36103b5f4de2dc396a11465baf3a3a95734e0
+    Reviewed-on: https://team-review.git.corp.google.com/c/330453
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+17	16	fire/core.py
+1	1	fire/fire_test.py
+89	18	fire/helputils.py
+
+commit 0a6bb9d75488751746aae7b4b54c3bab57408c4a
+Author: Alex Shadley <shadleyalex@gmail.com>
+Date:   2018-10-05 13:29:54 -0500
+
+    Issue #108: Shortcuts for boolean arguments (#141)
+    
+    * adds support for parsing shortcuts for single-character arguments, along with tests
+
+38	6	fire/core.py
+25	0	fire/fire_test.py
+6	0	fire/test_components.py
+
+commit 54f91a21c06a17003f93cf7c6e4657180cffefc2
+Author: Mickaël Schoentgen <contact@tiger-222.fr>
+Date:   2018-08-29 01:21:50 +0200
+
+    Fix warnings in the diff example (#135)
+    
+    Fix ResourceWarning (unclosed file) and DeprecationWarning ('U' mode is deprecated)
+
+4	2	examples/diff/diff.py
+
+commit 6e0ca736a9ab6ff586f6c60c7d6ab500e528f600
+Author: David Bieber <dbieber@google.com>
+Date:   2018-07-27 09:09:53 -0700
+
+    Consolidate fire trace methods into AddCalledComponent
+    
+    PiperOrigin-RevId: 206324964
+    Change-Id: I691b0882fc216221be122181eb80d3526e81a15c
+    Reviewed-on: https://team-review.git.corp.google.com/293492
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+6	9	fire/core.py
+7	50	fire/trace.py
+20	6	fire/trace_test.py
+
+commit 625b305d9df719f9e75a37b05b56b900d387cebd
+Author: David Bieber <dbieber@google.com>
+Date:   2018-07-23 13:56:13 -0700
+
+    Adds useless-object-inheritance and no-else-return to pylintrc disable
+    
+    PiperOrigin-RevId: 205717397
+    Change-Id: I0aa6fd6be26b6629db5949515e984873175d861d
+    Reviewed-on: https://team-review.git.corp.google.com/291456
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+1	1	pylintrc
+
+commit 80ee2564ac50635d65851404f7721250d0149f9d
+Author: Neal Fultz <nfultz@gmail.com>
+Date:   2018-07-02 11:05:12 -0700
+
+    Fixes bug setting stories (#130)
+    
+    The example wass slightly broken, and always sets stories=1. Also changed the phew to be after a whole floor instead of every single step.
+
+2	2	docs/guide.md
+
+commit b55cebd963e3edeb7ac477e0d3c612b78ce24970
+Author: Joe Chen <zuhaochen@google.com>
+Date:   2018-06-27 10:53:52 -0700
+
+    Copybara generated commit for Python Fire.
+    
+      - Added support of calling callable to Python Fire.
+      - Use six.text_type instead of unicode for Python 2/3 compatibility in parser_fuzz_test.
+    
+    PiperOrigin-RevId: 202218864
+    Change-Id: I87a1a719c16c2162722f4bbee749eafb485b3f99
+    Reviewed-on: https://team-review.git.corp.google.com/280130
+    Reviewed-by: Joe Chen <zuhaochen@google.com>
+
+1	1	examples/cipher/cipher.py
+1	1	examples/cipher/cipher_test.py
+1	1	examples/diff/diff.py
+1	1	examples/diff/diff_test.py
+1	1	examples/diff/difffull.py
+1	1	examples/identity/identity.py
+1	1	examples/widget/collector.py
+1	1	examples/widget/collector_test.py
+1	1	examples/widget/widget.py
+1	1	examples/widget/widget_test.py
+1	1	fire/__init__.py
+3	3	fire/completion.py
+1	1	fire/completion_test.py
+65	20	fire/core.py
+11	3	fire/core_test.py
+1	1	fire/decorators.py
+1	1	fire/decorators_test.py
+1	1	fire/fire_import_test.py
+1	1	fire/fire_test.py
+1	1	fire/helputils.py
+2	2	fire/helputils_test.py
+1	1	fire/inspectutils.py
+1	1	fire/inspectutils_test.py
+1	1	fire/interact.py
+1	1	fire/interact_test.py
+2	2	fire/parser.py
+1	1	fire/parser_fuzz_test.py
+1	1	fire/parser_test.py
+12	1	fire/test_components.py
+1	1	fire/test_components_py3.py
+1	1	fire/test_components_test.py
+1	1	fire/testutils.py
+1	1	fire/testutils_test.py
+25	1	fire/trace.py
+1	1	fire/trace_test.py
+1	1	setup.py
+
+commit eb8f053cee599b49a7ec4f313b6ed7d7fb33e907
+Author: cclauss <cclauss@bluewin.ch>
+Date:   2018-06-22 06:05:15 +0200
+
+    Change unicode() —> six.text_type() for Python 3 (#128)
+    
+    See #111
+
+2	2	fire/parser_fuzz_test.py
+
+commit 021d627c92adead1aa8cc45a1308a6e4980dbcca
+Author: Joe Chen <zuhaochen@google.com>
+Date:   2018-06-21 16:02:57 -0700
+
+    Copybara generated commit for Python Fire.
+    
+      - Formatting for completion.
+      - Preserving order of keys when printing result which is an OrderedDict.
+      - Allow use of --help without --.
+    
+    PiperOrigin-RevId: 201601732
+    Change-Id: Icba7e663634f5153283095d8b177d834af480b15
+    Reviewed-on: https://team-review.git.corp.google.com/278010
+    Reviewed-by: Joe Chen <zuhaochen@google.com>
+
+4	4	fire/completion.py
+57	16	fire/core.py
+41	6	fire/core_test.py
+2	2	fire/parser_fuzz_test.py
+33	0	fire/test_components.py
+
+commit 83a8036ea9a3a4594ba89d0f48e48a2aed597a7e
+Author: Isaac Ellmen <isaacellmen@gmail.com>
+Date:   2018-05-21 16:41:04 -0400
+
+    Fish completion support (#122)
+    
+    - Fish completion support (--completion fish)
+
+1	1	README.md
+1	1	docs/api.md
+1	1	docs/guide.md
+1	1	docs/index.md
+3	0	docs/using-cli.md
+60	3	fire/completion.py
+40	4	fire/completion_test.py
+7	6	fire/core.py
+1	1	fire/parser.py
+
+commit 6912ccd56f50e0f4bb30a0725d95858ef29f3bde
+Author: David Bieber <dbieber@google.com>
+Date:   2018-02-23 10:08:24 -0800
+
+    - Prepare Fire for v0.1.3 release. by dbieber <dbieber@google.com>
+    
+    PiperOrigin-RevId: 186785089
+    Change-Id: I9c0d87c78fc37c73768c72f9630a5f6d40023cf6
+    Reviewed-on: https://team-review.git.corp.google.com/221474
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+2	1	fire/parser_fuzz_test.py
+1	1	setup.py
+
+commit 9bff9d01ce16589201f57ffef27ea84744951c11
+Author: cclauss <cclauss@bluewin.ch>
+Date:   2018-01-11 01:20:54 +0100
+
+    unicode() --> six.u() for Python 3 compatibility (#111)
+    
+    __unicode()__ was removed from Python 3 because all strs are unicode.
+    
+    Executing these lines in Python 3 would raise a NameError.
+    
+    * https://pythonhosted.org/six/#six.u
+
+2	2	fire/parser_fuzz_test.py
+
+commit 7f166e90890f18c77aee2ea5f2c24ba97b818f8e
+Author: David Bieber <dbieber@google.com>
+Date:   2018-01-08 11:21:03 -0800
+
+    Consistent return statements, keyword-arg-before-vararg lint disables, docstrings, and import order pylintrc.
+    
+    PiperOrigin-RevId: 181191467
+    Change-Id: I1e7670270b7ff94abaeec1294bdb57fdfcaf8e7e
+    Reviewed-on: https://team-review.git.corp.google.com/192187
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+2	1	fire/decorators_test.py
+1	1	fire/helputils.py
+4	3	fire/test_components.py
+1	0	fire/trace.py
+1	1	pylintrc
+
+commit 72604f40314008e562ba47936dcc183b51166b72
+Author: David Bieber <dbieber@google.com>
+Date:   2017-12-04 14:30:37 -0800
+
+    Lint for continued line, fire.svg badge, and spelling fix.
+    
+    PiperOrigin-RevId: 177869077
+    Change-Id: I2feed4959ce0842ef6152b7bfcf3539e9141b176
+    Reviewed-on: https://team-review.git.corp.google.com/172708
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+1	1	docs/index.md
+3	3	fire/core.py
+
+commit fa575938964a65e29d89f7f13244587602cf957d
+Author: greenmoon55 <greenmoon55@gmail.com>
+Date:   2017-12-04 17:01:10 -0500
+
+    Do not treat arguments that start with '--' as string. (#99)
+    
+    * Do not treat arguments that start with '--' as strings / values.
+
+60	50	fire/core.py
+9	4	fire/fire_test.py
+
+commit aff56bb0dcc92acedd3ee5da0182bfe2fbb20138
+Author: David Bieber <david810@gmail.com>
+Date:   2017-10-11 11:07:03 -0700
+
+    Use proper shields.io image.
+
+1	1	README.md
+
+commit 7400ca845eb5fb41bc788e5b3052e860ab17e43b
+Author: mbarkhau <mbarkhau@gmail.com>
+Date:   2017-10-11 19:15:08 +0200
+
+    Fix for BinOp in args (#96)
+    
+    * Always treat binary op args as string literals
+    * add test for binop
+    * add test for negative numbers
+    * raise ValueError for BinOp expressions
+    Fixes #95
+
+3	0	fire/parser.py
+5	1	fire/parser_test.py
+
+commit e76a10c0511ea4485b57543ccb966e7778213279
+Author: David Bieber <dbieber@google.com>
+Date:   2017-08-29 10:16:20 -0700
+
+      - Sync docs across readme and index.
+      - Clean up ascii comment
+    
+    Copybara generated commit for Python Fire.
+    
+    PiperOrigin-RevId: 166864447
+    Change-Id: Iafe0bb00bc44b49175c7f138debe89013f2787dd
+    Reviewed-on: https://team-review.git.corp.google.com/107481
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+1	1	docs/index.md
+1	1	fire/core.py
+
+commit 2c7b03954cbc42c83ab819ae530fd58d5feef145
+Author: Ajo John <ajojohn555@gmail.com>
+Date:   2017-08-29 00:43:24 +0530
+
+    Document supported Python versions (#92)
+    
+    * Document the supported python versions with a badge (#69)
+
+1	1	README.md
+
+commit 379dd0a497c9698c7cf0a6be98e58cc836b3a71c
+Author: Aaron Giovannini <djtenzing@gmail.com>
+Date:   2017-08-21 17:37:30 +0200
+
+    Disabled ASCII conversion in order to improve console output encoding… (#87)
+    
+    * Disabled ASCII conversion from json.dumps in order to improve console output encoding/printing.
+
+2	1	fire/core.py
+
+commit 6c3331fb3e6197ac84320d7ddcf3c536e3b31c11
+Author: David Bieber <dbieber@google.com>
+Date:   2017-07-24 14:14:29 -0700
+
+    Remove unused DOWNLOAD_URL from setup.py.
+
+0	2	setup.py
+
+commit a944d2854f881469c0e099a1a029806bedd670dc
+Author: David Bieber <dbieber@google.com>
+Date:   2017-07-24 11:52:19 -0700
+
+    Remove download_url from setup.py
+
+0	1	setup.py
+
+commit 43c0b8cd3955110e1c79e55ad97ee64b30c79956
+Author: David Bieber <dbieber@google.com>
+Date:   2017-07-24 10:48:22 -0700
+
+    Adds MANIFEST.in to Python Fire (properly including LICENSE file in sdist).
+    
+    Copybara generated commit for Python Fire.
+    
+    PiperOrigin-RevId: 162957262
+    Change-Id: I3f8ef57524d05554a85d0e5fd8c83aa14e0c6200
+    Reviewed-on: https://team-review.git.corp.google.com/86022
+    Reviewed-by: David Bieber <dbieber@google.com>
+    Reviewed-by: Peter Grabowski <petergrabowski@google.com>
+
+1	0	MANIFEST.in
+7	1	setup.cfg
+0	1	setup.py
+
+commit 3e98ed525eced05a5e78418f92770da28c71cf8e
+Author: David Bieber <dbieber@google.com>
+Date:   2017-07-24 08:54:10 -0700
+
+    Updates to setup.py in preparation for release 0.1.2.
+    Copybara generated commit for Python Fire.
+    
+    PiperOrigin-RevId: 162942210
+    Change-Id: I2b42bfc7ed249e2265fb3227230241b0bc19ab32
+    Reviewed-on: https://team-review.git.corp.google.com/85921
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+9	5	setup.py
+
+commit b5053bad7c92bb2ee73d99d924b09a48d1498d67
+Author: David Bieber <dbieber@google.com>
+Date:   2017-07-21 13:52:58 -0700
+
+    Accept a list of arguments for the  argument (in addition to continuing to accept a string).
+    
+    - Update tests to pass Fire args as a list instead of as a string.
+    - Also uses named argument for command= throughout unit tests.
+    
+        Copybara generated commit for Python Fire.
+    
+    PiperOrigin-RevId: 162780662
+    Change-Id: I1cb0d32510fa5f43e50d85819ebe39f5fecaddce
+    Reviewed-on: https://team-review.git.corp.google.com/85622
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+13	6	fire/core.py
+12	11	fire/core_test.py
+39	22	fire/decorators_test.py
+302	152	fire/fire_test.py
+
+commit 84c5a46d94c91e64a9ccb6550e8ac8ce278fad25
+Author: David Bieber <dbieber@google.com>
+Date:   2017-07-13 17:06:32 -0700
+
+    - Rename doc to docs in preparation for adding mkdocs support.
+    - Adds additional public documentation to Python Fire.
+    
+    Copybara generated commit for Python Fire.
+    
+    PiperOrigin-RevId: 162004265
+    Change-Id: I356c966d74d2270cc59abaff7238913339d17609
+    Reviewed-on: https://team-review.git.corp.google.com/82464
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+21	20	README.md
+20	0	docs/api.md
+10	9	{doc => docs}/benefits.md
+1	1	{doc => docs}/guide.md
+94	0	docs/index.md
+8	0	docs/installation.md
+13	0	docs/troubleshooting.md
+0	0	{doc => docs}/using-cli.md
+11	0	mkdocs.yml
+
+commit c43c832e28a3cfb672f7ba5baf6a36d21fa1c05c
+Author: Christopher J. Wright <cjwright4242gh@gmail.com>
+Date:   2017-07-17 16:38:19 -0400
+
+    Add conda forge (#82)
+    
+    Adds conda forge installation instructions to README.
+
+4	0	README.md
+
+commit 952e20d1d5e0c264dd17f4f52ebf28f6a194b4c1
+Author: David Bieber <david810@gmail.com>
+Date:   2017-05-24 17:02:57 -0700
+
+    Make ipython fully optional (#78)
+    
+    * Fall back on custom info function if IPython's oinspect is not available, thereby making IPython an optional dependency.
+    * Test IPython if IPython available, otherwise test with 'code' module.
+
+3	1	.travis.yml
+2	29	fire/core.py
+2	1	fire/helputils_test.py
+64	3	fire/inspectutils.py
+15	8	fire/interact_test.py
+0	1	setup.py
+
+commit 3126e2cd70ba8f790aad7d2d32ca1cf1fb90b9bf
+Author: David Bieber <dbieber@google.com>
+Date:   2017-05-20 23:42:35 -0700
+
+    Bump version from 0.1.0 to 0.1.1
+
+1	1	setup.py
+
+commit 1f366f97602a1806f623ae73f07888abd61162ca
+Author: Saurabh Patel <saurabh.ce1590@gmail.com>
+Date:   2017-04-19 09:56:02 -0700
+
+    Bug Fix : name was not setting if command is set (#65)
+    
+    * default name was not used when a command was provided
+
+2	1	fire/core.py
+3	2	fire/fire_test.py
+
+commit d9982003c6c9a1b6fb3add26d26f6eaf1e007332
+Author: David Bieber <dbieber@google.com>
+Date:   2017-04-13 14:27:50 -0700
+
+    Fix no-else-return lint violations.
+    
+    Also cleans up some stylistic things.
+    
+    PiperOrigin-RevId: 153106607
+    Change-Id: Id418ab8a2bd13cd983b6f2d9d285fa3e677fa650
+    Reviewed-on: https://team-review.git.corp.google.com/68304
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+0	2	doc/using-cli.md
+8	9	fire/completion.py
+1	2	fire/fire_test.py
+7	9	fire/helputils.py
+1	2	fire/inspectutils.py
+8	4	fire/testutils_test.py
+
+commit 3b04b0edb969dcfa0b6af63fe347c551aaf9a42c
+Author: Saurabh Patel <saurabh.ce1590@gmail.com>
+Date:   2017-04-13 14:02:34 -0700
+
+    Fixes part of #51: uses os.path.basename(sys.argv[0]) as default program name (#59)
+    
+    * Uses os.path.basename(sys.argv[0]) for default program name
+
+2	1	fire/core.py
+10	0	fire/fire_test.py
+
+commit b76f1c3deac6b6277ee621330556bf430252dc1c
+Author: Jeff Tratner <jeffrey.tratner@gmail.com>
+Date:   2017-04-11 10:44:51 -0700
+
+    Write help and trace messages to stderr (#54)
+    
+    * Change test helper `assertOutputMatches` to track stdout and stderr + adds `assertRaisesRegex`
+    * Write help text to stderr
+    * Add some test cases for output matching
+
+14	7	fire/core.py
+2	2	fire/core_test.py
+38	19	fire/testutils.py
+55	0	fire/testutils_test.py
+
+commit 8eb6aa51a9681b62ab3763ee6e7ea4382f928ac3
+Author: David Bieber <dbieber@google.com>
+Date:   2017-04-10 21:09:17 +0000
+
+    Clean up formatting in test and guide.
+    
+    Copybara generated commit for Python Fire.
+    
+    PiperOrigin-RevId: 152732270
+    Change-Id: Ib76f3c41cbd4a262232bd09cb786480c5e781db5
+    Reviewed-on: https://team-review.git.corp.google.com/67886
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+2	1	doc/guide.md
+0	1	fire/core_test.py
+
+commit c1f045d9abaacc1f2a24ff78647be02ac1d277d2
+Author: Neal McBurnett <neal@mcburnett.org>
+Date:   2017-04-11 11:30:47 -0600
+
+    ipython<6.0 for #57; fix broken links in guide.md (#58)
+    
+    * Fix broken links to using-cli.md (extra "doc/")
+    * require ipython < 6.0 for python 2.7 compatibility
+
+6	6	doc/guide.md
+1	1	setup.py
+
+commit 8ea42297cae4289e9503efc667e56a0d3ae5fe5d
+Author: Saurabh Patel <saurabh.ce1590@gmail.com>
+Date:   2017-04-07 15:32:59 -0700
+
+    Added .gitignore file. (#50)
+    
+    * Adds .gitignore file based on https://github.com/github/gitignore/blob/master/Python.gitignore.
+
+100	0	.gitignore
+
+commit a0791c9d40565a36bc540a168a6c19670dd90c78
+Author: Saurabh Patel <saurabh.ce1590@gmail.com>
+Date:   2017-04-07 10:10:41 -0700
+
+    Fixed Issue 42: Handled another type of exception and added testcase … (#49)
+    
+    Fixes issue #42, falling back to str when json fails to handle circular references
+
+1	1	fire/core.py
+6	0	fire/core_test.py
+8	0	fire/test_components.py
+
+commit f48f93b5161d502549f7d21a4be2fd80b0431915
+Author: Neal McBurnett <neal@mcburnett.org>
+Date:   2017-04-06 16:26:42 -0600
+
+    fix typo in setup.py SHORT_DESCRIPTION (#52)
+
+1	1	setup.py
+
+commit 309d5717fc4f210ef501a52e9f226bc7cc659a3b
+Author: David Bieber <dbieber@google.com>
+Date:   2017-03-31 19:03:55 +0000
+
+    Adds new line separating note about flags from table.
+    
+    PiperOrigin-RevId: 151851367
+    Change-Id: I2af284208aef0849df25c019c691d98b19cd6ade
+    Reviewed-on: https://team-review.git.corp.google.com/67041
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+1	0	README.md
+
+commit 9eb788624958453053c96e37a16521f87b7651bd
+Author: David Bieber <dbieber@google.com>
+Date:   2017-03-31 14:55:15 +0000
+
+    Provide completion scripts for fire.Fire(fn).
+    
+    Copybara generated commit for Python Fire.
+    
+    PiperOrigin-RevId: 151823094
+    Change-Id: I03073378734c83f27be69c9ea6fb237bb4f1e08e
+    Reviewed-on: https://team-review.git.corp.google.com/66328
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+6	5	fire/completion.py
+15	0	fire/completion_test.py
+1	1	fire/test_components.py
+
+commit 3db47f8c8e0f8825e47a8f24e277c7964f3b768f
+Author: David Bieber <dbieber@google.com>
+Date:   2017-03-31 15:22:25 +0000
+
+    Lazy import IPython
+    And if IPython isn't available for IPython.embed, use `import code` instead
+    
+    Copybara generated commit for Python Fire.
+    
+    
+    PiperOrigin-RevId: 151825310
+    Change-Id: Iaafc12bf061b1252ddec3919ede22b86cef046b8
+    Reviewed-on: https://team-review.git.corp.google.com/66281
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+1	1	fire/inspectutils.py
+7	4	fire/interact.py
+
+commit 5e65a318585153b5b214bd1b417aee4cf907c634
+Author: David Bieber <dbieber@google.com>
+Date:   2017-03-29 17:36:45 +0000
+
+    Consistent colon usage in FireErrors.
+    
+    PiperOrigin-RevId: 151593314
+    Change-Id: I5f91c0cc3445e07fd91e4e16d53b97372949d3c7
+    Reviewed-on: https://team-review.git.corp.google.com/65736
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+3	3	fire/core.py
+1	0	fire/test_components.py
+2	1	fire/testutils.py
+
+commit ee1f57388909edfeaa9019824b77a24f65e59593
+Author: Jorrin Pollard <me@jorrinpollard.com>
+Date:   2017-03-29 04:27:07 -0700
+
+    Fix typos in guide.md (#44)
+
+2	2	doc/guide.md
+
+commit ea80933cb3d0b1a154d6397e0c2a0d69d7dc0e4c
+Author: Jeff Tratner <jeffrey.tratner@gmail.com>
+Date:   2017-03-28 08:06:05 -0700
+
+    fix output printing on dict with no printable keys (#39)
+
+7	8	fire/core.py
+7	0	fire/core_test.py
+8	0	fire/test_components.py
+9	0	fire/testutils.py
+
+commit 51fc990ddc5e181ce7fffdb86c60f47687e479d0
+Author: David Bieber <david810@gmail.com>
+Date:   2017-03-28 10:51:47 -0400
+
+    Adds pylint script to .travis.yml (#38)
+
+4	1	.travis.yml
+0	0	examples/__init__.py
+0	0	examples/cipher/__init__.py
+3	1	examples/cipher/cipher_test.py
+0	0	examples/diff/__init__.py
+6	4	examples/diff/diff_test.py
+0	0	examples/identity/__init__.py
+0	0	examples/widget/__init__.py
+2	2	examples/widget/collector.py
+6	4	examples/widget/collector_test.py
+1	1	examples/widget/widget.py
+3	1	examples/widget/widget_test.py
+39	34	fire/decorators_test.py
+1	1	fire/inspectutils.py
+1	1	fire/test_components.py
+1	1	pylintrc
+5	0	setup.cfg
+9	8	setup.py
+
+commit 4198d5a42baebc279d95035167348c61e219c70f
+Author: David Bieber <david810@gmail.com>
+Date:   2017-03-27 16:01:23 -0400
+
+    Adds pylintrc and moves towards conforming to the pylintrc (#36)
+    
+    * Adds pylintrc and moves towards conforming to that pylintrc.
+    * Also moves all tests to use testutils.BaseTestCase.
+    
+    Copybara generated commit for Python Fire.
+    
+    PiperOrigin-RevId: 151341797
+    Change-Id: I1c4d7ecf1fc4d7931e6c91328649fa5da9e916e1
+    Reviewed-on: https://team-review.git.corp.google.com/65525
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+4	4	examples/cipher/cipher_test.py
+4	4	examples/diff/diff_test.py
+4	4	examples/widget/collector_test.py
+4	4	examples/widget/widget_test.py
+0	1	fire/completion.py
+6	5	fire/completion_test.py
+7	7	fire/core_test.py
+5	4	fire/decorators_test.py
+6	4	fire/fire_import_test.py
+3	1	fire/fire_test.py
+7	5	fire/helputils_test.py
+1	1	fire/inspectutils.py
+5	2	fire/inspectutils_test.py
+6	4	fire/interact_test.py
+5	4	fire/parser_fuzz_test.py
+5	4	fire/parser_test.py
+2	2	fire/test_components.py
+5	4	fire/test_components_test.py
+6	0	fire/testutils.py
+6	5	fire/trace_test.py
+228	0	pylintrc
+3	0	setup.py
+
+commit 05d59337d8c08a128c0a184d61ca525924428948
+Author: Raphaël B <raphb.bis@gmail.com>
+Date:   2017-03-24 16:20:59 +0100
+
+    Fix typing error in docstring (#21)
+
+1	1	fire/test_components.py
+
+commit 35a3ec9981a337963366c373dbbd7b499ea48f35
+Author: Jack Evans <jack@evans.gb.net>
+Date:   2017-03-23 18:30:39 +0000
+
+    Update guide.md (#31)
+    
+    Python Fire Guide: Fix "NameError: name 'x' is not defined" in Argument Parsing example
+
+1	1	doc/guide.md
+
+commit c399562dd8d798125abbd44514860f03ef76eeca
+Author: Jeff Tratner <jeffrey.tratner@gmail.com>
+Date:   2017-03-22 16:58:46 -0700
+
+    Exit with a status code if Fire encounters an error (#27)
+    
+    Checked in by David Bieber, authored by David and Jeff.
+    
+    * Exit with a status code if Fire encounters an error
+    * adds FireExit and assertRaisesFireExit
+    * does not expose FireExit publicly yet
+
+1	1	fire/__init__.py
+32	10	fire/core.py
+14	3	fire/core_test.py
+6	3	fire/fire_import_test.py
+77	51	fire/fire_test.py
+3	2	fire/inspectutils_test.py
+1	0	fire/test_components.py
+64	0	fire/testutils.py
+
+commit c3f158a811eb39738772ae0ef97b48c27dd666b8
+Author: keatinge <keatinge@users.noreply.github.com>
+Date:   2017-03-22 16:51:42 -0400
+
+    Fix failing tests on Windows due to hardcoded file paths (#30)
+    
+    * Fix failing tests on Windows due to hardcoded file paths
+
+2	1	fire/helputils_test.py
+3	2	fire/inspectutils_test.py
+
+commit babf4f19bb482446132fd9dde977a1b87cca36a5
+Author: Jared Garst <jgarst@users.noreply.github.com>
+Date:   2017-03-20 14:41:12 -0700
+
+    Fix keyword-only arguments (#18)
+    
+    Adds support for keyword-only arguments to Fire.
+
+1	1	.travis.yml
+2	2	fire/completion.py
+18	11	fire/core.py
+8	0	fire/fire_test.py
+21	16	fire/helputils.py
+42	33	fire/inspectutils.py
+64	49	fire/inspectutils_test.py
+9	2	fire/test_components.py
+29	0	fire/test_components_py3.py
+
+commit 6feced71c60220af352758dfa76e4a380d424b42
+Author: David Bieber <dbieber@google.com>
+Date:   2017-03-14 21:12:47 +0000
+
+    Replace an instance of self with object (typo)
+    
+    PiperOrigin-RevId: 150111963
+    Change-Id: I42f8064eb4038a1a109823f08bd62025b6dddc20
+    Reviewed-on: https://team-review.git.corp.google.com/64465
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+1	1	doc/guide.md
+
+commit d5f56381e93429fd0ace1ee7cfbd7863fdd793bb
+Author: Sidi Mohamed EL AATIFI <elaatifi@gmail.com>
+Date:   2017-03-14 21:37:58 +0100
+
+    Fix a typo in guide.md (#20)
+    
+    Pipeline should extend 'object' not 'self'
+
+1	1	doc/guide.md
+
+commit 1239bdd23b0112701d3817d5fdf109f80ae4c35b
+Author: David Bieber <dbieber@google.com>
+Date:   2017-03-11 21:48:12 +0000
+
+    Handles looking up source file of components w/o source gracefully by dbieber <dbieber@google.com>
+    
+    Copybara generated commit for Python Fire.
+    
+    
+    PiperOrigin-RevId: 149854483
+    Change-Id: I6ad4470e1651f1cac4d3a95384085cde8068426b
+    Reviewed-on: https://team-review.git.corp.google.com/64257
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+6	9	fire/core.py
+
+commit d0968d7b046eb5b1596a22f9cbfa3fef6f6c0c85
+Author: David Bieber <dbieber@google.com>
+Date:   2017-03-11 21:25:29 +0000
+
+    Introduces The Python Fire Guide, by David Bieber <dbieber@google.com>
+    
+    Copybara generated commit for Python Fire.
+    
+    
+    PiperOrigin-RevId: 149853807
+    Change-Id: Iafc97bdba57f0744685e6b14ca5660eb35e1d323
+    Reviewed-on: https://team-review.git.corp.google.com/64210
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+9	0	README.md
+713	0	doc/guide.md
+
+commit 88f65747e25c20901483ed1d29d79392bd9b6fe3
+Author: David Bieber <dbieber@google.com>
+Date:   2017-03-09 22:03:59 +0000
+
+    Use 'is' in place of '==' for determining whether Python object has changed in Fire.
+    
+    Copybara generated commit for Python Fire.
+    
+    PiperOrigin-RevId: 149692390
+    Change-Id: I6fb5413ba2c9d5eed654d6710f8cc756180e90dc
+    Reviewed-on: https://team-review.git.corp.google.com/63904
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+3	3	fire/core.py
+8	0	fire/fire_test.py
+10	1	fire/test_components.py
+6	0	fire/test_components_test.py
+
+commit 8e294783b1367857083e0665a55dfdddccd033ee
+Author: David Bieber <dbieber@google.com>
+Date:   2017-03-07 18:05:12 +0000
+
+    Cleans up formatting and adds requirements.txt file.
+    - requirements.txt file just contains '.' indicating to use setup.py
+    - whitespace cleanup
+    
+    Copybara generated commit for Python Fire.
+    
+    PiperOrigin-RevId: 149431484
+    Change-Id: I6fb5413ba2c9d5eed654d6710f8cc756180e90dc
+    Reviewed-on: https://team-review.git.corp.google.com/63905
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+0	2	fire/completion_test.py
+1	2	fire/core.py
+1	0	fire/test_components.py
+1	0	requirements.txt
+
+commit 59d9095efbba628895e7b57c8c7c5775cc4638b8
+Author: Yuval Greenfield <ubershmekel@gmail.com>
+Date:   2017-03-06 07:29:49 -0800
+
+    Allow Fire to serialize empty dictionaries (#5)
+    
+    * Fix for empty dictionary print outs
+    
+    This should handle https://github.com/google/python-fire/issues/4
+    
+    * pep8 prefers `if not seq` over `len == 0`
+    
+    * Use single quotes
+
+3	0	fire/core.py
+
+commit f8ad6b7f78ef39c2e439187b706724d47cb0b0c6
+Author: Raphael Deem <raphael.deem@gmail.com>
+Date:   2017-03-06 07:20:16 -0800
+
+    Combine logic for printing lists, generators, and sets (#9)
+    
+    * cleanup logic in print
+    
+    * leave tuple logic separate
+
+3	7	fire/core.py
+
+commit 63aba49c50b6088aa670ad0877b6d059c21cdf00
+Author: Jared Garst <jgarst@users.noreply.github.com>
+Date:   2017-03-06 07:17:58 -0800
+
+    Support annotations in functions. (#8)
+    
+    * Fix error with annotated functions.
+    
+    Calling inspect.getargspec on an annotated function throws an error in
+    Python 3. inspect.getfullargspec should be used instead.
+    
+    * Change if/elif to if/else
+    
+    if else allows better static analysis.
+
+4	0	fire/fire_test.py
+9	2	fire/inspectutils.py
+11	0	fire/test_components.py
+
+commit 48dd6623bfeb8635082cdecb0f87e75d3a9c4672
+Author: David Bieber <dbieber@google.com>
+Date:   2017-03-02 20:28:21 +0000
+
+    Updates documentation and fixes example CLI main syntax.
+    
+    Copybara generated commit for Python Fire.
+    
+    PiperOrigin-RevId: 149033447
+    Change-Id: I0a9b2efbf6d8fb5436c3cca419d01bee376079be
+    Reviewed-on: https://team-review.git.corp.google.com/63542
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+25	22	doc/using-cli.md
+1	1	examples/cipher/cipher.py
+1	1	examples/diff/diff.py
+1	1	examples/diff/difffull.py
+1	1	examples/widget/collector.py
+1	1	examples/widget/widget.py
+5	5	fire/interact.py
+8	9	fire/interact_test.py
+
+commit 421bbae7322ee8f5505d48a3efa7fa75d9430d63
+Author: David Bieber <dbieber@google.com>
+Date:   2017-02-23 18:12:53 +0000
+
+    Adds .travis.yml to Python Fire and updates setup.py
+    
+    Copybara generated commit for Python Fire.
+    
+    Change-Id: If1ea92ddf10eb9719d93377b382c00f4d0b9670a
+    Reviewed-on: https://team-review.git.corp.google.com/62984
+    Reviewed-by: David Bieber <dbieber@google.com>
+
+11	0	.travis.yml
+7	4	setup.py
+
+commit 9f9630ac871138c04c8654eb46d66ca0a2f70b7c
+Author: David Bieber <dbieber@google.com>
+Date:   2017-02-15 13:22:36 -0800
+
+    Initial commit for Python Fire.
+
+24	0	CONTRIBUTING.md
+13	0	LICENSE
+79	0	README.md
+60	0	doc/benefits.md
+220	0	doc/using-cli.md
+59	0	examples/cipher/cipher.py
+32	0	examples/cipher/cipher_test.py
+103	0	examples/diff/diff.py
+93	0	examples/diff/diff_test.py
+51	0	examples/diff/difffull.py
+28	0	examples/identity/identity.py
+38	0	examples/widget/collector.py
+37	0	examples/widget/collector_test.py
+35	0	examples/widget/widget.py
+34	0	examples/widget/widget_test.py
+23	0	fire/__init__.py
+229	0	fire/completion.py
+140	0	fire/completion_test.py
+760	0	fire/core.py
+86	0	fire/core_test.py
+97	0	fire/decorators.py
+150	0	fire/decorators_test.py
+35	0	fire/fire_import_test.py
+371	0	fire/fire_test.py
+197	0	fire/helputils.py
+128	0	fire/helputils_test.py
+128	0	fire/inspectutils.py
+99	0	fire/inspectutils_test.py
+90	0	fire/interact.py
+44	0	fire/interact_test.py
+127	0	fire/parser.py
+97	0	fire/parser_fuzz_test.py
+138	0	fire/parser_test.py
+170	0	fire/test_components.py
+33	0	fire/test_components_test.py
+301	0	fire/trace.py
+139	0	fire/trace_test.py
+78	0	setup.py

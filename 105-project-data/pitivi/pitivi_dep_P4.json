@@ -1,0 +1,606 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "pitivi\\pitivi-sdsm",
+  "variables" : [ "pitivi/getenvvar.py", "pitivi/pitivi/application.py", "pitivi/pitivi/autoaligner.py", "pitivi/pitivi/check.py", "pitivi/pitivi/clipproperties.py", "pitivi/pitivi/dialogs/about.py", "pitivi/pitivi/dialogs/browseprojects.py", "pitivi/pitivi/dialogs/clipmediaprops.py", "pitivi/pitivi/dialogs/filelisterrordialog.py", "pitivi/pitivi/dialogs/missingasset.py", "pitivi/pitivi/dialogs/prefs.py", "pitivi/pitivi/dialogs/__init__.py", "pitivi/pitivi/editorperspective.py", "pitivi/pitivi/effects.py", "pitivi/pitivi/greeterperspective.py", "pitivi/pitivi/mainwindow.py", "pitivi/pitivi/mediafilespreviewer.py", "pitivi/pitivi/medialibrary.py", "pitivi/pitivi/perspective.py", "pitivi/pitivi/pluginmanager.py", "pitivi/pitivi/preset.py", "pitivi/pitivi/project.py", "pitivi/pitivi/render.py", "pitivi/pitivi/settings.py", "pitivi/pitivi/shortcuts.py", "pitivi/pitivi/tabsmanager.py", "pitivi/pitivi/timeline/elements.py", "pitivi/pitivi/timeline/layer.py", "pitivi/pitivi/timeline/previewers.py", "pitivi/pitivi/timeline/ruler.py", "pitivi/pitivi/timeline/timeline.py", "pitivi/pitivi/timeline/__init__.py", "pitivi/pitivi/titleeditor.py", "pitivi/pitivi/transitions.py", "pitivi/pitivi/undo/project.py", "pitivi/pitivi/undo/timeline.py", "pitivi/pitivi/undo/undo.py", "pitivi/pitivi/undo/__init__.py", "pitivi/pitivi/utils/custom_effect_widgets.py", "pitivi/pitivi/utils/extract.py", "pitivi/pitivi/utils/loggable.py", "pitivi/pitivi/utils/misc.py", "pitivi/pitivi/utils/pipeline.py", "pitivi/pitivi/utils/proxy.py", "pitivi/pitivi/utils/ripple_update_group.py", "pitivi/pitivi/utils/system.py", "pitivi/pitivi/utils/threads.py", "pitivi/pitivi/utils/timeline.py", "pitivi/pitivi/utils/ui.py", "pitivi/pitivi/utils/validate.py", "pitivi/pitivi/utils/widgets.py", "pitivi/pitivi/utils/__init__.py", "pitivi/pitivi/viewer/move_scale_overlay.py", "pitivi/pitivi/viewer/overlay.py", "pitivi/pitivi/viewer/overlay_stack.py", "pitivi/pitivi/viewer/title_overlay.py", "pitivi/pitivi/viewer/viewer.py", "pitivi/pitivi/viewer/__init__.py", "pitivi/pitivi/__init__.py", "pitivi/plugins/console/console.py", "pitivi/plugins/console/consolebuffer.py", "pitivi/plugins/console/utils.py", "pitivi/plugins/console/widgets.py", "pitivi/tests/common.py", "pitivi/tests/ptv_testsuite.py", "pitivi/tests/test_application.py", "pitivi/tests/test_check.py", "pitivi/tests/test_clipproperties.py", "pitivi/tests/test_common.py", "pitivi/tests/test_editorperspective.py", "pitivi/tests/test_effects.py", "pitivi/tests/test_log.py", "pitivi/tests/test_media_library.py", "pitivi/tests/test_misc.py", "pitivi/tests/test_pipeline.py", "pitivi/tests/test_plugin_manager.py", "pitivi/tests/test_prefs.py", "pitivi/tests/test_preset.py", "pitivi/tests/test_previewers.py", "pitivi/tests/test_project.py", "pitivi/tests/test_render.py", "pitivi/tests/test_settings.py", "pitivi/tests/test_shortcuts.py", "pitivi/tests/test_system.py", "pitivi/tests/test_timeline_elements.py", "pitivi/tests/test_timeline_layer.py", "pitivi/tests/test_timeline_timeline.py", "pitivi/tests/test_undo.py", "pitivi/tests/test_undo_project.py", "pitivi/tests/test_undo_timeline.py", "pitivi/tests/test_utils.py", "pitivi/tests/test_utils_timeline.py", "pitivi/tests/test_widgets.py", "pitivi/tests/validate-tests/manager.py", "pitivi/tests/validate-tests/suite.py", "pitivi/tests/__init__.py", "pitivi/win32/configure.py" ],
+  "cells" : [ {
+    "src" : 32,
+    "dest" : 50,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 7,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 10,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 46,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 69,
+    "dest" : 63,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 50,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 35,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 36,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 21,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 7,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 10,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 27,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 30,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 46,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 63,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 10,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 46,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 63,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 39,
+    "dest" : 17,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 39,
+    "dest" : 21,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 39,
+    "dest" : 28,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 17,
+    "values" : {
+      "P4" : 7.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 33,
+    "values" : {
+      "P4" : 5.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 4,
+    "values" : {
+      "P4" : 5.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 21,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 39,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 7,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 10,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 28,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 13,
+    "values" : {
+      "P4" : 5.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 46,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 72,
+    "dest" : 63,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 9,
+    "dest" : 7,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 9,
+    "dest" : 10,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 9,
+    "dest" : 46,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 9,
+    "dest" : 63,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 7,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 10,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 46,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 41,
+    "dest" : 63,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 73,
+    "dest" : 7,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 73,
+    "dest" : 10,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 73,
+    "dest" : 46,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 73,
+    "dest" : 63,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 7,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 46,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 10,
+    "dest" : 63,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 17,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 21,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 39,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 43,
+    "dest" : 28,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 12,
+    "dest" : 7,
+    "values" : {
+      "P4" : 14.0
+    }
+  }, {
+    "src" : 12,
+    "dest" : 10,
+    "values" : {
+      "P4" : 14.0
+    }
+  }, {
+    "src" : 12,
+    "dest" : 46,
+    "values" : {
+      "P4" : 14.0
+    }
+  }, {
+    "src" : 12,
+    "dest" : 63,
+    "values" : {
+      "P4" : 14.0
+    }
+  }, {
+    "src" : 13,
+    "dest" : 50,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 13,
+    "dest" : 35,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 13,
+    "dest" : 36,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 14,
+    "dest" : 7,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 14,
+    "dest" : 10,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 14,
+    "dest" : 46,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 14,
+    "dest" : 63,
+    "values" : {
+      "P4" : 1.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 7,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 10,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 46,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 15,
+    "dest" : 63,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 79,
+    "dest" : 33,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 79,
+    "dest" : 17,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 79,
+    "dest" : 4,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 79,
+    "dest" : 7,
+    "values" : {
+      "P4" : 26.0
+    }
+  }, {
+    "src" : 79,
+    "dest" : 10,
+    "values" : {
+      "P4" : 26.0
+    }
+  }, {
+    "src" : 79,
+    "dest" : 13,
+    "values" : {
+      "P4" : 8.0
+    }
+  }, {
+    "src" : 79,
+    "dest" : 46,
+    "values" : {
+      "P4" : 26.0
+    }
+  }, {
+    "src" : 79,
+    "dest" : 63,
+    "values" : {
+      "P4" : 26.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 7,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 10,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 46,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 16,
+    "dest" : 63,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 80,
+    "dest" : 50,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 80,
+    "dest" : 7,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 80,
+    "dest" : 10,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 80,
+    "dest" : 46,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 80,
+    "dest" : 63,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 7,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 10,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 46,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 21,
+    "dest" : 63,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 22,
+    "dest" : 7,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 22,
+    "dest" : 10,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 22,
+    "dest" : 46,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 22,
+    "dest" : 63,
+    "values" : {
+      "P4" : 4.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 7,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 10,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 46,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 63,
+    "values" : {
+      "P4" : 6.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 7,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 10,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 46,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 63,
+    "values" : {
+      "P4" : 2.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 50,
+    "values" : {
+      "P4" : 4.0
+    }
+  } ]
+}

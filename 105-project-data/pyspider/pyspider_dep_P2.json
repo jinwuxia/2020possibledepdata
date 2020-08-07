@@ -1,0 +1,402 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "pyspider\\pyspider-sdsm",
+  "variables" : [ "pyspider/docs/conf.py", "pyspider/pyspider/database/base/projectdb.py", "pyspider/pyspider/database/base/resultdb.py", "pyspider/pyspider/database/base/taskdb.py", "pyspider/pyspider/database/base/__init__.py", "pyspider/pyspider/database/basedb.py", "pyspider/pyspider/database/elasticsearch/projectdb.py", "pyspider/pyspider/database/elasticsearch/resultdb.py", "pyspider/pyspider/database/elasticsearch/taskdb.py", "pyspider/pyspider/database/elasticsearch/__init__.py", "pyspider/pyspider/database/local/projectdb.py", "pyspider/pyspider/database/local/__init__.py", "pyspider/pyspider/database/mongodb/mongodbbase.py", "pyspider/pyspider/database/mongodb/projectdb.py", "pyspider/pyspider/database/mongodb/resultdb.py", "pyspider/pyspider/database/mongodb/taskdb.py", "pyspider/pyspider/database/mongodb/__init__.py", "pyspider/pyspider/database/mysql/mysqlbase.py", "pyspider/pyspider/database/mysql/projectdb.py", "pyspider/pyspider/database/mysql/resultdb.py", "pyspider/pyspider/database/mysql/taskdb.py", "pyspider/pyspider/database/mysql/__init__.py", "pyspider/pyspider/database/redis/taskdb.py", "pyspider/pyspider/database/redis/__init__.py", "pyspider/pyspider/database/sqlalchemy/projectdb.py", "pyspider/pyspider/database/sqlalchemy/resultdb.py", "pyspider/pyspider/database/sqlalchemy/sqlalchemybase.py", "pyspider/pyspider/database/sqlalchemy/taskdb.py", "pyspider/pyspider/database/sqlalchemy/__init__.py", "pyspider/pyspider/database/sqlite/projectdb.py", "pyspider/pyspider/database/sqlite/resultdb.py", "pyspider/pyspider/database/sqlite/sqlitebase.py", "pyspider/pyspider/database/sqlite/taskdb.py", "pyspider/pyspider/database/sqlite/__init__.py", "pyspider/pyspider/database/__init__.py", "pyspider/pyspider/fetcher/cookie_utils.py", "pyspider/pyspider/fetcher/tornado_fetcher.py", "pyspider/pyspider/fetcher/__init__.py", "pyspider/pyspider/libs/base_handler.py", "pyspider/pyspider/libs/bench.py", "pyspider/pyspider/libs/counter.py", "pyspider/pyspider/libs/dataurl.py", "pyspider/pyspider/libs/ListIO.py", "pyspider/pyspider/libs/log.py", "pyspider/pyspider/libs/multiprocessing_queue.py", "pyspider/pyspider/libs/pprint.py", "pyspider/pyspider/libs/response.py", "pyspider/pyspider/libs/result_dump.py", "pyspider/pyspider/libs/sample_handler.py", "pyspider/pyspider/libs/url.py", "pyspider/pyspider/libs/utils.py", "pyspider/pyspider/libs/wsgi_xmlrpc.py", "pyspider/pyspider/libs/__init__.py", "pyspider/pyspider/message_queue/beanstalk.py", "pyspider/pyspider/message_queue/kombu_queue.py", "pyspider/pyspider/message_queue/rabbitmq.py", "pyspider/pyspider/message_queue/redis_queue.py", "pyspider/pyspider/message_queue/__init__.py", "pyspider/pyspider/processor/processor.py", "pyspider/pyspider/processor/project_module.py", "pyspider/pyspider/processor/__init__.py", "pyspider/pyspider/result/result_worker.py", "pyspider/pyspider/result/__init__.py", "pyspider/pyspider/run.py", "pyspider/pyspider/scheduler/scheduler.py", "pyspider/pyspider/scheduler/task_queue.py", "pyspider/pyspider/scheduler/token_bucket.py", "pyspider/pyspider/scheduler/__init__.py", "pyspider/pyspider/webui/app.py", "pyspider/pyspider/webui/debug.py", "pyspider/pyspider/webui/index.py", "pyspider/pyspider/webui/login.py", "pyspider/pyspider/webui/result.py", "pyspider/pyspider/webui/task.py", "pyspider/pyspider/webui/webdav.py", "pyspider/pyspider/webui/__init__.py", "pyspider/pyspider/__init__.py", "pyspider/run.py", "pyspider/setup.py", "pyspider/tests/data_fetcher_processor_handler.py", "pyspider/tests/data_handler.py", "pyspider/tests/data_sample_handler.py", "pyspider/tests/data_test_webpage.py", "pyspider/tests/test_base_handler.py", "pyspider/tests/test_bench.py", "pyspider/tests/test_counter.py", "pyspider/tests/test_database.py", "pyspider/tests/test_fetcher.py", "pyspider/tests/test_fetcher_processor.py", "pyspider/tests/test_message_queue.py", "pyspider/tests/test_processor.py", "pyspider/tests/test_response.py", "pyspider/tests/test_result_dump.py", "pyspider/tests/test_result_worker.py", "pyspider/tests/test_run.py", "pyspider/tests/test_scheduler.py", "pyspider/tests/test_utils.py", "pyspider/tests/test_webdav.py", "pyspider/tests/test_webui.py", "pyspider/tests/test_xmlrpc.py", "pyspider/tests/__init__.py", "pyspider/tools/migrate.py" ],
+  "cells" : [ {
+    "src" : 64,
+    "dest" : 80,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 64,
+    "dest" : 65,
+    "values" : {
+      "P2" : 5.0
+    }
+  }, {
+    "src" : 64,
+    "dest" : 1,
+    "values" : {
+      "P2" : 5.0
+    }
+  }, {
+    "src" : 64,
+    "dest" : 36,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 64,
+    "dest" : 38,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 64,
+    "dest" : 40,
+    "values" : {
+      "P2" : 54.0
+    }
+  }, {
+    "src" : 64,
+    "dest" : 61,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 1,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 70,
+    "dest" : 35,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 7,
+    "dest" : 8,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 8,
+    "dest" : 7,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 74,
+    "dest" : 1,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 74,
+    "dest" : 35,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 12,
+    "dest" : 14,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 12,
+    "dest" : 15,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 79,
+    "dest" : 38,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 79,
+    "dest" : 88,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 79,
+    "dest" : 58,
+    "values" : {
+      "P2" : 3.0
+    }
+  }, {
+    "src" : 79,
+    "dest" : 46,
+    "values" : {
+      "P2" : 3.0
+    }
+  }, {
+    "src" : 80,
+    "dest" : 58,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 80,
+    "dest" : 46,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 81,
+    "dest" : 38,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 81,
+    "dest" : 88,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 85,
+    "dest" : 40,
+    "values" : {
+      "P2" : 20.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 64,
+    "values" : {
+      "P2" : 10.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 1,
+    "values" : {
+      "P2" : 7.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 65,
+    "values" : {
+      "P2" : 5.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 2,
+    "values" : {
+      "P2" : 12.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 35,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 3,
+    "values" : {
+      "P2" : 12.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 7,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 8,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 61,
+    "values" : {
+      "P2" : 10.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 14,
+    "values" : {
+      "P2" : 8.0
+    }
+  }, {
+    "src" : 86,
+    "dest" : 15,
+    "values" : {
+      "P2" : 8.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 58,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 87,
+    "dest" : 61,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 64,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 88,
+    "dest" : 58,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 54,
+    "values" : {
+      "P2" : 15.0
+    }
+  }, {
+    "src" : 89,
+    "dest" : 55,
+    "values" : {
+      "P2" : 15.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 64,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 90,
+    "dest" : 58,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 58,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 93,
+    "dest" : 61,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 94,
+    "dest" : 64,
+    "values" : {
+      "P2" : 6.0
+    }
+  }, {
+    "src" : 94,
+    "dest" : 58,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 94,
+    "dest" : 61,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 95,
+    "dest" : 64,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 95,
+    "dest" : 66,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 95,
+    "dest" : 58,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 98,
+    "dest" : 64,
+    "values" : {
+      "P2" : 4.0
+    }
+  }, {
+    "src" : 36,
+    "dest" : 40,
+    "values" : {
+      "P2" : 8.0
+    }
+  }, {
+    "src" : 38,
+    "dest" : 58,
+    "values" : {
+      "P2" : 8.0
+    }
+  }, {
+    "src" : 38,
+    "dest" : 46,
+    "values" : {
+      "P2" : 8.0
+    }
+  }, {
+    "src" : 39,
+    "dest" : 58,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 39,
+    "dest" : 46,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 38,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 48,
+    "dest" : 88,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 65,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 1,
+    "values" : {
+      "P2" : 2.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 38,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 59,
+    "dest" : 74,
+    "values" : {
+      "P2" : 1.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 64,
+    "values" : {
+      "P2" : 15.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 58,
+    "values" : {
+      "P2" : 10.0
+    }
+  }, {
+    "src" : 63,
+    "dest" : 61,
+    "values" : {
+      "P2" : 5.0
+    }
+  } ]
+}

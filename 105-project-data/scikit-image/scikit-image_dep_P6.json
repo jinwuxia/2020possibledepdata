@@ -1,0 +1,624 @@
+{
+  "@schemaVersion" : "1.0",
+  "name" : "scikit-image\\scikit-image-sdsm",
+  "variables" : [ "scikit-image/benchmarks/benchmark_exposure.py", "scikit-image/benchmarks/benchmark_feature.py", "scikit-image/benchmarks/benchmark_filters.py", "scikit-image/benchmarks/benchmark_morphology.py", "scikit-image/benchmarks/benchmark_rank.py", "scikit-image/benchmarks/benchmark_segmentation.py", "scikit-image/benchmarks/benchmark_transform.py", "scikit-image/benchmarks/benchmark_transform_warp.py", "scikit-image/benchmarks/__init__.py", "scikit-image/doc/examples/applications/plot_coins_segmentation.py", "scikit-image/doc/examples/applications/plot_face_detection.py", "scikit-image/doc/examples/applications/plot_geometric.py", "scikit-image/doc/examples/applications/plot_haar_extraction_selection_classification.py", "scikit-image/doc/examples/applications/plot_morphology.py", "scikit-image/doc/examples/applications/plot_rank_filters.py", "scikit-image/doc/examples/applications/plot_thresholding.py", "scikit-image/doc/examples/color_exposure/plot_adapt_rgb.py", "scikit-image/doc/examples/color_exposure/plot_equalize.py", "scikit-image/doc/examples/color_exposure/plot_ihc_color_separation.py", "scikit-image/doc/examples/color_exposure/plot_local_equalize.py", "scikit-image/doc/examples/color_exposure/plot_log_gamma.py", "scikit-image/doc/examples/color_exposure/plot_regional_maxima.py", "scikit-image/doc/examples/color_exposure/plot_rgb_to_gray.py", "scikit-image/doc/examples/color_exposure/plot_rgb_to_hsv.py", "scikit-image/doc/examples/color_exposure/plot_tinting_grayscale_images.py", "scikit-image/doc/examples/data/plot_general.py", "scikit-image/doc/examples/data/plot_scientific.py", "scikit-image/doc/examples/data/plot_specific.py", "scikit-image/doc/examples/developers/plot_max_tree.py", "scikit-image/doc/examples/edges/plot_active_contours.py", "scikit-image/doc/examples/edges/plot_canny.py", "scikit-image/doc/examples/edges/plot_circular_elliptical_hough_transform.py", "scikit-image/doc/examples/edges/plot_contours.py", "scikit-image/doc/examples/edges/plot_convex_hull.py", "scikit-image/doc/examples/edges/plot_edge_filter.py", "scikit-image/doc/examples/edges/plot_line_hough_transform.py", "scikit-image/doc/examples/edges/plot_marching_cubes.py", "scikit-image/doc/examples/edges/plot_polygon.py", "scikit-image/doc/examples/edges/plot_random_shapes.py", "scikit-image/doc/examples/edges/plot_ridge_filter.py", "scikit-image/doc/examples/edges/plot_shapes.py", "scikit-image/doc/examples/edges/plot_skeleton.py", "scikit-image/doc/examples/features_detection/plot_blob.py", "scikit-image/doc/examples/features_detection/plot_brief.py", "scikit-image/doc/examples/features_detection/plot_censure.py", "scikit-image/doc/examples/features_detection/plot_corner.py", "scikit-image/doc/examples/features_detection/plot_daisy.py", "scikit-image/doc/examples/features_detection/plot_gabor.py", "scikit-image/doc/examples/features_detection/plot_gabors_from_astronaut.py", "scikit-image/doc/examples/features_detection/plot_glcm.py", "scikit-image/doc/examples/features_detection/plot_haar.py", "scikit-image/doc/examples/features_detection/plot_hog.py", "scikit-image/doc/examples/features_detection/plot_holes_and_peaks.py", "scikit-image/doc/examples/features_detection/plot_local_binary_pattern.py", "scikit-image/doc/examples/features_detection/plot_multiblock_local_binary_pattern.py", "scikit-image/doc/examples/features_detection/plot_orb.py", "scikit-image/doc/examples/features_detection/plot_shape_index.py", "scikit-image/doc/examples/features_detection/plot_template.py", "scikit-image/doc/examples/features_detection/plot_windowed_histogram.py", "scikit-image/doc/examples/filters/plot_attribute_operators.py", "scikit-image/doc/examples/filters/plot_cycle_spinning.py", "scikit-image/doc/examples/filters/plot_deconvolution.py", "scikit-image/doc/examples/filters/plot_denoise.py", "scikit-image/doc/examples/filters/plot_denoise_wavelet.py", "scikit-image/doc/examples/filters/plot_entropy.py", "scikit-image/doc/examples/filters/plot_hysteresis.py", "scikit-image/doc/examples/filters/plot_inpaint.py", "scikit-image/doc/examples/filters/plot_nonlocal_means.py", "scikit-image/doc/examples/filters/plot_phase_unwrap.py", "scikit-image/doc/examples/filters/plot_rank_mean.py", "scikit-image/doc/examples/filters/plot_restoration.py", "scikit-image/doc/examples/filters/plot_unsharp_mask.py", "scikit-image/doc/examples/numpy_operations/plot_camera_numpy.py", "scikit-image/doc/examples/numpy_operations/plot_view_as_blocks.py", "scikit-image/doc/examples/segmentation/plot_boundary_merge.py", "scikit-image/doc/examples/segmentation/plot_chan_vese.py", "scikit-image/doc/examples/segmentation/plot_compact_watershed.py", "scikit-image/doc/examples/segmentation/plot_extrema.py", "scikit-image/doc/examples/segmentation/plot_floodfill.py", "scikit-image/doc/examples/segmentation/plot_join_segmentations.py", "scikit-image/doc/examples/segmentation/plot_label.py", "scikit-image/doc/examples/segmentation/plot_marked_watershed.py", "scikit-image/doc/examples/segmentation/plot_morphsnakes.py", "scikit-image/doc/examples/segmentation/plot_ncut.py", "scikit-image/doc/examples/segmentation/plot_niblack_sauvola.py", "scikit-image/doc/examples/segmentation/plot_peak_local_max.py", "scikit-image/doc/examples/segmentation/plot_rag.py", "scikit-image/doc/examples/segmentation/plot_rag_boundary.py", "scikit-image/doc/examples/segmentation/plot_rag_draw.py", "scikit-image/doc/examples/segmentation/plot_rag_mean_color.py", "scikit-image/doc/examples/segmentation/plot_rag_merge.py", "scikit-image/doc/examples/segmentation/plot_random_walker_segmentation.py", "scikit-image/doc/examples/segmentation/plot_regionprops.py", "scikit-image/doc/examples/segmentation/plot_segmentations.py", "scikit-image/doc/examples/segmentation/plot_thresholding.py", "scikit-image/doc/examples/segmentation/plot_watershed.py", "scikit-image/doc/examples/transform/plot_edge_modes.py", "scikit-image/doc/examples/transform/plot_fundamental_matrix.py", "scikit-image/doc/examples/transform/plot_histogram_matching.py", "scikit-image/doc/examples/transform/plot_masked_register_translation.py", "scikit-image/doc/examples/transform/plot_matching.py", "scikit-image/doc/examples/transform/plot_piecewise_affine.py", "scikit-image/doc/examples/transform/plot_pyramid.py", "scikit-image/doc/examples/transform/plot_radon_transform.py", "scikit-image/doc/examples/transform/plot_ransac.py", "scikit-image/doc/examples/transform/plot_register_translation.py", "scikit-image/doc/examples/transform/plot_rescale.py", "scikit-image/doc/examples/transform/plot_ssim.py", "scikit-image/doc/examples/transform/plot_swirl.py", "scikit-image/doc/ext/doi_role.py", "scikit-image/doc/ext/notebook_doc.py", "scikit-image/doc/ext/plot2rst.py", "scikit-image/doc/gh-pages.py", "scikit-image/doc/release/contribs.py", "scikit-image/doc/source/conf.py", "scikit-image/doc/source/plots/hough_tf.py", "scikit-image/doc/source/plots/show_collection.py", "scikit-image/doc/source/random_gallery.py", "scikit-image/doc/tools/apigen.py", "scikit-image/doc/tools/build_modref_templates.py", "scikit-image/doc/tools/plot_pr.py", "scikit-image/doc/__init__.py", "scikit-image/setup.py", "scikit-image/skimage/color/adapt_rgb.py", "scikit-image/skimage/color/colorconv.py", "scikit-image/skimage/color/colorlabel.py", "scikit-image/skimage/color/delta_e.py", "scikit-image/skimage/color/rgb_colors.py", "scikit-image/skimage/color/tests/test_adapt_rgb.py", "scikit-image/skimage/color/tests/test_colorconv.py", "scikit-image/skimage/color/tests/test_colorlabel.py", "scikit-image/skimage/color/tests/test_delta_e.py", "scikit-image/skimage/color/tests/__init__.py", "scikit-image/skimage/color/__init__.py", "scikit-image/skimage/conftest.py", "scikit-image/skimage/data/tests/test_data.py", "scikit-image/skimage/data/tests/__init__.py", "scikit-image/skimage/data/_binary_blobs.py", "scikit-image/skimage/data/_detect.py", "scikit-image/skimage/data/__init__.py", "scikit-image/skimage/draw/draw.py", "scikit-image/skimage/draw/draw3d.py", "scikit-image/skimage/draw/setup.py", "scikit-image/skimage/draw/tests/test_draw.py", "scikit-image/skimage/draw/tests/test_draw3d.py", "scikit-image/skimage/draw/tests/test_random_shapes.py", "scikit-image/skimage/draw/tests/__init__.py", "scikit-image/skimage/draw/_random_shapes.py", "scikit-image/skimage/draw/__init__.py", "scikit-image/skimage/exposure/exposure.py", "scikit-image/skimage/exposure/setup.py", "scikit-image/skimage/exposure/tests/test_exposure.py", "scikit-image/skimage/exposure/tests/__init__.py", "scikit-image/skimage/exposure/_adapthist.py", "scikit-image/skimage/exposure/__init__.py", "scikit-image/skimage/external/setup.py", "scikit-image/skimage/external/test_tifffile.py", "scikit-image/skimage/external/tifffile/tifffile.py", "scikit-image/skimage/external/tifffile/__init__.py", "scikit-image/skimage/external/__init__.py", "scikit-image/skimage/feature/blob.py", "scikit-image/skimage/feature/brief.py", "scikit-image/skimage/feature/censure.py", "scikit-image/skimage/feature/corner.py", "scikit-image/skimage/feature/haar.py", "scikit-image/skimage/feature/masked_register_translation.py", "scikit-image/skimage/feature/match.py", "scikit-image/skimage/feature/orb.py", "scikit-image/skimage/feature/peak.py", "scikit-image/skimage/feature/register_translation.py", "scikit-image/skimage/feature/setup.py", "scikit-image/skimage/feature/template.py", "scikit-image/skimage/feature/tests/test_blob.py", "scikit-image/skimage/feature/tests/test_brief.py", "scikit-image/skimage/feature/tests/test_canny.py", "scikit-image/skimage/feature/tests/test_cascade.py", "scikit-image/skimage/feature/tests/test_censure.py", "scikit-image/skimage/feature/tests/test_corner.py", "scikit-image/skimage/feature/tests/test_daisy.py", "scikit-image/skimage/feature/tests/test_haar.py", "scikit-image/skimage/feature/tests/test_hog.py", "scikit-image/skimage/feature/tests/test_masked_register_translation.py", "scikit-image/skimage/feature/tests/test_match.py", "scikit-image/skimage/feature/tests/test_orb.py", "scikit-image/skimage/feature/tests/test_peak.py", "scikit-image/skimage/feature/tests/test_register_translation.py", "scikit-image/skimage/feature/tests/test_template.py", "scikit-image/skimage/feature/tests/test_texture.py", "scikit-image/skimage/feature/tests/test_util.py", "scikit-image/skimage/feature/tests/__init__.py", "scikit-image/skimage/feature/texture.py", "scikit-image/skimage/feature/util.py", "scikit-image/skimage/feature/_canny.py", "scikit-image/skimage/feature/_daisy.py", "scikit-image/skimage/feature/_hog.py", "scikit-image/skimage/feature/__init__.py", "scikit-image/skimage/filters/edges.py", "scikit-image/skimage/filters/lpi_filter.py", "scikit-image/skimage/filters/rank/bilateral.py", "scikit-image/skimage/filters/rank/generic.py", "scikit-image/skimage/filters/rank/tests/test_rank.py", "scikit-image/skimage/filters/rank/tests/__init__.py", "scikit-image/skimage/filters/rank/_percentile.py", "scikit-image/skimage/filters/rank/__init__.py", "scikit-image/skimage/filters/ridges.py", "scikit-image/skimage/filters/setup.py", "scikit-image/skimage/filters/tests/test_edges.py", "scikit-image/skimage/filters/tests/test_gabor.py", "scikit-image/skimage/filters/tests/test_gaussian.py", "scikit-image/skimage/filters/tests/test_lpi_filter.py", "scikit-image/skimage/filters/tests/test_median.py", "scikit-image/skimage/filters/tests/test_ridges.py", "scikit-image/skimage/filters/tests/test_thresholding.py", "scikit-image/skimage/filters/tests/test_unsharp_mask.py", "scikit-image/skimage/filters/tests/__init__.py", "scikit-image/skimage/filters/thresholding.py", "scikit-image/skimage/filters/_gabor.py", "scikit-image/skimage/filters/_gaussian.py", "scikit-image/skimage/filters/_median.py", "scikit-image/skimage/filters/_rank_order.py", "scikit-image/skimage/filters/_unsharp_mask.py", "scikit-image/skimage/filters/__init__.py", "scikit-image/skimage/future/graph/graph_cut.py", "scikit-image/skimage/future/graph/graph_merge.py", "scikit-image/skimage/future/graph/rag.py", "scikit-image/skimage/future/graph/setup.py", "scikit-image/skimage/future/graph/tests/test_rag.py", "scikit-image/skimage/future/graph/_ncut.py", "scikit-image/skimage/future/graph/__init__.py", "scikit-image/skimage/future/manual_segmentation.py", "scikit-image/skimage/future/setup.py", "scikit-image/skimage/future/__init__.py", "scikit-image/skimage/graph/mcp.py", "scikit-image/skimage/graph/setup.py", "scikit-image/skimage/graph/spath.py", "scikit-image/skimage/graph/tests/test_anisotropy.py", "scikit-image/skimage/graph/tests/test_connect.py", "scikit-image/skimage/graph/tests/test_flexible.py", "scikit-image/skimage/graph/tests/test_heap.py", "scikit-image/skimage/graph/tests/test_mcp.py", "scikit-image/skimage/graph/tests/test_spath.py", "scikit-image/skimage/graph/tests/__init__.py", "scikit-image/skimage/graph/__init__.py", "scikit-image/skimage/io/collection.py", "scikit-image/skimage/io/manage_plugins.py", "scikit-image/skimage/io/setup.py", "scikit-image/skimage/io/sift.py", "scikit-image/skimage/io/tests/test_collection.py", "scikit-image/skimage/io/tests/test_colormixer.py", "scikit-image/skimage/io/tests/test_fits.py", "scikit-image/skimage/io/tests/test_histograms.py", "scikit-image/skimage/io/tests/test_imageio.py", "scikit-image/skimage/io/tests/test_imread.py", "scikit-image/skimage/io/tests/test_io.py", "scikit-image/skimage/io/tests/test_mpl_imshow.py", "scikit-image/skimage/io/tests/test_multi_image.py", "scikit-image/skimage/io/tests/test_pil.py", "scikit-image/skimage/io/tests/test_plugin.py", "scikit-image/skimage/io/tests/test_plugin_util.py", "scikit-image/skimage/io/tests/test_sift.py", "scikit-image/skimage/io/tests/test_simpleitk.py", "scikit-image/skimage/io/tests/test_tifffile.py", "scikit-image/skimage/io/tests/__init__.py", "scikit-image/skimage/io/util.py", "scikit-image/skimage/io/_image_stack.py", "scikit-image/skimage/io/_io.py", "scikit-image/skimage/io/_plugins/fits_plugin.py", "scikit-image/skimage/io/_plugins/gdal_plugin.py", "scikit-image/skimage/io/_plugins/gtk_plugin.py", "scikit-image/skimage/io/_plugins/imageio_plugin.py", "scikit-image/skimage/io/_plugins/imread_plugin.py", "scikit-image/skimage/io/_plugins/matplotlib_plugin.py", "scikit-image/skimage/io/_plugins/pil_plugin.py", "scikit-image/skimage/io/_plugins/qt_plugin.py", "scikit-image/skimage/io/_plugins/q_color_mixer.py", "scikit-image/skimage/io/_plugins/q_histogram.py", "scikit-image/skimage/io/_plugins/simpleitk_plugin.py", "scikit-image/skimage/io/_plugins/skivi.py", "scikit-image/skimage/io/_plugins/tifffile_plugin.py", "scikit-image/skimage/io/_plugins/util.py", "scikit-image/skimage/io/_plugins/__init__.py", "scikit-image/skimage/io/__init__.py", "scikit-image/skimage/measure/block.py", "scikit-image/skimage/measure/entropy.py", "scikit-image/skimage/measure/fit.py", "scikit-image/skimage/measure/mc_meta/createluts.py", "scikit-image/skimage/measure/pnpoly.py", "scikit-image/skimage/measure/profile.py", "scikit-image/skimage/measure/setup.py", "scikit-image/skimage/measure/simple_metrics.py", "scikit-image/skimage/measure/tests/test_block.py", "scikit-image/skimage/measure/tests/test_entropy.py", "scikit-image/skimage/measure/tests/test_find_contours.py", "scikit-image/skimage/measure/tests/test_fit.py", "scikit-image/skimage/measure/tests/test_marching_cubes.py", "scikit-image/skimage/measure/tests/test_moments.py", "scikit-image/skimage/measure/tests/test_pnpoly.py", "scikit-image/skimage/measure/tests/test_polygon.py", "scikit-image/skimage/measure/tests/test_profile.py", "scikit-image/skimage/measure/tests/test_regionprops.py", "scikit-image/skimage/measure/tests/test_simple_metrics.py", "scikit-image/skimage/measure/tests/test_structural_similarity.py", "scikit-image/skimage/measure/tests/__init__.py", "scikit-image/skimage/measure/_find_contours.py", "scikit-image/skimage/measure/_label.py", "scikit-image/skimage/measure/_marching_cubes_classic.py", "scikit-image/skimage/measure/_marching_cubes_lewiner.py", "scikit-image/skimage/measure/_marching_cubes_lewiner_luts.py", "scikit-image/skimage/measure/_moments.py", "scikit-image/skimage/measure/_polygon.py", "scikit-image/skimage/measure/_regionprops.py", "scikit-image/skimage/measure/_structural_similarity.py", "scikit-image/skimage/measure/__init__.py", "scikit-image/skimage/morphology/binary.py", "scikit-image/skimage/morphology/convex_hull.py", "scikit-image/skimage/morphology/extrema.py", "scikit-image/skimage/morphology/grey.py", "scikit-image/skimage/morphology/greyreconstruct.py", "scikit-image/skimage/morphology/max_tree.py", "scikit-image/skimage/morphology/misc.py", "scikit-image/skimage/morphology/selem.py", "scikit-image/skimage/morphology/setup.py", "scikit-image/skimage/morphology/tests/test_binary.py", "scikit-image/skimage/morphology/tests/test_ccomp.py", "scikit-image/skimage/morphology/tests/test_convex_hull.py", "scikit-image/skimage/morphology/tests/test_extrema.py", "scikit-image/skimage/morphology/tests/test_flood_fill.py", "scikit-image/skimage/morphology/tests/test_grey.py", "scikit-image/skimage/morphology/tests/test_max_tree.py", "scikit-image/skimage/morphology/tests/test_misc.py", "scikit-image/skimage/morphology/tests/test_reconstruction.py", "scikit-image/skimage/morphology/tests/test_selem.py", "scikit-image/skimage/morphology/tests/test_skeletonize.py", "scikit-image/skimage/morphology/tests/test_skeletonize_3d.py", "scikit-image/skimage/morphology/tests/test_watershed.py", "scikit-image/skimage/morphology/tests/__init__.py", "scikit-image/skimage/morphology/watershed.py", "scikit-image/skimage/morphology/_flood_fill.py", "scikit-image/skimage/morphology/_skeletonize.py", "scikit-image/skimage/morphology/_skeletonize_3d.py", "scikit-image/skimage/morphology/__init__.py", "scikit-image/skimage/novice/tests/test_novice.py", "scikit-image/skimage/novice/tests/__init__.py", "scikit-image/skimage/novice/_novice.py", "scikit-image/skimage/novice/__init__.py", "scikit-image/skimage/restoration/deconvolution.py", "scikit-image/skimage/restoration/inpaint.py", "scikit-image/skimage/restoration/non_local_means.py", "scikit-image/skimage/restoration/setup.py", "scikit-image/skimage/restoration/tests/test_denoise.py", "scikit-image/skimage/restoration/tests/test_inpaint.py", "scikit-image/skimage/restoration/tests/test_restoration.py", "scikit-image/skimage/restoration/tests/test_unwrap.py", "scikit-image/skimage/restoration/tests/__init__.py", "scikit-image/skimage/restoration/uft.py", "scikit-image/skimage/restoration/unwrap.py", "scikit-image/skimage/restoration/_cycle_spin.py", "scikit-image/skimage/restoration/_denoise.py", "scikit-image/skimage/restoration/__init__.py", "scikit-image/skimage/scripts/skivi.py", "scikit-image/skimage/scripts/__init__.py", "scikit-image/skimage/segmentation/active_contour_model.py", "scikit-image/skimage/segmentation/boundaries.py", "scikit-image/skimage/segmentation/morphsnakes.py", "scikit-image/skimage/segmentation/random_walker_segmentation.py", "scikit-image/skimage/segmentation/setup.py", "scikit-image/skimage/segmentation/slic_superpixels.py", "scikit-image/skimage/segmentation/tests/test_active_contour_model.py", "scikit-image/skimage/segmentation/tests/test_boundaries.py", "scikit-image/skimage/segmentation/tests/test_chan_vese.py", "scikit-image/skimage/segmentation/tests/test_clear_border.py", "scikit-image/skimage/segmentation/tests/test_felzenszwalb.py", "scikit-image/skimage/segmentation/tests/test_join.py", "scikit-image/skimage/segmentation/tests/test_morphsnakes.py", "scikit-image/skimage/segmentation/tests/test_quickshift.py", "scikit-image/skimage/segmentation/tests/test_random_walker.py", "scikit-image/skimage/segmentation/tests/test_slic.py", "scikit-image/skimage/segmentation/tests/__init__.py", "scikit-image/skimage/segmentation/_chan_vese.py", "scikit-image/skimage/segmentation/_clear_border.py", "scikit-image/skimage/segmentation/_felzenszwalb.py", "scikit-image/skimage/segmentation/_join.py", "scikit-image/skimage/segmentation/_quickshift.py", "scikit-image/skimage/segmentation/__init__.py", "scikit-image/skimage/setup.py", "scikit-image/skimage/transform/finite_radon_transform.py", "scikit-image/skimage/transform/histogram_matching.py", "scikit-image/skimage/transform/hough_transform.py", "scikit-image/skimage/transform/integral.py", "scikit-image/skimage/transform/pyramids.py", "scikit-image/skimage/transform/radon_transform.py", "scikit-image/skimage/transform/seam_carving.py", "scikit-image/skimage/transform/setup.py", "scikit-image/skimage/transform/tests/test_finite_radon_transform.py", "scikit-image/skimage/transform/tests/test_geometric.py", "scikit-image/skimage/transform/tests/test_histogram_matching.py", "scikit-image/skimage/transform/tests/test_hough_transform.py", "scikit-image/skimage/transform/tests/test_integral.py", "scikit-image/skimage/transform/tests/test_pyramids.py", "scikit-image/skimage/transform/tests/test_radon_transform.py", "scikit-image/skimage/transform/tests/test_seam_carving.py", "scikit-image/skimage/transform/tests/test_warps.py", "scikit-image/skimage/transform/tests/__init__.py", "scikit-image/skimage/transform/_geometric.py", "scikit-image/skimage/transform/_warps.py", "scikit-image/skimage/transform/__init__.py", "scikit-image/skimage/util/apply_parallel.py", "scikit-image/skimage/util/arraycrop.py", "scikit-image/skimage/util/dtype.py", "scikit-image/skimage/util/lookfor.py", "scikit-image/skimage/util/noise.py", "scikit-image/skimage/util/shape.py", "scikit-image/skimage/util/tests/test_apply_parallel.py", "scikit-image/skimage/util/tests/test_arraycrop.py", "scikit-image/skimage/util/tests/test_arraypad.py", "scikit-image/skimage/util/tests/test_dtype.py", "scikit-image/skimage/util/tests/test_invert.py", "scikit-image/skimage/util/tests/test_montage.py", "scikit-image/skimage/util/tests/test_random_noise.py", "scikit-image/skimage/util/tests/test_regular_grid.py", "scikit-image/skimage/util/tests/test_shape.py", "scikit-image/skimage/util/tests/test_unique_rows.py", "scikit-image/skimage/util/tests/__init__.py", "scikit-image/skimage/util/unique.py", "scikit-image/skimage/util/_invert.py", "scikit-image/skimage/util/_montage.py", "scikit-image/skimage/util/_regular_grid.py", "scikit-image/skimage/util/__init__.py", "scikit-image/skimage/viewer/canvastools/base.py", "scikit-image/skimage/viewer/canvastools/linetool.py", "scikit-image/skimage/viewer/canvastools/painttool.py", "scikit-image/skimage/viewer/canvastools/recttool.py", "scikit-image/skimage/viewer/canvastools/__init__.py", "scikit-image/skimage/viewer/plugins/base.py", "scikit-image/skimage/viewer/plugins/canny.py", "scikit-image/skimage/viewer/plugins/color_histogram.py", "scikit-image/skimage/viewer/plugins/crop.py", "scikit-image/skimage/viewer/plugins/labelplugin.py", "scikit-image/skimage/viewer/plugins/lineprofile.py", "scikit-image/skimage/viewer/plugins/measure.py", "scikit-image/skimage/viewer/plugins/overlayplugin.py", "scikit-image/skimage/viewer/plugins/plotplugin.py", "scikit-image/skimage/viewer/plugins/__init__.py", "scikit-image/skimage/viewer/qt.py", "scikit-image/skimage/viewer/tests/test_plugins.py", "scikit-image/skimage/viewer/tests/test_tools.py", "scikit-image/skimage/viewer/tests/test_utils.py", "scikit-image/skimage/viewer/tests/test_viewer.py", "scikit-image/skimage/viewer/tests/test_widgets.py", "scikit-image/skimage/viewer/tests/__init__.py", "scikit-image/skimage/viewer/utils/canvas.py", "scikit-image/skimage/viewer/utils/core.py", "scikit-image/skimage/viewer/utils/dialogs.py", "scikit-image/skimage/viewer/utils/__init__.py", "scikit-image/skimage/viewer/viewers/core.py", "scikit-image/skimage/viewer/viewers/__init__.py", "scikit-image/skimage/viewer/widgets/core.py", "scikit-image/skimage/viewer/widgets/history.py", "scikit-image/skimage/viewer/widgets/__init__.py", "scikit-image/skimage/viewer/__init__.py", "scikit-image/skimage/_build.py", "scikit-image/skimage/_shared/setup.py", "scikit-image/skimage/_shared/testing.py", "scikit-image/skimage/_shared/tests/test_geometry.py", "scikit-image/skimage/_shared/tests/test_interpolation.py", "scikit-image/skimage/_shared/tests/test_safe_as_int.py", "scikit-image/skimage/_shared/tests/test_testing.py", "scikit-image/skimage/_shared/tests/test_utils.py", "scikit-image/skimage/_shared/tests/test_version_requirements.py", "scikit-image/skimage/_shared/tests/__init__.py", "scikit-image/skimage/_shared/utils.py", "scikit-image/skimage/_shared/version_requirements.py", "scikit-image/skimage/_shared/_geometry.py", "scikit-image/skimage/_shared/_tempfile.py", "scikit-image/skimage/_shared/_warnings.py", "scikit-image/skimage/_shared/__init__.py", "scikit-image/skimage/__init__.py", "scikit-image/tools/build_versions.py", "scikit-image/tools/check_sdist.py", "scikit-image/tools/header.py", "scikit-image/tools/mailmap.py", "scikit-image/viewer_examples/plugins/canny.py", "scikit-image/viewer_examples/plugins/canny_simple.py", "scikit-image/viewer_examples/plugins/collection_overlay.py", "scikit-image/viewer_examples/plugins/collection_plugin.py", "scikit-image/viewer_examples/plugins/color_histogram.py", "scikit-image/viewer_examples/plugins/croptool.py", "scikit-image/viewer_examples/plugins/lineprofile.py", "scikit-image/viewer_examples/plugins/lineprofile_rgb.py", "scikit-image/viewer_examples/plugins/measure.py", "scikit-image/viewer_examples/plugins/median_filter.py", "scikit-image/viewer_examples/plugins/probabilistic_hough.py", "scikit-image/viewer_examples/plugins/tv_denoise.py", "scikit-image/viewer_examples/plugins/watershed_demo.py", "scikit-image/viewer_examples/viewers/collection_viewer.py", "scikit-image/viewer_examples/viewers/image_viewer.py" ],
+  "cells" : [ {
+    "src" : 256,
+    "dest" : 433,
+    "values" : {
+      "P6" : 9.0
+    }
+  }, {
+    "src" : 256,
+    "dest" : 274,
+    "values" : {
+      "P6" : 9.0
+    }
+  }, {
+    "src" : 256,
+    "dest" : 434,
+    "values" : {
+      "P6" : 9.0
+    }
+  }, {
+    "src" : 256,
+    "dest" : 435,
+    "values" : {
+      "P6" : 9.0
+    }
+  }, {
+    "src" : 256,
+    "dest" : 438,
+    "values" : {
+      "P6" : 9.0
+    }
+  }, {
+    "src" : 256,
+    "dest" : 456,
+    "values" : {
+      "P6" : 9.0
+    }
+  }, {
+    "src" : 259,
+    "dest" : 433,
+    "values" : {
+      "P6" : 8.0
+    }
+  }, {
+    "src" : 259,
+    "dest" : 274,
+    "values" : {
+      "P6" : 8.0
+    }
+  }, {
+    "src" : 259,
+    "dest" : 434,
+    "values" : {
+      "P6" : 8.0
+    }
+  }, {
+    "src" : 259,
+    "dest" : 435,
+    "values" : {
+      "P6" : 8.0
+    }
+  }, {
+    "src" : 259,
+    "dest" : 438,
+    "values" : {
+      "P6" : 8.0
+    }
+  }, {
+    "src" : 259,
+    "dest" : 456,
+    "values" : {
+      "P6" : 8.0
+    }
+  }, {
+    "src" : 260,
+    "dest" : 433,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 260,
+    "dest" : 274,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 260,
+    "dest" : 434,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 260,
+    "dest" : 435,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 260,
+    "dest" : 438,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 260,
+    "dest" : 456,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 261,
+    "dest" : 433,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 261,
+    "dest" : 274,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 261,
+    "dest" : 434,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 261,
+    "dest" : 435,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 261,
+    "dest" : 438,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 261,
+    "dest" : 456,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 293,
+    "dest" : 403,
+    "values" : {
+      "P6" : 6.0
+    }
+  }, {
+    "src" : 357,
+    "dest" : 433,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 357,
+    "dest" : 274,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 357,
+    "dest" : 434,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 357,
+    "dest" : 435,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 357,
+    "dest" : 438,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 357,
+    "dest" : 456,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 454,
+    "dest" : 433,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 454,
+    "dest" : 450,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 454,
+    "dest" : 428,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 454,
+    "dest" : 429,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 454,
+    "dest" : 430,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 454,
+    "dest" : 431,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 462,
+    "dest" : 433,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 462,
+    "dest" : 274,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 462,
+    "dest" : 434,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 462,
+    "dest" : 435,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 462,
+    "dest" : 438,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 462,
+    "dest" : 456,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 179,
+    "dest" : 433,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 179,
+    "dest" : 274,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 179,
+    "dest" : 434,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 179,
+    "dest" : 435,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 179,
+    "dest" : 438,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 179,
+    "dest" : 456,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 248,
+    "dest" : 273,
+    "values" : {
+      "P6" : 18.0
+    }
+  }, {
+    "src" : 248,
+    "dest" : 209,
+    "values" : {
+      "P6" : 18.0
+    }
+  }, {
+    "src" : 248,
+    "dest" : 274,
+    "values" : {
+      "P6" : 18.0
+    }
+  }, {
+    "src" : 248,
+    "dest" : 277,
+    "values" : {
+      "P6" : 18.0
+    }
+  }, {
+    "src" : 248,
+    "dest" : 279,
+    "values" : {
+      "P6" : 18.0
+    }
+  }, {
+    "src" : 248,
+    "dest" : 268,
+    "values" : {
+      "P6" : 18.0
+    }
+  }, {
+    "src" : 441,
+    "dest" : 433,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 441,
+    "dest" : 450,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 441,
+    "dest" : 428,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 441,
+    "dest" : 429,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 441,
+    "dest" : 430,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 441,
+    "dest" : 431,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 473,
+    "dest" : 433,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 473,
+    "dest" : 274,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 473,
+    "dest" : 434,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 473,
+    "dest" : 435,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 473,
+    "dest" : 438,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 473,
+    "dest" : 456,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 251,
+    "dest" : 433,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 251,
+    "dest" : 274,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 251,
+    "dest" : 434,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 251,
+    "dest" : 435,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 251,
+    "dest" : 438,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 251,
+    "dest" : 456,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 156,
+    "dest" : 433,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 156,
+    "dest" : 274,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 156,
+    "dest" : 434,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 156,
+    "dest" : 435,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 156,
+    "dest" : 438,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 156,
+    "dest" : 456,
+    "values" : {
+      "P6" : 4.0
+    }
+  }, {
+    "src" : 252,
+    "dest" : 433,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 252,
+    "dest" : 274,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 252,
+    "dest" : 434,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 252,
+    "dest" : 435,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 252,
+    "dest" : 438,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 252,
+    "dest" : 456,
+    "values" : {
+      "P6" : 3.0
+    }
+  }, {
+    "src" : 157,
+    "dest" : 433,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 157,
+    "dest" : 274,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 157,
+    "dest" : 434,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 157,
+    "dest" : 435,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 157,
+    "dest" : 438,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 157,
+    "dest" : 456,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 445,
+    "dest" : 433,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 445,
+    "dest" : 274,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 445,
+    "dest" : 434,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 445,
+    "dest" : 435,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 445,
+    "dest" : 438,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 445,
+    "dest" : 456,
+    "values" : {
+      "P6" : 2.0
+    }
+  }, {
+    "src" : 254,
+    "dest" : 433,
+    "values" : {
+      "P6" : 6.0
+    }
+  }, {
+    "src" : 254,
+    "dest" : 274,
+    "values" : {
+      "P6" : 6.0
+    }
+  }, {
+    "src" : 254,
+    "dest" : 434,
+    "values" : {
+      "P6" : 6.0
+    }
+  }, {
+    "src" : 254,
+    "dest" : 435,
+    "values" : {
+      "P6" : 6.0
+    }
+  }, {
+    "src" : 254,
+    "dest" : 438,
+    "values" : {
+      "P6" : 6.0
+    }
+  }, {
+    "src" : 254,
+    "dest" : 456,
+    "values" : {
+      "P6" : 6.0
+    }
+  } ]
+}
