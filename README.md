@@ -56,9 +56,7 @@ These files list the detail and summarized data related to sub-spaces extracted 
 
 They contain the dependency-based DL and PC maintenance scores, maintenance effors measured by six metrics mined from revision history.
 
-## 3. PyDepExtractor-benchmarks
-
-It includes the execution traces collected from 4 projects. See the four folders under this directory.
+## 3. depverify-benchmarks
 
 **P1-Pn-benchmarks.csv** 
 
