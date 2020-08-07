@@ -23,7 +23,7 @@ It stores the file-level dependencies extracted by Understand tool, that we call
 
 2)**$projectname$_dep_P$i$.json** (i=1,2,...,10) 
 
-It stores the dependencies extracted by PyDepExtractor, that we call **possible dependencies**.
+It stores the  **possible dependencies**.
 
 In particular,  $projectname$_dep_P11.json file stores the $P_{i>10}$ possible dependencies among files. 
 
