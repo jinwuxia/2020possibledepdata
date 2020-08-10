@@ -2,7 +2,7 @@
 
 This repository stores the data collected in our ASE2020 paper：
 
-**[Jin etal., Exploring the architectural impact of possible dependency in Python software, ASE,2020**].
+## [Jin etal., Exploring the architectural impact of possible dependency in Python software, ASE,2020].
 
 We provided the benchmarks collected from 105 open source projects for continued research of possible dependencies due to dynamic typing in Python software
 
