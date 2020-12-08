@@ -1,6 +1,6 @@
 # depdata
 
-This repository stores the data collected in our ASE2020 paper：
+This repository stores the data collected in our ASE2020 paper and ongoing work：
 
 ## [Jin etal., Exploring the architectural impact of possible dependency in Python software, ASE,2020].
 
