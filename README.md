@@ -1,14 +1,8 @@
 # depdata
 
-This repository stores the data collected in our ASE2020 paper and ongoing work：
-
-## [Jin etal., Exploring the architectural impact of possible dependency in Python software, ASE,2020].
+This repository stores the data collected in our previous ASE work and ongoing work.
 
 We provided the benchmarks collected from 105 open source projects for continued research of possible dependencies due to dynamic typing in Python software
-
-## Please reference our paper when you use this dataset.
-
-
 
 
 ## 1. 105-project-data
@@ -37,3 +31,7 @@ In particular,  $projectname$_dep_P11.json file stores the $P_{i>10}$ possible d
 
 This file lists the benchmarks collected from execution traces.
  
+ 
+ 
+## Please reference our paper when you use this dataset.
+
