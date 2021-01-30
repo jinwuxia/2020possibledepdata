@@ -54,12 +54,19 @@ $*-stub-P1.json$ contains the $P_1$ possible dependencies extracted from the stu
 This file illustrates the dependency extraction results, comparing ASE method (see (D(ase)) vs. the updated method (see D(ase+stub)).
 
 ## Please reference our paper when you use this dataset.
+
 @inproceedings{2020ase-jin,
+
 	title={Exploring the Architectural Impact of Possible Dependencies in Python Software},
+	
 	author={Jin, Wuxia and Cai, Yuanfang and Kazman, Rick and Zhang, Gang and Zheng, Qinghua and Liu, Ting},
+	
 	booktitle={2020 35th IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+	
 	pages={1--13},
+	
 	year={2020},
+	
 	organization={IEEE}
 }
 
