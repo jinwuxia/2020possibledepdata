@@ -1,6 +1,6 @@
-# depdata
+# DataSet
 
-This repository stores the data collected in our previous ASE work and ongoing work.
+This repository stores the data collected for our previous ASE work and ongoing work.
 
 We provided the benchmarks collected from 105 open source projects for continued research of possible dependencies due to dynamic typing in Python software
 
@@ -9,7 +9,7 @@ We provided the benchmarks collected from 105 open source projects for continued
 
 The 105 folders under this directory correspond to the dependency file and history data of 105 projects.
 
-Under each folder,
+In each folder,
 
 1)**$projectname$_dep_explicit.json** 
 
@@ -32,7 +32,27 @@ In particular,  $projectname$_dep_P11.json file stores the $P_{i>10}$ possible d
 This file lists the benchmarks collected from execution traces.
  
  
+## 3. dependencies-from-stubs
+
+This folder contains the data for several projects and the corresponding stub projects. The stub projects contains Python code with type annotations.
+
+1)**projects-with-stubs.csv**
+
+It lists the projects which have stub files. 
+The code URLs, Stub URL, and versions are also provided.
+
+2)**stub-deps**
+
+Each subfolder corresponds to one project, including:
  
+$*-P1.json$ contains the $P_1$ possible dependencies extracted from the methods in ASE work.
+
+$*-stub-P1.json$ contains the $P_1$ possible dependencies extracted from the stub files.
+
+3)**dependency-summary.csv**
+
+This file illustrates the dependency extraction results, comparing ASE method (see (D(ase)) vs. the updated method (see D(ase+stub)).
+
 ## Please reference our paper when you use this dataset.
 @inproceedings{2020ase-jin,
 	title={Exploring the Architectural Impact of Possible Dependencies in Python Software},
