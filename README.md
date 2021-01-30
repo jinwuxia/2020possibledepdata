@@ -34,4 +34,12 @@ This file lists the benchmarks collected from execution traces.
  
  
 ## Please reference our paper when you use this dataset.
+@inproceedings{2020ase-jin,
+	title={Exploring the Architectural Impact of Possible Dependencies in Python Software},
+	author={Jin, Wuxia and Cai, Yuanfang and Kazman, Rick and Zhang, Gang and Zheng, Qinghua and Liu, Ting},
+	booktitle={2020 35th IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+	pages={1--13},
+	year={2020},
+	organization={IEEE}
+}
 
