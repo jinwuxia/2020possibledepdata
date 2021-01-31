@@ -53,6 +53,9 @@ $*-stub-P1.json$ contains the $P_1$ possible dependencies extracted from the stu
 
 This file illustrates the dependency extraction results, comparing ASE method (see (D(ase)) vs. the updated method (see D(ase+stub)).
 
+# Tool
+You can use [ENRE](https://github.com/jinwuxia/ENRE) to collect possible dependencies.
+
 # Reference
 
 You can reference the following papers if you use this dataset and our ENRE tool, or feel interested in knowing more.
