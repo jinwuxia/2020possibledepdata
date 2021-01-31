@@ -53,20 +53,28 @@ $*-stub-P1.json$ contains the $P_1$ possible dependencies extracted from the stu
 
 This file illustrates the dependency extraction results, comparing ASE method (see (D(ase)) vs. the updated method (see D(ase+stub)).
 
-## Please reference our paper when you use this dataset.
+# Reference
 
-@inproceedings{2020ase-jin,
+You can reference the following papers if you use this dataset and our ENRE tool, or feel interested in knowing more.
 
-	title={Exploring the Architectural Impact of Possible Dependencies in Python Software},
-	
-	author={Jin, Wuxia and Cai, Yuanfang and Kazman, Rick and Zhang, Gang and Zheng, Qinghua and Liu, Ting},
-	
-	booktitle={2020 35th IEEE/ACM International Conference on Automated Software Engineering (ASE)},
-	
-	pages={1--13},
-	
-	year={2020},
-	
-	organization={IEEE}
-}
+
+    @inproceedings{2020ase-jin,
+        title={Exploring the Architectural Impact of Possible Dependencies in Python Software},
+		
+        author={Jin, Wuxia and Cai, Yuanfang and Kazman, Rick and Zhang, Gang and Zheng, Qinghua and Liu, Ting},
+        booktitle={2020 35th IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+        pages={1--13},
+        year={2020},
+        organization={IEEE}
+        }
+
+    @inproceedings{2019icse-jin,
+      title={ENRE: a tool framework for extensible eNtity relation extraction},
+	  
+      author={Jin, Wuxia and Cai, Yuanfang and Kazman, Rick and Zheng, Qinghua and Cui, Di and Liu, Ting},
+      booktitle={Proceedings of the 41st International Conference on Software Engineering: Companion Proceedings},
+      pages={67--70},
+      year={2019},
+      organization={IEEE Press}
+    }
 
